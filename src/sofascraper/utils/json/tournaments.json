@@ -1,0 +1,7954 @@
+[
+    {
+        "id": 307,
+        "name": "Hrvatski nogometni kup",
+        "slug": "croatian-cup",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 308,
+        "name": "World Cup Qual. AFC",
+        "slug": "world-championship-qual-afc",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 13,
+        "name": "World Cup Qual. CAF ",
+        "slug": "world-championship-qual-caf",
+        "country_id": 2000,
+        "country_name": "Africa",
+        "sport": "football"
+    },
+    {
+        "id": 295,
+        "name": "World Cup Qual. CONMEBOL",
+        "slug": "world-championship-qual-conmebol",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 10783,
+        "name": "UEFA Nations League",
+        "slug": "uefa-nations-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 578,
+        "name": "Belarus Cup",
+        "slug": "belarus-cup",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 709,
+        "name": "Misli Premier League",
+        "slug": "misli-premier-league",
+        "country_id": 11,
+        "country_name": "Azerbaijan",
+        "sport": "football"
+    },
+    {
+        "id": 11,
+        "name": "World Cup Qual. UEFA",
+        "slug": "world-championship-qual-uefa",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 1238,
+        "name": "Categoría Primera B",
+        "slug": "primera-b",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 649,
+        "name": "Chinese Super League",
+        "slug": "cfa-super-league",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 578,
+        "name": "Belarus Cup",
+        "slug": "belarus-cup",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 39,
+        "name": "Danish Superliga",
+        "slug": "superliga",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 7,
+        "name": "UEFA Champions League",
+        "slug": "uefa-champions-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 37,
+        "name": "VriendenLoterij Eredivisie",
+        "slug": "eredivisie",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 131,
+        "name": "Eerste Divisie",
+        "slug": "eerste-divisie",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 38,
+        "name": "Pro League",
+        "slug": "pro-league",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 80,
+        "name": "Svenska Cupen",
+        "slug": "svenska-cupen",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 36,
+        "name": "Scottish Premiership",
+        "slug": "premiership",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 17,
+        "name": "Premier League",
+        "slug": "premier-league",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 203,
+        "name": "Russian Premier League",
+        "slug": "premier-liga",
+        "country_id": 147,
+        "country_name": "Russia",
+        "sport": "football"
+    },
+    {
+        "id": 685,
+        "name": "Moldovan Super Liga",
+        "slug": "super-liga",
+        "country_id": 118,
+        "country_name": "Moldova",
+        "sport": "football"
+    },
+    {
+        "id": 172,
+        "name": "Czech First League",
+        "slug": "1-liga",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 205,
+        "name": "FNL",
+        "slug": "fnl",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 170,
+        "name": "HNL",
+        "slug": "hnl",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 13821,
+        "name": "Cymru South",
+        "slug": "cymru-south",
+        "country_id": 190,
+        "country_name": "Wales",
+        "sport": "football"
+    },
+    {
+        "id": 13820,
+        "name": "Cymru North",
+        "slug": "cymru-north",
+        "country_id": 190,
+        "country_name": "Wales",
+        "sport": "football"
+    },
+    {
+        "id": 211,
+        "name": "Niké Liga",
+        "slug": "nike-liga",
+        "country_id": 160,
+        "country_name": "Slovakia",
+        "sport": "football"
+    },
+    {
+        "id": 202,
+        "name": "Ekstraklasa",
+        "slug": "ekstraklasa",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 222,
+        "name": "WWIN Liga BiH",
+        "slug": "wwin-premijer-liga",
+        "country_id": 21,
+        "country_name": "Bosnia & Herzegovina",
+        "sport": "football"
+    },
+    {
+        "id": 187,
+        "name": "Fizz Liga",
+        "slug": "nb-i",
+        "country_id": 81,
+        "country_name": "Hungary",
+        "sport": "football"
+    },
+    {
+        "id": 17015,
+        "name": "UEFA Conference League",
+        "slug": "uefa-europa-conference-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 266,
+        "name": "Israeli Premier League",
+        "slug": "israeli-premier-league",
+        "country_id": 88,
+        "country_name": "Israel",
+        "sport": "football"
+    },
+    {
+        "id": 210,
+        "name": "Mozzart Bet Superliga",
+        "slug": "mozzart-bet-superliga",
+        "country_id": 156,
+        "country_name": "Serbia",
+        "sport": "football"
+    },
+    {
+        "id": 247,
+        "name": "Parva Liga",
+        "slug": "parva-liga",
+        "country_id": 25,
+        "country_name": "Bulgaria",
+        "sport": "football"
+    },
+    {
+        "id": 18,
+        "name": "Championship",
+        "slug": "championship",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 24,
+        "name": "League One",
+        "slug": "league-one",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 25,
+        "name": "League Two",
+        "slug": "league-two",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 215,
+        "name": "Swiss Super League",
+        "slug": "super-league",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 135,
+        "name": "2. Liga",
+        "slug": "2-liga",
+        "country_id": 10,
+        "country_name": "Austria",
+        "sport": "football"
+    },
+    {
+        "id": 216,
+        "name": "Challenge League",
+        "slug": "challenge-league",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 35,
+        "name": "Bundesliga",
+        "slug": "bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 34,
+        "name": "Ligue 1",
+        "slug": "ligue-1",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 44,
+        "name": "2. Bundesliga",
+        "slug": "2-bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 182,
+        "name": "Ligue 2",
+        "slug": "ligue-2",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 21,
+        "name": "EFL Cup",
+        "slug": "efl-cup",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 65,
+        "name": "CampoBet 2 Division",
+        "slug": "2nd-division",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 8,
+        "name": "LaLiga",
+        "slug": "laliga",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 54,
+        "name": "LaLiga 2",
+        "slug": "laliga-2",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 445,
+        "name": "ÖFB Cup",
+        "slug": "ofb-cup",
+        "country_id": 10,
+        "country_name": "Austria",
+        "sport": "football"
+    },
+    {
+        "id": 28,
+        "name": "AFC Asian Cup Qual.",
+        "slug": "afc-asian-cup-qual",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 491,
+        "name": "3. Liga",
+        "slug": "3-liga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 9,
+        "name": "Challenger Pro League",
+        "slug": "challenger-pro-league",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 229,
+        "name": "Betclic 1. Liga",
+        "slug": "i-liga",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 217,
+        "name": "DFB Pokal",
+        "slug": "dfb-pokal",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 212,
+        "name": "PrvaLiga",
+        "slug": "prvaliga",
+        "country_id": 161,
+        "country_name": "Slovenia",
+        "sport": "football"
+    },
+    {
+        "id": 254,
+        "name": "Cymru Premier",
+        "slug": "cymru-premier",
+        "country_id": 190,
+        "country_name": "Wales",
+        "sport": "football"
+    },
+    {
+        "id": 238,
+        "name": "Liga Portugal Betclic",
+        "slug": "liga-portugal-betclic",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 971,
+        "name": "UAE Pro League",
+        "slug": "uae-pro-league",
+        "country_id": 183,
+        "country_name": "United Arab Emirates",
+        "sport": "football"
+    },
+    {
+        "id": 399,
+        "name": "Schweizer Cup",
+        "slug": "schweizer-cup",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 327,
+        "name": "Taça da Liga",
+        "slug": "taca-da-liga",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 239,
+        "name": "Liga Portugal 2",
+        "slug": "liga-portugal-2",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 52,
+        "name": "Trendyol Süper Lig",
+        "slug": "trendyol-super-lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 91,
+        "name": "Russian Cup",
+        "slug": "russian-cup",
+        "country_id": 147,
+        "country_name": "Russia",
+        "sport": "football"
+    },
+    {
+        "id": 23,
+        "name": "Serie A",
+        "slug": "serie-a",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 291,
+        "name": "Slovenia Cup",
+        "slug": "slovenia-cup",
+        "country_id": 161,
+        "country_name": "Slovenia",
+        "sport": "football"
+    },
+    {
+        "id": 171,
+        "name": "Cyprus League by Stoiximan",
+        "slug": "1-division",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 98,
+        "name": "Trendyol 1.Lig",
+        "slug": "trendyol-1lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 1786,
+        "name": "Australia Cup",
+        "slug": "australia-cup",
+        "country_id": 9,
+        "country_name": "Australia",
+        "sport": "football"
+    },
+    {
+        "id": 183,
+        "name": "National 1",
+        "slug": "national-1",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 672,
+        "name": "Armenian 1st League",
+        "slug": "first-league",
+        "country_id": 7,
+        "country_name": "Armenia",
+        "sport": "football"
+    },
+    {
+        "id": 282,
+        "name": "Czech Cup",
+        "slug": "czech-cup",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 955,
+        "name": "Saudi Pro League",
+        "slug": "saudi-pro-league",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 76,
+        "name": "Oddset Pokalen",
+        "slug": "oddset-pokalen",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 328,
+        "name": "Coppa Italia",
+        "slug": "coppa-italia",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 53,
+        "name": "Serie B",
+        "slug": "serie-b",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 185,
+        "name": "Stoiximan Super League",
+        "slug": "stoiximan-super-league",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 199,
+        "name": "1. MFL",
+        "slug": "1-mfl",
+        "country_id": 133,
+        "country_name": "North Macedonia",
+        "sport": "football"
+    },
+    {
+        "id": 882,
+        "name": "CFA Cup",
+        "slug": "cfa-cup",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 679,
+        "name": "UEFA Europa League",
+        "slug": "uefa-europa-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 303,
+        "name": "Slovensky Pohar",
+        "slug": "slovensky-pohar",
+        "country_id": 160,
+        "country_name": "Slovakia",
+        "sport": "football"
+    },
+    {
+        "id": 97,
+        "name": "Nesine 2. Lig",
+        "slug": "tff-2-lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 10093,
+        "name": "Campeonato de Portugal",
+        "slug": "campeonato-de-portugal",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 388,
+        "name": "FAW Welsh Cup",
+        "slug": "faw-welsh-cup",
+        "country_id": 190,
+        "country_name": "Wales",
+        "sport": "football"
+    },
+    {
+        "id": 709,
+        "name": "Misli Premier League",
+        "slug": "misli-premier-league",
+        "country_id": 11,
+        "country_name": "Azerbaijan",
+        "sport": "football"
+    },
+    {
+        "id": 312,
+        "name": "Ukraine Cup",
+        "slug": "ukraine-cup",
+        "country_id": 182,
+        "country_name": "Ukraine",
+        "sport": "football"
+    },
+    {
+        "id": 692,
+        "name": "Cypriot 2nd Division",
+        "slug": "2-division",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 544,
+        "name": "Segunda Federación",
+        "slug": "segunda-federacion",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 11447,
+        "name": "Serie C, Girone B",
+        "slug": "serie-c-girone-b",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 11445,
+        "name": "Serie C, Girone A",
+        "slug": "serie-c-girone-a",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 11446,
+        "name": "Serie C, Girone C",
+        "slug": "serie-c-girone-c",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 281,
+        "name": "Puchar Polski",
+        "slug": "puchar-polski",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 824,
+        "name": "Coppa Italia Serie C",
+        "slug": "coppa-italia-serie-c",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 825,
+        "name": "Stars League",
+        "slug": "stars-league",
+        "country_id": 145,
+        "country_name": "Qatar",
+        "sport": "football"
+    },
+    {
+        "id": 355,
+        "name": "Cupa României Betano",
+        "slug": "cupa-romaniei-betano",
+        "country_id": 146,
+        "country_name": "Romania",
+        "sport": "football"
+    },
+    {
+        "id": 326,
+        "name": "Belgian Cup",
+        "slug": "belgian-cup",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 307,
+        "name": "Hrvatski nogometni kup",
+        "slug": "croatian-cup",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 96,
+        "name": "Türkiye Kupası",
+        "slug": "turkiye-kupasi",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 1054,
+        "name": "CAF Champions League",
+        "slug": "caf-champions-league",
+        "country_id": 2000,
+        "country_name": "Africa",
+        "sport": "football"
+    },
+    {
+        "id": 365,
+        "name": "Bulgarian Cup",
+        "slug": "bulgarian-cup",
+        "country_id": 25,
+        "country_name": "Bulgaria",
+        "sport": "football"
+    },
+    {
+        "id": 336,
+        "name": "Taça de Portugal",
+        "slug": "taca-de-portugal",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 347,
+        "name": "Scottish Cup",
+        "slug": "scottish-cup",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 315,
+        "name": "Cyprus Cup",
+        "slug": "cyprus-cup",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 937,
+        "name": "Botola Pro",
+        "slug": "botola-pro",
+        "country_id": 122,
+        "country_name": "Morocco",
+        "sport": "football"
+    },
+    {
+        "id": 305,
+        "name": "Magyar Kupa",
+        "slug": "magyar-kupa",
+        "country_id": 81,
+        "country_name": "Hungary",
+        "sport": "football"
+    },
+    {
+        "id": 2119,
+        "name": "Saudi Super Cup",
+        "slug": "saudi-super-cup",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 738,
+        "name": "Campionato Sammarinese",
+        "slug": "campionato-sammarinese",
+        "country_id": 151,
+        "country_name": "San Marino",
+        "sport": "football"
+    },
+    {
+        "id": 1900,
+        "name": "Indian Super League",
+        "slug": "indian-super-league",
+        "country_id": 83,
+        "country_name": "India",
+        "sport": "football"
+    },
+    {
+        "id": 136,
+        "name": "A-League Men",
+        "slug": "a-league-men",
+        "country_id": 9,
+        "country_name": "Australia",
+        "sport": "football"
+    },
+    {
+        "id": 375,
+        "name": "Greek Football Cup",
+        "slug": "greek-cup-betsson",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 583,
+        "name": "Bosnia & Herzegovina Cup",
+        "slug": "bosnia-and-herzegovina-cup",
+        "country_id": 21,
+        "country_name": "Bosnia & Herzegovina",
+        "sport": "football"
+    },
+    {
+        "id": 1369,
+        "name": "UAE League Cup",
+        "slug": "uae-league-cup",
+        "country_id": 183,
+        "country_name": "United Arab Emirates",
+        "sport": "football"
+    },
+    {
+        "id": 330,
+        "name": "KNVB Beker",
+        "slug": "knvb-beker",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 314,
+        "name": "Kup Srbije",
+        "slug": "serbia-cup",
+        "country_id": 156,
+        "country_name": "Serbia",
+        "sport": "football"
+    },
+    {
+        "id": 186,
+        "name": "Super League 2",
+        "slug": "super-league-2",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 915,
+        "name": "Persian Gulf Pro League",
+        "slug": "persian-gulf-pro-league",
+        "country_id": 85,
+        "country_name": "Iran",
+        "sport": "football"
+    },
+    {
+        "id": 1191,
+        "name": "Ghana Premier League",
+        "slug": "ghana-premier-league",
+        "country_id": 68,
+        "country_name": "Ghana",
+        "sport": "football"
+    },
+    {
+        "id": 19,
+        "name": "FA Cup",
+        "slug": "fa-cup",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 329,
+        "name": "Copa del Rey",
+        "slug": "copa-del-rey",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 213,
+        "name": "Supercopa de España",
+        "slug": "supercopa-de-espana",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 335,
+        "name": "Coupe de France",
+        "slug": "coupe-de-france",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 341,
+        "name": "Supercoppa Italiana",
+        "slug": "supercoppa-italiana",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 2058,
+        "name": "King's Cup",
+        "slug": "kings-cup",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 848,
+        "name": "I-League",
+        "slug": "i-league",
+        "country_id": 83,
+        "country_name": "India",
+        "sport": "football"
+    },
+    {
+        "id": 242,
+        "name": "MLS",
+        "slug": "mls",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 11620,
+        "name": "Liga MX, Clausura",
+        "slug": "liga-mx-clausura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 11540,
+        "name": "Primera División, Apertura",
+        "slug": "primera-division-apertura",
+        "country_id": 140,
+        "country_name": "Paraguay",
+        "sport": "football"
+    },
+    {
+        "id": 10783,
+        "name": "UEFA Nations League",
+        "slug": "uefa-nations-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 384,
+        "name": "CONMEBOL Libertadores",
+        "slug": "conmebol-libertadores",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 480,
+        "name": "CONMEBOL Sudamericana",
+        "slug": "conmebol-sudamericana",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 505,
+        "name": "TFF Süper Kupa",
+        "slug": "tff-super-kupa",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 11612,
+        "name": "Liga de Expansión MX, Clausura",
+        "slug": "liga-de-expansion-mx-clausura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 192,
+        "name": "Premier Division",
+        "slug": "premier-division",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 393,
+        "name": "Japanese Super Cup",
+        "slug": "japanese-super-cup",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 193,
+        "name": "Ireland 1st Division",
+        "slug": "first-division",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 196,
+        "name": "J1 League",
+        "slug": "j1-league",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 851,
+        "name": "International Friendly Games",
+        "slug": "int-friendly-games",
+        "country_id": 10000,
+        "country_name": "World",
+        "sport": "football"
+    },
+    {
+        "id": 402,
+        "name": "J2 League",
+        "slug": "j2-league",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 13362,
+        "name": "USL League One",
+        "slug": "usl-league-one",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 1632,
+        "name": "FAI Presidents Cup",
+        "slug": "fai-presidents-cup",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 1309,
+        "name": "Supercopa de Chile",
+        "slug": "supercopa-de-chile",
+        "country_id": 34,
+        "country_name": "Chile",
+        "sport": "football"
+    },
+    {
+        "id": 14602,
+        "name": "Supercopa do Brasil",
+        "slug": "supercopa-do-brasil",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 1024,
+        "name": "Copa Argentina",
+        "slug": "copa-argentina",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 786,
+        "name": "Icelandic Super Cup",
+        "slug": "icelandic-super-cup",
+        "country_id": 82,
+        "country_name": "Iceland",
+        "sport": "football"
+    },
+    {
+        "id": 83,
+        "name": "Liigacup",
+        "slug": "liigacup",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 1238,
+        "name": "Categoría Primera B",
+        "slug": "primera-b",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 11539,
+        "name": "Primera A, Apertura",
+        "slug": "primera-a-apertura",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 188,
+        "name": "Besta deild karla",
+        "slug": "besta-deild-karla",
+        "country_id": 82,
+        "country_name": "Iceland",
+        "sport": "football"
+    },
+    {
+        "id": 13363,
+        "name": "USL Championship",
+        "slug": "usl-championship",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 13475,
+        "name": "Copa de la Liga Profesional",
+        "slug": "copa-de-la-liga-profesional",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 20,
+        "name": "Eliteserien",
+        "slug": "eliteserien",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 40,
+        "name": "Allsvenskan",
+        "slug": "allsvenskan",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 22,
+        "name": "Norwegian 1st Division",
+        "slug": "1st-division",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 46,
+        "name": "Superettan",
+        "slug": "superettan",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 410,
+        "name": "K League 1",
+        "slug": "k-league-1",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 373,
+        "name": "Copa Betano do Brasil",
+        "slug": "copa-do-brasil",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 463,
+        "name": "AFC Champions League Elite",
+        "slug": "afc-champions-league",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 703,
+        "name": "Primera Nacional",
+        "slug": "primera-nacional",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 11090,
+        "name": "2nd Division, Group 2",
+        "slug": "2nd-division-group-2",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 11085,
+        "name": "2nd Division, Group 1",
+        "slug": "2nd-division-group-1",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 10756,
+        "name": "Superliga de Colombia",
+        "slug": "superliga-de-colombia",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 240,
+        "name": "LigaPro Serie A",
+        "slug": "ligapro-serie-a",
+        "country_id": 52,
+        "country_name": "Ecuador",
+        "sport": "football"
+    },
+    {
+        "id": 101,
+        "name": "J. League Cup",
+        "slug": "j-league-cup",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 777,
+        "name": "K League 2",
+        "slug": "k-league-2",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 11705,
+        "name": "Supercopa Uruguaya",
+        "slug": "supercopa-uruguaya",
+        "country_id": 184,
+        "country_name": "Uruguay",
+        "sport": "football"
+    },
+    {
+        "id": 325,
+        "name": "Brasileirão Betano",
+        "slug": "brasileirao-serie-a",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 390,
+        "name": "Brasileirão Série B",
+        "slug": "brasileirao-serie-b",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 41,
+        "name": "Veikkausliiga",
+        "slug": "veikkausliiga",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 178,
+        "name": "Premium Liiga",
+        "slug": "premium-liiga",
+        "country_id": 58,
+        "country_name": "Estonia",
+        "sport": "football"
+    },
+    {
+        "id": 495,
+        "name": "US Open Cup",
+        "slug": "us-open-cup",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 775,
+        "name": "Belarusian Super Cup",
+        "slug": "belarusian-super-cup",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 356,
+        "name": "Eesti Superkarikas",
+        "slug": "eesti-superkarikas",
+        "country_id": 58,
+        "country_name": "Estonia",
+        "sport": "football"
+    },
+    {
+        "id": 13470,
+        "name": "Canadian Premier League",
+        "slug": "canadian-premier-league",
+        "country_id": 30,
+        "country_name": "Canada",
+        "sport": "football"
+    },
+    {
+        "id": 674,
+        "name": "Faroe Islands 1. Deild",
+        "slug": "1-deild",
+        "country_id": 61,
+        "country_name": "Faroe Islands",
+        "sport": "football"
+    },
+    {
+        "id": 1281,
+        "name": "Brasileirão Série C",
+        "slug": "brasileirao-serie-c",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 197,
+        "name": "Virsliga",
+        "slug": "virsliga",
+        "country_id": 99,
+        "country_name": "Latvia",
+        "sport": "football"
+    },
+    {
+        "id": 231,
+        "name": "Liga FUTVE",
+        "slug": "primera-division",
+        "country_id": 188,
+        "country_name": "Venezuela",
+        "sport": "football"
+    },
+    {
+        "id": 55,
+        "name": "Ykkösliiga",
+        "slug": "ykkosliiga",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 1786,
+        "name": "Australia Cup",
+        "slug": "australia-cup",
+        "country_id": 9,
+        "country_name": "Australia",
+        "sport": "football"
+    },
+    {
+        "id": 615,
+        "name": "Korean Cup",
+        "slug": "korean-cup",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 169,
+        "name": "Vysshaya Liga",
+        "slug": "vysshaya-liga",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 198,
+        "name": "A Lyga",
+        "slug": "a-lyga",
+        "country_id": 105,
+        "country_name": "Lithuania",
+        "sport": "football"
+    },
+    {
+        "id": 668,
+        "name": "AFC Champions League Two",
+        "slug": "afc-cup",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 14090,
+        "name": "Torneo Federal A",
+        "slug": "torneo-federal-a",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 1221,
+        "name": "Copa Chile",
+        "slug": "copa-chile",
+        "country_id": 34,
+        "country_name": "Chile",
+        "sport": "football"
+    },
+    {
+        "id": 16,
+        "name": "FIFA World Cup",
+        "slug": "world-championship",
+        "country_id": 10000,
+        "country_name": "World",
+        "sport": "football"
+    },
+    {
+        "id": 220,
+        "name": "Suomen Cup",
+        "slug": "suomen-cup",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 323,
+        "name": "Emperor Cup",
+        "slug": "emperor-cup",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 578,
+        "name": "Belarus Cup",
+        "slug": "belarus-cup",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 346,
+        "name": "Community Shield",
+        "slug": "community-shield",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 345,
+        "name": "Supertaça",
+        "slug": "supertaca",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 155,
+        "name": "Liga Profesional de Fútbol",
+        "slug": "liga-profesional-de-futbol",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 17,
+        "name": "Premier League",
+        "slug": "premier-league",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 339,
+        "name": "Trophée des Champions",
+        "slug": "trophee-des-champions",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 649,
+        "name": "Chinese Super League",
+        "slug": "cfa-super-league",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 7,
+        "name": "UEFA Champions League",
+        "slug": "uefa-champions-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 465,
+        "name": "UEFA Super Cup",
+        "slug": "uefa-super-cup",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 19,
+        "name": "FA Cup",
+        "slug": "fa-cup",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 39,
+        "name": "Danish Superliga",
+        "slug": "superliga",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 36,
+        "name": "Scottish Premiership",
+        "slug": "premiership",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 332,
+        "name": "Scottish League Cup",
+        "slug": "scottish-league-cup",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 217,
+        "name": "DFB Pokal",
+        "slug": "dfb-pokal",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 202,
+        "name": "Ekstraklasa",
+        "slug": "ekstraklasa",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 698,
+        "name": "Supercupa României",
+        "slug": "supercupa-romaniei",
+        "country_id": 146,
+        "country_name": "Romania",
+        "sport": "football"
+    },
+    {
+        "id": 11621,
+        "name": "Liga MX, Apertura",
+        "slug": "liga-mx-apertura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 782,
+        "name": "Chinese League 1",
+        "slug": "cfa-china-league",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 338,
+        "name": "Belgian Super Cup",
+        "slug": "belgian-super-cup",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 2104,
+        "name": "Israel Super Cup",
+        "slug": "israel-super-cup",
+        "country_id": 88,
+        "country_name": "Israel",
+        "sport": "football"
+    },
+    {
+        "id": 825,
+        "name": "Stars League",
+        "slug": "stars-league",
+        "country_id": 145,
+        "country_name": "Qatar",
+        "sport": "football"
+    },
+    {
+        "id": 170,
+        "name": "HNL",
+        "slug": "hnl",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 511,
+        "name": "Superpuchar Polski",
+        "slug": "superpuchar-polski",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 17015,
+        "name": "UEFA Conference League",
+        "slug": "uefa-europa-conference-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 505,
+        "name": "TFF Süper Kupa",
+        "slug": "tff-super-kupa",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 266,
+        "name": "Israeli Premier League",
+        "slug": "israeli-premier-league",
+        "country_id": 88,
+        "country_name": "Israel",
+        "sport": "football"
+    },
+    {
+        "id": 37,
+        "name": "VriendenLoterij Eredivisie",
+        "slug": "eredivisie",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 131,
+        "name": "Eerste Divisie",
+        "slug": "eerste-divisie",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 80,
+        "name": "Svenska Cupen",
+        "slug": "svenska-cupen",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 210,
+        "name": "Mozzart Bet Superliga",
+        "slug": "mozzart-bet-superliga",
+        "country_id": 156,
+        "country_name": "Serbia",
+        "sport": "football"
+    },
+    {
+        "id": 35,
+        "name": "Bundesliga",
+        "slug": "bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 44,
+        "name": "2. Bundesliga",
+        "slug": "2-bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 182,
+        "name": "Ligue 2",
+        "slug": "ligue-2",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 34,
+        "name": "Ligue 1",
+        "slug": "ligue-1",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 211,
+        "name": "Niké Liga",
+        "slug": "nike-liga",
+        "country_id": 160,
+        "country_name": "Slovakia",
+        "sport": "football"
+    },
+    {
+        "id": 215,
+        "name": "Swiss Super League",
+        "slug": "super-league",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 216,
+        "name": "Challenge League",
+        "slug": "challenge-league",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 247,
+        "name": "Parva Liga",
+        "slug": "parva-liga",
+        "country_id": 25,
+        "country_name": "Bulgaria",
+        "sport": "football"
+    },
+    {
+        "id": 550,
+        "name": "Cypriot Super Cup",
+        "slug": "cypriot-super-cup",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 800,
+        "name": "Croatian Super Cup",
+        "slug": "croatian-super-cup",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 222,
+        "name": "WWIN Liga BiH",
+        "slug": "wwin-premijer-liga",
+        "country_id": 21,
+        "country_name": "Bosnia & Herzegovina",
+        "sport": "football"
+    },
+    {
+        "id": 11611,
+        "name": "Liga de Expansión MX, Apertura",
+        "slug": "liga-de-expansion-mx-apertura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 11536,
+        "name": "Primera A, Finalización",
+        "slug": "primera-a-clausura",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 203,
+        "name": "Russian Premier League",
+        "slug": "premier-liga",
+        "country_id": 147,
+        "country_name": "Russia",
+        "sport": "football"
+    },
+    {
+        "id": 685,
+        "name": "Moldovan Super Liga",
+        "slug": "super-liga",
+        "country_id": 118,
+        "country_name": "Moldova",
+        "sport": "football"
+    },
+    {
+        "id": 172,
+        "name": "Czech First League",
+        "slug": "1-liga",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 229,
+        "name": "Betclic 1. Liga",
+        "slug": "i-liga",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 18,
+        "name": "Championship",
+        "slug": "championship",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 24,
+        "name": "League One",
+        "slug": "league-one",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 25,
+        "name": "League Two",
+        "slug": "league-two",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 38,
+        "name": "Pro League",
+        "slug": "pro-league",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 8,
+        "name": "LaLiga",
+        "slug": "laliga",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 54,
+        "name": "LaLiga 2",
+        "slug": "laliga-2",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 205,
+        "name": "FNL",
+        "slug": "fnl",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 23,
+        "name": "Serie A",
+        "slug": "serie-a",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 135,
+        "name": "2. Liga",
+        "slug": "2-liga",
+        "country_id": 10,
+        "country_name": "Austria",
+        "sport": "football"
+    },
+    {
+        "id": 9,
+        "name": "Challenger Pro League",
+        "slug": "challenger-pro-league",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 21,
+        "name": "EFL Cup",
+        "slug": "efl-cup",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 491,
+        "name": "3. Liga",
+        "slug": "3-liga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 254,
+        "name": "Cymru Premier",
+        "slug": "cymru-premier",
+        "country_id": 190,
+        "country_name": "Wales",
+        "sport": "football"
+    },
+    {
+        "id": 445,
+        "name": "ÖFB Cup",
+        "slug": "ofb-cup",
+        "country_id": 10,
+        "country_name": "Austria",
+        "sport": "football"
+    },
+    {
+        "id": 195,
+        "name": "FAI Cup",
+        "slug": "fai-cup",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 212,
+        "name": "PrvaLiga",
+        "slug": "prvaliga",
+        "country_id": 161,
+        "country_name": "Slovenia",
+        "sport": "football"
+    },
+    {
+        "id": 510,
+        "name": "Bulgarian Supercup",
+        "slug": "super-cup",
+        "country_id": 25,
+        "country_name": "Bulgaria",
+        "sport": "football"
+    },
+    {
+        "id": 187,
+        "name": "Fizz Liga",
+        "slug": "nb-i",
+        "country_id": 81,
+        "country_name": "Hungary",
+        "sport": "football"
+    },
+    {
+        "id": 65,
+        "name": "CampoBet 2 Division",
+        "slug": "2nd-division",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 341,
+        "name": "Supercoppa Italiana",
+        "slug": "supercoppa-italiana",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 281,
+        "name": "Puchar Polski",
+        "slug": "puchar-polski",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 52,
+        "name": "Trendyol Süper Lig",
+        "slug": "trendyol-super-lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 238,
+        "name": "Liga Portugal Betclic",
+        "slug": "liga-portugal-betclic",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 239,
+        "name": "Liga Portugal 2",
+        "slug": "liga-portugal-2",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 98,
+        "name": "Trendyol 1.Lig",
+        "slug": "trendyol-1lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 76,
+        "name": "Oddset Pokalen",
+        "slug": "oddset-pokalen",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 399,
+        "name": "Schweizer Cup",
+        "slug": "schweizer-cup",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 171,
+        "name": "Cyprus League by Stoiximan",
+        "slug": "1-division",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 328,
+        "name": "Coppa Italia",
+        "slug": "coppa-italia",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 97,
+        "name": "Nesine 2. Lig",
+        "slug": "tff-2-lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 11541,
+        "name": "Primera División, Clausura",
+        "slug": "primera-division-clausura",
+        "country_id": 140,
+        "country_name": "Paraguay",
+        "sport": "football"
+    },
+    {
+        "id": 213,
+        "name": "Supercopa de España",
+        "slug": "supercopa-de-espana",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 183,
+        "name": "National 1",
+        "slug": "national-1",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 53,
+        "name": "Serie B",
+        "slug": "serie-b",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 282,
+        "name": "Czech Cup",
+        "slug": "czech-cup",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 709,
+        "name": "Misli Premier League",
+        "slug": "misli-premier-league",
+        "country_id": 11,
+        "country_name": "Azerbaijan",
+        "sport": "football"
+    },
+    {
+        "id": 199,
+        "name": "1. MFL",
+        "slug": "1-mfl",
+        "country_id": 133,
+        "country_name": "North Macedonia",
+        "sport": "football"
+    },
+    {
+        "id": 303,
+        "name": "Slovensky Pohar",
+        "slug": "slovensky-pohar",
+        "country_id": 160,
+        "country_name": "Slovakia",
+        "sport": "football"
+    },
+    {
+        "id": 679,
+        "name": "UEFA Europa League",
+        "slug": "uefa-europa-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 185,
+        "name": "Stoiximan Super League",
+        "slug": "stoiximan-super-league",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 971,
+        "name": "UAE Pro League",
+        "slug": "uae-pro-league",
+        "country_id": 183,
+        "country_name": "United Arab Emirates",
+        "sport": "football"
+    },
+    {
+        "id": 136,
+        "name": "A-League Men",
+        "slug": "a-league-men",
+        "country_id": 9,
+        "country_name": "Australia",
+        "sport": "football"
+    },
+    {
+        "id": 915,
+        "name": "Persian Gulf Pro League",
+        "slug": "persian-gulf-pro-league",
+        "country_id": 85,
+        "country_name": "Iran",
+        "sport": "football"
+    },
+    {
+        "id": 955,
+        "name": "Saudi Pro League",
+        "slug": "saudi-pro-league",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 1054,
+        "name": "CAF Champions League",
+        "slug": "caf-champions-league",
+        "country_id": 2000,
+        "country_name": "Africa",
+        "sport": "football"
+    },
+    {
+        "id": 336,
+        "name": "Taça de Portugal",
+        "slug": "taca-de-portugal",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 1191,
+        "name": "Ghana Premier League",
+        "slug": "ghana-premier-league",
+        "country_id": 68,
+        "country_name": "Ghana",
+        "sport": "football"
+    },
+    {
+        "id": 388,
+        "name": "FAW Welsh Cup",
+        "slug": "faw-welsh-cup",
+        "country_id": 190,
+        "country_name": "Wales",
+        "sport": "football"
+    },
+    {
+        "id": 91,
+        "name": "Russian Cup",
+        "slug": "russian-cup",
+        "country_id": 147,
+        "country_name": "Russia",
+        "sport": "football"
+    },
+    {
+        "id": 326,
+        "name": "Belgian Cup",
+        "slug": "belgian-cup",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 937,
+        "name": "Botola Pro",
+        "slug": "botola-pro",
+        "country_id": 122,
+        "country_name": "Morocco",
+        "sport": "football"
+    },
+    {
+        "id": 11447,
+        "name": "Serie C, Girone B",
+        "slug": "serie-c-girone-b",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 11445,
+        "name": "Serie C, Girone A",
+        "slug": "serie-c-girone-a",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 11446,
+        "name": "Serie C, Girone C",
+        "slug": "serie-c-girone-c",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 347,
+        "name": "Scottish Cup",
+        "slug": "scottish-cup",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 1900,
+        "name": "Indian Super League",
+        "slug": "indian-super-league",
+        "country_id": 83,
+        "country_name": "India",
+        "sport": "football"
+    },
+    {
+        "id": 305,
+        "name": "Magyar Kupa",
+        "slug": "magyar-kupa",
+        "country_id": 81,
+        "country_name": "Hungary",
+        "sport": "football"
+    },
+    {
+        "id": 96,
+        "name": "Türkiye Kupası",
+        "slug": "turkiye-kupasi",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 365,
+        "name": "Bulgarian Cup",
+        "slug": "bulgarian-cup",
+        "country_id": 25,
+        "country_name": "Bulgaria",
+        "sport": "football"
+    },
+    {
+        "id": 1369,
+        "name": "UAE League Cup",
+        "slug": "uae-league-cup",
+        "country_id": 183,
+        "country_name": "United Arab Emirates",
+        "sport": "football"
+    },
+    {
+        "id": 307,
+        "name": "Hrvatski nogometni kup",
+        "slug": "croatian-cup",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 355,
+        "name": "Cupa României Betano",
+        "slug": "cupa-romaniei-betano",
+        "country_id": 146,
+        "country_name": "Romania",
+        "sport": "football"
+    },
+    {
+        "id": 824,
+        "name": "Coppa Italia Serie C",
+        "slug": "coppa-italia-serie-c",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 314,
+        "name": "Kup Srbije",
+        "slug": "serbia-cup",
+        "country_id": 156,
+        "country_name": "Serbia",
+        "sport": "football"
+    },
+    {
+        "id": 315,
+        "name": "Cyprus Cup",
+        "slug": "cyprus-cup",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 375,
+        "name": "Greek Football Cup",
+        "slug": "greek-cup-betsson",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 330,
+        "name": "KNVB Beker",
+        "slug": "knvb-beker",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 327,
+        "name": "Taça da Liga",
+        "slug": "taca-da-liga",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 329,
+        "name": "Copa del Rey",
+        "slug": "copa-del-rey",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 27,
+        "name": "EURO, Qualification",
+        "slug": "european-championship-qualification",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 583,
+        "name": "Bosnia & Herzegovina Cup",
+        "slug": "bosnia-and-herzegovina-cup",
+        "country_id": 21,
+        "country_name": "Bosnia & Herzegovina",
+        "sport": "football"
+    },
+    {
+        "id": 186,
+        "name": "Super League 2",
+        "slug": "super-league-2",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 335,
+        "name": "Coupe de France",
+        "slug": "coupe-de-france",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 291,
+        "name": "Slovenia Cup",
+        "slug": "slovenia-cup",
+        "country_id": 161,
+        "country_name": "Slovenia",
+        "sport": "football"
+    },
+    {
+        "id": 2058,
+        "name": "King's Cup",
+        "slug": "kings-cup",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 848,
+        "name": "I-League",
+        "slug": "i-league",
+        "country_id": 83,
+        "country_name": "India",
+        "sport": "football"
+    },
+    {
+        "id": 11541,
+        "name": "Primera División, Clausura",
+        "slug": "primera-division-clausura",
+        "country_id": 140,
+        "country_name": "Paraguay",
+        "sport": "football"
+    },
+    {
+        "id": 11540,
+        "name": "Primera División, Apertura",
+        "slug": "primera-division-apertura",
+        "country_id": 140,
+        "country_name": "Paraguay",
+        "sport": "football"
+    },
+    {
+        "id": 13475,
+        "name": "Copa de la Liga Profesional",
+        "slug": "copa-de-la-liga-profesional",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 155,
+        "name": "Liga Profesional de Fútbol",
+        "slug": "liga-profesional-de-futbol",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 1309,
+        "name": "Supercopa de Chile",
+        "slug": "supercopa-de-chile",
+        "country_id": 34,
+        "country_name": "Chile",
+        "sport": "football"
+    },
+    {
+        "id": 11620,
+        "name": "Liga MX, Clausura",
+        "slug": "liga-mx-clausura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 11612,
+        "name": "Liga de Expansión MX, Clausura",
+        "slug": "liga-de-expansion-mx-clausura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 40,
+        "name": "Allsvenskan",
+        "slug": "allsvenskan",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 46,
+        "name": "Superettan",
+        "slug": "superettan",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 851,
+        "name": "International Friendly Games",
+        "slug": "int-friendly-games",
+        "country_id": 10000,
+        "country_name": "World",
+        "sport": "football"
+    },
+    {
+        "id": 20,
+        "name": "Eliteserien",
+        "slug": "eliteserien",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 22,
+        "name": "Norwegian 1st Division",
+        "slug": "1st-division",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 193,
+        "name": "Ireland 1st Division",
+        "slug": "first-division",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 192,
+        "name": "Premier Division",
+        "slug": "premier-division",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 11090,
+        "name": "2nd Division, Group 2",
+        "slug": "2nd-division-group-2",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 11085,
+        "name": "2nd Division, Group 1",
+        "slug": "2nd-division-group-1",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 242,
+        "name": "MLS",
+        "slug": "mls",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 480,
+        "name": "CONMEBOL Sudamericana",
+        "slug": "conmebol-sudamericana",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 384,
+        "name": "CONMEBOL Libertadores",
+        "slug": "conmebol-libertadores",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 393,
+        "name": "Japanese Super Cup",
+        "slug": "japanese-super-cup",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 402,
+        "name": "J2 League",
+        "slug": "j2-league",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 196,
+        "name": "J1 League",
+        "slug": "j1-league",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 2119,
+        "name": "Saudi Super Cup",
+        "slug": "saudi-super-cup",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 703,
+        "name": "Primera Nacional",
+        "slug": "primera-nacional",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 83,
+        "name": "Liigacup",
+        "slug": "liigacup",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 188,
+        "name": "Besta deild karla",
+        "slug": "besta-deild-karla",
+        "country_id": 82,
+        "country_name": "Iceland",
+        "sport": "football"
+    },
+    {
+        "id": 786,
+        "name": "Icelandic Super Cup",
+        "slug": "icelandic-super-cup",
+        "country_id": 82,
+        "country_name": "Iceland",
+        "sport": "football"
+    },
+    {
+        "id": 2304,
+        "name": "UAE Super Cup",
+        "slug": "uae-super-cup",
+        "country_id": 183,
+        "country_name": "United Arab Emirates",
+        "sport": "football"
+    },
+    {
+        "id": 1024,
+        "name": "Copa Argentina",
+        "slug": "copa-argentina",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 13363,
+        "name": "USL Championship",
+        "slug": "usl-championship",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 14602,
+        "name": "Supercopa do Brasil",
+        "slug": "supercopa-do-brasil",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 13362,
+        "name": "USL League One",
+        "slug": "usl-league-one",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 178,
+        "name": "Premium Liiga",
+        "slug": "premium-liiga",
+        "country_id": 58,
+        "country_name": "Estonia",
+        "sport": "football"
+    },
+    {
+        "id": 11539,
+        "name": "Primera A, Apertura",
+        "slug": "primera-a-apertura",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 1238,
+        "name": "Categoría Primera B",
+        "slug": "primera-b",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 19891,
+        "name": "Copa Division Profesional",
+        "slug": "copa-division-profesional",
+        "country_id": 20,
+        "country_name": "Bolivia",
+        "sport": "football"
+    },
+    {
+        "id": 16736,
+        "name": "División Profesional",
+        "slug": "division-profesional",
+        "country_id": 20,
+        "country_name": "Bolivia",
+        "sport": "football"
+    },
+    {
+        "id": 410,
+        "name": "K League 1",
+        "slug": "k-league-1",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 356,
+        "name": "Eesti Superkarikas",
+        "slug": "eesti-superkarikas",
+        "country_id": 58,
+        "country_name": "Estonia",
+        "sport": "football"
+    },
+    {
+        "id": 11705,
+        "name": "Supercopa Uruguaya",
+        "slug": "supercopa-uruguaya",
+        "country_id": 184,
+        "country_name": "Uruguay",
+        "sport": "football"
+    },
+    {
+        "id": 101,
+        "name": "J. League Cup",
+        "slug": "j-league-cup",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 10756,
+        "name": "Superliga de Colombia",
+        "slug": "superliga-de-colombia",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 41,
+        "name": "Veikkausliiga",
+        "slug": "veikkausliiga",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 775,
+        "name": "Belarusian Super Cup",
+        "slug": "belarusian-super-cup",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 777,
+        "name": "K League 2",
+        "slug": "k-league-2",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 55,
+        "name": "Ykkösliiga",
+        "slug": "ykkosliiga",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 240,
+        "name": "LigaPro Serie A",
+        "slug": "ligapro-serie-a",
+        "country_id": 52,
+        "country_name": "Ecuador",
+        "sport": "football"
+    },
+    {
+        "id": 14660,
+        "name": "Supercopa Ecuador",
+        "slug": "super-copa",
+        "country_id": 52,
+        "country_name": "Ecuador",
+        "sport": "football"
+    },
+    {
+        "id": 13470,
+        "name": "Canadian Premier League",
+        "slug": "canadian-premier-league",
+        "country_id": 30,
+        "country_name": "Canada",
+        "sport": "football"
+    },
+    {
+        "id": 1632,
+        "name": "FAI Presidents Cup",
+        "slug": "fai-presidents-cup",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 231,
+        "name": "Liga FUTVE",
+        "slug": "primera-division",
+        "country_id": 188,
+        "country_name": "Venezuela",
+        "sport": "football"
+    },
+    {
+        "id": 198,
+        "name": "A Lyga",
+        "slug": "a-lyga",
+        "country_id": 105,
+        "country_name": "Lithuania",
+        "sport": "football"
+    },
+    {
+        "id": 495,
+        "name": "US Open Cup",
+        "slug": "us-open-cup",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 373,
+        "name": "Copa Betano do Brasil",
+        "slug": "copa-do-brasil",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 325,
+        "name": "Brasileirão Betano",
+        "slug": "brasileirao-serie-a",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 197,
+        "name": "Virsliga",
+        "slug": "virsliga",
+        "country_id": 99,
+        "country_name": "Latvia",
+        "sport": "football"
+    },
+    {
+        "id": 615,
+        "name": "Korean Cup",
+        "slug": "korean-cup",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 390,
+        "name": "Brasileirão Série B",
+        "slug": "brasileirao-serie-b",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 1618,
+        "name": "Supercopa Argentina",
+        "slug": "supercopa-argentina",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 169,
+        "name": "Vysshaya Liga",
+        "slug": "vysshaya-liga",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 1281,
+        "name": "Brasileirão Série C",
+        "slug": "brasileirao-serie-c",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 11058,
+        "name": "Super Cup India",
+        "slug": "super-cup-india",
+        "country_id": 83,
+        "country_name": "India",
+        "sport": "football"
+    },
+    {
+        "id": 1221,
+        "name": "Copa Chile",
+        "slug": "copa-chile",
+        "country_id": 34,
+        "country_name": "Chile",
+        "sport": "football"
+    },
+    {
+        "id": 3079,
+        "name": "CFA Super Cup",
+        "slug": "cfa-super-cup",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 649,
+        "name": "Chinese Super League",
+        "slug": "cfa-super-league",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 782,
+        "name": "Chinese League 1",
+        "slug": "cfa-china-league",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 220,
+        "name": "Suomen Cup",
+        "slug": "suomen-cup",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 2305,
+        "name": "Egypt Cup",
+        "slug": "egypt-cup",
+        "country_id": 53,
+        "country_name": "Egypt",
+        "sport": "football"
+    },
+    {
+        "id": 323,
+        "name": "Emperor Cup",
+        "slug": "emperor-cup",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 246,
+        "name": "AFC Asian Cup",
+        "slug": "afc-asian-cup",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 698,
+        "name": "Supercupa României",
+        "slug": "supercupa-romaniei",
+        "country_id": 146,
+        "country_name": "Romania",
+        "sport": "football"
+    },
+    {
+        "id": 80,
+        "name": "Svenska Cupen",
+        "slug": "svenska-cupen",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 578,
+        "name": "Belarus Cup",
+        "slug": "belarus-cup",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 345,
+        "name": "Supertaça",
+        "slug": "supertaca",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 511,
+        "name": "Superpuchar Polski",
+        "slug": "superpuchar-polski",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 11621,
+        "name": "Liga MX, Apertura",
+        "slug": "liga-mx-apertura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 465,
+        "name": "UEFA Super Cup",
+        "slug": "uefa-super-cup",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 170,
+        "name": "HNL",
+        "slug": "hnl",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 7,
+        "name": "UEFA Champions League",
+        "slug": "uefa-champions-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 195,
+        "name": "FAI Cup",
+        "slug": "fai-cup",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 332,
+        "name": "Scottish League Cup",
+        "slug": "scottish-league-cup",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 39,
+        "name": "Danish Superliga",
+        "slug": "superliga",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 247,
+        "name": "Parva Liga",
+        "slug": "parva-liga",
+        "country_id": 25,
+        "country_name": "Bulgaria",
+        "sport": "football"
+    },
+    {
+        "id": 202,
+        "name": "Ekstraklasa",
+        "slug": "ekstraklasa",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 17,
+        "name": "Premier League",
+        "slug": "premier-league",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 338,
+        "name": "Belgian Super Cup",
+        "slug": "belgian-super-cup",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 2103,
+        "name": "Trofeo de Campeon de Campeones",
+        "slug": "trofeo-de-campeon-de-campeones",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 217,
+        "name": "DFB Pokal",
+        "slug": "dfb-pokal",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 1786,
+        "name": "Australia Cup",
+        "slug": "australia-cup",
+        "country_id": 9,
+        "country_name": "Australia",
+        "sport": "football"
+    },
+    {
+        "id": 254,
+        "name": "Cymru Premier",
+        "slug": "cymru-premier",
+        "country_id": 190,
+        "country_name": "Wales",
+        "sport": "football"
+    },
+    {
+        "id": 17015,
+        "name": "UEFA Conference League",
+        "slug": "uefa-europa-conference-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 266,
+        "name": "Israeli Premier League",
+        "slug": "israeli-premier-league",
+        "country_id": 88,
+        "country_name": "Israel",
+        "sport": "football"
+    },
+    {
+        "id": 2104,
+        "name": "Israel Super Cup",
+        "slug": "israel-super-cup",
+        "country_id": 88,
+        "country_name": "Israel",
+        "sport": "football"
+    },
+    {
+        "id": 205,
+        "name": "FNL",
+        "slug": "fnl",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 229,
+        "name": "Betclic 1. Liga",
+        "slug": "i-liga",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 172,
+        "name": "Czech First League",
+        "slug": "1-liga",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 216,
+        "name": "Challenge League",
+        "slug": "challenge-league",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 215,
+        "name": "Swiss Super League",
+        "slug": "super-league",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 18,
+        "name": "Championship",
+        "slug": "championship",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 25,
+        "name": "League Two",
+        "slug": "league-two",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 24,
+        "name": "League One",
+        "slug": "league-one",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 8,
+        "name": "LaLiga",
+        "slug": "laliga",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 38,
+        "name": "Pro League",
+        "slug": "pro-league",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 9,
+        "name": "Challenger Pro League",
+        "slug": "challenger-pro-league",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 21,
+        "name": "EFL Cup",
+        "slug": "efl-cup",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 212,
+        "name": "PrvaLiga",
+        "slug": "prvaliga",
+        "country_id": 161,
+        "country_name": "Slovenia",
+        "sport": "football"
+    },
+    {
+        "id": 187,
+        "name": "Fizz Liga",
+        "slug": "nb-i",
+        "country_id": 81,
+        "country_name": "Hungary",
+        "sport": "football"
+    },
+    {
+        "id": 203,
+        "name": "Russian Premier League",
+        "slug": "premier-liga",
+        "country_id": 147,
+        "country_name": "Russia",
+        "sport": "football"
+    },
+    {
+        "id": 135,
+        "name": "2. Liga",
+        "slug": "2-liga",
+        "country_id": 10,
+        "country_name": "Austria",
+        "sport": "football"
+    },
+    {
+        "id": 971,
+        "name": "UAE Pro League",
+        "slug": "uae-pro-league",
+        "country_id": 183,
+        "country_name": "United Arab Emirates",
+        "sport": "football"
+    },
+    {
+        "id": 211,
+        "name": "Niké Liga",
+        "slug": "nike-liga",
+        "country_id": 160,
+        "country_name": "Slovakia",
+        "sport": "football"
+    },
+    {
+        "id": 445,
+        "name": "ÖFB Cup",
+        "slug": "ofb-cup",
+        "country_id": 10,
+        "country_name": "Austria",
+        "sport": "football"
+    },
+    {
+        "id": 37,
+        "name": "VriendenLoterij Eredivisie",
+        "slug": "eredivisie",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 131,
+        "name": "Eerste Divisie",
+        "slug": "eerste-divisie",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 463,
+        "name": "AFC Champions League Elite",
+        "slug": "afc-champions-league",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 668,
+        "name": "AFC Champions League Two",
+        "slug": "afc-cup",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 54,
+        "name": "LaLiga 2",
+        "slug": "laliga-2",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 281,
+        "name": "Puchar Polski",
+        "slug": "puchar-polski",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 34,
+        "name": "Ligue 1",
+        "slug": "ligue-1",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 182,
+        "name": "Ligue 2",
+        "slug": "ligue-2",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 800,
+        "name": "Croatian Super Cup",
+        "slug": "croatian-super-cup",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 36,
+        "name": "Scottish Premiership",
+        "slug": "premiership",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 44,
+        "name": "2. Bundesliga",
+        "slug": "2-bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 35,
+        "name": "Bundesliga",
+        "slug": "bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 65,
+        "name": "CampoBet 2 Division",
+        "slug": "2nd-division",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 222,
+        "name": "WWIN Liga BiH",
+        "slug": "wwin-premijer-liga",
+        "country_id": 21,
+        "country_name": "Bosnia & Herzegovina",
+        "sport": "football"
+    },
+    {
+        "id": 23,
+        "name": "Serie A",
+        "slug": "serie-a",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 238,
+        "name": "Liga Portugal Betclic",
+        "slug": "liga-portugal-betclic",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 239,
+        "name": "Liga Portugal 2",
+        "slug": "liga-portugal-2",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 399,
+        "name": "Schweizer Cup",
+        "slug": "schweizer-cup",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 76,
+        "name": "Oddset Pokalen",
+        "slug": "oddset-pokalen",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 491,
+        "name": "3. Liga",
+        "slug": "3-liga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 327,
+        "name": "Taça da Liga",
+        "slug": "taca-da-liga",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 11536,
+        "name": "Primera A, Finalización",
+        "slug": "primera-a-clausura",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 91,
+        "name": "Russian Cup",
+        "slug": "russian-cup",
+        "country_id": 147,
+        "country_name": "Russia",
+        "sport": "football"
+    },
+    {
+        "id": 550,
+        "name": "Cypriot Super Cup",
+        "slug": "cypriot-super-cup",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 53,
+        "name": "Serie B",
+        "slug": "serie-b",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 915,
+        "name": "Persian Gulf Pro League",
+        "slug": "persian-gulf-pro-league",
+        "country_id": 85,
+        "country_name": "Iran",
+        "sport": "football"
+    },
+    {
+        "id": 11611,
+        "name": "Liga de Expansión MX, Apertura",
+        "slug": "liga-de-expansion-mx-apertura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 183,
+        "name": "National 1",
+        "slug": "national-1",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 685,
+        "name": "Moldovan Super Liga",
+        "slug": "super-liga",
+        "country_id": 118,
+        "country_name": "Moldova",
+        "sport": "football"
+    },
+    {
+        "id": 52,
+        "name": "Trendyol Süper Lig",
+        "slug": "trendyol-super-lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 185,
+        "name": "Stoiximan Super League",
+        "slug": "stoiximan-super-league",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 955,
+        "name": "Saudi Pro League",
+        "slug": "saudi-pro-league",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 171,
+        "name": "Cyprus League by Stoiximan",
+        "slug": "1-division",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 346,
+        "name": "Community Shield",
+        "slug": "community-shield",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 709,
+        "name": "Misli Premier League",
+        "slug": "misli-premier-league",
+        "country_id": 11,
+        "country_name": "Azerbaijan",
+        "sport": "football"
+    },
+    {
+        "id": 98,
+        "name": "Trendyol 1.Lig",
+        "slug": "trendyol-1lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 303,
+        "name": "Slovensky Pohar",
+        "slug": "slovensky-pohar",
+        "country_id": 160,
+        "country_name": "Slovakia",
+        "sport": "football"
+    },
+    {
+        "id": 312,
+        "name": "Ukraine Cup",
+        "slug": "ukraine-cup",
+        "country_id": 182,
+        "country_name": "Ukraine",
+        "sport": "football"
+    },
+    {
+        "id": 1369,
+        "name": "UAE League Cup",
+        "slug": "uae-league-cup",
+        "country_id": 183,
+        "country_name": "United Arab Emirates",
+        "sport": "football"
+    },
+    {
+        "id": 210,
+        "name": "Mozzart Bet Superliga",
+        "slug": "mozzart-bet-superliga",
+        "country_id": 156,
+        "country_name": "Serbia",
+        "sport": "football"
+    },
+    {
+        "id": 282,
+        "name": "Czech Cup",
+        "slug": "czech-cup",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 2058,
+        "name": "King's Cup",
+        "slug": "kings-cup",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 355,
+        "name": "Cupa României Betano",
+        "slug": "cupa-romaniei-betano",
+        "country_id": 146,
+        "country_name": "Romania",
+        "sport": "football"
+    },
+    {
+        "id": 328,
+        "name": "Coppa Italia",
+        "slug": "coppa-italia",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 308,
+        "name": "World Cup Qual. AFC",
+        "slug": "world-championship-qual-afc",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 199,
+        "name": "1. MFL",
+        "slug": "1-mfl",
+        "country_id": 133,
+        "country_name": "North Macedonia",
+        "sport": "football"
+    },
+    {
+        "id": 825,
+        "name": "Stars League",
+        "slug": "stars-league",
+        "country_id": 145,
+        "country_name": "Qatar",
+        "sport": "football"
+    },
+    {
+        "id": 679,
+        "name": "UEFA Europa League",
+        "slug": "uefa-europa-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 1054,
+        "name": "CAF Champions League",
+        "slug": "caf-champions-league",
+        "country_id": 2000,
+        "country_name": "Africa",
+        "sport": "football"
+    },
+    {
+        "id": 1191,
+        "name": "Ghana Premier League",
+        "slug": "ghana-premier-league",
+        "country_id": 68,
+        "country_name": "Ghana",
+        "sport": "football"
+    },
+    {
+        "id": 11445,
+        "name": "Serie C, Girone A",
+        "slug": "serie-c-girone-a",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 11447,
+        "name": "Serie C, Girone B",
+        "slug": "serie-c-girone-b",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 11446,
+        "name": "Serie C, Girone C",
+        "slug": "serie-c-girone-c",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 295,
+        "name": "World Cup Qual. CONMEBOL",
+        "slug": "world-championship-qual-conmebol",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 336,
+        "name": "Taça de Portugal",
+        "slug": "taca-de-portugal",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 937,
+        "name": "Botola Pro",
+        "slug": "botola-pro",
+        "country_id": 122,
+        "country_name": "Morocco",
+        "sport": "football"
+    },
+    {
+        "id": 388,
+        "name": "FAW Welsh Cup",
+        "slug": "faw-welsh-cup",
+        "country_id": 190,
+        "country_name": "Wales",
+        "sport": "football"
+    },
+    {
+        "id": 136,
+        "name": "A-League Men",
+        "slug": "a-league-men",
+        "country_id": 9,
+        "country_name": "Australia",
+        "sport": "football"
+    },
+    {
+        "id": 365,
+        "name": "Bulgarian Cup",
+        "slug": "bulgarian-cup",
+        "country_id": 25,
+        "country_name": "Bulgaria",
+        "sport": "football"
+    },
+    {
+        "id": 326,
+        "name": "Belgian Cup",
+        "slug": "belgian-cup",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 375,
+        "name": "Greek Football Cup",
+        "slug": "greek-cup-betsson",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 1900,
+        "name": "Indian Super League",
+        "slug": "indian-super-league",
+        "country_id": 83,
+        "country_name": "India",
+        "sport": "football"
+    },
+    {
+        "id": 307,
+        "name": "Hrvatski nogometni kup",
+        "slug": "croatian-cup",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 305,
+        "name": "Magyar Kupa",
+        "slug": "magyar-kupa",
+        "country_id": 81,
+        "country_name": "Hungary",
+        "sport": "football"
+    },
+    {
+        "id": 347,
+        "name": "Scottish Cup",
+        "slug": "scottish-cup",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 186,
+        "name": "Super League 2",
+        "slug": "super-league-2",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 96,
+        "name": "Türkiye Kupası",
+        "slug": "turkiye-kupasi",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 583,
+        "name": "Bosnia & Herzegovina Cup",
+        "slug": "bosnia-and-herzegovina-cup",
+        "country_id": 21,
+        "country_name": "Bosnia & Herzegovina",
+        "sport": "football"
+    },
+    {
+        "id": 824,
+        "name": "Coppa Italia Serie C",
+        "slug": "coppa-italia-serie-c",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 330,
+        "name": "KNVB Beker",
+        "slug": "knvb-beker",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 329,
+        "name": "Copa del Rey",
+        "slug": "copa-del-rey",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 315,
+        "name": "Cyprus Cup",
+        "slug": "cyprus-cup",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 848,
+        "name": "I-League",
+        "slug": "i-league",
+        "country_id": 83,
+        "country_name": "India",
+        "sport": "football"
+    },
+    {
+        "id": 314,
+        "name": "Kup Srbije",
+        "slug": "serbia-cup",
+        "country_id": 156,
+        "country_name": "Serbia",
+        "sport": "football"
+    },
+    {
+        "id": 19,
+        "name": "FA Cup",
+        "slug": "fa-cup",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 505,
+        "name": "TFF Süper Kupa",
+        "slug": "tff-super-kupa",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 213,
+        "name": "Supercopa de España",
+        "slug": "supercopa-de-espana",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 13,
+        "name": "World Cup Qual. CAF ",
+        "slug": "world-championship-qual-caf",
+        "country_id": 2000,
+        "country_name": "Africa",
+        "sport": "football"
+    },
+    {
+        "id": 335,
+        "name": "Coupe de France",
+        "slug": "coupe-de-france",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 291,
+        "name": "Slovenia Cup",
+        "slug": "slovenia-cup",
+        "country_id": 161,
+        "country_name": "Slovenia",
+        "sport": "football"
+    },
+    {
+        "id": 1,
+        "name": "EURO",
+        "slug": "european-championship",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 339,
+        "name": "Trophée des Champions",
+        "slug": "trophee-des-champions",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 133,
+        "name": "Copa América",
+        "slug": "copa-america",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 851,
+        "name": "International Friendly Games",
+        "slug": "int-friendly-games",
+        "country_id": 10000,
+        "country_name": "World",
+        "sport": "football"
+    },
+    {
+        "id": 393,
+        "name": "Japanese Super Cup",
+        "slug": "japanese-super-cup",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 510,
+        "name": "Bulgarian Supercup",
+        "slug": "super-cup",
+        "country_id": 25,
+        "country_name": "Bulgaria",
+        "sport": "football"
+    },
+    {
+        "id": 11540,
+        "name": "Primera División, Apertura",
+        "slug": "primera-division-apertura",
+        "country_id": 140,
+        "country_name": "Paraguay",
+        "sport": "football"
+    },
+    {
+        "id": 341,
+        "name": "Supercoppa Italiana",
+        "slug": "supercoppa-italiana",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 40,
+        "name": "Allsvenskan",
+        "slug": "allsvenskan",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 192,
+        "name": "Premier Division",
+        "slug": "premier-division",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 14602,
+        "name": "Supercopa do Brasil",
+        "slug": "supercopa-do-brasil",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 2304,
+        "name": "UAE Super Cup",
+        "slug": "uae-super-cup",
+        "country_id": 183,
+        "country_name": "United Arab Emirates",
+        "sport": "football"
+    },
+    {
+        "id": 384,
+        "name": "CONMEBOL Libertadores",
+        "slug": "conmebol-libertadores",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 480,
+        "name": "CONMEBOL Sudamericana",
+        "slug": "conmebol-sudamericana",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 193,
+        "name": "Ireland 1st Division",
+        "slug": "first-division",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 11620,
+        "name": "Liga MX, Clausura",
+        "slug": "liga-mx-clausura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 242,
+        "name": "MLS",
+        "slug": "mls",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 13362,
+        "name": "USL League One",
+        "slug": "usl-league-one",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 13363,
+        "name": "USL Championship",
+        "slug": "usl-championship",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 20,
+        "name": "Eliteserien",
+        "slug": "eliteserien",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 10756,
+        "name": "Superliga de Colombia",
+        "slug": "superliga-de-colombia",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 196,
+        "name": "J1 League",
+        "slug": "j1-league",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 22,
+        "name": "Norwegian 1st Division",
+        "slug": "1st-division",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 786,
+        "name": "Icelandic Super Cup",
+        "slug": "icelandic-super-cup",
+        "country_id": 82,
+        "country_name": "Iceland",
+        "sport": "football"
+    },
+    {
+        "id": 402,
+        "name": "J2 League",
+        "slug": "j2-league",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 188,
+        "name": "Besta deild karla",
+        "slug": "besta-deild-karla",
+        "country_id": 82,
+        "country_name": "Iceland",
+        "sport": "football"
+    },
+    {
+        "id": 11539,
+        "name": "Primera A, Apertura",
+        "slug": "primera-a-apertura",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 1238,
+        "name": "Categoría Primera B",
+        "slug": "primera-b",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 83,
+        "name": "Liigacup",
+        "slug": "liigacup",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 11612,
+        "name": "Liga de Expansión MX, Clausura",
+        "slug": "liga-de-expansion-mx-clausura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 46,
+        "name": "Superettan",
+        "slug": "superettan",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 11058,
+        "name": "Super Cup India",
+        "slug": "super-cup-india",
+        "country_id": 83,
+        "country_name": "India",
+        "sport": "football"
+    },
+    {
+        "id": 155,
+        "name": "Liga Profesional de Fútbol",
+        "slug": "liga-profesional-de-futbol",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 13475,
+        "name": "Copa de la Liga Profesional",
+        "slug": "copa-de-la-liga-profesional",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 1632,
+        "name": "FAI Presidents Cup",
+        "slug": "fai-presidents-cup",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 18553,
+        "name": "MLS Preseason",
+        "slug": "mls-preseason",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 231,
+        "name": "Liga FUTVE",
+        "slug": "primera-division",
+        "country_id": 188,
+        "country_name": "Venezuela",
+        "sport": "football"
+    },
+    {
+        "id": 703,
+        "name": "Primera Nacional",
+        "slug": "primera-nacional",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 3079,
+        "name": "CFA Super Cup",
+        "slug": "cfa-super-cup",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 356,
+        "name": "Eesti Superkarikas",
+        "slug": "eesti-superkarikas",
+        "country_id": 58,
+        "country_name": "Estonia",
+        "sport": "football"
+    },
+    {
+        "id": 410,
+        "name": "K League 1",
+        "slug": "k-league-1",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 68,
+        "name": "Ettan, Södra",
+        "slug": "ettan-sodra",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 67,
+        "name": "Ettan, Norra",
+        "slug": "ettan-norra",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 11090,
+        "name": "2nd Division, Group 2",
+        "slug": "2nd-division-group-2",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 11085,
+        "name": "2nd Division, Group 1",
+        "slug": "2nd-division-group-1",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 41,
+        "name": "Veikkausliiga",
+        "slug": "veikkausliiga",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 178,
+        "name": "Premium Liiga",
+        "slug": "premium-liiga",
+        "country_id": 58,
+        "country_name": "Estonia",
+        "sport": "football"
+    },
+    {
+        "id": 1024,
+        "name": "Copa Argentina",
+        "slug": "copa-argentina",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 777,
+        "name": "K League 2",
+        "slug": "k-league-2",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 11705,
+        "name": "Supercopa Uruguaya",
+        "slug": "supercopa-uruguaya",
+        "country_id": 184,
+        "country_name": "Uruguay",
+        "sport": "football"
+    },
+    {
+        "id": 240,
+        "name": "LigaPro Serie A",
+        "slug": "ligapro-serie-a",
+        "country_id": 52,
+        "country_name": "Ecuador",
+        "sport": "football"
+    },
+    {
+        "id": 101,
+        "name": "J. League Cup",
+        "slug": "j-league-cup",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 13470,
+        "name": "Canadian Premier League",
+        "slug": "canadian-premier-league",
+        "country_id": 30,
+        "country_name": "Canada",
+        "sport": "football"
+    },
+    {
+        "id": 55,
+        "name": "Ykkösliiga",
+        "slug": "ykkosliiga",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 373,
+        "name": "Copa Betano do Brasil",
+        "slug": "copa-do-brasil",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 16736,
+        "name": "División Profesional",
+        "slug": "division-profesional",
+        "country_id": 20,
+        "country_name": "Bolivia",
+        "sport": "football"
+    },
+    {
+        "id": 1309,
+        "name": "Supercopa de Chile",
+        "slug": "supercopa-de-chile",
+        "country_id": 34,
+        "country_name": "Chile",
+        "sport": "football"
+    },
+    {
+        "id": 10783,
+        "name": "UEFA Nations League",
+        "slug": "uefa-nations-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 649,
+        "name": "Chinese Super League",
+        "slug": "cfa-super-league",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 198,
+        "name": "A Lyga",
+        "slug": "a-lyga",
+        "country_id": 105,
+        "country_name": "Lithuania",
+        "sport": "football"
+    },
+    {
+        "id": 775,
+        "name": "Belarusian Super Cup",
+        "slug": "belarusian-super-cup",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 197,
+        "name": "Virsliga",
+        "slug": "virsliga",
+        "country_id": 99,
+        "country_name": "Latvia",
+        "sport": "football"
+    },
+    {
+        "id": 615,
+        "name": "Korean Cup",
+        "slug": "korean-cup",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 325,
+        "name": "Brasileirão Betano",
+        "slug": "brasileirao-serie-a",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 882,
+        "name": "CFA Cup",
+        "slug": "cfa-cup",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 169,
+        "name": "Vysshaya Liga",
+        "slug": "vysshaya-liga",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 782,
+        "name": "Chinese League 1",
+        "slug": "cfa-china-league",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 495,
+        "name": "US Open Cup",
+        "slug": "us-open-cup",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 1618,
+        "name": "Supercopa Argentina",
+        "slug": "supercopa-argentina",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 2119,
+        "name": "Saudi Super Cup",
+        "slug": "saudi-super-cup",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 390,
+        "name": "Brasileirão Série B",
+        "slug": "brasileirao-serie-b",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 1281,
+        "name": "Brasileirão Série C",
+        "slug": "brasileirao-serie-c",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 220,
+        "name": "Suomen Cup",
+        "slug": "suomen-cup",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 195,
+        "name": "FAI Cup",
+        "slug": "fai-cup",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 2305,
+        "name": "Egypt Cup",
+        "slug": "egypt-cup",
+        "country_id": 53,
+        "country_name": "Egypt",
+        "sport": "football"
+    },
+    {
+        "id": 465,
+        "name": "UEFA Super Cup",
+        "slug": "uefa-super-cup",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 323,
+        "name": "Emperor Cup",
+        "slug": "emperor-cup",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 80,
+        "name": "Svenska Cupen",
+        "slug": "svenska-cupen",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 698,
+        "name": "Supercupa României",
+        "slug": "supercupa-romaniei",
+        "country_id": 146,
+        "country_name": "Romania",
+        "sport": "football"
+    },
+    {
+        "id": 346,
+        "name": "Community Shield",
+        "slug": "community-shield",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 28,
+        "name": "AFC Asian Cup Qual.",
+        "slug": "afc-asian-cup-qual",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 1221,
+        "name": "Copa Chile",
+        "slug": "copa-chile",
+        "country_id": 34,
+        "country_name": "Chile",
+        "sport": "football"
+    },
+    {
+        "id": 217,
+        "name": "DFB Pokal",
+        "slug": "dfb-pokal",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 332,
+        "name": "Scottish League Cup",
+        "slug": "scottish-league-cup",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 1786,
+        "name": "Australia Cup",
+        "slug": "australia-cup",
+        "country_id": 9,
+        "country_name": "Australia",
+        "sport": "football"
+    },
+    {
+        "id": 578,
+        "name": "Belarus Cup",
+        "slug": "belarus-cup",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 345,
+        "name": "Supertaça",
+        "slug": "supertaca",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 202,
+        "name": "Ekstraklasa",
+        "slug": "ekstraklasa",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 170,
+        "name": "HNL",
+        "slug": "hnl",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 338,
+        "name": "Belgian Super Cup",
+        "slug": "belgian-super-cup",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 39,
+        "name": "Danish Superliga",
+        "slug": "superliga",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 9,
+        "name": "Challenger Pro League",
+        "slug": "challenger-pro-league",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 11621,
+        "name": "Liga MX, Apertura",
+        "slug": "liga-mx-apertura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 10528,
+        "name": "Copa Venezuela",
+        "slug": "copa-venezuela",
+        "country_id": 188,
+        "country_name": "Venezuela",
+        "sport": "football"
+    },
+    {
+        "id": 210,
+        "name": "Mozzart Bet Superliga",
+        "slug": "mozzart-bet-superliga",
+        "country_id": 156,
+        "country_name": "Serbia",
+        "sport": "football"
+    },
+    {
+        "id": 229,
+        "name": "Betclic 1. Liga",
+        "slug": "i-liga",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 38,
+        "name": "Pro League",
+        "slug": "pro-league",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 247,
+        "name": "Parva Liga",
+        "slug": "parva-liga",
+        "country_id": 25,
+        "country_name": "Bulgaria",
+        "sport": "football"
+    },
+    {
+        "id": 17,
+        "name": "Premier League",
+        "slug": "premier-league",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 8,
+        "name": "LaLiga",
+        "slug": "laliga",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 7,
+        "name": "UEFA Champions League",
+        "slug": "uefa-champions-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 679,
+        "name": "UEFA Europa League",
+        "slug": "uefa-europa-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 17015,
+        "name": "UEFA Conference League",
+        "slug": "uefa-europa-conference-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 215,
+        "name": "Swiss Super League",
+        "slug": "super-league",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 37,
+        "name": "VriendenLoterij Eredivisie",
+        "slug": "eredivisie",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 131,
+        "name": "Eerste Divisie",
+        "slug": "eerste-divisie",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 216,
+        "name": "Challenge League",
+        "slug": "challenge-league",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 445,
+        "name": "ÖFB Cup",
+        "slug": "ofb-cup",
+        "country_id": 10,
+        "country_name": "Austria",
+        "sport": "football"
+    },
+    {
+        "id": 511,
+        "name": "Superpuchar Polski",
+        "slug": "superpuchar-polski",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 203,
+        "name": "Russian Premier League",
+        "slug": "premier-liga",
+        "country_id": 147,
+        "country_name": "Russia",
+        "sport": "football"
+    },
+    {
+        "id": 187,
+        "name": "Fizz Liga",
+        "slug": "nb-i",
+        "country_id": 81,
+        "country_name": "Hungary",
+        "sport": "football"
+    },
+    {
+        "id": 172,
+        "name": "Czech First League",
+        "slug": "1-liga",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 205,
+        "name": "FNL",
+        "slug": "fnl",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 211,
+        "name": "Niké Liga",
+        "slug": "nike-liga",
+        "country_id": 160,
+        "country_name": "Slovakia",
+        "sport": "football"
+    },
+    {
+        "id": 34,
+        "name": "Ligue 1",
+        "slug": "ligue-1",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 182,
+        "name": "Ligue 2",
+        "slug": "ligue-2",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 91,
+        "name": "Russian Cup",
+        "slug": "russian-cup",
+        "country_id": 147,
+        "country_name": "Russia",
+        "sport": "football"
+    },
+    {
+        "id": 281,
+        "name": "Puchar Polski",
+        "slug": "puchar-polski",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 2058,
+        "name": "King's Cup",
+        "slug": "kings-cup",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 254,
+        "name": "Cymru Premier",
+        "slug": "cymru-premier",
+        "country_id": 190,
+        "country_name": "Wales",
+        "sport": "football"
+    },
+    {
+        "id": 2104,
+        "name": "Israel Super Cup",
+        "slug": "israel-super-cup",
+        "country_id": 88,
+        "country_name": "Israel",
+        "sport": "football"
+    },
+    {
+        "id": 65,
+        "name": "CampoBet 2 Division",
+        "slug": "2nd-division",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 266,
+        "name": "Israeli Premier League",
+        "slug": "israeli-premier-league",
+        "country_id": 88,
+        "country_name": "Israel",
+        "sport": "football"
+    },
+    {
+        "id": 2119,
+        "name": "Saudi Super Cup",
+        "slug": "saudi-super-cup",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 24,
+        "name": "League One",
+        "slug": "league-one",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 25,
+        "name": "League Two",
+        "slug": "league-two",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 18,
+        "name": "Championship",
+        "slug": "championship",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 54,
+        "name": "LaLiga 2",
+        "slug": "laliga-2",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 36,
+        "name": "Scottish Premiership",
+        "slug": "premiership",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 21,
+        "name": "EFL Cup",
+        "slug": "efl-cup",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 22795,
+        "name": "AFC Challenge League",
+        "slug": "afc-challenge-league",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 463,
+        "name": "AFC Champions League Elite",
+        "slug": "afc-champions-league",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 668,
+        "name": "AFC Champions League Two",
+        "slug": "afc-cup",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 135,
+        "name": "2. Liga",
+        "slug": "2-liga",
+        "country_id": 10,
+        "country_name": "Austria",
+        "sport": "football"
+    },
+    {
+        "id": 212,
+        "name": "PrvaLiga",
+        "slug": "prvaliga",
+        "country_id": 161,
+        "country_name": "Slovenia",
+        "sport": "football"
+    },
+    {
+        "id": 399,
+        "name": "Schweizer Cup",
+        "slug": "schweizer-cup",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 222,
+        "name": "WWIN Liga BiH",
+        "slug": "wwin-premijer-liga",
+        "country_id": 21,
+        "country_name": "Bosnia & Herzegovina",
+        "sport": "football"
+    },
+    {
+        "id": 171,
+        "name": "Cyprus League by Stoiximan",
+        "slug": "1-division",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 44,
+        "name": "2. Bundesliga",
+        "slug": "2-bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 23,
+        "name": "Serie A",
+        "slug": "serie-a",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 35,
+        "name": "Bundesliga",
+        "slug": "bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 824,
+        "name": "Coppa Italia Serie C",
+        "slug": "coppa-italia-serie-c",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 685,
+        "name": "Moldovan Super Liga",
+        "slug": "super-liga",
+        "country_id": 118,
+        "country_name": "Moldova",
+        "sport": "football"
+    },
+    {
+        "id": 328,
+        "name": "Coppa Italia",
+        "slug": "coppa-italia",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 238,
+        "name": "Liga Portugal Betclic",
+        "slug": "liga-portugal-betclic",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 239,
+        "name": "Liga Portugal 2",
+        "slug": "liga-portugal-2",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 76,
+        "name": "Oddset Pokalen",
+        "slug": "oddset-pokalen",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 825,
+        "name": "Stars League",
+        "slug": "stars-league",
+        "country_id": 145,
+        "country_name": "Qatar",
+        "sport": "football"
+    },
+    {
+        "id": 282,
+        "name": "Czech Cup",
+        "slug": "czech-cup",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 11541,
+        "name": "Primera División, Clausura",
+        "slug": "primera-division-clausura",
+        "country_id": 140,
+        "country_name": "Paraguay",
+        "sport": "football"
+    },
+    {
+        "id": 327,
+        "name": "Taça da Liga",
+        "slug": "taca-da-liga",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 491,
+        "name": "3. Liga",
+        "slug": "3-liga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 53,
+        "name": "Serie B",
+        "slug": "serie-b",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 52,
+        "name": "Trendyol Süper Lig",
+        "slug": "trendyol-super-lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 11536,
+        "name": "Primera A, Finalización",
+        "slug": "primera-a-clausura",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 505,
+        "name": "TFF Süper Kupa",
+        "slug": "tff-super-kupa",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 17101,
+        "name": "Liga 3",
+        "slug": "liga-3",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 11446,
+        "name": "Serie C, Girone C",
+        "slug": "serie-c-girone-c",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 11445,
+        "name": "Serie C, Girone A",
+        "slug": "serie-c-girone-a",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 11447,
+        "name": "Serie C, Girone B",
+        "slug": "serie-c-girone-b",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 11611,
+        "name": "Liga de Expansión MX, Apertura",
+        "slug": "liga-de-expansion-mx-apertura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 955,
+        "name": "Saudi Pro League",
+        "slug": "saudi-pro-league",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 1054,
+        "name": "CAF Champions League",
+        "slug": "caf-champions-league",
+        "country_id": 2000,
+        "country_name": "Africa",
+        "sport": "football"
+    },
+    {
+        "id": 185,
+        "name": "Stoiximan Super League",
+        "slug": "stoiximan-super-league",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 303,
+        "name": "Slovensky Pohar",
+        "slug": "slovensky-pohar",
+        "country_id": 160,
+        "country_name": "Slovakia",
+        "sport": "football"
+    },
+    {
+        "id": 709,
+        "name": "Misli Premier League",
+        "slug": "misli-premier-league",
+        "country_id": 11,
+        "country_name": "Azerbaijan",
+        "sport": "football"
+    },
+    {
+        "id": 562,
+        "name": "Liga II",
+        "slug": "liga-ii",
+        "country_id": 146,
+        "country_name": "Romania",
+        "sport": "football"
+    },
+    {
+        "id": 183,
+        "name": "National 1",
+        "slug": "national-1",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 98,
+        "name": "Trendyol 1.Lig",
+        "slug": "trendyol-1lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 971,
+        "name": "UAE Pro League",
+        "slug": "uae-pro-league",
+        "country_id": 183,
+        "country_name": "United Arab Emirates",
+        "sport": "football"
+    },
+    {
+        "id": 355,
+        "name": "Cupa României Betano",
+        "slug": "cupa-romaniei-betano",
+        "country_id": 146,
+        "country_name": "Romania",
+        "sport": "football"
+    },
+    {
+        "id": 199,
+        "name": "1. MFL",
+        "slug": "1-mfl",
+        "country_id": 133,
+        "country_name": "North Macedonia",
+        "sport": "football"
+    },
+    {
+        "id": 312,
+        "name": "Ukraine Cup",
+        "slug": "ukraine-cup",
+        "country_id": 182,
+        "country_name": "Ukraine",
+        "sport": "football"
+    },
+    {
+        "id": 1369,
+        "name": "UAE League Cup",
+        "slug": "uae-league-cup",
+        "country_id": 183,
+        "country_name": "United Arab Emirates",
+        "sport": "football"
+    },
+    {
+        "id": 1191,
+        "name": "Ghana Premier League",
+        "slug": "ghana-premier-league",
+        "country_id": 68,
+        "country_name": "Ghana",
+        "sport": "football"
+    },
+    {
+        "id": 136,
+        "name": "A-League Men",
+        "slug": "a-league-men",
+        "country_id": 9,
+        "country_name": "Australia",
+        "sport": "football"
+    },
+    {
+        "id": 336,
+        "name": "Taça de Portugal",
+        "slug": "taca-de-portugal",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 915,
+        "name": "Persian Gulf Pro League",
+        "slug": "persian-gulf-pro-league",
+        "country_id": 85,
+        "country_name": "Iran",
+        "sport": "football"
+    },
+    {
+        "id": 937,
+        "name": "Botola Pro",
+        "slug": "botola-pro",
+        "country_id": 122,
+        "country_name": "Morocco",
+        "sport": "football"
+    },
+    {
+        "id": 1900,
+        "name": "Indian Super League",
+        "slug": "indian-super-league",
+        "country_id": 83,
+        "country_name": "India",
+        "sport": "football"
+    },
+    {
+        "id": 213,
+        "name": "Supercopa de España",
+        "slug": "supercopa-de-espana",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 326,
+        "name": "Belgian Cup",
+        "slug": "belgian-cup",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 305,
+        "name": "Magyar Kupa",
+        "slug": "magyar-kupa",
+        "country_id": 81,
+        "country_name": "Hungary",
+        "sport": "football"
+    },
+    {
+        "id": 388,
+        "name": "FAW Welsh Cup",
+        "slug": "faw-welsh-cup",
+        "country_id": 190,
+        "country_name": "Wales",
+        "sport": "football"
+    },
+    {
+        "id": 307,
+        "name": "Hrvatski nogometni kup",
+        "slug": "croatian-cup",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 96,
+        "name": "Türkiye Kupası",
+        "slug": "turkiye-kupasi",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 347,
+        "name": "Scottish Cup",
+        "slug": "scottish-cup",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 550,
+        "name": "Cypriot Super Cup",
+        "slug": "cypriot-super-cup",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 186,
+        "name": "Super League 2",
+        "slug": "super-league-2",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 375,
+        "name": "Greek Football Cup",
+        "slug": "greek-cup-betsson",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 315,
+        "name": "Cyprus Cup",
+        "slug": "cyprus-cup",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 329,
+        "name": "Copa del Rey",
+        "slug": "copa-del-rey",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 365,
+        "name": "Bulgarian Cup",
+        "slug": "bulgarian-cup",
+        "country_id": 25,
+        "country_name": "Bulgaria",
+        "sport": "football"
+    },
+    {
+        "id": 330,
+        "name": "KNVB Beker",
+        "slug": "knvb-beker",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 291,
+        "name": "Slovenia Cup",
+        "slug": "slovenia-cup",
+        "country_id": 161,
+        "country_name": "Slovenia",
+        "sport": "football"
+    },
+    {
+        "id": 341,
+        "name": "Supercoppa Italiana",
+        "slug": "supercoppa-italiana",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 583,
+        "name": "Bosnia & Herzegovina Cup",
+        "slug": "bosnia-and-herzegovina-cup",
+        "country_id": 21,
+        "country_name": "Bosnia & Herzegovina",
+        "sport": "football"
+    },
+    {
+        "id": 19,
+        "name": "FA Cup",
+        "slug": "fa-cup",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 314,
+        "name": "Kup Srbije",
+        "slug": "serbia-cup",
+        "country_id": 156,
+        "country_name": "Serbia",
+        "sport": "football"
+    },
+    {
+        "id": 848,
+        "name": "I-League",
+        "slug": "i-league",
+        "country_id": 83,
+        "country_name": "India",
+        "sport": "football"
+    },
+    {
+        "id": 335,
+        "name": "Coupe de France",
+        "slug": "coupe-de-france",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 2304,
+        "name": "UAE Super Cup",
+        "slug": "uae-super-cup",
+        "country_id": 183,
+        "country_name": "United Arab Emirates",
+        "sport": "football"
+    },
+    {
+        "id": 510,
+        "name": "Bulgarian Supercup",
+        "slug": "super-cup",
+        "country_id": 25,
+        "country_name": "Bulgaria",
+        "sport": "football"
+    },
+    {
+        "id": 339,
+        "name": "Trophée des Champions",
+        "slug": "trophee-des-champions",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 11,
+        "name": "World Cup Qual. UEFA",
+        "slug": "world-championship-qual-uefa",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 851,
+        "name": "International Friendly Games",
+        "slug": "int-friendly-games",
+        "country_id": 10000,
+        "country_name": "World",
+        "sport": "football"
+    },
+    {
+        "id": 11540,
+        "name": "Primera División, Apertura",
+        "slug": "primera-division-apertura",
+        "country_id": 140,
+        "country_name": "Paraguay",
+        "sport": "football"
+    },
+    {
+        "id": 11541,
+        "name": "Primera División, Clausura",
+        "slug": "primera-division-clausura",
+        "country_id": 140,
+        "country_name": "Paraguay",
+        "sport": "football"
+    },
+    {
+        "id": 393,
+        "name": "Japanese Super Cup",
+        "slug": "japanese-super-cup",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 196,
+        "name": "J1 League",
+        "slug": "j1-league",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 40,
+        "name": "Allsvenskan",
+        "slug": "allsvenskan",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 83,
+        "name": "Liigacup",
+        "slug": "liigacup",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 192,
+        "name": "Premier Division",
+        "slug": "premier-division",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 193,
+        "name": "Ireland 1st Division",
+        "slug": "first-division",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 1632,
+        "name": "FAI Presidents Cup",
+        "slug": "fai-presidents-cup",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 480,
+        "name": "CONMEBOL Sudamericana",
+        "slug": "conmebol-sudamericana",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 384,
+        "name": "CONMEBOL Libertadores",
+        "slug": "conmebol-libertadores",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 11620,
+        "name": "Liga MX, Clausura",
+        "slug": "liga-mx-clausura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 11612,
+        "name": "Liga de Expansión MX, Clausura",
+        "slug": "liga-de-expansion-mx-clausura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 242,
+        "name": "MLS",
+        "slug": "mls",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 46,
+        "name": "Superettan",
+        "slug": "superettan",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 20,
+        "name": "Eliteserien",
+        "slug": "eliteserien",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 22,
+        "name": "Norwegian 1st Division",
+        "slug": "1st-division",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 13363,
+        "name": "USL Championship",
+        "slug": "usl-championship",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 13362,
+        "name": "USL League One",
+        "slug": "usl-league-one",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 155,
+        "name": "Liga Profesional de Fútbol",
+        "slug": "liga-profesional-de-futbol",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 14602,
+        "name": "Supercopa do Brasil",
+        "slug": "supercopa-do-brasil",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 2305,
+        "name": "Egypt Cup",
+        "slug": "egypt-cup",
+        "country_id": 53,
+        "country_name": "Egypt",
+        "sport": "football"
+    },
+    {
+        "id": 402,
+        "name": "J2 League",
+        "slug": "j2-league",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 188,
+        "name": "Besta deild karla",
+        "slug": "besta-deild-karla",
+        "country_id": 82,
+        "country_name": "Iceland",
+        "sport": "football"
+    },
+    {
+        "id": 786,
+        "name": "Icelandic Super Cup",
+        "slug": "icelandic-super-cup",
+        "country_id": 82,
+        "country_name": "Iceland",
+        "sport": "football"
+    },
+    {
+        "id": 356,
+        "name": "Eesti Superkarikas",
+        "slug": "eesti-superkarikas",
+        "country_id": 58,
+        "country_name": "Estonia",
+        "sport": "football"
+    },
+    {
+        "id": 1024,
+        "name": "Copa Argentina",
+        "slug": "copa-argentina",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 67,
+        "name": "Ettan, Norra",
+        "slug": "ettan-norra",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 1618,
+        "name": "Supercopa Argentina",
+        "slug": "supercopa-argentina",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 11539,
+        "name": "Primera A, Apertura",
+        "slug": "primera-a-apertura",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 18415,
+        "name": "Supercopa Paraguay",
+        "slug": "supercopa-paraguay",
+        "country_id": 140,
+        "country_name": "Paraguay",
+        "sport": "football"
+    },
+    {
+        "id": 410,
+        "name": "K League 1",
+        "slug": "k-league-1",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 11090,
+        "name": "2nd Division, Group 2",
+        "slug": "2nd-division-group-2",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 11085,
+        "name": "2nd Division, Group 1",
+        "slug": "2nd-division-group-1",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 41,
+        "name": "Veikkausliiga",
+        "slug": "veikkausliiga",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 68,
+        "name": "Ettan, Södra",
+        "slug": "ettan-sodra",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 10756,
+        "name": "Superliga de Colombia",
+        "slug": "superliga-de-colombia",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 101,
+        "name": "J. League Cup",
+        "slug": "j-league-cup",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 3079,
+        "name": "CFA Super Cup",
+        "slug": "cfa-super-cup",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 1238,
+        "name": "Categoría Primera B",
+        "slug": "primera-b",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 14660,
+        "name": "Supercopa Ecuador",
+        "slug": "super-copa",
+        "country_id": 52,
+        "country_name": "Ecuador",
+        "sport": "football"
+    },
+    {
+        "id": 18553,
+        "name": "MLS Preseason",
+        "slug": "mls-preseason",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 703,
+        "name": "Primera Nacional",
+        "slug": "primera-nacional",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 231,
+        "name": "Liga FUTVE",
+        "slug": "primera-division",
+        "country_id": 188,
+        "country_name": "Venezuela",
+        "sport": "football"
+    },
+    {
+        "id": 1309,
+        "name": "Supercopa de Chile",
+        "slug": "supercopa-de-chile",
+        "country_id": 34,
+        "country_name": "Chile",
+        "sport": "football"
+    },
+    {
+        "id": 1221,
+        "name": "Copa Chile",
+        "slug": "copa-chile",
+        "country_id": 34,
+        "country_name": "Chile",
+        "sport": "football"
+    },
+    {
+        "id": 777,
+        "name": "K League 2",
+        "slug": "k-league-2",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 11705,
+        "name": "Supercopa Uruguaya",
+        "slug": "supercopa-uruguaya",
+        "country_id": 184,
+        "country_name": "Uruguay",
+        "sport": "football"
+    },
+    {
+        "id": 55,
+        "name": "Ykkösliiga",
+        "slug": "ykkosliiga",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 240,
+        "name": "LigaPro Serie A",
+        "slug": "ligapro-serie-a",
+        "country_id": 52,
+        "country_name": "Ecuador",
+        "sport": "football"
+    },
+    {
+        "id": 655,
+        "name": "Singapore Cup",
+        "slug": "singapore-cup",
+        "country_id": 159,
+        "country_name": "Singapore",
+        "sport": "football"
+    },
+    {
+        "id": 649,
+        "name": "Chinese Super League",
+        "slug": "cfa-super-league",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 178,
+        "name": "Premium Liiga",
+        "slug": "premium-liiga",
+        "country_id": 58,
+        "country_name": "Estonia",
+        "sport": "football"
+    },
+    {
+        "id": 495,
+        "name": "US Open Cup",
+        "slug": "us-open-cup",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 373,
+        "name": "Copa Betano do Brasil",
+        "slug": "copa-do-brasil",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 775,
+        "name": "Belarusian Super Cup",
+        "slug": "belarusian-super-cup",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 325,
+        "name": "Brasileirão Betano",
+        "slug": "brasileirao-serie-a",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 197,
+        "name": "Virsliga",
+        "slug": "virsliga",
+        "country_id": 99,
+        "country_name": "Latvia",
+        "sport": "football"
+    },
+    {
+        "id": 198,
+        "name": "A Lyga",
+        "slug": "a-lyga",
+        "country_id": 105,
+        "country_name": "Lithuania",
+        "sport": "football"
+    },
+    {
+        "id": 13470,
+        "name": "Canadian Premier League",
+        "slug": "canadian-premier-league",
+        "country_id": 30,
+        "country_name": "Canada",
+        "sport": "football"
+    },
+    {
+        "id": 169,
+        "name": "Vysshaya Liga",
+        "slug": "vysshaya-liga",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 390,
+        "name": "Brasileirão Série B",
+        "slug": "brasileirao-serie-b",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 615,
+        "name": "Korean Cup",
+        "slug": "korean-cup",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 1281,
+        "name": "Brasileirão Série C",
+        "slug": "brasileirao-serie-c",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 782,
+        "name": "Chinese League 1",
+        "slug": "cfa-china-league",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 882,
+        "name": "CFA Cup",
+        "slug": "cfa-cup",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 16736,
+        "name": "División Profesional",
+        "slug": "division-profesional",
+        "country_id": 20,
+        "country_name": "Bolivia",
+        "sport": "football"
+    },
+    {
+        "id": 323,
+        "name": "Emperor Cup",
+        "slug": "emperor-cup",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 220,
+        "name": "Suomen Cup",
+        "slug": "suomen-cup",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 11058,
+        "name": "Super Cup India",
+        "slug": "super-cup-india",
+        "country_id": 83,
+        "country_name": "India",
+        "sport": "football"
+    },
+    {
+        "id": 195,
+        "name": "FAI Cup",
+        "slug": "fai-cup",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 19891,
+        "name": "Copa Division Profesional",
+        "slug": "copa-division-profesional",
+        "country_id": 20,
+        "country_name": "Bolivia",
+        "sport": "football"
+    },
+    {
+        "id": 1786,
+        "name": "Australia Cup",
+        "slug": "australia-cup",
+        "country_id": 9,
+        "country_name": "Australia",
+        "sport": "football"
+    },
+    {
+        "id": 465,
+        "name": "UEFA Super Cup",
+        "slug": "uefa-super-cup",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 10528,
+        "name": "Copa Venezuela",
+        "slug": "copa-venezuela",
+        "country_id": 188,
+        "country_name": "Venezuela",
+        "sport": "football"
+    },
+    {
+        "id": 2103,
+        "name": "Trofeo de Campeon de Campeones",
+        "slug": "trofeo-de-campeon-de-campeones",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 2058,
+        "name": "King's Cup",
+        "slug": "kings-cup",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 578,
+        "name": "Belarus Cup",
+        "slug": "belarus-cup",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 332,
+        "name": "Scottish League Cup",
+        "slug": "scottish-league-cup",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 23,
+        "name": "Serie A",
+        "slug": "serie-a",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 202,
+        "name": "Ekstraklasa",
+        "slug": "ekstraklasa",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 511,
+        "name": "Superpuchar Polski",
+        "slug": "superpuchar-polski",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 698,
+        "name": "Supercupa României",
+        "slug": "supercupa-romaniei",
+        "country_id": 146,
+        "country_name": "Romania",
+        "sport": "football"
+    },
+    {
+        "id": 39,
+        "name": "Danish Superliga",
+        "slug": "superliga",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 685,
+        "name": "Moldovan Super Liga",
+        "slug": "super-liga",
+        "country_id": 118,
+        "country_name": "Moldova",
+        "sport": "football"
+    },
+    {
+        "id": 11621,
+        "name": "Liga MX, Apertura",
+        "slug": "liga-mx-apertura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 247,
+        "name": "Parva Liga",
+        "slug": "parva-liga",
+        "country_id": 25,
+        "country_name": "Bulgaria",
+        "sport": "football"
+    },
+    {
+        "id": 210,
+        "name": "Mozzart Bet Superliga",
+        "slug": "mozzart-bet-superliga",
+        "country_id": 156,
+        "country_name": "Serbia",
+        "sport": "football"
+    },
+    {
+        "id": 217,
+        "name": "DFB Pokal",
+        "slug": "dfb-pokal",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 187,
+        "name": "Fizz Liga",
+        "slug": "nb-i",
+        "country_id": 81,
+        "country_name": "Hungary",
+        "sport": "football"
+    },
+    {
+        "id": 7,
+        "name": "UEFA Champions League",
+        "slug": "uefa-champions-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 17015,
+        "name": "UEFA Conference League",
+        "slug": "uefa-europa-conference-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 170,
+        "name": "HNL",
+        "slug": "hnl",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 338,
+        "name": "Belgian Super Cup",
+        "slug": "belgian-super-cup",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 345,
+        "name": "Supertaça",
+        "slug": "supertaca",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 679,
+        "name": "UEFA Europa League",
+        "slug": "uefa-europa-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 17,
+        "name": "Premier League",
+        "slug": "premier-league",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 668,
+        "name": "AFC Champions League Two",
+        "slug": "afc-cup",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 463,
+        "name": "AFC Champions League Elite",
+        "slug": "afc-champions-league",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 37,
+        "name": "VriendenLoterij Eredivisie",
+        "slug": "eredivisie",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 205,
+        "name": "FNL",
+        "slug": "fnl",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 172,
+        "name": "Czech First League",
+        "slug": "1-liga",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 22795,
+        "name": "AFC Challenge League",
+        "slug": "afc-challenge-league",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 38,
+        "name": "Pro League",
+        "slug": "pro-league",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 36,
+        "name": "Scottish Premiership",
+        "slug": "premiership",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 203,
+        "name": "Russian Premier League",
+        "slug": "premier-liga",
+        "country_id": 147,
+        "country_name": "Russia",
+        "sport": "football"
+    },
+    {
+        "id": 216,
+        "name": "Challenge League",
+        "slug": "challenge-league",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 346,
+        "name": "Community Shield",
+        "slug": "community-shield",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 215,
+        "name": "Swiss Super League",
+        "slug": "super-league",
+        "country_id": 171,
+        "country_name": "Switzerland",
+        "sport": "football"
+    },
+    {
+        "id": 229,
+        "name": "Betclic 1. Liga",
+        "slug": "i-liga",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 211,
+        "name": "Niké Liga",
+        "slug": "nike-liga",
+        "country_id": 160,
+        "country_name": "Slovakia",
+        "sport": "football"
+    },
+    {
+        "id": 131,
+        "name": "Eerste Divisie",
+        "slug": "eerste-divisie",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 825,
+        "name": "Stars League",
+        "slug": "stars-league",
+        "country_id": 145,
+        "country_name": "Qatar",
+        "sport": "football"
+    },
+    {
+        "id": 2119,
+        "name": "Saudi Super Cup",
+        "slug": "saudi-super-cup",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 445,
+        "name": "ÖFB Cup",
+        "slug": "ofb-cup",
+        "country_id": 10,
+        "country_name": "Austria",
+        "sport": "football"
+    },
+    {
+        "id": 212,
+        "name": "PrvaLiga",
+        "slug": "prvaliga",
+        "country_id": 161,
+        "country_name": "Slovenia",
+        "sport": "football"
+    },
+    {
+        "id": 328,
+        "name": "Coppa Italia",
+        "slug": "coppa-italia",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 35,
+        "name": "Bundesliga",
+        "slug": "bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 18,
+        "name": "Championship",
+        "slug": "championship",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 25,
+        "name": "League Two",
+        "slug": "league-two",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 24,
+        "name": "League One",
+        "slug": "league-one",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 44,
+        "name": "2. Bundesliga",
+        "slug": "2-bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 222,
+        "name": "WWIN Liga BiH",
+        "slug": "wwin-premijer-liga",
+        "country_id": 21,
+        "country_name": "Bosnia & Herzegovina",
+        "sport": "football"
+    },
+    {
+        "id": 34,
+        "name": "Ligue 1",
+        "slug": "ligue-1",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 182,
+        "name": "Ligue 2",
+        "slug": "ligue-2",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 2104,
+        "name": "Israel Super Cup",
+        "slug": "israel-super-cup",
+        "country_id": 88,
+        "country_name": "Israel",
+        "sport": "football"
+    },
+    {
+        "id": 21,
+        "name": "EFL Cup",
+        "slug": "efl-cup",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 65,
+        "name": "CampoBet 2 Division",
+        "slug": "2nd-division",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 135,
+        "name": "2. Liga",
+        "slug": "2-liga",
+        "country_id": 10,
+        "country_name": "Austria",
+        "sport": "football"
+    },
+    {
+        "id": 54,
+        "name": "LaLiga 2",
+        "slug": "laliga-2",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 8,
+        "name": "LaLiga",
+        "slug": "laliga",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 266,
+        "name": "Israeli Premier League",
+        "slug": "israeli-premier-league",
+        "country_id": 88,
+        "country_name": "Israel",
+        "sport": "football"
+    },
+    {
+        "id": 491,
+        "name": "3. Liga",
+        "slug": "3-liga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 239,
+        "name": "Liga Portugal 2",
+        "slug": "liga-portugal-2",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 52,
+        "name": "Trendyol Süper Lig",
+        "slug": "trendyol-super-lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 238,
+        "name": "Liga Portugal Betclic",
+        "slug": "liga-portugal-betclic",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 11536,
+        "name": "Primera A, Finalización",
+        "slug": "primera-a-clausura",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 155,
+        "name": "Liga Profesional de Fútbol",
+        "slug": "liga-profesional-de-futbol",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 9,
+        "name": "Challenger Pro League",
+        "slug": "challenger-pro-league",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 282,
+        "name": "Czech Cup",
+        "slug": "czech-cup",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 98,
+        "name": "Trendyol 1.Lig",
+        "slug": "trendyol-1lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 185,
+        "name": "Stoiximan Super League",
+        "slug": "stoiximan-super-league",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 254,
+        "name": "Cymru Premier",
+        "slug": "cymru-premier",
+        "country_id": 190,
+        "country_name": "Wales",
+        "sport": "football"
+    },
+    {
+        "id": 971,
+        "name": "UAE Pro League",
+        "slug": "uae-pro-league",
+        "country_id": 183,
+        "country_name": "United Arab Emirates",
+        "sport": "football"
+    },
+    {
+        "id": 11611,
+        "name": "Liga de Expansión MX, Apertura",
+        "slug": "liga-de-expansion-mx-apertura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 183,
+        "name": "National 1",
+        "slug": "national-1",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 171,
+        "name": "Cyprus League by Stoiximan",
+        "slug": "1-division",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 709,
+        "name": "Misli Premier League",
+        "slug": "misli-premier-league",
+        "country_id": 11,
+        "country_name": "Azerbaijan",
+        "sport": "football"
+    },
+    {
+        "id": 937,
+        "name": "Botola Pro",
+        "slug": "botola-pro",
+        "country_id": 122,
+        "country_name": "Morocco",
+        "sport": "football"
+    },
+    {
+        "id": 1369,
+        "name": "UAE League Cup",
+        "slug": "uae-league-cup",
+        "country_id": 183,
+        "country_name": "United Arab Emirates",
+        "sport": "football"
+    },
+    {
+        "id": 17101,
+        "name": "Liga 3",
+        "slug": "liga-3",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 562,
+        "name": "Liga II",
+        "slug": "liga-ii",
+        "country_id": 146,
+        "country_name": "Romania",
+        "sport": "football"
+    },
+    {
+        "id": 10093,
+        "name": "Campeonato de Portugal",
+        "slug": "campeonato-de-portugal",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 824,
+        "name": "Coppa Italia Serie C",
+        "slug": "coppa-italia-serie-c",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 11445,
+        "name": "Serie C, Girone A",
+        "slug": "serie-c-girone-a",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 11447,
+        "name": "Serie C, Girone B",
+        "slug": "serie-c-girone-b",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 11446,
+        "name": "Serie C, Girone C",
+        "slug": "serie-c-girone-c",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 53,
+        "name": "Serie B",
+        "slug": "serie-b",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 915,
+        "name": "Persian Gulf Pro League",
+        "slug": "persian-gulf-pro-league",
+        "country_id": 85,
+        "country_name": "Iran",
+        "sport": "football"
+    },
+    {
+        "id": 199,
+        "name": "1. MFL",
+        "slug": "1-mfl",
+        "country_id": 133,
+        "country_name": "North Macedonia",
+        "sport": "football"
+    },
+    {
+        "id": 336,
+        "name": "Taça de Portugal",
+        "slug": "taca-de-portugal",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 1191,
+        "name": "Ghana Premier League",
+        "slug": "ghana-premier-league",
+        "country_id": 68,
+        "country_name": "Ghana",
+        "sport": "football"
+    },
+    {
+        "id": 955,
+        "name": "Saudi Pro League",
+        "slug": "saudi-pro-league",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 1054,
+        "name": "CAF Champions League",
+        "slug": "caf-champions-league",
+        "country_id": 2000,
+        "country_name": "Africa",
+        "sport": "football"
+    },
+    {
+        "id": 96,
+        "name": "Türkiye Kupası",
+        "slug": "turkiye-kupasi",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 326,
+        "name": "Belgian Cup",
+        "slug": "belgian-cup",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 186,
+        "name": "Super League 2",
+        "slug": "super-league-2",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 550,
+        "name": "Cypriot Super Cup",
+        "slug": "cypriot-super-cup",
+        "country_id": 45,
+        "country_name": "Cyprus",
+        "sport": "football"
+    },
+    {
+        "id": 136,
+        "name": "A-League Men",
+        "slug": "a-league-men",
+        "country_id": 9,
+        "country_name": "Australia",
+        "sport": "football"
+    },
+    {
+        "id": 445,
+        "name": "ÖFB Cup",
+        "slug": "ofb-cup",
+        "country_id": 10,
+        "country_name": "Austria",
+        "sport": "football"
+    },
+    {
+        "id": 410,
+        "name": "K League 1",
+        "slug": "k-league-1",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 187,
+        "name": "Fizz Liga",
+        "slug": "nb-i",
+        "country_id": 81,
+        "country_name": "Hungary",
+        "sport": "football"
+    },
+    {
+        "id": 24,
+        "name": "League One",
+        "slug": "league-one",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 192,
+        "name": "Premier Division",
+        "slug": "premier-division",
+        "country_id": 87,
+        "country_name": "Ireland",
+        "sport": "football"
+    },
+    {
+        "id": 203,
+        "name": "Russian Premier League",
+        "slug": "premier-liga",
+        "country_id": 147,
+        "country_name": "Russia",
+        "sport": "football"
+    },
+    {
+        "id": 341,
+        "name": "Supercoppa Italiana",
+        "slug": "supercoppa-italiana",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 169,
+        "name": "Vysshaya Liga",
+        "slug": "vysshaya-liga",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 40,
+        "name": "Allsvenskan",
+        "slug": "allsvenskan",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 34,
+        "name": "Ligue 1",
+        "slug": "ligue-1",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 335,
+        "name": "Coupe de France",
+        "slug": "coupe-de-france",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 155,
+        "name": "Liga Profesional de Fútbol",
+        "slug": "liga-profesional-de-futbol",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 68,
+        "name": "Ettan, Södra",
+        "slug": "ettan-sodra",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 17,
+        "name": "Premier League",
+        "slug": "premier-league",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 34,
+        "name": "Ligue 1",
+        "slug": "ligue-1",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 39,
+        "name": "Danish Superliga",
+        "slug": "superliga",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 210,
+        "name": "Mozzart Bet Superliga",
+        "slug": "mozzart-bet-superliga",
+        "country_id": 156,
+        "country_name": "Serbia",
+        "sport": "football"
+    },
+    {
+        "id": 170,
+        "name": "HNL",
+        "slug": "hnl",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 1054,
+        "name": "CAF Champions League",
+        "slug": "caf-champions-league",
+        "country_id": 2000,
+        "country_name": "Africa",
+        "sport": "football"
+    },
+    {
+        "id": 217,
+        "name": "DFB Pokal",
+        "slug": "dfb-pokal",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 23,
+        "name": "Serie A",
+        "slug": "serie-a",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 18,
+        "name": "Championship",
+        "slug": "championship",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 307,
+        "name": "Hrvatski nogometni kup",
+        "slug": "croatian-cup",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 336,
+        "name": "Taça de Portugal",
+        "slug": "taca-de-portugal",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 384,
+        "name": "CONMEBOL Libertadores",
+        "slug": "conmebol-libertadores",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 13362,
+        "name": "USL League One",
+        "slug": "usl-league-one",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 178,
+        "name": "Premium Liiga",
+        "slug": "premium-liiga",
+        "country_id": 58,
+        "country_name": "Estonia",
+        "sport": "football"
+    },
+    {
+        "id": 205,
+        "name": "FNL",
+        "slug": "fnl",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 18,
+        "name": "Championship",
+        "slug": "championship",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 674,
+        "name": "Faroe Islands 1. Deild",
+        "slug": "1-deild",
+        "country_id": 61,
+        "country_name": "Faroe Islands",
+        "sport": "football"
+    },
+    {
+        "id": 777,
+        "name": "K League 2",
+        "slug": "k-league-2",
+        "country_id": 164,
+        "country_name": "South Korea",
+        "sport": "football"
+    },
+    {
+        "id": 38,
+        "name": "Pro League",
+        "slug": "pro-league",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 35,
+        "name": "Bundesliga",
+        "slug": "bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 54,
+        "name": "LaLiga 2",
+        "slug": "laliga-2",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 39,
+        "name": "Danish Superliga",
+        "slug": "superliga",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 384,
+        "name": "CONMEBOL Libertadores",
+        "slug": "conmebol-libertadores",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 325,
+        "name": "Brasileirão Betano",
+        "slug": "brasileirao-serie-a",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 390,
+        "name": "Brasileirão Série B",
+        "slug": "brasileirao-serie-b",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 11539,
+        "name": "Primera A, Apertura",
+        "slug": "primera-a-apertura",
+        "country_id": 37,
+        "country_name": "Colombia",
+        "sport": "football"
+    },
+    {
+        "id": 19,
+        "name": "FA Cup",
+        "slug": "fa-cup",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 68,
+        "name": "Ettan, Södra",
+        "slug": "ettan-sodra",
+        "country_id": 170,
+        "country_name": "Sweden",
+        "sport": "football"
+    },
+    {
+        "id": 13,
+        "name": "World Cup Qual. CAF ",
+        "slug": "world-championship-qual-caf",
+        "country_id": 2000,
+        "country_name": "Africa",
+        "sport": "football"
+    },
+    {
+        "id": 36,
+        "name": "Scottish Premiership",
+        "slug": "premiership",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 37,
+        "name": "VriendenLoterij Eredivisie",
+        "slug": "eredivisie",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 172,
+        "name": "Czech First League",
+        "slug": "1-liga",
+        "country_id": 46,
+        "country_name": "Czechia",
+        "sport": "football"
+    },
+    {
+        "id": 11541,
+        "name": "Primera División, Clausura",
+        "slug": "primera-division-clausura",
+        "country_id": 140,
+        "country_name": "Paraguay",
+        "sport": "football"
+    },
+    {
+        "id": 20,
+        "name": "Eliteserien",
+        "slug": "eliteserien",
+        "country_id": 135,
+        "country_name": "Norway",
+        "sport": "football"
+    },
+    {
+        "id": 240,
+        "name": "LigaPro Serie A",
+        "slug": "ligapro-serie-a",
+        "country_id": 52,
+        "country_name": "Ecuador",
+        "sport": "football"
+    },
+    {
+        "id": 325,
+        "name": "Brasileirão Betano",
+        "slug": "brasileirao-serie-a",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 242,
+        "name": "MLS",
+        "slug": "mls",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 17,
+        "name": "Premier League",
+        "slug": "premier-league",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 480,
+        "name": "CONMEBOL Sudamericana",
+        "slug": "conmebol-sudamericana",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 101,
+        "name": "J. League Cup",
+        "slug": "j-league-cup",
+        "country_id": 91,
+        "country_name": "Japan",
+        "sport": "football"
+    },
+    {
+        "id": 52,
+        "name": "Trendyol Süper Lig",
+        "slug": "trendyol-super-lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 83,
+        "name": "Liigacup",
+        "slug": "liigacup",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 170,
+        "name": "HNL",
+        "slug": "hnl",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 41,
+        "name": "Veikkausliiga",
+        "slug": "veikkausliiga",
+        "country_id": 62,
+        "country_name": "Finland",
+        "sport": "football"
+    },
+    {
+        "id": 35,
+        "name": "Bundesliga",
+        "slug": "bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 35,
+        "name": "Bundesliga",
+        "slug": "bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 52,
+        "name": "Trendyol Süper Lig",
+        "slug": "trendyol-super-lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 28,
+        "name": "AFC Asian Cup Qual.",
+        "slug": "afc-asian-cup-qual",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 463,
+        "name": "AFC Champions League Elite",
+        "slug": "afc-champions-league",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 480,
+        "name": "CONMEBOL Sudamericana",
+        "slug": "conmebol-sudamericana",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 185,
+        "name": "Stoiximan Super League",
+        "slug": "stoiximan-super-league",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 19,
+        "name": "FA Cup",
+        "slug": "fa-cup",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 136,
+        "name": "A-League Men",
+        "slug": "a-league-men",
+        "country_id": 9,
+        "country_name": "Australia",
+        "sport": "football"
+    },
+    {
+        "id": 1900,
+        "name": "Indian Super League",
+        "slug": "indian-super-league",
+        "country_id": 83,
+        "country_name": "India",
+        "sport": "football"
+    },
+    {
+        "id": 955,
+        "name": "Saudi Pro League",
+        "slug": "saudi-pro-league",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    },
+    {
+        "id": 11620,
+        "name": "Liga MX, Clausura",
+        "slug": "liga-mx-clausura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 329,
+        "name": "Copa del Rey",
+        "slug": "copa-del-rey",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 213,
+        "name": "Supercopa de España",
+        "slug": "supercopa-de-espana",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 375,
+        "name": "Greek Football Cup",
+        "slug": "greek-cup-betsson",
+        "country_id": 70,
+        "country_name": "Greece",
+        "sport": "football"
+    },
+    {
+        "id": 384,
+        "name": "CONMEBOL Libertadores",
+        "slug": "conmebol-libertadores",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 480,
+        "name": "CONMEBOL Sudamericana",
+        "slug": "conmebol-sudamericana",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 373,
+        "name": "Copa Betano do Brasil",
+        "slug": "copa-do-brasil",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 825,
+        "name": "Stars League",
+        "slug": "stars-league",
+        "country_id": 145,
+        "country_name": "Qatar",
+        "sport": "football"
+    },
+    {
+        "id": 329,
+        "name": "Copa del Rey",
+        "slug": "copa-del-rey",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 330,
+        "name": "KNVB Beker",
+        "slug": "knvb-beker",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 25,
+        "name": "League Two",
+        "slug": "league-two",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 7,
+        "name": "UEFA Champions League",
+        "slug": "uefa-champions-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 34,
+        "name": "Ligue 1",
+        "slug": "ligue-1",
+        "country_id": 63,
+        "country_name": "France",
+        "sport": "football"
+    },
+    {
+        "id": 679,
+        "name": "UEFA Europa League",
+        "slug": "uefa-europa-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 390,
+        "name": "Brasileirão Série B",
+        "slug": "brasileirao-serie-b",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 38,
+        "name": "Pro League",
+        "slug": "pro-league",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 325,
+        "name": "Brasileirão Betano",
+        "slug": "brasileirao-serie-a",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 210,
+        "name": "Mozzart Bet Superliga",
+        "slug": "mozzart-bet-superliga",
+        "country_id": 156,
+        "country_name": "Serbia",
+        "sport": "football"
+    },
+    {
+        "id": 170,
+        "name": "HNL",
+        "slug": "hnl",
+        "country_id": 42,
+        "country_name": "Croatia",
+        "sport": "football"
+    },
+    {
+        "id": 242,
+        "name": "MLS",
+        "slug": "mls",
+        "country_id": 185,
+        "country_name": "USA",
+        "sport": "football"
+    },
+    {
+        "id": 11621,
+        "name": "Liga MX, Apertura",
+        "slug": "liga-mx-apertura",
+        "country_id": 117,
+        "country_name": "Mexico",
+        "sport": "football"
+    },
+    {
+        "id": 36,
+        "name": "Scottish Premiership",
+        "slug": "premiership",
+        "country_id": 154,
+        "country_name": "Scotland",
+        "sport": "football"
+    },
+    {
+        "id": 7,
+        "name": "UEFA Champions League",
+        "slug": "uefa-champions-league",
+        "country_id": 1000,
+        "country_name": "Europe",
+        "sport": "football"
+    },
+    {
+        "id": 202,
+        "name": "Ekstraklasa",
+        "slug": "ekstraklasa",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 346,
+        "name": "Community Shield",
+        "slug": "community-shield",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 21,
+        "name": "EFL Cup",
+        "slug": "efl-cup",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 39,
+        "name": "Danish Superliga",
+        "slug": "superliga",
+        "country_id": 47,
+        "country_name": "Denmark",
+        "sport": "football"
+    },
+    {
+        "id": 52,
+        "name": "Trendyol Süper Lig",
+        "slug": "trendyol-super-lig",
+        "country_id": 179,
+        "country_name": "Türkiye",
+        "sport": "football"
+    },
+    {
+        "id": 217,
+        "name": "DFB Pokal",
+        "slug": "dfb-pokal",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 17,
+        "name": "Premier League",
+        "slug": "premier-league",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 8,
+        "name": "LaLiga",
+        "slug": "laliga",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 37,
+        "name": "VriendenLoterij Eredivisie",
+        "slug": "eredivisie",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 463,
+        "name": "AFC Champions League Elite",
+        "slug": "afc-champions-league",
+        "country_id": 3000,
+        "country_name": "Asia",
+        "sport": "football"
+    },
+    {
+        "id": 649,
+        "name": "Chinese Super League",
+        "slug": "cfa-super-league",
+        "country_id": 35,
+        "country_name": "China",
+        "sport": "football"
+    },
+    {
+        "id": 202,
+        "name": "Ekstraklasa",
+        "slug": "ekstraklasa",
+        "country_id": 143,
+        "country_name": "Poland",
+        "sport": "football"
+    },
+    {
+        "id": 346,
+        "name": "Community Shield",
+        "slug": "community-shield",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 35,
+        "name": "Bundesliga",
+        "slug": "bundesliga",
+        "country_id": 67,
+        "country_name": "Germany",
+        "sport": "football"
+    },
+    {
+        "id": 238,
+        "name": "Liga Portugal Betclic",
+        "slug": "liga-portugal-betclic",
+        "country_id": 144,
+        "country_name": "Portugal",
+        "sport": "football"
+    },
+    {
+        "id": 23,
+        "name": "Serie A",
+        "slug": "serie-a",
+        "country_id": 89,
+        "country_name": "Italy",
+        "sport": "football"
+    },
+    {
+        "id": 18,
+        "name": "Championship",
+        "slug": "championship",
+        "country_id": 55,
+        "country_name": "England",
+        "sport": "football"
+    },
+    {
+        "id": 330,
+        "name": "KNVB Beker",
+        "slug": "knvb-beker",
+        "country_id": 127,
+        "country_name": "Netherlands",
+        "sport": "football"
+    },
+    {
+        "id": 578,
+        "name": "Belarus Cup",
+        "slug": "belarus-cup",
+        "country_id": 14,
+        "country_name": "Belarus",
+        "sport": "football"
+    },
+    {
+        "id": 9,
+        "name": "Challenger Pro League",
+        "slug": "challenger-pro-league",
+        "country_id": 15,
+        "country_name": "Belgium",
+        "sport": "football"
+    },
+    {
+        "id": 329,
+        "name": "Copa del Rey",
+        "slug": "copa-del-rey",
+        "country_id": 166,
+        "country_name": "Spain",
+        "sport": "football"
+    },
+    {
+        "id": 1054,
+        "name": "CAF Champions League",
+        "slug": "caf-champions-league",
+        "country_id": 2000,
+        "country_name": "Africa",
+        "sport": "football"
+    },
+    {
+        "id": 384,
+        "name": "CONMEBOL Libertadores",
+        "slug": "conmebol-libertadores",
+        "country_id": 4000,
+        "country_name": "South America",
+        "sport": "football"
+    },
+    {
+        "id": 13475,
+        "name": "Copa de la Liga Profesional",
+        "slug": "copa-de-la-liga-profesional",
+        "country_id": 6,
+        "country_name": "Argentina",
+        "sport": "football"
+    },
+    {
+        "id": 390,
+        "name": "Brasileirão Série B",
+        "slug": "brasileirao-serie-b",
+        "country_id": 23,
+        "country_name": "Brazil",
+        "sport": "football"
+    },
+    {
+        "id": 2058,
+        "name": "King's Cup",
+        "slug": "kings-cup",
+        "country_id": 153,
+        "country_name": "Saudi Arabia",
+        "sport": "football"
+    }
+]

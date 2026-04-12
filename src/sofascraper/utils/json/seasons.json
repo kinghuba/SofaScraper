@@ -1,0 +1,6346 @@
+[
+    {
+        "tournament_id": 652,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 22556,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 477,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39452,
+                "year": "2022"
+            }
+        ]
+    },
+    {
+        "tournament_id": 550,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 42312,
+                "year": "22/23"
+            },
+            {
+                "id": 52931,
+                "year": "23/24"
+            },
+            {
+                "id": 66659,
+                "year": "24/25"
+            },
+            {
+                "id": 82194,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11705,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40534,
+                "year": "2022"
+            },
+            {
+                "id": 48560,
+                "year": "2023"
+            },
+            {
+                "id": 58021,
+                "year": "2024"
+            },
+            {
+                "id": 71172,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 75494,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 25367,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 314,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39057,
+                "year": "21/22"
+            },
+            {
+                "id": 46154,
+                "year": "22/23"
+            },
+            {
+                "id": 55818,
+                "year": "23/24"
+            },
+            {
+                "id": 68043,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 406,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40118,
+                "year": "2022"
+            },
+            {
+                "id": 48078,
+                "year": "2023"
+            },
+            {
+                "id": 57741,
+                "year": "2024"
+            },
+            {
+                "id": 70962,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 491,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37235,
+                "year": "21/22"
+            },
+            {
+                "id": 42444,
+                "year": "22/23"
+            },
+            {
+                "id": 52815,
+                "year": "23/24"
+            },
+            {
+                "id": 63786,
+                "year": "24/25"
+            },
+            {
+                "id": 77744,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 169,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40715,
+                "year": "2022"
+            },
+            {
+                "id": 49103,
+                "year": "2023"
+            },
+            {
+                "id": 58774,
+                "year": "2024"
+            },
+            {
+                "id": 72443,
+                "year": "2025"
+            },
+            {
+                "id": 27698,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 345,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 41883,
+                "year": "22/23"
+            },
+            {
+                "id": 52049,
+                "year": "23/24"
+            },
+            {
+                "id": 61202,
+                "year": "24/25"
+            },
+            {
+                "id": 76982,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11446,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38028,
+                "year": "21/22"
+            },
+            {
+                "id": 45567,
+                "year": "22/23"
+            },
+            {
+                "id": 53816,
+                "year": "23/24"
+            },
+            {
+                "id": 63973,
+                "year": "24/25"
+            },
+            {
+                "id": 79379,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 971,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37408,
+                "year": "21/22"
+            },
+            {
+                "id": 44570,
+                "year": "22/23"
+            },
+            {
+                "id": 52547,
+                "year": "23/24"
+            },
+            {
+                "id": 64629,
+                "year": "24/25"
+            },
+            {
+                "id": 78315,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 437,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 36542,
+                "year": "2021"
+            }
+        ]
+    },
+    {
+        "tournament_id": 22,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40407,
+                "year": "2022"
+            },
+            {
+                "id": 47820,
+                "year": "2023"
+            },
+            {
+                "id": 57356,
+                "year": "2024"
+            },
+            {
+                "id": 70186,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 197,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40643,
+                "year": "2022"
+            },
+            {
+                "id": 49002,
+                "year": "2023"
+            },
+            {
+                "id": 58563,
+                "year": "2024"
+            },
+            {
+                "id": 72074,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 10756,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40502,
+                "year": "2022"
+            },
+            {
+                "id": 48589,
+                "year": "2023"
+            },
+            {
+                "id": 57330,
+                "year": "2024"
+            },
+            {
+                "id": 70855,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 135,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37159,
+                "year": "21/22"
+            },
+            {
+                "id": 42416,
+                "year": "22/23"
+            },
+            {
+                "id": 52545,
+                "year": "23/24"
+            },
+            {
+                "id": 62657,
+                "year": "24/25"
+            },
+            {
+                "id": 77531,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1894,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 54509,
+                "year": "23/24"
+            },
+            {
+                "id": 25947,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11539,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40320,
+                "year": "2022"
+            },
+            {
+                "id": 48283,
+                "year": "2023"
+            },
+            {
+                "id": 57374,
+                "year": "2024"
+            },
+            {
+                "id": 70681,
+                "year": "2025"
+            },
+            {
+                "id": 88503,
+                "year": "2026"
+            }
+        ]
+    },
+    {
+        "tournament_id": 34467,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 22349,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 775,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40630,
+                "year": "22/23"
+            },
+            {
+                "id": 48644,
+                "year": "23/24"
+            },
+            {
+                "id": 58464,
+                "year": "24/25"
+            },
+            {
+                "id": 71976,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 282,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37571,
+                "year": "21/22"
+            },
+            {
+                "id": 44336,
+                "year": "22/23"
+            },
+            {
+                "id": 53425,
+                "year": "23/24"
+            },
+            {
+                "id": 63719,
+                "year": "24/25"
+            },
+            {
+                "id": 77851,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 390,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40560,
+                "year": "2022"
+            },
+            {
+                "id": 49058,
+                "year": "2023"
+            },
+            {
+                "id": 59015,
+                "year": "2024"
+            },
+            {
+                "id": 72603,
+                "year": "2025"
+            },
+            {
+                "id": 89840,
+                "year": "2026"
+            },
+            {
+                "id": 27593,
+                "year": "2020"
+            },
+            {
+                "id": 22932,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 47092,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24745,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 14090,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40817,
+                "year": "2022"
+            }
+        ]
+    },
+    {
+        "tournament_id": 505,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40179,
+                "year": "21/22"
+            },
+            {
+                "id": 42247,
+                "year": "22/23"
+            },
+            {
+                "id": 56102,
+                "year": "23/24"
+            },
+            {
+                "id": 63861,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 13331,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 27398,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 74123,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 72227,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 239,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37424,
+                "year": "21/22"
+            },
+            {
+                "id": 42663,
+                "year": "22/23"
+            },
+            {
+                "id": 52770,
+                "year": "23/24"
+            },
+            {
+                "id": 63676,
+                "year": "24/25"
+            },
+            {
+                "id": 77801,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 148296,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 84889,
+                "year": "19/22"
+            }
+        ]
+    },
+    {
+        "tournament_id": 188,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40342,
+                "year": "2022"
+            },
+            {
+                "id": 48157,
+                "year": "2023"
+            },
+            {
+                "id": 57370,
+                "year": "2024"
+            },
+            {
+                "id": 70501,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 40,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40406,
+                "year": "2022"
+            },
+            {
+                "id": 47730,
+                "year": "2023"
+            },
+            {
+                "id": 57284,
+                "year": "2024"
+            },
+            {
+                "id": 69956,
+                "year": "2025"
+            },
+            {
+                "id": 23874,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 240,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40503,
+                "year": "2022"
+            },
+            {
+                "id": 48720,
+                "year": "2023"
+            },
+            {
+                "id": 58043,
+                "year": "2024"
+            },
+            {
+                "id": 71184,
+                "year": "2025"
+            },
+            {
+                "id": 20069,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 328,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37611,
+                "year": "21/22"
+            },
+            {
+                "id": 42742,
+                "year": "22/23"
+            },
+            {
+                "id": 53505,
+                "year": "23/24"
+            },
+            {
+                "id": 63668,
+                "year": "24/25"
+            },
+            {
+                "id": 77308,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 13820,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37055,
+                "year": "21/22"
+            }
+        ]
+    },
+    {
+        "tournament_id": 196,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40230,
+                "year": "2022"
+            },
+            {
+                "id": 48055,
+                "year": "2023"
+            },
+            {
+                "id": 57353,
+                "year": "2024"
+            },
+            {
+                "id": 69871,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 291,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37477,
+                "year": "21/22"
+            },
+            {
+                "id": 47026,
+                "year": "22/23"
+            },
+            {
+                "id": 56369,
+                "year": "23/24"
+            },
+            {
+                "id": 67583,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 578,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 27721,
+                "year": "20/21"
+            },
+            {
+                "id": 36747,
+                "year": "2021"
+            },
+            {
+                "id": 41659,
+                "year": "22/23"
+            },
+            {
+                "id": 52031,
+                "year": "23/24"
+            },
+            {
+                "id": 61201,
+                "year": "24/25"
+            },
+            {
+                "id": 76380,
+                "year": "25/26"
+            },
+            {
+                "id": 23455,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 703,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40485,
+                "year": "2022"
+            },
+            {
+                "id": 48079,
+                "year": "2023"
+            },
+            {
+                "id": 57782,
+                "year": "2024"
+            },
+            {
+                "id": 71009,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 40216,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 26030,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 210,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37148,
+                "year": "21/22"
+            },
+            {
+                "id": 42260,
+                "year": "22/23"
+            },
+            {
+                "id": 53417,
+                "year": "23/24"
+            },
+            {
+                "id": 61448,
+                "year": "24/25"
+            },
+            {
+                "id": 76909,
+                "year": "25/26"
+            },
+            {
+                "id": 23779,
+                "year": "19/20"
+            },
+            {
+                "id": 28237,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 187,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37065,
+                "year": "21/22"
+            },
+            {
+                "id": 42575,
+                "year": "22/23"
+            },
+            {
+                "id": 52398,
+                "year": "23/24"
+            },
+            {
+                "id": 61714,
+                "year": "24/25"
+            },
+            {
+                "id": 76944,
+                "year": "25/26"
+            },
+            {
+                "id": 24044,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11684,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 27089,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 19,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39384,
+                "year": "21/22"
+            },
+            {
+                "id": 41913,
+                "year": "22/23"
+            },
+            {
+                "id": 55978,
+                "year": "23/24"
+            },
+            {
+                "id": 67958,
+                "year": "24/25"
+            },
+            {
+                "id": 23875,
+                "year": "19/20"
+            },
+            {
+                "id": 25944,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11536,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 42387,
+                "year": "2022"
+            },
+            {
+                "id": 52847,
+                "year": "2023"
+            },
+            {
+                "id": 63819,
+                "year": "2024"
+            },
+            {
+                "id": 77825,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 824,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38131,
+                "year": "21/22"
+            },
+            {
+                "id": 46081,
+                "year": "22/23"
+            },
+            {
+                "id": 55215,
+                "year": "23/24"
+            },
+            {
+                "id": 63521,
+                "year": "24/25"
+            },
+            {
+                "id": 79372,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 357,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 26177,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 242,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40071,
+                "year": "2022"
+            },
+            {
+                "id": 47955,
+                "year": "2023"
+            },
+            {
+                "id": 57317,
+                "year": "2024"
+            },
+            {
+                "id": 70158,
+                "year": "2025"
+            },
+            {
+                "id": 35964,
+                "year": "2021"
+            },
+            {
+                "id": 26780,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 800,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 42322,
+                "year": "22/23"
+            },
+            {
+                "id": 52580,
+                "year": "23/24"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1024,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40289,
+                "year": "2022"
+            },
+            {
+                "id": 48253,
+                "year": "2023"
+            },
+            {
+                "id": 57968,
+                "year": "2024"
+            },
+            {
+                "id": 70664,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11611,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 42329,
+                "year": "22/23"
+            },
+            {
+                "id": 53021,
+                "year": "23/24"
+            },
+            {
+                "id": 63978,
+                "year": "24/25"
+            },
+            {
+                "id": 78356,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 266,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37133,
+                "year": "21/22"
+            },
+            {
+                "id": 42248,
+                "year": "22/23"
+            },
+            {
+                "id": 52328,
+                "year": "23/24"
+            },
+            {
+                "id": 61932,
+                "year": "24/25"
+            },
+            {
+                "id": 77635,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 171,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37481,
+                "year": "21/22"
+            },
+            {
+                "id": 42725,
+                "year": "22/23"
+            },
+            {
+                "id": 53242,
+                "year": "23/24"
+            },
+            {
+                "id": 63498,
+                "year": "24/25"
+            },
+            {
+                "id": 78640,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 37309,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24808,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 315,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38479,
+                "year": "21/22"
+            },
+            {
+                "id": 46164,
+                "year": "22/23"
+            },
+            {
+                "id": 55707,
+                "year": "23/24"
+            },
+            {
+                "id": 66778,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 307,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 32673,
+                "year": "20/21"
+            },
+            {
+                "id": 38333,
+                "year": "21/22"
+            },
+            {
+                "id": 45824,
+                "year": "22/23"
+            },
+            {
+                "id": 54865,
+                "year": "23/24"
+            },
+            {
+                "id": 66202,
+                "year": "24/25"
+            },
+            {
+                "id": 25470,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1281,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40640,
+                "year": "2022"
+            },
+            {
+                "id": 49328,
+                "year": "2023"
+            },
+            {
+                "id": 59016,
+                "year": "2024"
+            },
+            {
+                "id": 72841,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 18553,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 57672,
+                "year": "2024"
+            },
+            {
+                "id": 70966,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 91,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37467,
+                "year": "21/22"
+            },
+            {
+                "id": 45336,
+                "year": "22/23"
+            },
+            {
+                "id": 52857,
+                "year": "23/24"
+            },
+            {
+                "id": 61744,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 786,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40295,
+                "year": "2022"
+            },
+            {
+                "id": 48159,
+                "year": "2023"
+            },
+            {
+                "id": 57357,
+                "year": "2024"
+            },
+            {
+                "id": 70503,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 347,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38476,
+                "year": "21/22"
+            },
+            {
+                "id": 45645,
+                "year": "2023"
+            },
+            {
+                "id": 54956,
+                "year": "23/24"
+            },
+            {
+                "id": 66406,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11058,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 49505,
+                "year": "23/24"
+            },
+            {
+                "id": 57461,
+                "year": "24/25"
+            },
+            {
+                "id": 74464,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 305,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38681,
+                "year": "21/22"
+            },
+            {
+                "id": 45687,
+                "year": "22/23"
+            },
+            {
+                "id": 54880,
+                "year": "23/24"
+            },
+            {
+                "id": 66149,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 54,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37225,
+                "year": "21/22"
+            },
+            {
+                "id": 42410,
+                "year": "22/23"
+            },
+            {
+                "id": 52563,
+                "year": "23/24"
+            },
+            {
+                "id": 62048,
+                "year": "24/25"
+            },
+            {
+                "id": 77558,
+                "year": "25/26"
+            },
+            {
+                "id": 23987,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 562,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 64111,
+                "year": "24/25"
+            },
+            {
+                "id": 79020,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 698,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 42010,
+                "year": "22/23"
+            },
+            {
+                "id": 51799,
+                "year": "23/24"
+            },
+            {
+                "id": 60827,
+                "year": "24/25"
+            },
+            {
+                "id": 76481,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 96,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38334,
+                "year": "21/22"
+            },
+            {
+                "id": 45795,
+                "year": "22/23"
+            },
+            {
+                "id": 55202,
+                "year": "23/24"
+            },
+            {
+                "id": 66253,
+                "year": "24/25"
+            },
+            {
+                "id": 81187,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 14736,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 20046,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 743,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38488,
+                "year": "21/22"
+            },
+            {
+                "id": 25201,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 303,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37733,
+                "year": "21/22"
+            },
+            {
+                "id": 44370,
+                "year": "22/23"
+            },
+            {
+                "id": 53282,
+                "year": "23/24"
+            },
+            {
+                "id": 64068,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 35,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37166,
+                "year": "21/22"
+            },
+            {
+                "id": 42268,
+                "year": "22/23"
+            },
+            {
+                "id": 52608,
+                "year": "23/24"
+            },
+            {
+                "id": 63516,
+                "year": "24/25"
+            },
+            {
+                "id": 77333,
+                "year": "25/26"
+            },
+            {
+                "id": 24519,
+                "year": "19/20"
+            },
+            {
+                "id": 32628,
+                "year": "20/21"
+            },
+            {
+                "id": 23538,
+                "year": "19/20"
+            },
+            {
+                "id": 28210,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 402,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40276,
+                "year": "2022"
+            },
+            {
+                "id": 48054,
+                "year": "2023"
+            },
+            {
+                "id": 57365,
+                "year": "2024"
+            },
+            {
+                "id": 70418,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 79177,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 32553,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 445,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37229,
+                "year": "21/22"
+            },
+            {
+                "id": 42541,
+                "year": "22/23"
+            },
+            {
+                "id": 52552,
+                "year": "23/24"
+            },
+            {
+                "id": 61671,
+                "year": "24/25"
+            },
+            {
+                "id": 77237,
+                "year": "25/26"
+            },
+            {
+                "id": 24049,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11682,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 26548,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 220,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 41121,
+                "year": "2022"
+            },
+            {
+                "id": 50493,
+                "year": "2023"
+            },
+            {
+                "id": 59674,
+                "year": "2024"
+            },
+            {
+                "id": 74299,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 10640,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24792,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 2104,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 42048,
+                "year": "22/23"
+            },
+            {
+                "id": 52330,
+                "year": "23/24"
+            },
+            {
+                "id": 61819,
+                "year": "24/25"
+            },
+            {
+                "id": 77419,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 373,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40438,
+                "year": "2022"
+            },
+            {
+                "id": 48876,
+                "year": "2023"
+            },
+            {
+                "id": 58134,
+                "year": "2024"
+            },
+            {
+                "id": 71944,
+                "year": "2025"
+            },
+            {
+                "id": 26773,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 776,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 27714,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 13475,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40377,
+                "year": "2022"
+            },
+            {
+                "id": 47644,
+                "year": "2023"
+            },
+            {
+                "id": 57487,
+                "year": "2024"
+            },
+            {
+                "id": 35486,
+                "year": "2021"
+            }
+        ]
+    },
+    {
+        "tournament_id": 327,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37422,
+                "year": "21/22"
+            },
+            {
+                "id": 46348,
+                "year": "22/23"
+            },
+            {
+                "id": 52840,
+                "year": "23/24"
+            },
+            {
+                "id": 63772,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1369,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39038,
+                "year": "21/22"
+            },
+            {
+                "id": 45798,
+                "year": "22/23"
+            },
+            {
+                "id": 53414,
+                "year": "23/24"
+            },
+            {
+                "id": 64723,
+                "year": "24/25"
+            },
+            {
+                "id": 78837,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 692,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37995,
+                "year": "21/22"
+            }
+        ]
+    },
+    {
+        "tournament_id": 231,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40644,
+                "year": "2022"
+            },
+            {
+                "id": 48742,
+                "year": "2023"
+            },
+            {
+                "id": 57694,
+                "year": "2024"
+            },
+            {
+                "id": 71012,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 356,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40631,
+                "year": "22/23"
+            },
+            {
+                "id": 48559,
+                "year": "23/24"
+            },
+            {
+                "id": 57816,
+                "year": "24/25"
+            },
+            {
+                "id": 70604,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 884,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24488,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 155,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 41884,
+                "year": "2022"
+            },
+            {
+                "id": 47647,
+                "year": "2023"
+            },
+            {
+                "id": 57478,
+                "year": "2024"
+            },
+            {
+                "id": 70268,
+                "year": "2025"
+            },
+            {
+                "id": 77826,
+                "year": "2025"
+            },
+            {
+                "id": 87913,
+                "year": "2026"
+            }
+        ]
+    },
+    {
+        "tournament_id": 13,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24680,
+                "year": "2022"
+            },
+            {
+                "id": 56249,
+                "year": "2025"
+            },
+            {
+                "id": 24000,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 133,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 57114,
+                "year": "2024"
+            }
+        ]
+    },
+    {
+        "tournament_id": 10528,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 61445,
+                "year": "2024"
+            },
+            {
+                "id": 76294,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 195,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 42542,
+                "year": "2022"
+            },
+            {
+                "id": 52163,
+                "year": "2023"
+            },
+            {
+                "id": 59994,
+                "year": "2024"
+            },
+            {
+                "id": 74465,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 199,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37708,
+                "year": "21/22"
+            },
+            {
+                "id": 44367,
+                "year": "22/23"
+            },
+            {
+                "id": 53559,
+                "year": "23/24"
+            },
+            {
+                "id": 64685,
+                "year": "24/25"
+            },
+            {
+                "id": 79552,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 372,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 47661,
+                "year": "2023"
+            },
+            {
+                "id": 26501,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 246,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 51384,
+                "year": "2023"
+            }
+        ]
+    },
+    {
+        "tournament_id": 339,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 41887,
+                "year": "22/23"
+            },
+            {
+                "id": 57037,
+                "year": "23/24"
+            },
+            {
+                "id": 69310,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 166,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24008,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11702,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 26546,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11138,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 26791,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1309,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40283,
+                "year": "2022"
+            },
+            {
+                "id": 47650,
+                "year": "2023"
+            },
+            {
+                "id": 58197,
+                "year": "2024"
+            },
+            {
+                "id": 71096,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11542,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24021,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 335,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39554,
+                "year": "21/22"
+            },
+            {
+                "id": 47014,
+                "year": "22/23"
+            },
+            {
+                "id": 56287,
+                "year": "23/24"
+            },
+            {
+                "id": 68468,
+                "year": "24/25"
+            },
+            {
+                "id": 85565,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 410,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40409,
+                "year": "2022"
+            },
+            {
+                "id": 48379,
+                "year": "2023"
+            },
+            {
+                "id": 57878,
+                "year": "2024"
+            },
+            {
+                "id": 70830,
+                "year": "2025"
+            },
+            {
+                "id": 27192,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 152,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37234,
+                "year": "21/22"
+            },
+            {
+                "id": 42576,
+                "year": "22/23"
+            },
+            {
+                "id": 52541,
+                "year": "23/24"
+            },
+            {
+                "id": 62837,
+                "year": "24/25"
+            },
+            {
+                "id": 77312,
+                "year": "25/26"
+            },
+            {
+                "id": 24051,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 355,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38283,
+                "year": "21/22"
+            },
+            {
+                "id": 45837,
+                "year": "22/23"
+            },
+            {
+                "id": 53460,
+                "year": "23/24"
+            },
+            {
+                "id": 64681,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 808,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39373,
+                "year": "21/22"
+            },
+            {
+                "id": 46713,
+                "year": "22/23"
+            },
+            {
+                "id": 55005,
+                "year": "23/24"
+            },
+            {
+                "id": 68147,
+                "year": "24/25"
+            },
+            {
+                "id": 79317,
+                "year": "25/26"
+            },
+            {
+                "id": 25455,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1054,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38336,
+                "year": "21/22"
+            },
+            {
+                "id": 44968,
+                "year": "22/23"
+            },
+            {
+                "id": 53661,
+                "year": "23/24"
+            },
+            {
+                "id": 64021,
+                "year": "24/25"
+            },
+            {
+                "id": 80447,
+                "year": "25/26"
+            },
+            {
+                "id": 24785,
+                "year": "19/20"
+            },
+            {
+                "id": 34871,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1786,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37495,
+                "year": "2021"
+            },
+            {
+                "id": 40658,
+                "year": "2022"
+            },
+            {
+                "id": 52291,
+                "year": "2023"
+            },
+            {
+                "id": 61199,
+                "year": "2024"
+            },
+            {
+                "id": 75270,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 7,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 36886,
+                "year": "21/22"
+            },
+            {
+                "id": 41897,
+                "year": "22/23"
+            },
+            {
+                "id": 52162,
+                "year": "23/24"
+            },
+            {
+                "id": 61644,
+                "year": "24/25"
+            },
+            {
+                "id": 76953,
+                "year": "25/26"
+            },
+            {
+                "id": 29267,
+                "year": "20/21"
+            },
+            {
+                "id": 23766,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 222,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37063,
+                "year": "21/22"
+            },
+            {
+                "id": 42324,
+                "year": "22/23"
+            },
+            {
+                "id": 52702,
+                "year": "23/24"
+            },
+            {
+                "id": 63463,
+                "year": "24/25"
+            },
+            {
+                "id": 77355,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 38,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 36894,
+                "year": "21/22"
+            },
+            {
+                "id": 42404,
+                "year": "22/23"
+            },
+            {
+                "id": 52383,
+                "year": "23/24"
+            },
+            {
+                "id": 61459,
+                "year": "24/25"
+            },
+            {
+                "id": 77040,
+                "year": "25/26"
+            },
+            {
+                "id": 24097,
+                "year": "19/20"
+            },
+            {
+                "id": 28216,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 13864,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24567,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11386,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24596,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 193,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40195,
+                "year": "2022"
+            },
+            {
+                "id": 47939,
+                "year": "2023"
+            },
+            {
+                "id": 57305,
+                "year": "2024"
+            },
+            {
+                "id": 69984,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 777,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40513,
+                "year": "2022"
+            },
+            {
+                "id": 48706,
+                "year": "2023"
+            },
+            {
+                "id": 57993,
+                "year": "2024"
+            },
+            {
+                "id": 71101,
+                "year": "2025"
+            },
+            {
+                "id": 27193,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 254,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37355,
+                "year": "21/22"
+            },
+            {
+                "id": 42518,
+                "year": "22/23"
+            },
+            {
+                "id": 52310,
+                "year": "23/24"
+            },
+            {
+                "id": 61811,
+                "year": "24/25"
+            },
+            {
+                "id": 78283,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11621,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 42017,
+                "year": "22/23"
+            },
+            {
+                "id": 52052,
+                "year": "23/24"
+            },
+            {
+                "id": 61419,
+                "year": "24/25"
+            },
+            {
+                "id": 76500,
+                "year": "25/26"
+            },
+            {
+                "id": 28233,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 217,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37289,
+                "year": "21/22"
+            },
+            {
+                "id": 41962,
+                "year": "22/23"
+            },
+            {
+                "id": 52284,
+                "year": "23/24"
+            },
+            {
+                "id": 61132,
+                "year": "24/25"
+            },
+            {
+                "id": 76910,
+                "year": "25/26"
+            },
+            {
+                "id": 23877,
+                "year": "19/20"
+            },
+            {
+                "id": 29194,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 9415,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24156,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1618,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 49059,
+                "year": "2023"
+            },
+            {
+                "id": 58897,
+                "year": "2024"
+            },
+            {
+                "id": 70679,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 186,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39153,
+                "year": "21/22"
+            },
+            {
+                "id": 46716,
+                "year": "22/23"
+            },
+            {
+                "id": 54993,
+                "year": "23/24"
+            },
+            {
+                "id": 66662,
+                "year": "24/25"
+            },
+            {
+                "id": 81972,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 18641,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 49602,
+                "year": "2023"
+            }
+        ]
+    },
+    {
+        "tournament_id": 47,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 36843,
+                "year": "21/22"
+            },
+            {
+                "id": 42055,
+                "year": "22/23"
+            },
+            {
+                "id": 52329,
+                "year": "23/24"
+            },
+            {
+                "id": 61669,
+                "year": "24/25"
+            },
+            {
+                "id": 77031,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 709,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 29396,
+                "year": "20/21"
+            },
+            {
+                "id": 37837,
+                "year": "21/22"
+            },
+            {
+                "id": 44357,
+                "year": "22/23"
+            },
+            {
+                "id": 53263,
+                "year": "23/24"
+            },
+            {
+                "id": 64075,
+                "year": "24/25"
+            },
+            {
+                "id": 78700,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 10910,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 23755,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 20,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40405,
+                "year": "2022"
+            },
+            {
+                "id": 47806,
+                "year": "2023"
+            },
+            {
+                "id": 57322,
+                "year": "2024"
+            },
+            {
+                "id": 70174,
+                "year": "2025"
+            },
+            {
+                "id": 19977,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11085,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40494,
+                "year": "2022"
+            },
+            {
+                "id": 47949,
+                "year": "2023"
+            },
+            {
+                "id": 57895,
+                "year": "2024"
+            },
+            {
+                "id": 70834,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1347,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40552,
+                "year": "2022"
+            },
+            {
+                "id": 48138,
+                "year": "2023"
+            },
+            {
+                "id": 24670,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 182,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37169,
+                "year": "21/22"
+            },
+            {
+                "id": 42272,
+                "year": "22/23"
+            },
+            {
+                "id": 52572,
+                "year": "23/24"
+            },
+            {
+                "id": 61737,
+                "year": "24/25"
+            },
+            {
+                "id": 77357,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 56953,
+                "year": "2024"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11653,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 36048,
+                "year": "2021"
+            },
+            {
+                "id": 40515,
+                "year": "2022"
+            },
+            {
+                "id": 48017,
+                "year": "2023"
+            },
+            {
+                "id": 57883,
+                "year": "2024"
+            },
+            {
+                "id": 71131,
+                "year": "2025"
+            },
+            {
+                "id": 88493,
+                "year": "2026"
+            }
+        ]
+    },
+    {
+        "tournament_id": 3328,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 23156,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 13998,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 52938,
+                "year": "2023"
+            }
+        ]
+    },
+    {
+        "tournament_id": 76,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37610,
+                "year": "21/22"
+            },
+            {
+                "id": 42690,
+                "year": "22/23"
+            },
+            {
+                "id": 52793,
+                "year": "23/24"
+            },
+            {
+                "id": 63715,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 18,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37154,
+                "year": "21/22"
+            },
+            {
+                "id": 42401,
+                "year": "22/23"
+            },
+            {
+                "id": 52367,
+                "year": "23/24"
+            },
+            {
+                "id": 61961,
+                "year": "24/25"
+            },
+            {
+                "id": 77347,
+                "year": "25/26"
+            },
+            {
+                "id": 23976,
+                "year": "19/20"
+            },
+            {
+                "id": 20108,
+                "year": "2019"
+            },
+            {
+                "id": 29438,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1900,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38915,
+                "year": "21/22"
+            },
+            {
+                "id": 45661,
+                "year": "22/23"
+            },
+            {
+                "id": 54846,
+                "year": "23/24"
+            },
+            {
+                "id": 65961,
+                "year": "24/25"
+            },
+            {
+                "id": 25114,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 178,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40593,
+                "year": "2022"
+            },
+            {
+                "id": 48281,
+                "year": "2023"
+            },
+            {
+                "id": 57905,
+                "year": "2024"
+            },
+            {
+                "id": 71438,
+                "year": "2025"
+            },
+            {
+                "id": 27059,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 27,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 46599,
+                "year": "2024"
+            }
+        ]
+    },
+    {
+        "tournament_id": 95989,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 45888,
+                "year": "22/23"
+            }
+        ]
+    },
+    {
+        "tournament_id": 203,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37038,
+                "year": "21/22"
+            },
+            {
+                "id": 42388,
+                "year": "22/23"
+            },
+            {
+                "id": 52470,
+                "year": "23/24"
+            },
+            {
+                "id": 61712,
+                "year": "24/25"
+            },
+            {
+                "id": 77142,
+                "year": "25/26"
+            },
+            {
+                "id": 23682,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 16755,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37238,
+                "year": "21/22"
+            }
+        ]
+    },
+    {
+        "tournament_id": 8,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37223,
+                "year": "21/22"
+            },
+            {
+                "id": 42409,
+                "year": "22/23"
+            },
+            {
+                "id": 52376,
+                "year": "23/24"
+            },
+            {
+                "id": 61643,
+                "year": "24/25"
+            },
+            {
+                "id": 77559,
+                "year": "25/26"
+            },
+            {
+                "id": 32501,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 668,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40808,
+                "year": "2022"
+            },
+            {
+                "id": 52562,
+                "year": "23/24"
+            },
+            {
+                "id": 62486,
+                "year": "24/25"
+            },
+            {
+                "id": 77009,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 27214,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 22933,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 346,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 41860,
+                "year": "22/23"
+            },
+            {
+                "id": 53261,
+                "year": "23/24"
+            },
+            {
+                "id": 60997,
+                "year": "24/25"
+            },
+            {
+                "id": 77151,
+                "year": "25/26"
+            },
+            {
+                "id": 29373,
+                "year": "20/21"
+            },
+            {
+                "id": 23752,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 59834,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 26033,
+                "year": "2021"
+            }
+        ]
+    },
+    {
+        "tournament_id": 68,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 57892,
+                "year": "2024"
+            },
+            {
+                "id": 70854,
+                "year": "2025"
+            },
+            {
+                "id": 37231,
+                "year": "2021"
+            },
+            {
+                "id": 24239,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 229,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37256,
+                "year": "21/22"
+            },
+            {
+                "id": 42399,
+                "year": "22/23"
+            },
+            {
+                "id": 52362,
+                "year": "23/24"
+            },
+            {
+                "id": 61452,
+                "year": "24/25"
+            },
+            {
+                "id": 77153,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 14602,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40284,
+                "year": "2022"
+            },
+            {
+                "id": 48263,
+                "year": "2023"
+            },
+            {
+                "id": 57287,
+                "year": "2024"
+            },
+            {
+                "id": 70291,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 52,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37466,
+                "year": "21/22"
+            },
+            {
+                "id": 42632,
+                "year": "22/23"
+            },
+            {
+                "id": 53190,
+                "year": "23/24"
+            },
+            {
+                "id": 63814,
+                "year": "24/25"
+            },
+            {
+                "id": 77805,
+                "year": "25/26"
+            },
+            {
+                "id": 24150,
+                "year": "19/20"
+            },
+            {
+                "id": 24407,
+                "year": "19/20"
+            },
+            {
+                "id": 29506,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 80,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 36975,
+                "year": "21/22"
+            },
+            {
+                "id": 42259,
+                "year": "22/23"
+            },
+            {
+                "id": 51878,
+                "year": "23/24"
+            },
+            {
+                "id": 60631,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 511,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 42139,
+                "year": "2022"
+            },
+            {
+                "id": 52050,
+                "year": "2023"
+            },
+            {
+                "id": 61708,
+                "year": "2024"
+            },
+            {
+                "id": 76480,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 341,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39680,
+                "year": "21/22"
+            },
+            {
+                "id": 42603,
+                "year": "22/23"
+            },
+            {
+                "id": 57275,
+                "year": "23/24"
+            },
+            {
+                "id": 67807,
+                "year": "24/25"
+            },
+            {
+                "id": 26157,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 738,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38785,
+                "year": "21/22"
+            }
+        ]
+    },
+    {
+        "tournament_id": 91415,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 36158,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 4508,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 19857,
+                "year": "2021"
+            }
+        ]
+    },
+    {
+        "tournament_id": 104854,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 71585,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 14660,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 48722,
+                "year": "2023"
+            },
+            {
+                "id": 70965,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 13470,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40632,
+                "year": "2022"
+            },
+            {
+                "id": 48737,
+                "year": "2023"
+            },
+            {
+                "id": 58120,
+                "year": "2024"
+            },
+            {
+                "id": 72315,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 2308,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24961,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 170,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37053,
+                "year": "21/22"
+            },
+            {
+                "id": 42138,
+                "year": "22/23"
+            },
+            {
+                "id": 52147,
+                "year": "23/24"
+            },
+            {
+                "id": 61243,
+                "year": "24/25"
+            },
+            {
+                "id": 76980,
+                "year": "25/26"
+            },
+            {
+                "id": 23778,
+                "year": "19/20"
+            },
+            {
+                "id": 77852,
+                "year": "25/26"
+            },
+            {
+                "id": 29241,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 16736,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 48353,
+                "year": "2023"
+            },
+            {
+                "id": 58156,
+                "year": "2024"
+            },
+            {
+                "id": 73577,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 192,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40193,
+                "year": "2022"
+            },
+            {
+                "id": 47946,
+                "year": "2023"
+            },
+            {
+                "id": 57285,
+                "year": "2024"
+            },
+            {
+                "id": 69981,
+                "year": "2025"
+            },
+            {
+                "id": 22367,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 330,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39040,
+                "year": "21/22"
+            },
+            {
+                "id": 46333,
+                "year": "22/23"
+            },
+            {
+                "id": 55337,
+                "year": "23/24"
+            },
+            {
+                "id": 67562,
+                "year": "24/25"
+            },
+            {
+                "id": 81932,
+                "year": "25/26"
+            },
+            {
+                "id": 25679,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 101,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40504,
+                "year": "2022"
+            },
+            {
+                "id": 48588,
+                "year": "2023"
+            },
+            {
+                "id": 58111,
+                "year": "2024"
+            },
+            {
+                "id": 70910,
+                "year": "2025"
+            },
+            {
+                "id": 24406,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11612,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40191,
+                "year": "21/22"
+            },
+            {
+                "id": 47662,
+                "year": "22/23"
+            },
+            {
+                "id": 57411,
+                "year": "23/24"
+            },
+            {
+                "id": 70138,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 13363,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40364,
+                "year": "2022"
+            },
+            {
+                "id": 48258,
+                "year": "2023"
+            },
+            {
+                "id": 57319,
+                "year": "2024"
+            },
+            {
+                "id": 70263,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1044,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24121,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 323,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 41555,
+                "year": "2022"
+            },
+            {
+                "id": 51378,
+                "year": "2023"
+            },
+            {
+                "id": 60629,
+                "year": "2024"
+            },
+            {
+                "id": 74217,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 55449,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24656,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 679,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37725,
+                "year": "21/22"
+            },
+            {
+                "id": 44509,
+                "year": "22/23"
+            },
+            {
+                "id": 53654,
+                "year": "23/24"
+            },
+            {
+                "id": 61645,
+                "year": "24/25"
+            },
+            {
+                "id": 76984,
+                "year": "25/26"
+            },
+            {
+                "id": 29343,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 375,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38986,
+                "year": "2021/2022"
+            },
+            {
+                "id": 46285,
+                "year": "22/23"
+            },
+            {
+                "id": 54800,
+                "year": "23/24"
+            },
+            {
+                "id": 66746,
+                "year": "24/25"
+            },
+            {
+                "id": 25891,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 97,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37743,
+                "year": "21/22"
+            },
+            {
+                "id": 42784,
+                "year": "22/23"
+            }
+        ]
+    },
+    {
+        "tournament_id": 399,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37421,
+                "year": "21/22"
+            },
+            {
+                "id": 42691,
+                "year": "22/23"
+            },
+            {
+                "id": 52784,
+                "year": "23/24"
+            },
+            {
+                "id": 63399,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 238,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37358,
+                "year": "21/22"
+            },
+            {
+                "id": 42655,
+                "year": "22/23"
+            },
+            {
+                "id": 52769,
+                "year": "23/24"
+            },
+            {
+                "id": 63670,
+                "year": "24/25"
+            },
+            {
+                "id": 77806,
+                "year": "25/26"
+            },
+            {
+                "id": 32456,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 782,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 42028,
+                "year": "2022"
+            },
+            {
+                "id": 50458,
+                "year": "2023"
+            },
+            {
+                "id": 58844,
+                "year": "2024"
+            },
+            {
+                "id": 72904,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 583,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38987,
+                "year": "21/22"
+            },
+            {
+                "id": 46645,
+                "year": "22/23"
+            },
+            {
+                "id": 55203,
+                "year": "23/24"
+            },
+            {
+                "id": 67829,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 65,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37192,
+                "year": "21/22"
+            },
+            {
+                "id": 42601,
+                "year": "22/23"
+            },
+            {
+                "id": 52684,
+                "year": "23/24"
+            },
+            {
+                "id": 61929,
+                "year": "24/25"
+            },
+            {
+                "id": 77501,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 615,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40683,
+                "year": "2022"
+            },
+            {
+                "id": 49057,
+                "year": "2023"
+            },
+            {
+                "id": 58702,
+                "year": "2024"
+            },
+            {
+                "id": 72722,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 98,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37482,
+                "year": "21/22"
+            },
+            {
+                "id": 42678,
+                "year": "22/23"
+            },
+            {
+                "id": 53276,
+                "year": "23/24"
+            },
+            {
+                "id": 64425,
+                "year": "24/25"
+            },
+            {
+                "id": 77977,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 674,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40636,
+                "year": "2022"
+            },
+            {
+                "id": 27447,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 329,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39457,
+                "year": "21/22"
+            },
+            {
+                "id": 46493,
+                "year": "22/23"
+            },
+            {
+                "id": 55373,
+                "year": "23/24"
+            },
+            {
+                "id": 66885,
+                "year": "24/25"
+            },
+            {
+                "id": 26137,
+                "year": "19/20"
+            },
+            {
+                "id": 82988,
+                "year": "25/26"
+            },
+            {
+                "id": 34681,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 44,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37168,
+                "year": "21/22"
+            },
+            {
+                "id": 42269,
+                "year": "22/23"
+            },
+            {
+                "id": 52607,
+                "year": "23/24"
+            },
+            {
+                "id": 63514,
+                "year": "24/25"
+            },
+            {
+                "id": 77354,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 35021,
+                "year": "2022"
+            },
+            {
+                "id": 69427,
+                "year": "2026"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11540,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40096,
+                "year": "2022"
+            },
+            {
+                "id": 47643,
+                "year": "2023"
+            },
+            {
+                "id": 57264,
+                "year": "2024"
+            },
+            {
+                "id": 69799,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 82,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 22479,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 22795,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 62484,
+                "year": "24/25"
+            },
+            {
+                "id": 77032,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 480,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40175,
+                "year": "2022"
+            },
+            {
+                "id": 47968,
+                "year": "2023"
+            },
+            {
+                "id": 57297,
+                "year": "2024"
+            },
+            {
+                "id": 70070,
+                "year": "2025"
+            },
+            {
+                "id": 87770,
+                "year": "2026"
+            },
+            {
+                "id": 19990,
+                "year": "2019"
+            },
+            {
+                "id": 26788,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 338,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 42030,
+                "year": "22/23"
+            },
+            {
+                "id": 52196,
+                "year": "23/24"
+            },
+            {
+                "id": 61247,
+                "year": "24/25"
+            },
+            {
+                "id": 76981,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 9,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37236,
+                "year": "21/22"
+            },
+            {
+                "id": 42422,
+                "year": "22/23"
+            },
+            {
+                "id": 52384,
+                "year": "23/24"
+            },
+            {
+                "id": 61412,
+                "year": "24/25"
+            },
+            {
+                "id": 77849,
+                "year": "25/26"
+            },
+            {
+                "id": 24098,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 202,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37062,
+                "year": "21/22"
+            },
+            {
+                "id": 42004,
+                "year": "22/23"
+            },
+            {
+                "id": 52176,
+                "year": "23/24"
+            },
+            {
+                "id": 61236,
+                "year": "24/25"
+            },
+            {
+                "id": 76477,
+                "year": "25/26"
+            },
+            {
+                "id": 29222,
+                "year": "20/21"
+            },
+            {
+                "id": 23666,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 685,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37049,
+                "year": "21/22"
+            },
+            {
+                "id": 42389,
+                "year": "22/23"
+            },
+            {
+                "id": 53074,
+                "year": "23/24"
+            },
+            {
+                "id": 63546,
+                "year": "24/25"
+            },
+            {
+                "id": 76499,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 358,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37989,
+                "year": "21/22"
+            },
+            {
+                "id": 44391,
+                "year": "22/23"
+            },
+            {
+                "id": 53301,
+                "year": "23/24"
+            },
+            {
+                "id": 65113,
+                "year": "24/25"
+            },
+            {
+                "id": 79701,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11541,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 42815,
+                "year": "2022"
+            },
+            {
+                "id": 47642,
+                "year": "2023"
+            },
+            {
+                "id": 63769,
+                "year": "2024"
+            },
+            {
+                "id": 69831,
+                "year": "2025"
+            },
+            {
+                "id": 24026,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 26540,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 22647,
+                "year": "2019"
+            },
+            {
+                "id": 88711,
+                "year": "2026"
+            }
+        ]
+    },
+    {
+        "tournament_id": 281,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38058,
+                "year": "21/22"
+            },
+            {
+                "id": 42604,
+                "year": "22/23"
+            },
+            {
+                "id": 52567,
+                "year": "23/24"
+            },
+            {
+                "id": 61745,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 6207,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24336,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 510,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 42570,
+                "year": "22/23"
+            },
+            {
+                "id": 57250,
+                "year": "23/24"
+            },
+            {
+                "id": 69145,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 232,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24139,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 172,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37051,
+                "year": "21/22"
+            },
+            {
+                "id": 42398,
+                "year": "22/23"
+            },
+            {
+                "id": 52364,
+                "year": "23/24"
+            },
+            {
+                "id": 61716,
+                "year": "24/25"
+            },
+            {
+                "id": 77019,
+                "year": "25/26"
+            },
+            {
+                "id": 23984,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 21,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37177,
+                "year": "21/22"
+            },
+            {
+                "id": 42443,
+                "year": "22/23"
+            },
+            {
+                "id": 52393,
+                "year": "23/24"
+            },
+            {
+                "id": 62483,
+                "year": "24/25"
+            },
+            {
+                "id": 77500,
+                "year": "25/26"
+            },
+            {
+                "id": 29404,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 2119,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38765,
+                "year": "22/23"
+            },
+            {
+                "id": 48066,
+                "year": "23/24"
+            },
+            {
+                "id": 58912,
+                "year": "24/25"
+            },
+            {
+                "id": 61942,
+                "year": "24/25"
+            },
+            {
+                "id": 77228,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 57050,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 25057,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 18415,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 70825,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 131,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 36893,
+                "year": "21/22"
+            },
+            {
+                "id": 42258,
+                "year": "22/23"
+            },
+            {
+                "id": 52556,
+                "year": "23/24"
+            },
+            {
+                "id": 61667,
+                "year": "24/25"
+            },
+            {
+                "id": 77156,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 10295,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 26545,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 198,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40735,
+                "year": "2022"
+            },
+            {
+                "id": 48778,
+                "year": "2023"
+            },
+            {
+                "id": 58463,
+                "year": "2024"
+            },
+            {
+                "id": 72229,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 17,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37036,
+                "year": "21/22"
+            },
+            {
+                "id": 41886,
+                "year": "22/23"
+            },
+            {
+                "id": 52186,
+                "year": "23/24"
+            },
+            {
+                "id": 61627,
+                "year": "24/25"
+            },
+            {
+                "id": 76986,
+                "year": "25/26"
+            },
+            {
+                "id": 23776,
+                "year": "19/20"
+            },
+            {
+                "id": 24004,
+                "year": "19/20"
+            },
+            {
+                "id": 29415,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 212,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37326,
+                "year": "21/22"
+            },
+            {
+                "id": 42565,
+                "year": "22/23"
+            },
+            {
+                "id": 52395,
+                "year": "23/24"
+            },
+            {
+                "id": 62660,
+                "year": "24/25"
+            },
+            {
+                "id": 77283,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 28,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37232,
+                "year": "2022"
+            },
+            {
+                "id": 60998,
+                "year": "2026"
+            },
+            {
+                "id": 24002,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 37,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 36890,
+                "year": "21/22"
+            },
+            {
+                "id": 42256,
+                "year": "22/23"
+            },
+            {
+                "id": 52554,
+                "year": "23/24"
+            },
+            {
+                "id": 61666,
+                "year": "24/25"
+            },
+            {
+                "id": 77012,
+                "year": "25/26"
+            },
+            {
+                "id": 24149,
+                "year": "19/20"
+            },
+            {
+                "id": 29186,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1221,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 41002,
+                "year": "2022"
+            },
+            {
+                "id": 49774,
+                "year": "2023"
+            },
+            {
+                "id": 61009,
+                "year": "2024"
+            },
+            {
+                "id": 71100,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 720,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 44358,
+                "year": "22/23"
+            }
+        ]
+    },
+    {
+        "tournament_id": 76569,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24014,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11447,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38026,
+                "year": "21/22"
+            },
+            {
+                "id": 45565,
+                "year": "22/23"
+            },
+            {
+                "id": 53815,
+                "year": "23/24"
+            },
+            {
+                "id": 63976,
+                "year": "24/25"
+            },
+            {
+                "id": 79378,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 388,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37834,
+                "year": "21/22"
+            },
+            {
+                "id": 45325,
+                "year": "22/23"
+            },
+            {
+                "id": 54444,
+                "year": "23/24"
+            },
+            {
+                "id": 66188,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 2132,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 81894,
+                "year": "25/26"
+            },
+            {
+                "id": 66456,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 937,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38546,
+                "year": "21/22"
+            },
+            {
+                "id": 45552,
+                "year": "22/23"
+            },
+            {
+                "id": 54108,
+                "year": "23/24"
+            },
+            {
+                "id": 65433,
+                "year": "24/25"
+            },
+            {
+                "id": 78750,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 34,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37167,
+                "year": "21/22"
+            },
+            {
+                "id": 42273,
+                "year": "22/23"
+            },
+            {
+                "id": 52571,
+                "year": "23/24"
+            },
+            {
+                "id": 61736,
+                "year": "24/25"
+            },
+            {
+                "id": 77356,
+                "year": "25/26"
+            },
+            {
+                "id": 24758,
+                "year": "19/20"
+            },
+            {
+                "id": 23872,
+                "year": "19/20"
+            },
+            {
+                "id": 28222,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 205,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37052,
+                "year": "21/22"
+            },
+            {
+                "id": 42414,
+                "year": "22/23"
+            },
+            {
+                "id": 52361,
+                "year": "23/24"
+            },
+            {
+                "id": 61725,
+                "year": "24/25"
+            },
+            {
+                "id": 77015,
+                "year": "25/26"
+            },
+            {
+                "id": 23993,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 13821,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37054,
+                "year": "21/22"
+            }
+        ]
+    },
+    {
+        "tournament_id": 67,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 57893,
+                "year": "2024"
+            },
+            {
+                "id": 70666,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 83,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40297,
+                "year": "2022"
+            },
+            {
+                "id": 48115,
+                "year": "2023"
+            },
+            {
+                "id": 57410,
+                "year": "2024"
+            },
+            {
+                "id": 69979,
+                "year": "2025"
+            },
+            {
+                "id": 22931,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 63,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 25147,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 325,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40557,
+                "year": "2022"
+            },
+            {
+                "id": 48982,
+                "year": "2023"
+            },
+            {
+                "id": 58766,
+                "year": "2024"
+            },
+            {
+                "id": 72034,
+                "year": "2025"
+            },
+            {
+                "id": 87678,
+                "year": "2026"
+            },
+            {
+                "id": 36166,
+                "year": "2021"
+            },
+            {
+                "id": 27591,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1127,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 45147,
+                "year": "22/23"
+            },
+            {
+                "id": 24756,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11445,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38027,
+                "year": "21/22"
+            },
+            {
+                "id": 45566,
+                "year": "22/23"
+            },
+            {
+                "id": 53814,
+                "year": "23/24"
+            },
+            {
+                "id": 63975,
+                "year": "24/25"
+            },
+            {
+                "id": 79377,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 216,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37160,
+                "year": "21/22"
+            },
+            {
+                "id": 42277,
+                "year": "22/23"
+            },
+            {
+                "id": 52365,
+                "year": "23/24"
+            },
+            {
+                "id": 61670,
+                "year": "24/25"
+            },
+            {
+                "id": 77150,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 45,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37145,
+                "year": "21/22"
+            },
+            {
+                "id": 42386,
+                "year": "22/23"
+            },
+            {
+                "id": 52524,
+                "year": "23/24"
+            },
+            {
+                "id": 62629,
+                "year": "24/25"
+            },
+            {
+                "id": 77382,
+                "year": "25/26"
+            },
+            {
+                "id": 23972,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 17101,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 63870,
+                "year": "24/25"
+            },
+            {
+                "id": 78950,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 882,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37722,
+                "year": "2021"
+            },
+            {
+                "id": 58767,
+                "year": "2024"
+            },
+            {
+                "id": 72926,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 295,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 26781,
+                "year": "2022"
+            },
+            {
+                "id": 53820,
+                "year": "23/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 213,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39458,
+                "year": "21/22"
+            },
+            {
+                "id": 42898,
+                "year": "22/23"
+            },
+            {
+                "id": 56121,
+                "year": "23/24"
+            },
+            {
+                "id": 66001,
+                "year": "24/25"
+            },
+            {
+                "id": 26219,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 75227,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 25273,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 955,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37597,
+                "year": "21/22"
+            },
+            {
+                "id": 44908,
+                "year": "22/23"
+            },
+            {
+                "id": 53241,
+                "year": "23/24"
+            },
+            {
+                "id": 63998,
+                "year": "24/25"
+            },
+            {
+                "id": 80443,
+                "year": "25/26"
+            },
+            {
+                "id": 24744,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 19891,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 48352,
+                "year": "2023"
+            },
+            {
+                "id": 74564,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1337,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 23027,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 39,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 36834,
+                "year": "21/22"
+            },
+            {
+                "id": 41914,
+                "year": "22/23"
+            },
+            {
+                "id": 52172,
+                "year": "23/24"
+            },
+            {
+                "id": 61326,
+                "year": "24/25"
+            },
+            {
+                "id": 76491,
+                "year": "25/26"
+            },
+            {
+                "id": 23743,
+                "year": "19/20"
+            },
+            {
+                "id": 23873,
+                "year": "19/20"
+            },
+            {
+                "id": 29247,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 168,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24007,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 141971,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 69105,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 36,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37029,
+                "year": "21/22"
+            },
+            {
+                "id": 41957,
+                "year": "22/23"
+            },
+            {
+                "id": 52588,
+                "year": "23/24"
+            },
+            {
+                "id": 62408,
+                "year": "24/25"
+            },
+            {
+                "id": 77128,
+                "year": "25/26"
+            },
+            {
+                "id": 24127,
+                "year": "19/20"
+            },
+            {
+                "id": 28212,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 393,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40194,
+                "year": "22/23"
+            },
+            {
+                "id": 48039,
+                "year": "23/24"
+            },
+            {
+                "id": 57218,
+                "year": "24/25"
+            },
+            {
+                "id": 69857,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 848,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40012,
+                "year": "21/22"
+            },
+            {
+                "id": 47202,
+                "year": "22/23"
+            },
+            {
+                "id": 55774,
+                "year": "23/24"
+            },
+            {
+                "id": 68433,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 72726,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 20160,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 17265,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 26795,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 167,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 26828,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 312,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37994,
+                "year": "21/22"
+            },
+            {
+                "id": 53412,
+                "year": "23/24"
+            },
+            {
+                "id": 64691,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 498,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 26749,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 3079,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 49839,
+                "year": "2023"
+            },
+            {
+                "id": 57815,
+                "year": "2024"
+            },
+            {
+                "id": 70911,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 290,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 46930,
+                "year": "2023"
+            }
+        ]
+    },
+    {
+        "tournament_id": 145314,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 71643,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 915,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39187,
+                "year": "21/22"
+            },
+            {
+                "id": 44731,
+                "year": "22/23"
+            },
+            {
+                "id": 52957,
+                "year": "23/24"
+            },
+            {
+                "id": 65237,
+                "year": "24/25"
+            },
+            {
+                "id": 79503,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11090,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40493,
+                "year": "2022"
+            },
+            {
+                "id": 47948,
+                "year": "2023"
+            },
+            {
+                "id": 57894,
+                "year": "2024"
+            },
+            {
+                "id": 70833,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 851,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40241,
+                "year": "2022"
+            },
+            {
+                "id": 47776,
+                "year": "2023"
+            },
+            {
+                "id": 57198,
+                "year": "2024"
+            },
+            {
+                "id": 69578,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 16,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 41087,
+                "year": "2022"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1588,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 26778,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 2058,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39748,
+                "year": "21/22"
+            },
+            {
+                "id": 47195,
+                "year": "22/23"
+            },
+            {
+                "id": 53432,
+                "year": "23/24"
+            },
+            {
+                "id": 61803,
+                "year": "24/25"
+            },
+            {
+                "id": 76343,
+                "year": "25/26"
+            },
+            {
+                "id": 26550,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 2305,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 51258,
+                "year": "22/23"
+            },
+            {
+                "id": 60373,
+                "year": "2024"
+            },
+            {
+                "id": 70357,
+                "year": "2024/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 2103,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 52201,
+                "year": "2023"
+            },
+            {
+                "id": 76299,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 326,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38321,
+                "year": "21/22"
+            },
+            {
+                "id": 45423,
+                "year": "22/23"
+            },
+            {
+                "id": 54798,
+                "year": "23/24"
+            },
+            {
+                "id": 66012,
+                "year": "24/25"
+            },
+            {
+                "id": 81462,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 463,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40457,
+                "year": "2022"
+            },
+            {
+                "id": 52561,
+                "year": "23/24"
+            },
+            {
+                "id": 62485,
+                "year": "24/25"
+            },
+            {
+                "id": 77010,
+                "year": "25/26"
+            },
+            {
+                "id": 20011,
+                "year": "2019"
+            },
+            {
+                "id": 26783,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1822,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24001,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 655,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 71210,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 41,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40564,
+                "year": "2022"
+            },
+            {
+                "id": 48608,
+                "year": "2023"
+            },
+            {
+                "id": 57896,
+                "year": "2024"
+            },
+            {
+                "id": 70853,
+                "year": "2025"
+            },
+            {
+                "id": 24043,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 544,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38012,
+                "year": "21/22"
+            }
+        ]
+    },
+    {
+        "tournament_id": 46,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40408,
+                "year": "2022"
+            },
+            {
+                "id": 47762,
+                "year": "2023"
+            },
+            {
+                "id": 57444,
+                "year": "2024"
+            },
+            {
+                "id": 70171,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1632,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40282,
+                "year": "2022"
+            },
+            {
+                "id": 48741,
+                "year": "2023"
+            },
+            {
+                "id": 57636,
+                "year": "2024"
+            },
+            {
+                "id": 70015,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 365,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38440,
+                "year": "21/22"
+            },
+            {
+                "id": 45796,
+                "year": "22/23"
+            },
+            {
+                "id": 54555,
+                "year": "23/24"
+            },
+            {
+                "id": 67200,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 132838,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 90887,
+                "year": "2026"
+            }
+        ]
+    },
+    {
+        "tournament_id": 53,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37642,
+                "year": "21/22"
+            },
+            {
+                "id": 44226,
+                "year": "22/23"
+            },
+            {
+                "id": 52947,
+                "year": "23/24"
+            },
+            {
+                "id": 63812,
+                "year": "24/25"
+            },
+            {
+                "id": 79502,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1139,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 24253,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 336,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38468,
+                "year": "21/22"
+            },
+            {
+                "id": 45157,
+                "year": "22/23"
+            },
+            {
+                "id": 53979,
+                "year": "23/24"
+            },
+            {
+                "id": 65040,
+                "year": "24/25"
+            },
+            {
+                "id": 80287,
+                "year": "25/26"
+            },
+            {
+                "id": 25591,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 247,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37152,
+                "year": "21/22"
+            },
+            {
+                "id": 42282,
+                "year": "22/23"
+            },
+            {
+                "id": 52173,
+                "year": "23/24"
+            },
+            {
+                "id": 61477,
+                "year": "24/25"
+            },
+            {
+                "id": 76882,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 75232,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 25264,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 649,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 36257,
+                "year": "2021"
+            },
+            {
+                "id": 41892,
+                "year": "2022"
+            },
+            {
+                "id": 49950,
+                "year": "2023"
+            },
+            {
+                "id": 58388,
+                "year": "2024"
+            },
+            {
+                "id": 71364,
+                "year": "2025"
+            },
+            {
+                "id": 28232,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 308,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 23606,
+                "year": "2022"
+            },
+            {
+                "id": 53508,
+                "year": "23-25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 183,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37550,
+                "year": "21/22"
+            },
+            {
+                "id": 42921,
+                "year": "22/23"
+            },
+            {
+                "id": 53055,
+                "year": "23/24"
+            },
+            {
+                "id": 64124,
+                "year": "24/25"
+            },
+            {
+                "id": 78599,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 136,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38979,
+                "year": "21/22"
+            },
+            {
+                "id": 44709,
+                "year": "22/23"
+            },
+            {
+                "id": 54447,
+                "year": "23/24"
+            },
+            {
+                "id": 64864,
+                "year": "24/25"
+            },
+            {
+                "id": 82603,
+                "year": "25/26"
+            },
+            {
+                "id": 24802,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1238,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 35236,
+                "year": "2021"
+            },
+            {
+                "id": 40319,
+                "year": "2022"
+            },
+            {
+                "id": 48351,
+                "year": "2023"
+            },
+            {
+                "id": 57388,
+                "year": "2024"
+            },
+            {
+                "id": 70963,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 2304,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 48160,
+                "year": "22/23"
+            },
+            {
+                "id": 57293,
+                "year": "23/24"
+            },
+            {
+                "id": 69131,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 24,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37155,
+                "year": "21/22"
+            },
+            {
+                "id": 42402,
+                "year": "22/23"
+            },
+            {
+                "id": 52370,
+                "year": "23/24"
+            },
+            {
+                "id": 61959,
+                "year": "24/25"
+            },
+            {
+                "id": 77352,
+                "year": "25/26"
+            },
+            {
+                "id": 19949,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 25,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37156,
+                "year": "21/22"
+            },
+            {
+                "id": 42403,
+                "year": "22/23"
+            },
+            {
+                "id": 52368,
+                "year": "23/24"
+            },
+            {
+                "id": 61960,
+                "year": "24/25"
+            },
+            {
+                "id": 77351,
+                "year": "25/26"
+            },
+            {
+                "id": 23980,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 10783,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 27595,
+                "year": "20/21"
+            },
+            {
+                "id": 40128,
+                "year": "22/23"
+            },
+            {
+                "id": 58337,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 59480,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 23103,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 495,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40595,
+                "year": "2022"
+            },
+            {
+                "id": 48837,
+                "year": "2023"
+            },
+            {
+                "id": 58896,
+                "year": "2024"
+            },
+            {
+                "id": 71737,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 672,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37566,
+                "year": "21/22"
+            }
+        ]
+    },
+    {
+        "tournament_id": 13362,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40280,
+                "year": "2022"
+            },
+            {
+                "id": 48265,
+                "year": "2023"
+            },
+            {
+                "id": 57318,
+                "year": "2024"
+            },
+            {
+                "id": 70264,
+                "year": "2025"
+            },
+            {
+                "id": 22635,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 17015,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37074,
+                "year": "21/22"
+            },
+            {
+                "id": 42224,
+                "year": "22/23"
+            },
+            {
+                "id": 52327,
+                "year": "23/24"
+            },
+            {
+                "id": 61648,
+                "year": "24/25"
+            },
+            {
+                "id": 76960,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 14733,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 27597,
+                "year": "2020"
+            }
+        ]
+    },
+    {
+        "tournament_id": 825,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 38196,
+                "year": "21/22"
+            },
+            {
+                "id": 42056,
+                "year": "22/23"
+            },
+            {
+                "id": 53587,
+                "year": "23/24"
+            },
+            {
+                "id": 63717,
+                "year": "24/25"
+            },
+            {
+                "id": 77227,
+                "year": "25/26"
+            },
+            {
+                "id": 24743,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 10093,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37748,
+                "year": "21/22"
+            },
+            {
+                "id": 79033,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 47389,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 25325,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 11620,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40080,
+                "year": "21/22"
+            },
+            {
+                "id": 47656,
+                "year": "22/23"
+            },
+            {
+                "id": 57315,
+                "year": "23/24"
+            },
+            {
+                "id": 70096,
+                "year": "24/25"
+            },
+            {
+                "id": 26789,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 211,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37058,
+                "year": "21/22"
+            },
+            {
+                "id": 42274,
+                "year": "22/23"
+            },
+            {
+                "id": 52551,
+                "year": "23/24"
+            },
+            {
+                "id": 61728,
+                "year": "24/25"
+            },
+            {
+                "id": 77154,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 1191,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 39215,
+                "year": "21/22"
+            },
+            {
+                "id": 45277,
+                "year": "22/23"
+            },
+            {
+                "id": 53685,
+                "year": "23/24"
+            },
+            {
+                "id": 64783,
+                "year": "24/25"
+            },
+            {
+                "id": 80357,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 671,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37564,
+                "year": "21/22"
+            },
+            {
+                "id": 24666,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 332,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 41961,
+                "year": "22/23"
+            },
+            {
+                "id": 52164,
+                "year": "2023"
+            },
+            {
+                "id": 61176,
+                "year": "2024"
+            },
+            {
+                "id": 76396,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 696,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 77328,
+                "year": "25/26"
+            },
+            {
+                "id": 24451,
+                "year": "19/20"
+            },
+            {
+                "id": 34611,
+                "year": "20/21"
+            },
+            {
+                "id": 42445,
+                "year": "22/23"
+            },
+            {
+                "id": 63572,
+                "year": "24/25"
+            }
+        ]
+    },
+    {
+        "tournament_id": 6076,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 50973,
+                "year": "2023"
+            }
+        ]
+    },
+    {
+        "tournament_id": 465,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 41910,
+                "year": "22/23"
+            },
+            {
+                "id": 52094,
+                "year": "23/24"
+            },
+            {
+                "id": 60623,
+                "year": "24/25"
+            },
+            {
+                "id": 76138,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 185,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37707,
+                "year": "21/22"
+            },
+            {
+                "id": 44513,
+                "year": "22/23"
+            },
+            {
+                "id": 53223,
+                "year": "23/24"
+            },
+            {
+                "id": 64052,
+                "year": "24/25"
+            },
+            {
+                "id": 78175,
+                "year": "25/26"
+            },
+            {
+                "id": 24108,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 215,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37158,
+                "year": "21/22"
+            },
+            {
+                "id": 42276,
+                "year": "22/23"
+            },
+            {
+                "id": 52366,
+                "year": "23/24"
+            },
+            {
+                "id": 61658,
+                "year": "24/25"
+            },
+            {
+                "id": 77152,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 742,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 25200,
+                "year": "19/20"
+            }
+        ]
+    },
+    {
+        "tournament_id": 44545,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 23112,
+                "year": "2019"
+            }
+        ]
+    },
+    {
+        "tournament_id": 55,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40656,
+                "year": "2022"
+            },
+            {
+                "id": 48709,
+                "year": "2023"
+            },
+            {
+                "id": 58125,
+                "year": "2024"
+            },
+            {
+                "id": 71183,
+                "year": "2025"
+            }
+        ]
+    },
+    {
+        "tournament_id": 270,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 71636,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "tournament_id": 23,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 37475,
+                "year": "21/22"
+            },
+            {
+                "id": 42415,
+                "year": "22/23"
+            },
+            {
+                "id": 52760,
+                "year": "23/24"
+            },
+            {
+                "id": 63515,
+                "year": "24/25"
+            },
+            {
+                "id": 76457,
+                "year": "25/26"
+            },
+            {
+                "id": 24644,
+                "year": "19/20"
+            },
+            {
+                "id": 32523,
+                "year": "20/21"
+            }
+        ]
+    },
+    {
+        "tournament_id": 384,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 40174,
+                "year": "2022"
+            },
+            {
+                "id": 47974,
+                "year": "2023"
+            },
+            {
+                "id": 57296,
+                "year": "2024"
+            },
+            {
+                "id": 70083,
+                "year": "2025"
+            },
+            {
+                "id": 19989,
+                "year": "2019"
+            },
+            {
+                "id": 87760,
+                "year": "2026"
+            },
+            {
+                "id": 26785,
+                "year": "2020"
+            },
+            {
+                "id": 35576,
+                "year": "2021"
+            }
+        ]
+    }
+]

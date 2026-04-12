@@ -1,0 +1,94 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "SofaScraper"
+version = "0.1.0"
+description = "A CLI tool to scrape sports match data - statistics, lineups, incidents and events - from SofaScore."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+keywords = ["scraping", "sports", "football", "sofascore", "data", "playwright"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "playwright>=1.44.0",
+    "beautifulsoup4>=4.12.0",
+    "click>=8.1.0",
+]
+
+[project.scripts]
+sofascraper = "sofascraper.cli.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/<your-username>/sofascraper"
+Repository = "https://github.com/<your-username>/sofascraper"
+"Bug Tracker" = "https://github.com/<your-username>/sofascraper/issues"
+
+# ---------------------------------------------------------------------------
+# uv
+# ---------------------------------------------------------------------------
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.4.0",
+]
+
+# ---------------------------------------------------------------------------
+# Ruff — linting & formatting
+# ---------------------------------------------------------------------------
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "S",   # flake8-bandit (security)
+    "RUF", # ruff-specific rules
+]
+ignore = [
+    "S311", # pseudo-random generators are fine for user-agent rotation
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"] # allow assert in tests
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+# ---------------------------------------------------------------------------
+# Pytest
+# ---------------------------------------------------------------------------
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+# ---------------------------------------------------------------------------
+# Hatch — build configuration
+# ---------------------------------------------------------------------------
+
+[tool.hatch.build.targets.wheel]
+packages = ["sofascraper"]
