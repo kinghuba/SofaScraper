@@ -28,5 +28,20 @@ PLAYWRIGHT_BROWSER_ARGS_DOCKER = [
     "--window-size=1280,720",
 ]
 
+WANTED_SUFFIXES = {
+    "football": [
+        "/lineups",
+        "/statistics",
+        "/incidents",
+        "",
+        "/managers",
+        "/comments",
+        "/shotmap",
+        "/graph",
+        "/odds/1/featured",
+    ],
+    "tennis": ["", "/statistics", "/odds/1/featured", "/tennis-power", "/point-by-point"],
+}
+
 POPUP_TIMEOUT_MS = 5_000
 GOTO_TIMEOUT_MS = 5_000

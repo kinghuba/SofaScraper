@@ -83,15 +83,9 @@ You can configure `ruff` in `pyproject.toml` under `[tool.ruff]`.
 sofascraper/
 ├── cli/           # Click CLI entry point and command definitions
 ├── core/          # Scraping logic, Playwright management, sport-specific scrapers
-├── storage/       # Data persistence (JSON, future: DB)
+├── storage/       # Data persistence (JSON, DB)
 └── utils/         # Helpers, enums, dataclasses, constants
 ```
-
-When adding a new sport or storage backend, follow the existing patterns:
-
-- Add a new scraper in `core/<sport>/` extending `BaseScraper`.
-- Add a new parser in `core/<sport>/` following the `FootballParser` pattern.
-- Register the sport in `utils/enums.py` and the relevant registry files.
 
 ---
 
@@ -166,7 +160,7 @@ For new scrapers or parsers, aim to cover at minimum:
    git push origin feature/my-new-feature
    ```
 2. Open a pull request against the **`develop`** branch of this repository.
-3. Fill in the PR template (if provided), or include:
+3. Include:
    - A clear description of what the PR does and why.
    - Steps to reproduce the issue being fixed, if applicable.
    - Any known limitations or follow-up work.
@@ -201,4 +195,4 @@ Discussing an idea in an issue before opening a PR helps avoid wasted effort and
 
 ## Questions?
 
-Feel free to open an issue if you have a question or need clarification. We're happy to help.
+Feel free to open an issue if you have a question or need clarification. I am happy to help.

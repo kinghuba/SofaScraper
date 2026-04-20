@@ -1,8 +1,9 @@
-from dataclasses import dataclass
 import logging
 import time
+from dataclasses import dataclass
 
-from playwright.async_api import Page, TimeoutError, Error as PlaywrightError
+from playwright.async_api import Error as PlaywrightError
+from playwright.async_api import Page, TimeoutError
 
 from sofascraper.utils.constants import POPUP_TIMEOUT_MS
 
@@ -11,10 +12,7 @@ CONSENT_SELECTOR = "button.fc-button.fc-cta-consent.fc-primary-button"
 
 # Language confirm button: filled primary button used for language selection
 LANGUAGE_SELECTOR = (
-    "button.button--variant_filled"
-    ".button--size_secondary"
-    ".button--colorPalette_primary"
-    ".button--negative_false"
+    "button.button--variant_filled.button--size_secondary.button--colorPalette_primary.button--negative_false"
 )
 
 
@@ -30,7 +28,7 @@ class BrowserHelpers:
     """
     Handles transient popup dialogs that may appear on SofaScore pages.
 
-    Both methods are safe to call unconditionally — if the relevant button
+    Both methods are safe to call unconditionally -- if the relevant button
     is not present within the timeout window, the method logs a debug message
     and returns False instead of raising.
     """
@@ -47,8 +45,8 @@ class BrowserHelpers:
             <button class="fc-button fc-cta-consent fc-primary-button" ...>
 
         Returns:
-            True  — button was found and clicked.
-            False — button did not appear within the timeout window.
+            True  -- button was found and clicked.
+            False -- button did not appear within the timeout window.
         """
         try:
             btn = self.page.locator(CONSENT_SELECTOR).first
@@ -58,7 +56,7 @@ class BrowserHelpers:
             return True
 
         except TimeoutError:
-            self.logger.debug("No consent popup detected — skipping.")
+            self.logger.debug("No consent popup detected -- skipping.")
             return False
 
         except Exception as e:
@@ -69,20 +67,14 @@ class BrowserHelpers:
         """
         Click the language-confirmation button if it appears.
 
-        Looks for:
-            <button class="button button--variant_filled button--size_secondary
-                           button--colorPalette_primary button--negative_false">
-                Confirm
-            </button>
-
         The selector targets the CSS classes rather than the button text so that
         it still works if the label is ever localised, but an extra text filter
         is applied as a safety guard to avoid accidentally clicking an unrelated
         button that shares the same classes.
 
         Returns:
-            True  — button was found and clicked.
-            False — button did not appear within the timeout window.
+            True  --> button was found and clicked.
+            False --> button did not appear within the timeout window.
         """
         try:
             btn = self.page.locator(LANGUAGE_SELECTOR, has_text="Confirm").first
@@ -92,7 +84,7 @@ class BrowserHelpers:
             return True
 
         except TimeoutError:
-            self.logger.debug("No language confirmation popup detected — skipping.")
+            self.logger.debug("No language confirmation popup detected -- skipping.")
             return False
 
         except Exception as e:
@@ -141,9 +133,7 @@ class BrowserHelpers:
 
         # Get initial element count if selector is provided
         if content_check_selector:
-            initial_elements = await self.page.query_selector_all(
-                content_check_selector
-            )
+            initial_elements = await self.page.query_selector_all(content_check_selector)
             last_element_count = len(initial_elements)
             self.logger.info(f"Initial element count: {last_element_count}")
 
@@ -157,12 +147,8 @@ class BrowserHelpers:
                 # Scroll incrementally to trigger lazy-loading content
                 page_height = await self.page.evaluate("document.body.scrollHeight")
                 if current_scroll_pos < page_height:
-                    current_scroll_pos = min(
-                        current_scroll_pos + scroll_step, page_height
-                    )
-                    await self.page.evaluate(
-                        f"window.scrollTo(0, {current_scroll_pos})"
-                    )
+                    current_scroll_pos = min(current_scroll_pos + scroll_step, page_height)
+                    await self.page.evaluate(f"window.scrollTo(0, {current_scroll_pos})")
                 else:
                     # Already at bottom, nudge to trigger any remaining loads
                     await self.page.evaluate(f"window.scrollTo(0, {page_height})")
@@ -173,27 +159,16 @@ class BrowserHelpers:
 
                 # Count elements if selector is provided
                 if content_check_selector:
-                    new_element_count = await self.page.locator(
-                        content_check_selector
-                    ).count()
-                    self.logger.info(
-                        f"Current element count: {new_element_count} (height: {new_height})"
-                    )
+                    new_element_count = await self.page.locator(content_check_selector).count()
+                    self.logger.info(f"Current element count: {new_element_count} (height: {new_height})")
 
                     # Check if element count is stable
-                    if (
-                        new_element_count == last_element_count
-                        and new_height == last_height
-                    ):
+                    if new_element_count == last_element_count and new_height == last_height:
                         stable_count_attempts += 1
-                        self.logger.debug(
-                            f"Content stable. Attempt {stable_count_attempts}/{max_scroll_attempts}."
-                        )
+                        self.logger.debug(f"Content stable. Attempt {stable_count_attempts}/{max_scroll_attempts}.")
 
                         if stable_count_attempts >= max_scroll_attempts:
-                            self.logger.info(
-                                f"Content stabilized at {new_element_count} elements. Scrolling complete."
-                            )
+                            self.logger.info(f"Content stabilized at {new_element_count} elements. Scrolling complete.")
                             return True
                     else:
                         stable_count_attempts = 0  # Reset if content changed
@@ -202,14 +177,10 @@ class BrowserHelpers:
                     # Fallback to height-based detection
                     if new_height == last_height:
                         stable_count_attempts += 1
-                        self.logger.debug(
-                            f"Height stable. Attempt {stable_count_attempts}/{max_scroll_attempts}."
-                        )
+                        self.logger.debug(f"Height stable. Attempt {stable_count_attempts}/{max_scroll_attempts}.")
 
                         if stable_count_attempts >= max_scroll_attempts:
-                            self.logger.info(
-                                "Page height stabilized. Scrolling complete."
-                            )
+                            self.logger.info("Page height stabilized. Scrolling complete.")
                             return True
                     else:
                         stable_count_attempts = 0
@@ -217,9 +188,7 @@ class BrowserHelpers:
                 last_height = new_height
             except PlaywrightError as e:
                 if "Execution context was destroyed" in str(e):
-                    self.logger.warning(
-                        "Page context destroyed during scroll — waiting for reload."
-                    )
+                    self.logger.warning("Page context destroyed during scroll -- waiting for reload.")
                     await self.page.wait_for_load_state("domcontentloaded")
                     continue
                 raise

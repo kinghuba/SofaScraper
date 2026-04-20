@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 class SportTournamentRegistry:
-    """Dynamic lookup among tournaments"""
+    """Dynamic lookup among tournaments and seasons"""
 
     _data = None
     _id_map = None
@@ -12,6 +12,7 @@ class SportTournamentRegistry:
     _sport_map = None
     _country_id_map = None
     _country_name_map = None
+    _season_id_map = None
 
     @classmethod
     def _load(cls):
@@ -26,12 +27,23 @@ class SportTournamentRegistry:
 
             cls._sport_map = {}
             cls._country_id_map = {}
-            cls._country_name_map = {}
+            cls._season_id_map = {}
 
             for t in cls._data:
+                # Groupings
                 cls._sport_map.setdefault(t["sport"], []).append(t)
                 cls._country_id_map.setdefault(t.get("country_id"), []).append(t)
-                cls._country_name_map.setdefault(t.get("country_name"), []).append(t)
+
+                # Flatten seasons into lookup map
+                for season in t.get("seasons", []):
+                    cls._season_id_map[season["id"]] = {
+                        **season,
+                        "tournament_id": t["id"],
+                        "tournament_name": t["name"],
+                        "tournament_slug": t.get("slug"),
+                    }
+
+    # ^ Tournament methods
 
     @classmethod
     def all(cls):
@@ -41,7 +53,7 @@ class SportTournamentRegistry:
     @classmethod
     def get_by_id(cls, tournament_id):
         cls._load()
-        return cls._id_map.get(tournament_id)
+        return cls._id_map.get(int(tournament_id))
 
     @classmethod
     def get_by_slug(cls, slug):
@@ -63,7 +75,23 @@ class SportTournamentRegistry:
         cls._load()
         return cls._country_id_map.get(country_id, [])
 
+    # ^ Season methods
+
     @classmethod
-    def get_by_country_name(cls, name):
+    def get_seasons_by_tournament(cls, tournament_id):
         cls._load()
-        return cls._country_name_map.get(name, [])
+        tournament = cls._id_map.get(int(tournament_id))
+        return tournament.get("seasons", []) if tournament else []
+
+    @classmethod
+    def get_by_season_id(cls, season_id):
+        cls._load()
+        return cls._season_id_map.get(season_id) or None
+
+    @classmethod
+    def get_tournament_by_season_id(cls, season_id):
+        cls._load()
+        season = cls._season_id_map.get(season_id)
+        if season:
+            return cls._id_map.get(season["tournament_id"])
+        return None

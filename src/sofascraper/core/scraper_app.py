@@ -1,9 +1,12 @@
 import logging
 
-from sofascraper.utils.enums import StorageFormat
-from sofascraper.core.football.football_scraper import FootballScraper
+from dotenv import load_dotenv
+
+from sofascraper.core.base_scraper import Scraper
 from sofascraper.core.playwright_manager import PlaywrightManager
 from sofascraper.storage.local_data_storage import LocalDataStorage
+from sofascraper.storage.pgsql.connection import Database
+from sofascraper.storage.pgsql_data_storage import PgsqlDataStorage
 from sofascraper.utils.enums import CommandEnum
 from sofascraper.utils.proxy_manager import ProxyManager
 
@@ -12,9 +15,7 @@ class ScraperApp:
     def __init__(self):
         self.logger = logging.getLogger(self.__class__.__name__)
         self.playwright_manager = PlaywrightManager()
-        self.football_scraper = FootballScraper(
-            playwright_manager=self.playwright_manager
-        )
+        self.scraper = Scraper(playwright_manager=self.playwright_manager)
 
     async def run_scraper(
         self,
@@ -24,8 +25,8 @@ class ScraperApp:
         dates: str | None = None,
         tournaments: list[str] | None = None,
         seasons: str | None = None,
-        storage_format: str = "json",
-        file_path: str = "data",
+        storage_format: str | None = None,
+        file_path: str | None = None,
         proxy_url: str | None = None,
         proxy_user: str | None = None,
         proxy_pass: str | None = None,
@@ -43,16 +44,14 @@ class ScraperApp:
             f"sport={sport}, date={dates}, leagues={tournaments}, season={seasons}, file_path={file_path}"
             f"proxy_url={proxy_url}, browser_user_agent={browser_user_agent}, "
             f"browser_locale_timezone={browser_locale_timezone}, browser_timezone_id={browser_timezone_id}, "
-            f"headless={headless}"
+            f"headless={headless} storage={storage_format}"
         )
 
-        self.proxy_manager = ProxyManager(
-            proxy_url=proxy_url, proxy_user=proxy_user, proxy_pass=proxy_pass
-        )
+        self.proxy_manager = ProxyManager(proxy_url=proxy_url, proxy_user=proxy_user, proxy_pass=proxy_pass)
 
         try:
             proxy_config = self.proxy_manager.get_current_proxy()
-            await self.football_scraper.start_playwright(
+            await self.scraper.start_playwright(
                 headless=headless,
                 browser_user_agent=browser_user_agent,
                 browser_locale_timezone=browser_locale_timezone,
@@ -60,11 +59,13 @@ class ScraperApp:
                 proxy=proxy_config,
             )
 
+            if storage_format == "database":
+                load_dotenv()
+                await Database.connect()
+
             if command == CommandEnum.TOURNAMENTS:
                 if not sport or not tournaments:
-                    raise ValueError(
-                        "Both 'sport' and 'tournaments' must be provided for scraping."
-                    )
+                    raise ValueError("Both 'sport' and 'tournaments' must be provided for scraping.")
 
                 printable_season = seasons if seasons else "current"
                 self.logger.info(
@@ -72,71 +73,68 @@ class ScraperApp:
                     f"sport={sport}, tournaments={tournaments}, season={printable_season}\n"
                 )
 
-                storage = LocalDataStorage(
-                    default_file_path=f"{file_path}/{tournaments[0].lower()}",
-                    default_storage_format=StorageFormat(
-                        storage_format.strip().lower()
-                    ),
-                )
+                if storage_format == "database":
+                    storage = PgsqlDataStorage(sport_slug=sport, scraper_version="1.0.0")
+                    async with Database.transaction() as conn:
+                        await storage.open_scrape_run(conn)
+                else:
+                    storage = LocalDataStorage(
+                        default_file_path=f"{file_path}/{sport}/{tournaments[0].lower()}",
+                    )
 
-                return await self.football_scraper.scrape_tournaments(
+                return await self.scraper.scrape_tournaments(
                     sport=sport,
-                    tournament=tournaments[0],
-                    season=seasons,
+                    tournaments=tournaments,
+                    seasons=seasons,
                     storage=storage,
                 )
 
             if command == CommandEnum.MATCHES:
                 if not match_links or not sport:
-                    raise ValueError(
-                        "At least one match link and the sport must be provided for scraping."
+                    raise ValueError("At least one match link and the sport must be provided for scraping.")
+
+                self.logger.info(f"\n Scraping details for matches={match_links} sport={sport}")
+
+                if storage_format == "database":
+                    storage = PgsqlDataStorage(sport_slug=sport, scraper_version="1.0.0")
+                    async with Database.transaction() as conn:
+                        await storage.open_scrape_run(conn)
+                else:
+                    storage = LocalDataStorage(
+                        default_file_path=f"{file_path}/{sport}/matches",
                     )
 
-                self.logger.info(
-                    f"\n Scraping details for matches={match_links} sport={sport}"
-                )
-
-                storage = LocalDataStorage(
-                    default_file_path=f"{file_path}/matches",
-                    default_storage_format=StorageFormat(
-                        storage_format.strip().lower()
-                    ),
-                )
-
-                return await self.football_scraper.scrape_links(
-                    sport=sport, match_links=list(match_links), storage=storage
-                )
+                return await self.scraper.scrape_links(sport=sport, match_links=list(match_links), storage=storage)
 
             if command == CommandEnum.DATES:
                 if not dates:
-                    raise ValueError(
-                        "At least one 'match_link' must be provided for scraping."
+                    raise ValueError("At least one 'match_link' must be provided for scraping.")
+
+                self.logger.info(f"\n Scraping details for dates={dates}, sport={sport}\n")
+
+                if storage_format.strip().lower() == "database":
+                    storage = PgsqlDataStorage(sport_slug=sport, scraper_version="1.0.0")
+                    async with Database.transaction() as conn:
+                        await storage.open_scrape_run(conn)
+                else:
+                    storage = LocalDataStorage(
+                        default_file_path=f"{file_path}/{sport}/dates",
                     )
-
-                self.logger.info(
-                    f"\n Scraping details for dates={dates}, sport={sport}"
-                )
-
-                storage = LocalDataStorage(
-                    default_file_path=f"{file_path}/dates",
-                    default_storage_format=StorageFormat(
-                        storage_format.strip().lower()
-                    ),
-                )
-
-                return await self.football_scraper.scrape_dates(
-                    sport=sport, dates=dates, storage=storage
-                )
+                return await self.scraper.scrape_dates(sport=sport, dates=dates, storage=storage)
 
             else:
-                raise ValueError(
-                    f"Unknown command: {command}. Supported commands are 'upcoming-matches' and 'historic'."
-                )
+                raise ValueError(f"Unknown command: {command}.")
 
         except Exception as e:
             self.logger.error(f"An error occured: {e}")
             return None
 
         finally:
-            await self.football_scraper.stop_playwright()
+            # Close db connection
+            if storage_format == "database":
+                async with Database.transaction() as conn:
+                    await storage.close_scrape_run(conn)
+                await Database.disconnect()
+            # end playwright
+            await self.scraper.stop_playwright()
             self.logger.info("Process stopped successfully")

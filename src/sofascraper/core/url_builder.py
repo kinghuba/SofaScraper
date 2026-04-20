@@ -1,11 +1,9 @@
-from datetime import UTC, datetime
-import re
 import logging
+import re
 
 from sofascraper.utils.constants import SOFASCORE_BASE_URL
-from sofascraper.utils.sport_tournament_registry import SportTournamentRegistry
-from sofascraper.utils.sport_season_registry import SportSeasonRegistry
 from sofascraper.utils.country_registry import CountryRegistry
+from sofascraper.utils.sport_tournament_registry import SportTournamentRegistry
 
 logger = logging.getLogger("URLBuilder")
 
@@ -18,9 +16,7 @@ class URLBuilder:
     def __init__(self):
         self.logger = logging.getLogger(self.__class__.__name__)
 
-    def get_tournament_url(
-        self, sport: str, tournament: str, season: str | None = None
-    ) -> str:
+    def get_tournament_url(self, sport: str, tournament: str, season: str | None = None) -> str:
         """
         Constructs the tournament URL for specific sport and season.
 
@@ -40,22 +36,32 @@ class URLBuilder:
 
         # Resolve league alias for this season
         tournament_dict = SportTournamentRegistry.get_by_slug(tournament)
-        self.logger.debug(tournament_dict)
         country_dict = CountryRegistry.get_by_id(tournament_dict.get("country_id"))
-        self.logger.debug(country_dict)
-        seasons = SportSeasonRegistry.get_by_tournament(tournament_dict.get("id"))
 
         # Year could be saved as 25/26
         def extract_year(year_str):
-            return max(int(f"20{y}") for y in year_str.split("/"))
+            # Normalize input to string
+            year_str = str(year_str)
+
+            # Case 1: format like "24/25"
+            if re.fullmatch(r"\d{2}/\d{2}", year_str):
+                return max(int(f"20{y}") for y in year_str.split("/"))
+
+            # Case 2: format like "2024"
+            if re.fullmatch(r"\d{4}", year_str):
+                year = int(year_str)
+                short = year % 100
+                next_short = (short + 1) % 100
+                return f"{short:02d}/{next_short:02d}"
+
+            raise ValueError(f"Invalid year format: {year_str}")
 
         # Sorting by season value
-        sorted_seasons = sorted(
-            seasons["seasons"], key=lambda x: extract_year(x["year"]), reverse=True
-        )
+        sorted_seasons = sorted(tournament_dict["seasons"], key=lambda x: extract_year(x["year"]), reverse=True)
 
         if tournament_dict:
-            base_url = f"{SOFASCORE_BASE_URL}/{sport}/tournament/{country_dict.get('slug').lower()}/{tournament_dict.get('slug').lower()}/{tournament_dict.get('id')}"
+            base_url = f"{SOFASCORE_BASE_URL}/{sport}/tournament/{country_dict.get('flag').lower()}/{tournament_dict.get('slug').lower()}/{tournament_dict.get('id')}"
+            self.logger.debug(base_url)
 
         # Treat missing season as current
         if not season:
@@ -63,33 +69,28 @@ class URLBuilder:
             return f"{base_url}#id:{sorted_seasons[0]['id']}"
 
         if isinstance(season, str) and season.lower() == "current":
-            raise ValueError(
-                f"Invalid season format: {season}. Expected format: 'YY/YY' or 'YYYY'"
-            )
+            raise ValueError(f"Invalid season format: {season}. Expected format: 'YY/YY' or 'YYYY'")
+
+        if re.match(r"^\d{5,}$", season):
+            return f"{base_url}#id:{season}"
 
         if re.match(r"^\d{4}$", season) or re.match(r"^\d{2}/\d{2}$", season):
             season_id = next(
                 # Check against both
-                (
-                    s["id"]
-                    for s in seasons["seasons"]
-                    if s["year"] == season or s["year"] == extract_year(season)
-                ),
+                (s["id"] for s in sorted_seasons if s["year"] == season or s["year"] == extract_year(season)),
                 None,
             )
-            self.logger.debug(f"{base_url}#id:{season_id}/")
-            return f"{base_url}#id:{season_id}/"
+            self.logger.debug(f"{base_url}#id:{season_id}")
+            return f"{base_url}#id:{season_id}"
 
-        raise ValueError(
-            f"Invalid season format: {season}. Expected format: 'YYYY' or 'YY/YY'"
-        )
+        raise ValueError(f"Invalid season format: {season}. Expected format: 'YYYY' or 'YY/YY'")
 
-    def get_statistics_tab_url(self, match_url: str, match_id: int) -> str:
+    def get_url(self, match_url: str, match_id: int) -> str:
         """
-        Return the match URL forced onto the statistics tab.
+        Return the match URL.
         """
         base = match_url.split("#")[0]
-        return f"{base}#id:{match_id},tab:statistics"
+        return f"{base}#id:{match_id}"
 
     def get_match_id(self, url: str) -> int | None:
         """

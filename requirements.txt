@@ -1,7 +1,5 @@
 psycopg[binary]
 playwright==1.44.0
-rq==1.16.1
-redis==5.0.4
-python-dotenv==1.0.1
-tqdm==4.66.4
+click
 tzlocal
+rich

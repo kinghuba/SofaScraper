@@ -27,11 +27,7 @@ class ProxyManager:
         """Strip embedded credentials from a URL for safe logging."""
         parsed = urlparse(url)
         if parsed.username or parsed.password:
-            safe = parsed._replace(
-                netloc=f"{parsed.hostname}:{parsed.port}"
-                if parsed.port
-                else parsed.hostname
-            )
+            safe = parsed._replace(netloc=f"{parsed.hostname}:{parsed.port}" if parsed.port else parsed.hostname)
             return urlunparse(safe)
         return url
 
@@ -69,9 +65,7 @@ class ProxyManager:
             proxy_config["password"] = proxy_pass
             self.logger.info(f"Configured proxy with authentication: {safe_url}")
         elif proxy_user or proxy_pass:
-            self.logger.warning(
-                "Both proxy_user and proxy_pass must be provided for authentication. Ignoring auth."
-            )
+            self.logger.warning("Both proxy_user and proxy_pass must be provided for authentication. Ignoring auth.")
             self.logger.info(f"Configured proxy without authentication: {safe_url}")
         else:
             self.logger.info(f"Configured proxy without authentication: {safe_url}")
@@ -98,6 +92,4 @@ class ProxyManager:
 
     def rotate_proxy(self):
         """Legacy method - no-op with single proxy configuration."""
-        self.logger.debug(
-            "Proxy rotation not supported with single proxy configuration."
-        )
+        self.logger.debug("Proxy rotation not supported with single proxy configuration.")

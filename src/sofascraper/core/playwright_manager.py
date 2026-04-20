@@ -5,7 +5,6 @@ from playwright.async_api import async_playwright
 
 from sofascraper.utils.constants import (
     PLAYWRIGHT_BROWSER_ARGS,
-    PLAYWRIGHT_BROWSER_ARGS_DOCKER,
 )
 
 # Anti-detection script to hide automation signatures
@@ -56,12 +55,10 @@ class PlaywrightManager:
             self.playwright = await async_playwright().start()
 
             browser_args = PLAYWRIGHT_BROWSER_ARGS
-            self.browser = await self.playwright.chromium.launch(
-                headless=headless, args=browser_args, proxy=proxy
-            )
+            self.browser = await self.playwright.chromium.launch(headless=headless, args=browser_args, proxy=proxy)
 
             # Use provided user_agent or random default
-            effective_user_agent = user_agent or random.choice(DEFAULT_USER_AGENTS)  # noqa: S311
+            effective_user_agent = user_agent or random.choice(DEFAULT_USER_AGENTS)
 
             self.context = await self.browser.new_context(
                 locale=locale,
@@ -70,7 +67,7 @@ class PlaywrightManager:
                 viewport={
                     "width": random.randint(1366, 1920),
                     "height": random.randint(768, 1080),
-                },  # noqa: S311
+                },
             )
 
             # Add anti-detection script

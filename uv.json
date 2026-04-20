@@ -2,7 +2,7 @@
     "venv": ".venv",
     "python": "python3.13",
     "env": {
-        "PYTHONPATH": "."
+        "PYTHONPATH": "./src"
     },
     "activate": true,
     "scripts": {

@@ -1,14 +1,15 @@
 """Shared Click options for Sofascraper CLI."""
 
 import functools
+
 import click
-from sofascraper.utils.enums import Sport
+
+from sofascraper.cli.types import STORAGE_FORMAT
 from sofascraper.cli.validators import (
-    validate_concurrency,
     validate_file_path,
     validate_proxy_url,
 )
-from sofascraper.cli.types import STORAGE_FORMAT
+from sofascraper.utils.enums import Sport
 
 
 def global_options(func):
@@ -28,6 +29,7 @@ def global_options(func):
         "-o",
         "file_path",
         type=click.Path(),
+        default="data",
         callback=validate_file_path,
         envvar="SS_FILE_PATH",
         help="Output file path.",

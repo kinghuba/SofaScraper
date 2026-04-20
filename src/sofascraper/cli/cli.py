@@ -1,6 +1,7 @@
 """Main CLI entry point for sofascraper."""
 
 import logging
+
 import click
 
 from sofascraper import __version__
@@ -14,7 +15,7 @@ from sofascraper.utils.setup_logging import setup_logger
 @click.version_option(version=__version__, prog_name="SofaScraper")
 @click.pass_context
 def cli(ctx, verbose, quiet):
-    """SofaScraper - Scrape sports betting odds from SofaScore."""
+    """SofaScraper - Scrape sports from SofaScore."""
     log_level = logging.INFO
     if quiet:
         log_level = logging.ERROR

@@ -1,36 +1,67 @@
-import dataclasses
-from datetime import datetime, timezone
-from enum import Enum
 import logging
+from datetime import UTC, datetime
 from typing import Any
-from sofascraper.utils.utils import to_snake_case
-import tzlocal
 
-from sofascraper.utils.football_data_classes import (
+from sofascraper.utils.country_registry import CountryRegistry
+from sofascraper.utils.dataclasses.football_data_classes import (
+    BaseEvent,
+    Commentary,
+    Coordinate,
     Coordinates,
+    Country,
+    Event,
+    Incident,
     LineupPlayer,
+    Lineups,
+    Manager,
+    Managers,
     MarketValue,
     MatchData,
-    BaseEvent,
     MissingPlayer,
+    Momentum,
+    MomentumElement,
+    Odds,
+    OddsChoices,
+    Player,
     Referee,
     Round,
     Score,
     Season,
+    Shotmap,
     StatisticGroup,
+    StatisticItem,
     StatisticsPeriod,
     Status,
+    Team,
     TimeInfo,
     Tournament,
-    Team,
-    Player,
-    Incident,
-    Lineups,
-    StatisticItem,
-    Event,
     Venue,
 )
-from sofascraper.utils.country_registry import CountryRegistry
+from sofascraper.utils.utils import fractional_to_all_odds, to_snake_case
+
+#! Football Constants
+
+FOOTBALL_INCIDENT_TYPES = {
+    "goal": "goal",
+    "card": "card",
+    "substitution": "substitution",
+    "injuryTime": "injury_time",
+    "varDecision": "var",
+}
+
+# Map for possibly accidents and their player names
+SOFASCORE_INCIDENT_TYPE_MAP = {
+    "goal": ["player", "assist1"],
+    "substitution": ["playerIn", "playerOut"],
+}
+
+# Local version of player
+PLAYER_INCIDENT_TYPE_MAP = {
+    "player": "goal_scorer",
+    "assist1": "assist",
+    "playerIn": "player_in",
+    "playerOut": "player_out",
+}
 
 
 class FootballParser:
@@ -39,14 +70,11 @@ class FootballParser:
 
     def parse_event(self, event: dict) -> BaseEvent | None:
         """
-        Return dictionary of tournament information.
-
         Args:
-            season: Dictinary of season section of main event.
-            event: Dictinary of unique_tournament section of main event.
+            event: Dictinary of whole main event.
 
         Return:
-            event: Parsed event.
+            BaseEvent: Parsed event with base level of details.
         """
 
         if "id" not in event:
@@ -54,11 +82,7 @@ class FootballParser:
             return None
 
         start_time_stamp = event.get("startTimestamp")
-        match_date = (
-            datetime.fromtimestamp(start_time_stamp, tz=tzlocal.get_localzone())
-            if start_time_stamp
-            else None
-        )
+        match_date = datetime.fromtimestamp(start_time_stamp, tz=UTC) if start_time_stamp else None
 
         teams = self._parse_teams(event)
         home_team = teams[0] if teams else None
@@ -67,27 +91,20 @@ class FootballParser:
         if not home_team or not away_team:
             self.logger.warning(f"Event {event.get('id')}: missing teams")
 
-        season = event.get("season") or {}
-
         tournament = event.get("tournament", {})
         unique_tournament = tournament.get("uniqueTournament", {})
         round_info = event.get("roundInfo", {})
+
+        category = tournament.get("category", {})
+
+        season_data = event.get("season") or {}
+        season = self._parse_season(season_data, unique_tournament)
 
         home_score = self._parse_score(event.get("homeScore", {}))
         away_score = self._parse_score(event.get("awayScore", {}))
 
         time_data = event.get("time")
-        time_info = (
-            TimeInfo(
-                **{
-                    k: v
-                    for k, v in time_data.items()
-                    if k != "currentPeriodStartTimestamp"
-                }
-            )
-            if time_data
-            else None
-        )
+        time = self._parse_time(time_data)
 
         try:
             return BaseEvent(
@@ -97,18 +114,13 @@ class FootballParser:
                 status=Status(**event.get("status", {})),
                 winner_code=event.get("winnerCode"),
                 date=match_date,
-                season=Season(
-                    **{
-                        k: v
-                        for k, v in season.items()
-                        if k not in ("editor", "seasonCoverageInfo")
-                    }
-                ),
+                season=season,
                 tournament=Tournament(
                     id=unique_tournament.get("id"),
                     name=tournament.get("name"),
                     slug=tournament.get("slug"),
                     priority=tournament.get("priority"),
+                    country=self._parse_country(category),
                 ),
                 aggregated_winner_code=event.get("aggregatedWinnerCode"),
                 previous_leg_event=event.get("previousLegEventId"),
@@ -122,68 +134,90 @@ class FootballParser:
                 away_team=away_team,
                 home_score=home_score,
                 away_score=away_score,
-                time=time_info,
+                time=time,
             )
         except Exception as e:
-            self.logger.error(
-                f"Failed to parse event {event.get('id')}: {e}", exc_info=True
-            )
+            self.logger.error(f"Failed to parse event {event.get('id')}: {e}", exc_info=True)
             return None
+
+    def _parse_time(self, time) -> TimeInfo | None:
+        """
+        Args:
+            season: Dictinary of time section of main event.
+
+        Returns:
+            TimeInfo:  The parsed time information.
+        """
+        return TimeInfo(
+            injuryTime1=time.get("injuryTime1", ""),
+            injuryTime2=time.get("injuryTime2", ""),
+            injuryTime3=time.get("injuryTime3", ""),
+            injuryTime4=time.get("injuryTime4", ""),
+        )
 
     def _parse_season(self, season, unique_tournament) -> Season | None:
         """
-        Return dictionary of tournament information.
-
         Args:
             season: Dictinary of season section of main event.
             unique_tournament: Dictinary of unique_tournament section of main event.
+
+        Returns:
+            Season:  The parsed season information.
         """
 
         if not season.get("id"):
             return
 
         return Season(
-            season_id=season["id"],
-            season_name=season.get("name", ""),
-            season_year=season.get("year", ""),
+            id=season.get("id", ""),
+            name=season.get("name", ""),
+            year=season.get("year", ""),
             tournament_id=unique_tournament.get("id", ""),
         )
 
     def _getCountry(self, alpha2: str) -> int | None:
         """
-        Returns the id of the country from the countries alpha2 attribute.
+        Args:
+            alpha2: Alpha2 string of the country. (e.g., DK)
 
-        :param alpha2: Alpha2 string of the country. (e.g., DK)
+        Returns:
+            int: The id of the country from the countries alpha2 attribute.
         """
         result = CountryRegistry.get_by_alpha2(alpha2)
         return result.get("id") if result else None
 
-    def _parse_tournament(
-        self, tournament: dict, unique_tournament: dict
-    ) -> Tournament | None:
+    def _parse_tournament(self, tournament: dict, unique_tournament: dict) -> Tournament | None:
         """
-        Return dictionary of tournament information.
+        Args:
+            tournament: Dictinary of tournament section of main event.
+            unique_tournament: Dictinary of unique_tournament section of main event.
 
-        :param tournament: Dictinary of tournament section of main event.
-        :param unique_tournament: Dictinary of unique_tournament section of main event.
+        Returns:
+            Tournament:  The parsed tournament information.
         """
 
         if not tournament or not unique_tournament:
             self.logger.warning("No data tournament data found")
             return
 
-        country = tournament.get("country", {}).get("alpha2", "")
-        country_id = self._getCountry(country)  # Returns id from alpha2
+        category = tournament.get("category", {})
 
         return Tournament(
             id=unique_tournament.get("id", ""),
             name=unique_tournament.get("name", ""),
             slug=tournament.get("slug", ""),
             priority=tournament.get("priority", ""),
-            country_id=country_id,
+            country=self._parse_country(category),
         )
 
     def _parse_teams(self, event: dict) -> list[Team]:
+        """
+        Args:
+            event: Dictinary of whole main event.
+
+        Returns:
+            list[Team]:  The list of parsed team information.
+        """
         teams = []
 
         for side in ("homeTeam", "awayTeam"):
@@ -209,15 +243,14 @@ class FootballParser:
 
         return teams
 
-    FOOTBALL_INCIDENT_TYPES = {
-        "goal": "goal",
-        "card": "card",
-        "substitution": "substitution",
-        "injuryTime": "injury_time",
-        "varDecision": "var",
-    }
-
     def _parse_player(self, player: dict | None) -> Player | None:
+        """
+        Args:
+            player: Dictinary of player.
+
+        Returns:
+            Player:  The parsed player information.
+        """
 
         if not player or not player.get("id"):
             return None
@@ -229,9 +262,7 @@ class FootballParser:
         time_stamp = player.get("dateOfBirthTimestamp")
         if time_stamp:
             try:
-                date_of_birth = datetime.fromtimestamp(
-                    time_stamp, tz=timezone.utc
-                ).date()
+                date_of_birth = datetime.fromtimestamp(time_stamp, tz=UTC).date()
             except Exception as e:
                 self.logger.warning(f"Invalid dateOfBirthTimestamp: {time_stamp} ({e})")
 
@@ -251,30 +282,15 @@ class FootballParser:
             ),
         )
 
-    def _parse_multi_player_incidents(
-        self, incident: dict, incident_type: str
-    ) -> Incident | None:
+    def _parse_multi_player_incidents(self, incident: dict, incident_type: str) -> Incident | None:
         """
-        Return parsed incident, where multiple players are embedded within.
-
         Args:
             incidents: Dictionary of an incident.
             incident_type: Type of the incident as a string.
+
+        Returns:
+            Incident: Parsed incident, where multiple players are embedded within.
         """
-
-        # Map for possibly accidents and their player names
-        SOFASCORE_INCIDENT_TYPE_MAP = {
-            "goal": ["player", "assist1"],
-            "substitution": ["playerIn", "playerOut"],
-        }
-
-        # Local version of player
-        PLAYER_INCIDENT_TYPE_MAP = {
-            "player": "goal_scorer",
-            "assist1": "assist",
-            "playerIn": "player_in",
-            "playerOut": "player_out",
-        }
 
         parsed = Incident(
             id=incident.get("id"),
@@ -294,9 +310,7 @@ class FootballParser:
 
         return parsed
 
-    def _parse_incidents(
-        self, match_id: int, data: dict[str, Any]
-    ) -> list[Incident] | None:
+    def _parse_incidents(self, match_id: int, data: dict[str, Any]) -> list[Incident] | None:
         """
         Parse /incidents response.
 
@@ -305,17 +319,13 @@ class FootballParser:
             data: Response from /incidents api endpoint.
 
         Returns:
-            incidents: Parsed incidents.
+            list[Incident]: List of parsed incidents.
         """
 
         # All incidents
 
         incidents_raw = data.get("incidents", {})
-        incidents = (
-            incidents_raw
-            if isinstance(incidents_raw, list)
-            else incidents_raw.get("incidents", [])
-        )
+        incidents = incidents_raw if isinstance(incidents_raw, list) else incidents_raw.get("incidents", [])
 
         if not incidents:
             self.logger.warning(f"Match {match_id}: empty incidents response, skipping")
@@ -328,9 +338,7 @@ class FootballParser:
 
             # Parse and add accidents, where there are more players involved.
             if incident_type in ["substitution", "goal"]:
-                parsed.append(
-                    self._parse_multi_player_incidents(incident, incident_type)
-                )
+                parsed.append(self._parse_multi_player_incidents(incident, incident_type))
                 continue
 
             # Skip over time based periods, already have this data at this point.
@@ -364,7 +372,7 @@ class FootballParser:
             data: Response from /lineups api endpoint.
 
         Returns:
-            lineups: Returns state of lineups, alongside formation, lineups and missing players.
+            Lineups: Returns state of lineups, alongside formation, lineups and missing players.
         """
 
         # Lineups breaks the structure of the other responses, there is no lineup dict within.
@@ -391,7 +399,7 @@ class FootballParser:
                 )
 
                 # Loop over statistics for each player
-                for key, value in player.get("statistics").items():
+                for key, value in player.get("statistics", {}).items():
                     if key == "statisticsType":
                         continue
 
@@ -427,9 +435,30 @@ class FootballParser:
             missing_players=missing_players,
         )
 
-    def _parse_statistics(
-        self, match_id: int, data: dict[str, Any]
-    ) -> list[StatisticItem] | None:
+    def _parse_managers(self, match_id, data) -> Managers | None:
+        home_manager = data.get("homeManager", {})
+        away_manager = data.get("awayManager", {})
+
+        if not home_manager or not away_manager:
+            self.logger.warning(f"Match {match_id}: no manager data found")
+            return None
+
+        return Managers(
+            home_manager=Manager(
+                id=home_manager.get("id"),
+                name=home_manager.get("name"),
+                slug=home_manager.get("slug"),
+                short_name=home_manager.get("shortName"),
+            ),
+            away_manager=Manager(
+                id=away_manager.get("id"),
+                name=away_manager.get("name"),
+                slug=away_manager.get("slug"),
+                short_name=away_manager.get("shortName"),
+            ),
+        )
+
+    def _parse_statistics(self, match_id: int, data: dict[str, Any]) -> list[StatisticItem] | None:
         """
         Parse /statistics response.
 
@@ -440,9 +469,7 @@ class FootballParser:
         statistics = data.get("statistics", [])
 
         if not statistics:
-            self.logger.warning(
-                f"Match {match_id}: empty statistics response -- skipping"
-            )
+            self.logger.warning(f"Match {match_id}: empty statistics response -- skipping")
             return
 
         parsed = []
@@ -464,11 +491,7 @@ class FootballParser:
                         )
                     )
 
-                groups.append(
-                    StatisticGroup(
-                        group_name=group.get("groupName"), statistics=grouped_statistics
-                    )
-                )
+                groups.append(StatisticGroup(group_name=group.get("groupName"), statistics=grouped_statistics))
 
             parsed.append(StatisticsPeriod(period=period.get("period"), groups=groups))
 
@@ -476,9 +499,7 @@ class FootballParser:
 
         return parsed
 
-    def _parse_detailed_event_information(
-        self, match_id: int, data: dict[str, Any]
-    ) -> Event:
+    def _parse_detailed_event_information(self, match_id: int, data: dict[str, Any]) -> Event:
         """
         Parse /{match_id} response. Return a base event, with added details.
 
@@ -498,12 +519,14 @@ class FootballParser:
         referee = event.get("referee", {}) or {}
         if not referee:
             self.logger.warning(f"Referee data is missing for match_id: {match_id}")
-        referee_country_id = self._getCountry(referee.get("country").get("alpha2", ""))
+        else:
+            referee_country_id = self._getCountry(referee.get("country").get("alpha2", ""))
 
         venue = event.get("venue", {}) or {}
         if not venue:
             self.logger.warning(f"Venue data is missing for match_id: {match_id}")
-        venue_country_id = self._getCountry(venue.get("country").get("alpha2", ""))
+        else:
+            venue_country_id = self._getCountry(venue.get("country").get("alpha2", ""))
 
         coords = venue.get("venueCoordinates") or {}
 
@@ -525,9 +548,7 @@ class FootballParser:
                 name=venue.get("name"),
                 country_id=venue_country_id,
                 capacity=venue.get("capacity"),
-                coordinates=Coordinates(
-                    lat=coords.get("latitude"), long=coords.get("longitude")
-                ),
+                coordinates=Coordinates(lat=coords.get("latitude"), long=coords.get("longitude")),
             )
             if venue
             else None,
@@ -536,7 +557,7 @@ class FootballParser:
     def _parse_score(self, score: dict) -> Score:
 
         if not score:
-            self.logger.warning("Empty score object encountered")
+            self.logger.debug("Empty score object encountered")
 
         return Score(
             current=score.get("current"),
@@ -544,7 +565,171 @@ class FootballParser:
             period1=score.get("period1"),
             period2=score.get("period2"),
             normaltime=score.get("normaltime"),
+            extra1=score.get("extra1", None),
+            extra2=score.get("extra2", None),
+            overtime=score.get("overtime", None),
+            penalties=score.get("penalties", None),
+            aggregated=score.get("aggregated", None),
         )
+
+    def _parse_odds(self, match_id: int, data: dict[str, Any]) -> list[Odds] | None:
+        if not data:
+            return None
+
+        results: list[Odds] = []
+        featured = data.get("featured")
+
+        if not featured:
+            return None
+
+        for key in featured.keys():
+            item = featured.get(key, {})
+
+            choices = self._parse_odds_choices(item.get("choices", []))
+
+            results.append(
+                Odds(
+                    name=item.get("marketName", ""),
+                    period=item.get("marketPeriod", ""),
+                    group=item.get("marketGroup", ""),
+                    choices=choices,
+                )
+            )
+
+        self.logger.debug(f"Match {match_id} odds information successfully parsed.")
+        return results
+
+    def _parse_odds_choices(self, odds_choices) -> list[OddsChoices] | None:
+        if not odds_choices:
+            return None
+
+        # Some values appear twice
+        seen = set()
+        unique_choices = []
+
+        for choice in odds_choices:
+            key = (
+                choice.get("name"),
+                choice.get("fractionalValue"),
+            )
+
+            if key not in seen:
+                seen.add(key)
+                unique_choices.append(choice)
+
+        fractional_list = [choice.get("fractionalValue", "") for choice in unique_choices]
+
+        converted = fractional_to_all_odds(fractional_list)
+
+        results: list[OddsChoices] = []
+
+        for choice, conv in zip(unique_choices, converted):
+            results.append(
+                OddsChoices(
+                    name=choice.get("name", ""),
+                    winning=choice.get("winning", False),
+                    fractional=conv["fractional"],
+                    decimal=conv["decimal"],
+                    american=conv["american"],
+                    implied_probability=conv["implied_probability"],
+                    true_probability=conv.get("true_probability", 0.0),
+                    true_decimal=conv.get("true_decimal_odds", 0.0),
+                )
+            )
+
+        return results
+
+    def _parse_momentum(self, match_id: int, data: dict[str, Any]) -> Momentum | None:
+        if not data:
+            return None
+
+        results: list[MomentumElement] = []
+        points = data.get("graphPoints", {})
+
+        for element in points:
+            results.append(MomentumElement(element.get("minute", None), element.get("value", None)))
+
+        self.logger.debug(f"Match {match_id} momentum information successfully parsed.")
+        return results
+
+    def _parse_country(self, category: dict[str, Any]) -> Country:
+        if not category:
+            return None
+
+        country = category.get("country", {})
+
+        return Country(
+            id=category.get("id"),
+            alpha2=country.get("alpha2", None),
+            alpha3=country.get("alpha3", None),
+            flag=category.get("flag"),
+            name=country.get("name", None),
+            slug=country.get("slug", None),
+        )
+
+    def _parse_shotmap(self, match_id: int, data: dict[str, Any]) -> list[Shotmap] | None:
+        if not data:
+            return None
+
+        results: list[Shotmap] = []
+        incidents = data.get("shotmap", {})
+
+        for incident in incidents:
+            player = self._parse_player(incident.get("player", {}))
+            goalkeeper = self._parse_player(incident.get("goalkeeper", {}))
+            goal_mouth_coordinates = self._parse_coordinate(incident.get("goalMouthCoordinates", None))
+            block_coordinates = self._parse_coordinate(incident.get("blockCoordinates", None))
+            player_coordinates = self._parse_coordinate(incident.get("playerCoordinates", None))
+
+            results.append(
+                Shotmap(
+                    player=player,
+                    is_home=incident.get("isHome", None),
+                    shot_type=incident.get("shotType", None),
+                    situation=incident.get("situation", None),
+                    player_coordinates=player_coordinates,
+                    body_part=incident.get("bodyPart", None),
+                    goal_mouth_location=incident.get("goalMouthLocation", None),
+                    goal_mouth_coordinates=goal_mouth_coordinates,
+                    block_coordinates=block_coordinates,
+                    xg=incident.get("xg", None),
+                    xgot=incident.get("xgot", None),
+                    goalkeeper=goalkeeper,
+                    time=incident.get("time", None),
+                    added_time=incident.get("addedTime", None),
+                )
+            )
+
+        self.logger.debug(f"Match {match_id} shotmap information successfully parsed.")
+        return results
+
+    def _parse_coordinate(self, coordinates) -> Coordinate | None:
+        if not coordinates:
+            return None
+
+        return Coordinate(
+            x=coordinates.get("x", ""),
+            y=coordinates.get("y", ""),
+            z=coordinates.get("z", ""),
+        )
+
+    def _parse_comments(self, match_id, data) -> list[Commentary] | None:
+        if not data:
+            return None
+        results: list[Commentary] = []
+
+        for commentary in data.get("comments", {}):
+            results.append(
+                Commentary(
+                    id=commentary.get("id"),
+                    type=commentary.get("type"),
+                    text=commentary.get("text"),
+                    period_name=commentary.get("periodName", None),
+                    time=commentary.get("time", None),
+                )
+            )
+        self.logger.debug(f"Match {match_id} commentary successfully parsed.")
+        return results
 
     def parse_match(self, match_id: str, match_url: str, raw: dict) -> MatchData:
 
@@ -554,18 +739,23 @@ class FootballParser:
             self.logger.error(f"Match {match_id}: base is None -- aborting")
             return None
 
+        # TODO: Map the different status codes
+
         # If the match is finished run everything, otherwise just base
         if base.status.code == 100:
             incidents = self._parse_incidents(match_id, raw.get("incidents", {}))
             statistics = self._parse_statistics(match_id, raw.get("statistics", {}))
             lineups = self._parse_lineups(match_id, raw.get("lineups", {}))
+            shotmap = self._parse_shotmap(match_id, raw.get("shotmap", {}))
+            momentum = self._parse_momentum(match_id, raw.get("graph", {}))
+            odds = self._parse_odds(match_id, raw.get("odds/1/featured", {}))
+            managers = self._parse_managers(match_id, raw.get("managers", {}))
+            commentary = self._parse_comments(match_id, raw.get("comments", {}))
         else:
-            self.logger.info(
-                f"Match {match_id} not finished yet, only base information available."
-            )
-            incidents = statistics = lineups = None
+            self.logger.debug(f"Match {match_id} not finished yet, only base information available.")
+            incidents = statistics = lineups = shotmap = momentum = odds = managers = commentary = None
 
-        self.logger.info(f"Match {match_id} successfully parsed.")
+        self.logger.debug(f"Match {match_id} successfully parsed.")
 
         return MatchData(
             match_id=match_id,
@@ -574,8 +764,9 @@ class FootballParser:
             statistics=statistics,
             incidents=incidents,
             lineups=lineups,
+            odds=odds,
+            shotmap=shotmap,
+            momentum=momentum,
+            managers=managers,
+            commentary=commentary,
         )
-
-
-# TODO : Add shotmap
-# TODO : Add odds priority
