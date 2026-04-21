@@ -35,7 +35,7 @@ class URLBuilder:
         """
 
         # Resolve league alias for this season
-        tournament_dict = SportTournamentRegistry.get_by_slug(tournament)
+        tournament_dict = SportTournamentRegistry.get_by_id(tournament)
         country_dict = CountryRegistry.get_by_id(tournament_dict.get("country_id"))
 
         # Year could be saved as 25/26

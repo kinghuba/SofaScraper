@@ -67,10 +67,10 @@ class ScraperApp:
                 if not sport or not tournaments:
                     raise ValueError("Both 'sport' and 'tournaments' must be provided for scraping.")
 
-                printable_season = seasons if seasons else "current"
+                seasons = seasons if seasons else ["current"]
                 self.logger.info(
                     "\n Scraping matches and their details for "
-                    f"sport={sport}, tournaments={tournaments}, season={printable_season}\n"
+                    f"sport={sport}, tournaments={tournaments}, season={seasons}\n"
                 )
 
                 if storage_format == "database":
@@ -79,7 +79,7 @@ class ScraperApp:
                         await storage.open_scrape_run(conn)
                 else:
                     storage = LocalDataStorage(
-                        default_file_path=f"{file_path}/{sport}/{tournaments[0].lower()}",
+                        default_file_path=f"{file_path}/{sport}",
                     )
 
                 return await self.scraper.scrape_tournaments(

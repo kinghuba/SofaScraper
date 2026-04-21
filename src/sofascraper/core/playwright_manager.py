@@ -1,3 +1,4 @@
+import asyncio
 import logging
 import random
 
@@ -79,6 +80,14 @@ class PlaywrightManager:
         except Exception as e:
             self.logger.error(f"Failed to initialize Playwright: {e!s}")
             raise
+
+    async def create_page_pool(self, size: int = 3) -> asyncio.Queue:
+        """Create a pool of independent pages for concurrent scraping."""
+        pool = asyncio.Queue()
+        for _ in range(size):
+            page = await self.browser.new_page()
+            await pool.put(page)
+        return pool
 
     async def cleanup(self):
         """Properly closes Playwright instances."""

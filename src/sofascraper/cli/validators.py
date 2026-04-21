@@ -187,11 +187,11 @@ def validate_tournament(ctx, param, value):
     # Handle it as list of items
     for tournament in value:
         if bool(re.fullmatch(r"\d+", tournament)):
-            results.append(_validate_tournament_data(tournament_id=int(tournament)).get("slug"))
+            results.append(_validate_tournament_data(tournament_id=int(tournament)).get("id"))
         elif bool(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", tournament)):
-            results.append(_validate_tournament_data(slug=tournament).get("slug"))
+            results.append(_validate_tournament_data(slug=tournament).get("id"))
         else:
-            results.append(_validate_tournament_data(name=tournament).get("slug"))
+            results.append(_validate_tournament_data(name=tournament).get("id"))
 
     return results
 
