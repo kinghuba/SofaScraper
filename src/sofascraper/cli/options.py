@@ -16,13 +16,22 @@ def global_options(func):
     """Options related to the environment, proxy, and storage."""
 
     @click.option(
+        "--concurrency",
+        "-c",
+        "concurrency",
+        type=int,
+        default="1",
+        envvar="SS_CONCURRENCY",
+        help="Number of concurrent pages to open.",
+    )
+    @click.option(
         "--format",
         "-f",
         "storage_format",
         type=STORAGE_FORMAT,
         default="json",
         envvar="SS_FORMAT",
-        help="Output format.",
+        help="Output format. Either 'json' or 'database'",
     )
     @click.option(
         "--output",

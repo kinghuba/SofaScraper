@@ -34,6 +34,7 @@ class ScraperApp:
         browser_locale_timezone: str | None = None,
         browser_timezone_id: str | None = None,
         headless: bool = False,
+        concurrency: int = 1
     ):
         """
         Runs the scraping process and handles execution.
@@ -44,7 +45,7 @@ class ScraperApp:
             f"sport={sport}, date={dates}, leagues={tournaments}, season={seasons}, file_path={file_path}"
             f"proxy_url={proxy_url}, browser_user_agent={browser_user_agent}, "
             f"browser_locale_timezone={browser_locale_timezone}, browser_timezone_id={browser_timezone_id}, "
-            f"headless={headless} storage={storage_format}"
+            f"headless={headless} storage={storage_format} concurrency={concurrency}"
         )
 
         self.proxy_manager = ProxyManager(proxy_url=proxy_url, proxy_user=proxy_user, proxy_pass=proxy_pass)
@@ -87,6 +88,7 @@ class ScraperApp:
                     tournaments=tournaments,
                     seasons=seasons,
                     storage=storage,
+                    concurrency=concurrency
                 )
 
             if command == CommandEnum.MATCHES:
@@ -104,7 +106,7 @@ class ScraperApp:
                         default_file_path=f"{file_path}/{sport}/matches",
                     )
 
-                return await self.scraper.scrape_links(sport=sport, match_links=list(match_links), storage=storage)
+                return await self.scraper.scrape_links(sport=sport, match_links=list(match_links), storage=storage, concurrency=concurrency)
 
             if command == CommandEnum.DATES:
                 if not dates:
@@ -120,7 +122,7 @@ class ScraperApp:
                     storage = LocalDataStorage(
                         default_file_path=f"{file_path}/{sport}/dates",
                     )
-                return await self.scraper.scrape_dates(sport=sport, dates=dates, storage=storage)
+                return await self.scraper.scrape_dates(sport=sport, dates=dates, storage=storage, concurrency=concurrency)
 
             else:
                 raise ValueError(f"Unknown command: {command}.")

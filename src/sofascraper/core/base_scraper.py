@@ -581,8 +581,19 @@ class Scraper:
         match_links: list[str],
         result: ScrapeResult,
         storage,
-        concurrency: int = 2,
+        concurrency: int = 1,
     ) -> ScrapeResult:
+        """
+        Scrapes a batch of matches, skipping any already saved to disk,
+        and shows a Rich progress bar.
+
+        Args:
+            sport: Slug of scraped sport.
+            match_links: List of SofaScore URLs to scrape.
+            storage:     Storage instance used for deduplication and saving.
+            result
+            concurrency: Number of concurrent pages to open
+        """
         if storage is not None:
             match_links, skipped = await self._filter_existing_matches(
                 match_links=match_links, storage=storage,
@@ -646,6 +657,7 @@ class Scraper:
         sport: str,
         match_links: list[str],
         storage,
+        concurrency: int = 1
     ) -> ScrapeResult | None:
         result = ScrapeResult()
         current_page = self.playwright_manager.page
@@ -659,7 +671,7 @@ class Scraper:
         consent = await browser_helpers.handle_all_popups() or {}
 
         if consent and consent.consent_accepted:
-            await self._scrape_matches(sport, match_links, result, storage)
+            await self._scrape_matches(sport, match_links, result, storage, concurrency)
 
         return result
 
@@ -671,6 +683,7 @@ class Scraper:
         tournaments: list[str],
         seasons: list[str],
         storage,
+        concurrency: int = 1
     ) -> ScrapeResult | None:
         result = ScrapeResult()
         current_page = self.playwright_manager.page
@@ -722,13 +735,13 @@ class Scraper:
             self.logger.warning("No match links found across any tournament -- aborting.")
             return None
 
-        await self._scrape_matches(sport, all_match_links, result, storage)
+        await self._scrape_matches(sport, all_match_links, result, storage, concurrency)
 
         return result
 
     # ^ Dates
 
-    async def scrape_dates(self, sport: str, dates: str | list[str], storage) -> ScrapeResult:
+    async def scrape_dates(self, sport: str, dates: str | list[str], storage, concurrency: int = 1) -> ScrapeResult:
         """
         Fetch and parse all scheduled events for one or more dates,
         skipping any dates that already have a saved file on disk.
@@ -741,10 +754,6 @@ class Scraper:
                     - range string (inclusive): 2022-11-12-2022-12-01
         """
         result = ScrapeResult()
-        page = self.playwright_manager.page
-        if not page:
-            raise RuntimeError("Playwright is not initialised -- call start_playwright() first.")
-
         self.logger.info(f"Requested {len(dates)} date(s): {dates[0]} … {dates[-1]}")
 
         # Deduplicate dates before opening the browser loop
@@ -754,38 +763,41 @@ class Scraper:
         if not dates:
             self.logger.info("All dates already scraped -- nothing to do.")
             return result
+        
+        page_pool = await self.playwright_manager.create_page_pool(size=concurrency)
+        result_lock = asyncio.Lock()
+        sem = asyncio.Semaphore(concurrency)
 
-        async with ProgressTracker(total=len(dates), label="Dates") as pt:
-            for target_date in dates:
+        async def scrape_one_date(target_date: str, pt: ProgressTracker):
+            async with sem:
+                page = await page_pool.get()
                 failed = False
                 try:
                     raw_events = await self._scrape_date_events(page, sport, target_date)
-
                     day_events = []
                     for event in raw_events:
                         try:
-                            parser = self._get_parser(sport)
-                            parsed = parser.parse_event(event)
+                            parsed = self._get_parser(sport).parse_event(event)
                             if parsed:
-                                result.matches.append(parsed)
                                 day_events.append(parsed)
                         except Exception:
                             self.logger.warning(f"Failed to parse event: {event}")
 
-                    try:
-                        file_path = storage.default_file_path or None
-                        await storage.save_data(
-                            data=day_events,
-                            file_path=f"{file_path}/{target_date}",
-                        )
-                    except Exception as e:
-                        self.logger.error(f"Failed to save events for {target_date}: {e}", exc_info=True)
+                    async with result_lock:
+                        result.matches.extend(day_events)
 
+                    await storage.save_data(
+                        data=day_events,
+                        file_path=f"{storage.default_file_path}/{target_date}"
+                    )
                 except Exception as e:
-                    self.logger.error(f"Failed to scrape events for {target_date}: {e}", exc_info=True)
+                    self.logger.error(f"Failed to scrape {target_date}: {e}", exc_info=True)
                     failed = True
-
                 finally:
+                    await page_pool.put(page)
                     pt.advance(status=target_date, failed=failed)
+
+        async with ProgressTracker(total=len(dates), label="Dates") as pt:
+            await asyncio.gather(*[scrape_one_date(d, pt) for d in dates])
 
         return result
