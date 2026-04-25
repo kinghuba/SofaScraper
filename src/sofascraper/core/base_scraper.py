@@ -5,6 +5,7 @@ import logging
 import random
 from collections.abc import Iterable
 from dataclasses import dataclass, field
+from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
 from playwright.async_api import Page
@@ -12,13 +13,13 @@ from playwright.async_api import Page
 from sofascraper.core.parsers.football_parser import FootballParser
 from sofascraper.core.parsers.tennis_parser import TennisParser
 from sofascraper.core.playwright_manager import PlaywrightManager
-from sofascraper.core.url_builder import URLBuilder
+from sofascraper.storage.pgsql_data_storage import PgsqlDataStorage
 from sofascraper.utils.browser_helpers import BrowserHelpers
 from sofascraper.utils.constants import GOTO_TIMEOUT_MS, SOFASCORE_BASE_URL, WANTED_SUFFIXES
 from sofascraper.utils.dataclasses.football_data_classes import MatchData
 from sofascraper.utils.progress_tracker import ProgressTracker
 from sofascraper.utils.sport_tournament_registry import SportTournamentRegistry
-from sofascraper.utils.utils import wait_and_try_again
+from sofascraper.utils.utils import extract_year, get_tournament_information, wait_and_try_again, get_match_id
 
 PARSERS = {
     "tennis": TennisParser,
@@ -52,6 +53,7 @@ class Scraper:
     def __init__(
         self,
         playwright_manager: PlaywrightManager,
+        storage = None
     ):
         """
         Args:
@@ -59,7 +61,7 @@ class Scraper:
         """
         self.logger = logging.getLogger(self.__class__.__name__)
         self.playwright_manager = playwright_manager
-        self.url = URLBuilder()
+        self.storage = storage
 
     def _get_parser(self, sport):
         parser = PARSERS.get(sport)
@@ -93,7 +95,7 @@ class Scraper:
     # ^ Deduplication
 
     async def _filter_existing_matches(
-        self, match_links: list[str], storage, file_path: str | None = None, sport: str | None = None
+        self, match_links: list[str], file_path: str | None = None, sport: str | None = None
     ) -> tuple[list[str], int]:
         """
         Remove links whose match IDs already exist in storage.
@@ -106,14 +108,14 @@ class Scraper:
         Returns:
             (filtered_links, skipped_count)
         """
-        existing_ids = await storage.get_existing_match_ids(file_path=file_path)
+        existing_ids = await self.storage.get_existing_match_ids(file_path=file_path)
 
         if not existing_ids:
             return match_links, 0
 
         filtered = []
         for link in match_links:
-            match_id = self.url.get_match_id(link)
+            match_id = get_match_id(link)
             if match_id is not None and match_id in existing_ids:
                 self.logger.debug(f"Skipping already-scraped match {match_id}")
             else:
@@ -122,16 +124,17 @@ class Scraper:
         skipped = len(match_links) - len(filtered)
 
         if skipped:
-            self.logger.info(f"Deduplication: {skipped} match(es) already present - {len(filtered)} remaining.")
+            self.logger.debug(f"Deduplication: {skipped} match(es) already present - {len(filtered)} remaining.")
 
         return filtered, skipped
 
     async def _filter_existing_dates(
-        self, date_list: Iterable[str], storage, file_path: str | None = None, sport: str | None = None
+        self, date_list: Iterable[str], file_path: str | None = None, sport: str | None = None
     ) -> tuple[list[str], int]:
 
         directory = file_path or None
-        existing_dates = await storage.get_existing_dates(file_path=directory)
+        # Only works for local files, not database
+        existing_dates = await self.storage.get_existing_dates(file_path=directory)
 
         if not existing_dates:
             return list(date_list), 0
@@ -141,38 +144,54 @@ class Scraper:
         skipped = len(list(date_list)) - len(filtered)
 
         if skipped:
-            self.logger.info(f"Deduplication: {skipped} date(s) already present - {len(filtered)} remaining.")
+            self.logger.debug(f"Deduplication: {skipped} date(s) already present - {len(filtered)} remaining.")
 
         return filtered, skipped
 
     # ^ Match helpers
 
-    async def _extract_match_links(self, page: Page, extraction_type) -> list[str]:
+    def extract_match_info(self, url: str):
+        parsed = urlparse(url)
+
+        # Split path and remove empty parts
+        parts = [p for p in parsed.path.split("/") if p]
+
+        if "match" in parts:
+            match_index = parts.index("match")
+
+            sport = parts[match_index - 1] if len(parts) > match_index - 1 else None
+            slug = parts[match_index + 1] if len(parts) > match_index + 1 else None
+            code = parts[match_index + 2] if len(parts) > match_index + 2 else None
+        else:
+            slug = code = sport = None
+
+        # id from fragment (#id:xxxxxx)
+        match_id = None
+        if parsed.fragment.startswith("id:"):
+            match_id = parsed.fragment.split("id:")[1]
+
+        return sport, slug, code, match_id
+
+    async def _extract_match_links(self, page: Page, season) -> list[str]:
         try:
             all_match_links = set()
+            go_right = True
+            rounds = 0
+            right_clicks = 0
 
             while True:
                 html_content = await page.content()
                 self.soup = BeautifulSoup(html_content, "html.parser")
 
                 def _fetch_rows():
+                    container = self.soup.find("div", id="tabpanel-round")
+                    if not container:
+                        self.logger.warning("tabpanel-round not found")
+                        return None
 
-                    if extraction_type == "tournament":
-                        container = self.soup.find("div", id="tabpanel-round")
-                        if not container:
-                            self.logger.warning("tabpanel-round not found")
-                            return None
+                    matches_container = container.find("div", attrs={"class": lambda c: c and "pb_sm" in c})
 
-                        matches_container = container.find("div", attrs={"class": lambda c: c and "pb_sm" in c})
-
-                        rows = matches_container.find_all("a", href=True) if matches_container else []
-
-                    # Extraction type "team" # TODO add team as scraping option
-                    else:
-                        matches = self.soup.find_all("div", attrs={"class": "card-component never"})
-                        rows = []
-                        for m in matches:
-                            rows.extend(m.find_all("a", href=True))
+                    rows = matches_container.find_all("a", href=True) if matches_container else []
 
                     return rows
 
@@ -184,41 +203,76 @@ class Scraper:
                 self.logger.debug(f"Found {len(rows)} links on current page.")
 
                 for link in rows:
-                    href = link.get("href", "")
-                    parts = href.split("/")
+                    sport, slug, code, match_id = self.extract_match_info(f"{SOFASCORE_BASE_URL}{link.get("href", "")}")
 
-                    if len(parts) > 2 and (parts[2] == "match" or parts[3] == "match"):
-                        all_match_links.add(f"{SOFASCORE_BASE_URL}{href}")
-                    self.logger.debug(f"{SOFASCORE_BASE_URL}{href}")
+                    if not sport or not slug or not code or not match_id:
+                        continue
+
+                    if isinstance(self.storage, PgsqlDataStorage):
+                        await self.storage.save_link(slug, int(match_id), code, int(season), False)
+
+                    if f"{SOFASCORE_BASE_URL}/{sport}/{slug}/{code}#id:{match_id}" in all_match_links:
+                        continue
+                    else: 
+                        all_match_links.add(f"{SOFASCORE_BASE_URL}/{sport}/{slug}/{code}#id:{match_id}")
 
                 self.logger.debug(f"Total collected so far: {len(all_match_links)}")
 
                 # handle pagination
                 try:
-                    left_arrow = await page.query_selector("button.p_xs.bd_1\\.5px_solid_transparent")
+                    arrows = await page.query_selector_all("button.p_xs.bd_1\\.5px_solid_transparent")
 
-                    if not left_arrow:
-                        self.logger.debug("Left arrow not found, stopping.")
+                    if len(arrows) < 2:
+                        self.logger.debug("Arrows not found, stopping.")
                         break
 
-                    is_disabled = await left_arrow.get_attribute("disabled")
+                    left_arrow = arrows[0]
+                    right_arrow = arrows[1]
 
-                    if is_disabled is not None:
-                        self.logger.info("Arrow disabled, waiting 3 seconds to confirm...")
+                    is_left_disabled = await left_arrow.get_attribute("disabled")
+                    is_right_disabled = await right_arrow.get_attribute("disabled")
+
+                    # decide which direction to use
+                    if go_right is True:
+                        if is_right_disabled is not None:
+                            self.logger.debug("Right arrow exhausted. Switching to left.")
+                            go_right = False
+                            continue
+                        arrow_to_click = right_arrow
+                        right_clicks+=1
+                    else:
+                        if is_left_disabled is not None:
+                            self.logger.debug("Left arrow exhausted. Done collecting.")
+                            break
+                        arrow_to_click = left_arrow
+
+                    # confirm disabled state with delay
+                    if (go_right and is_right_disabled is not None) or (not go_right and is_left_disabled is not None):
+                        self.logger.debug("Arrow disabled, waiting 3 seconds to confirm...")
                         await asyncio.sleep(3)
 
-                        # re-check after wait
-                        left_arrow = await page.query_selector("button.p_xs.bd_1\\.5px_solid_transparent")
-                        is_disabled = await left_arrow.get_attribute("disabled")
+                        arrows = await page.query_selector_all("button.p_xs.bd_1\\.5px_solid_transparent")
+                        left_arrow = arrows[0]
+                        right_arrow = arrows[1]
 
-                        if is_disabled is not None:
-                            self.logger.info("Arrow still disabled. Done collecting.")
-                            break
+                        is_left_disabled = await left_arrow.get_attribute("disabled")
+                        is_right_disabled = await right_arrow.get_attribute("disabled")
+
+                        if (go_right and is_right_disabled is not None) or (not go_right and is_left_disabled is not None):
+                            if go_right:
+                                self.logger.debug("Right arrow confirmed disabled. Switching to left.")
+                                go_right = False
+                                continue
+                            else:
+                                self.logger.debug("Left arrow confirmed disabled. Done collecting.")
+                                break
 
                     # Click and wait
-                    delay = random.uniform(2, 5)
-                    self.logger.info(f"Clicking arrow, waiting {delay:.2f}s...")
-                    await left_arrow.click()
+                    delay = random.uniform(2, 3)
+                    direction = "right" if go_right else "left"
+                    self.logger.debug(f"Clicking {direction} arrow, waiting {delay:.2f}s...")
+                    await arrow_to_click.click()
+                    rounds+=1
                     await asyncio.sleep(delay)
 
                 except Exception as click_err:
@@ -226,7 +280,7 @@ class Scraper:
                     break
 
             self.logger.info(f"Final extracted {len(all_match_links)} unique match links.")
-            return list(all_match_links)
+            return list(all_match_links), rounds-right_clicks+1
 
         except Exception as e:
             self.logger.error(f"Error extracting match links: {e}", exc_info=True)
@@ -296,150 +350,9 @@ class Scraper:
             except Exception:
                 pass
 
-        self.logger.info(f"Success {len(all_events)} events captured for {target_date}")
+        self.logger.debug(f"Success {len(all_events)} events captured for {target_date}")
         return all_events
-
-    async def _scrape_event(self, sport: str, match_id: int, match_link: str) -> dict[str, dict]:
-        """
-        Load the match page and capture the SofaScore API responses for
-        /statistics, /incidents, /lineups, and the base event endpoint --
-        all within the existing persistent Playwright session.
-
-        Args:
-            match_id:  Numeric SofaScore event ID (used to filter URLs).
-            match_link: Full page URL for the match, statistics tab, e.g.
-                       https://www.sofascore.com/football/match/slug/id#id:NNN
-        """
-        page = self.playwright_manager.page
-        if not page:
-            raise RuntimeError("Playwright is not initialised - call start_playwright() first.")
-
-        captured: dict[str, dict] = {}
-        pending: dict[str, str] = {}
-        lock = asyncio.Lock()
-
-        cdp = await page.context.new_cdp_session(page)
-
-        async def on_request(params: dict) -> None:
-            url = params.get("request", {}).get("url", "")
-            rid = params.get("requestId", "")
-
-            # Get tennis rankings, different base
-            if sport == "tennis":
-                if url.endswith("/rankings"):
-                    self.logger.debug(f"/rankings --> {url} found.")
-
-                    # Extract team_id
-                    try:
-                        team_id = url.split("/team/")[1].split("/")[0]
-                    except (IndexError, AttributeError):
-                        team_id = None
-
-                    async with lock:
-                        pending[rid] = f"rankings-{team_id}"
-
-            for suffix in WANTED_SUFFIXES.get(sport.lower()):
-                if url.endswith(f"/v1/event/{match_id}{suffix}"):
-                    self.logger.debug(f"/event/{match_id}{suffix} --> {url} found.")
-                    async with lock:
-                        # Store the suffix without the leading slash as dict key
-                        pending[rid] = suffix.lstrip("/")
-                    break
-
-        async def on_loading_finished(params: dict) -> None:
-            rid = params.get("requestId", "")
-            async with lock:
-                key = pending.pop(rid, None)
-            if key is None:
-                return
-            try:
-                resp = await cdp.send("Network.getResponseBody", {"requestId": rid})
-                raw = resp.get("body", "")
-                if resp.get("base64Encoded"):
-                    raw = base64.b64decode(raw).decode("utf-8", errors="replace")
-                async with lock:
-                    captured[key] = json.loads(raw)
-                self.logger.debug(f"match {match_id}: captured /{key or '(base)'}")
-            except Exception as e:
-                self.logger.debug(f"match {match_id}: could not read body for /{key}: {e}")
-
-        cdp.on("Network.requestWillBeSent", on_request)
-        cdp.on("Network.loadingFinished", on_loading_finished)
-        await cdp.send("Network.enable", {})
-
-        try:
-            # statistics tab
-            self.logger.debug(f"Match {match_id}: loading - {match_link}")
-            await page.goto(match_link, wait_until="domcontentloaded", timeout=30_000)
-            try:
-                await page.wait_for_load_state("networkidle", timeout=8_000)
-            except Exception:
-                pass
-            await page.wait_for_timeout(4_000)
-
-            # navigate tolineups tab via hash-change
-            if sport == "football":
-                statistics_hash = f"#id:{match_id},tab:statistics"
-                self.logger.debug(f"match {match_id}: switching to lineups tab")
-                await page.evaluate(f"window.location.hash = '{statistics_hash}'")
-                try:
-                    await page.wait_for_load_state("networkidle", timeout=8_000)
-                except Exception:
-                    pass
-                await page.wait_for_timeout(1_500)
-
-                if "statistics" not in captured:
-                    self.logger.debug(f"match {match_id}: hash navigation didn't fire /lineups -- trying click")
-                    try:
-                        tab_link = page.locator("a[href*='tab:statistics']").first
-                        await tab_link.click(timeout=5_000)
-                        try:
-                            await page.wait_for_load_state("networkidle", timeout=6_000)
-                        except Exception:
-                            pass
-                        await page.wait_for_timeout(1_500)
-                    except Exception as e:
-                        self.logger.debug(f"match {match_id}: statistics tab click failed - {e}")
-
-                lineups_hash = f"#id:{match_id},tab:lineups"
-                self.logger.debug(f"match {match_id}: switching to lineups tab")
-                await page.evaluate(f"window.location.hash = '{lineups_hash}'")
-                try:
-                    await page.wait_for_load_state("networkidle", timeout=8_000)
-                except Exception:
-                    pass
-                await page.wait_for_timeout(1_500)
-
-                # if not lineups captured, try pressing lineups button
-                if "lineups" not in captured:
-                    self.logger.debug(f"match {match_id}: hash navigation didn't fire /lineups -- trying click")
-                    try:
-                        tab_link = page.locator("a[href*='tab:lineups']").first
-                        await tab_link.click(timeout=5_000)
-                        try:
-                            await page.wait_for_load_state("networkidle", timeout=6_000)
-                        except Exception:
-                            pass
-                        await page.wait_for_timeout(1_500)
-                    except Exception as e:
-                        self.logger.debug(f"match {match_id}: lineups tab click failed -- {e}")
-
-        except Exception as e:
-            self.logger.warning(f"match {match_id}: page load error -- {e}")
-        finally:
-            try:
-                await cdp.detach()
-            except Exception:
-                pass
-
-        missing = [
-            s.lstrip("/") or "(base)" for s in WANTED_SUFFIXES.get(sport.lower()) if s.lstrip("/") not in captured
-        ]
-        if missing:
-            self.logger.debug(f"match {match_id}: missing endpoints after fetch: {missing}")
-            self.logger.warning(f"{len(missing)} endpoint not found.")
-
-        return captured
+    
     
     async def _scrape_event_on_page(
         self, page: Page, sport: str, match_id: int, match_link: str
@@ -461,7 +374,7 @@ class Scraper:
             # Get tennis rankings, different base
             if sport == "tennis":
                 if url.endswith("/rankings"):
-                    self.logger.debug(f"/rankings --> {url} found.")
+                    self.logger.debug(f"/rankings -> {url} found.")
 
                     # Extract team_id
                     try:
@@ -474,7 +387,7 @@ class Scraper:
 
             for suffix in WANTED_SUFFIXES.get(sport.lower()):
                 if url.endswith(f"/v1/event/{match_id}{suffix}"):
-                    self.logger.debug(f"/event/{match_id}{suffix} --> {url} found.")
+                    self.logger.debug(f"/event/{match_id}{suffix} -> {url} found.")
                     async with lock:
                         # Store the suffix without the leading slash as dict key
                         pending[rid] = suffix.lstrip("/")
@@ -523,7 +436,7 @@ class Scraper:
                 await page.wait_for_timeout(1_500)
 
                 if "statistics" not in captured:
-                    self.logger.debug(f"match {match_id}: hash navigation didn't fire /lineups -- trying click")
+                    self.logger.debug(f"match {match_id}: hash navigation didn't fire /lineups - trying click")
                     try:
                         tab_link = page.locator("a[href*='tab:statistics']").first
                         await tab_link.click(timeout=5_000)
@@ -546,7 +459,7 @@ class Scraper:
 
                 # if not lineups captured, try pressing lineups button
                 if "lineups" not in captured:
-                    self.logger.debug(f"match {match_id}: hash navigation didn't fire /lineups -- trying click")
+                    self.logger.debug(f"match {match_id}: hash navigation didn't fire /lineups - trying click")
                     try:
                         tab_link = page.locator("a[href*='tab:lineups']").first
                         await tab_link.click(timeout=5_000)
@@ -556,10 +469,10 @@ class Scraper:
                             pass
                         await page.wait_for_timeout(1_500)
                     except Exception as e:
-                        self.logger.debug(f"match {match_id}: lineups tab click failed -- {e}")
+                        self.logger.debug(f"match {match_id}: lineups tab click failed - {e}")
 
         except Exception as e:
-            self.logger.warning(f"match {match_id}: page load error -- {e}")
+            self.logger.warning(f"match {match_id}: page load error - {e}")
         finally:
             try:
                 await cdp.detach()
@@ -580,7 +493,6 @@ class Scraper:
         sport: str,
         match_links: list[str],
         result: ScrapeResult,
-        storage,
         concurrency: int = 1,
     ) -> ScrapeResult:
         """
@@ -594,10 +506,10 @@ class Scraper:
             result
             concurrency: Number of concurrent pages to open
         """
-        if storage is not None:
+        if self.storage is not None:
             match_links, skipped = await self._filter_existing_matches(
-                match_links=match_links, storage=storage,
-                file_path=storage.default_file_path, sport=sport
+                match_links=match_links,
+                file_path=self.storage.default_file_path, sport=sport
             )
             result.skipped += skipped
 
@@ -613,12 +525,11 @@ class Scraper:
                 page = await page_pool.get()
                 failed = False
                 try:
-                    match_id = self.url.get_match_id(match_link)
+                    match_id = get_match_id(match_link)
                     if match_id is None:
                         raise ValueError(f"Invalid match URL: {match_link}")
 
-                    url = self.url.get_url(match_link, match_id)
-                    raw = await self._scrape_event_on_page(page, sport, match_id, url)
+                    raw = await self._scrape_event_on_page(page, sport, match_id, match_link)
 
                     data = None
                     if raw:
@@ -634,7 +545,7 @@ class Scraper:
                     async with result_lock:
                         result.matches.append(data)
 
-                    await storage.save_data(data=data, file_name_key="match_id")
+                    await self.storage.save_data(data=data, file_name_key="match_id")
 
                 except Exception as e:
                     self.logger.error(f"Failed to scrape {match_link}: {e}", exc_info=True)
@@ -656,13 +567,12 @@ class Scraper:
         self,
         sport: str,
         match_links: list[str],
-        storage,
         concurrency: int = 1
     ) -> ScrapeResult | None:
         result = ScrapeResult()
         current_page = self.playwright_manager.page
         if not current_page:
-            raise RuntimeError("Playwright is not initialised -- call start_playwright() first.")
+            raise RuntimeError("Playwright is not initialised - call start_playwright() first.")
 
         await current_page.goto(SOFASCORE_BASE_URL, timeout=GOTO_TIMEOUT_MS, wait_until="domcontentloaded")
         await asyncio.sleep(5)
@@ -671,7 +581,7 @@ class Scraper:
         consent = await browser_helpers.handle_all_popups() or {}
 
         if consent and consent.consent_accepted:
-            await self._scrape_matches(sport, match_links, result, storage, concurrency)
+            await self._scrape_matches(sport, match_links, result, concurrency)
 
         return result
 
@@ -682,7 +592,6 @@ class Scraper:
         sport: str,
         tournaments: list[str],
         seasons: list[str],
-        storage,
         concurrency: int = 1
     ) -> ScrapeResult | None:
         result = ScrapeResult()
@@ -690,58 +599,114 @@ class Scraper:
         if not current_page:
             raise RuntimeError("Playwright is not initialised - call start_playwright() first.")
 
-        # collect all links
         all_match_links: list[str] = []
-        self.logger.debug(tournaments)
 
         for tournament in tournaments:
             if len(seasons) == 1 and seasons[0] == "all":
-                seasons = [
+                season_ids = [
                     str(season["id"]) for season in SportTournamentRegistry.get_by_id(tournament).get("seasons", [])
                 ]
-                self.logger.debug(seasons)
+            elif len(seasons) == 1 and seasons[0] == "current":
+                season_ids = [ 
+                    str(sorted(SportTournamentRegistry.get_by_id(tournament).get("seasons", []), key=lambda x: extract_year(x["year"]), reverse=True)[0]["id"]) # Get the latest
+                ]
+            else:
+                season_ids = seasons
             
-            t = SportTournamentRegistry.get_by_id(tournament).get("slug", "")
+            tournament_slug = SportTournamentRegistry.get_by_id(tournament).get("slug", "")
+            self.storage.default_file_path = self.storage.default_file_path + f"/{tournament_slug}-{tournament}"
 
-            # Append with tournament slug for saving # eg. premier-league-17
-            storage.default_file_path=storage.default_file_path+f"/{t}-{tournament}"
-
-            self.logger.debug(storage.default_file_path)
-
-            for season in seasons:
-                url = self.url.get_tournament_url(sport=sport, tournament=tournament, season=season)
+            for season in season_ids:
+                url, season_id = get_tournament_information(sport=sport, tournament=tournament, season=season)
                 self.logger.debug(f"Loading league page: {url}")
 
-                await current_page.goto(url, timeout=GOTO_TIMEOUT_MS, wait_until="domcontentloaded")
-                await asyncio.sleep(5)
+                if not season_id:
+                    continue
 
-                browser_helpers = BrowserHelpers(current_page)
-                await browser_helpers.handle_all_popups()
-                await browser_helpers.scroll_until_loaded()
+                if isinstance(self.storage, PgsqlDataStorage):
+                    # Check storage first if the season was scraped already
+                    collected = await self.storage.check_season(season_id)
 
-                match_links = await self._extract_match_links(
-                    page=current_page,
-                    extraction_type="tournament",
+                    if collected:
+                        all_match_links.extend(await self.storage.get_collected_links(season_id)) # Add the links where it was not already scraped
+                        continue
+
+                rounds_data: dict = {}
+                pending: dict[str, str] = {}
+                lock = asyncio.Lock()
+
+                cdp = await current_page.context.new_cdp_session(current_page)
+
+                async def on_request(params: dict) -> None:
+                    req_url = params.get("request", {}).get("url", "")
+                    rid = params.get("requestId", "")
+                    if "unique-tournament" in req_url and "/rounds" in req_url:
+                        async with lock:
+                            pending[rid] = req_url
+
+                async def on_loading_finished(params: dict, _rounds=rounds_data, _pending=pending, _lock=lock) -> None:
+                    rid = params.get("requestId", "")
+                    async with _lock:
+                        req_url = _pending.pop(rid, None)
+                    if req_url is None:
+                        return
+                    try:
+                        resp = await cdp.send("Network.getResponseBody", {"requestId": rid})
+                        raw = resp.get("body", "")
+                        if resp.get("base64Encoded"):
+                            raw = base64.b64decode(raw).decode("utf-8", errors="replace")
+                        _rounds.update(json.loads(raw))
+                        self.logger.debug(f"Rounds data captured from {req_url}")
+                    except Exception as e:
+                        self.logger.debug(f"Failed to read rounds response body: {e}")
+
+                cdp.on("Network.requestWillBeSent", on_request)
+                cdp.on("Network.loadingFinished", on_loading_finished)
+                await cdp.send("Network.enable", {})
+
+                try:
+                    await current_page.goto(url, timeout=GOTO_TIMEOUT_MS, wait_until="domcontentloaded")
+                    await asyncio.sleep(5)
+
+                    browser_helpers = BrowserHelpers(current_page)
+                    await browser_helpers.handle_all_popups()
+                    await browser_helpers.scroll_until_loaded()
+                finally:
+                    try:
+                        await cdp.detach()
+                    except Exception:
+                        pass
+
+                match_links, rounds = await self._extract_match_links(
+                    page=current_page, season=season_id
                 )
 
                 if not match_links:
-                    self.logger.warning(f"No match links found for {tournament} -- skipping.")
+                    self.logger.warning(f"No match links found for {tournament} - skipping.")
                     continue
 
-                self.logger.info(f"Collected {len(match_links)} match links from {tournament}.")
+                if rounds_data:
+                    all_rounds_collected = len(rounds_data["rounds"]) == rounds
+                    
+                    if isinstance(self.storage, PgsqlDataStorage):
+                        await self.storage.save_season(season_id, all_rounds_collected)
+                else:
+                    self.logger.warning(f"No rounds data captured for tournament {tournament}, season {season_id}")
+
+                self.logger.debug(f"Collected {len(match_links)} match links from {tournament}.")
                 all_match_links.extend(match_links)
 
         if not all_match_links:
-            self.logger.warning("No match links found across any tournament -- aborting.")
+            self.logger.warning("No match links found across any tournament - aborting.")
             return None
 
-        await self._scrape_matches(sport, all_match_links, result, storage, concurrency)
+        await self._scrape_matches(sport, all_match_links, result, concurrency)
 
         return result
 
     # ^ Dates
 
-    async def scrape_dates(self, sport: str, dates: str | list[str], storage, concurrency: int = 1) -> ScrapeResult:
+    async def scrape_dates(self, sport: str, dates: str | list[str], concurrency: int = 1) -> ScrapeResult:
         """
         Fetch and parse all scheduled events for one or more dates,
         skipping any dates that already have a saved file on disk.
@@ -757,11 +722,11 @@ class Scraper:
         self.logger.info(f"Requested {len(dates)} date(s): {dates[0]} … {dates[-1]}")
 
         # Deduplicate dates before opening the browser loop
-        dates, skipped = await self._filter_existing_dates(date_list=dates, storage=storage, sport=sport)
+        dates, skipped = await self._filter_existing_dates(date_list=dates, storage=self.storage, sport=sport)
         result.skipped += skipped
 
         if not dates:
-            self.logger.info("All dates already scraped -- nothing to do.")
+            self.logger.debug("All dates already scraped - nothing to do.")
             return result
         
         page_pool = await self.playwright_manager.create_page_pool(size=concurrency)
@@ -786,9 +751,9 @@ class Scraper:
                     async with result_lock:
                         result.matches.extend(day_events)
 
-                    await storage.save_data(
+                    await self.storage.save_data(
                         data=day_events,
-                        file_path=f"{storage.default_file_path}/{target_date}"
+                        file_path=f"{self.storage.default_file_path}/{target_date}"
                     )
                 except Exception as e:
                     self.logger.error(f"Failed to scrape {target_date}: {e}", exc_info=True)
@@ -801,3 +766,4 @@ class Scraper:
             await asyncio.gather(*[scrape_one_date(d, pt) for d in dates])
 
         return result
+    

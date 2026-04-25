@@ -30,6 +30,7 @@ import logging
 
 import asyncpg
 
+from sofascraper.utils.constants import SOFASCORE_BASE_URL
 from sofascraper.utils.dataclasses.football_data_classes import (
     Commentary,
     Incident,
@@ -62,7 +63,6 @@ class FootballRepository:
         self,
         conn: asyncpg.Connection,
         match_data: MatchData,
-        match_id: int,
         run_id: int,
     ) -> None:
         """
@@ -72,6 +72,8 @@ class FootballRepository:
         committed here.  Re-running is safe — every write is an upsert.
         """
         event = match_data.base
+        is_partial = not match_data.incidents or not match_data.lineups or not match_data.statistics
+        await self._upsert_scrape(conn=conn, run_id=run_id, match_id=event.id, is_partial=is_partial)
 
         await self._upsert_tournament(conn=conn, run_id=run_id, tournament=event.tournament)
         await self._upsert_season(conn=conn, run_id=run_id, season=event.season)
@@ -98,7 +100,7 @@ class FootballRepository:
         await self._upsert_match(
             conn,
             event=event,
-            match_id=match_id,
+            match_id=event.id,
             home_team_id=home_team_id,
             away_team_id=away_team_id,
             venue_id=venue_id,
@@ -110,41 +112,57 @@ class FootballRepository:
 
         # --- Per-period score breakdown -----------------------------------
         if event.home_score and event.away_score:
-            await self._upsert_match_scores(conn, match_id, event, run_id)
+            await self._upsert_match_scores(conn, event.id, event, run_id)
 
         # --- Incidents (goals, cards, subs) ------------------------------
         if match_data.incidents:
             for incident in match_data.incidents:
                 await self._upsert_incident_players(conn, incident)
-            await self._insert_incidents(conn, match_id, match_data.incidents)
+            await self._insert_incidents(conn, event.id, match_data.incidents)
 
         # --- Lineups -----------------------------------------------------
         if match_data.lineups:
-            await self._insert_lineups(conn, match_id, match_data.lineups)
+            await self._insert_lineups(conn, event.id, match_data.lineups)
 
         # --- Shotmap -----------------------------------------------------
         if match_data.shotmap:
-            await self._insert_shot_events(conn, match_id, match_data.shotmap)
+            await self._insert_shot_events(conn, event.id, match_data.shotmap)
 
         # --- Statistics --------------------------------------------------
         if match_data.statistics:
-            await self._insert_team_stats(conn, match_id, home_team_id, away_team_id, match_data.statistics)
+            await self._insert_team_stats(conn, event.id, home_team_id, away_team_id, match_data.statistics)
 
         # --- Odds --------------------------------------------------------
         if match_data.odds:
-            await self._insert_odds(conn, match_id, match_data.odds)
+            await self._insert_odds(conn, event.id, match_data.odds)
 
         # --- Momentum ----------------------------------------------------
         if match_data.momentum:
-            await self._insert_momentum(conn, match_id, match_data.momentum)
+            await self._insert_momentum(conn, event.id, match_data.momentum)
 
         # --- Commentary --------------------------------------------------
         if match_data.commentary:
-            await self._insert_commentary(conn, match_id, match_data.commentary)
+            await self._insert_commentary(conn, event.id, match_data.commentary)
 
-        self.logger.info(f"[football] Saved match id={match_id}")
+        self.logger.info(f"Saved match id={event.id}")
 
     # Reference entities
+
+    async def _upsert_scrape(self, conn, run_id, match_id, is_partial):
+        row = await conn.fetchrow(
+            """
+            UPDATE core.scrapes 
+            SET
+                is_partial = $1,
+                collected = $2,
+                scrape_run_id = $3
+            WHERE item = $4
+            """,
+            is_partial,
+            True,
+            run_id,
+            match_id
+        )
 
     async def _upsert_tournament(self, conn: asyncpg.Connection, run_id: int, tournament: Tournament) -> int:
         row = await conn.fetchrow(
@@ -547,7 +565,7 @@ class FootballRepository:
                  is_starter, sub_in_minute, sub_out_minute, is_captain,
                  rating, rating_alt, statistics, created_at)
             VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12::jsonb,now())
-            ON CONFLICT (match_id, team_id, player_id) DO UPDATE SET
+            ON CONFLICT (match_id, player_id) DO UPDATE SET
                 shirt_number   = EXCLUDED.shirt_number,
                 position       = EXCLUDED.position,
                 is_starter     = EXCLUDED.is_starter,

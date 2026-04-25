@@ -52,7 +52,7 @@ class LocalDataStorage:
             except ValueError:
                 self.logger.debug(f"Skipping '{filename}' (not an int)")
 
-        self.logger.info(f"Found {len(existing)} existing match(es) in '{directory}'")
+        self.logger.debug(f"Found {len(existing)} existing match(es) in '{directory}'")
         return existing
 
     async def get_existing_dates(self, file_path: str | None = None) -> set[str]:
@@ -90,7 +90,7 @@ class LocalDataStorage:
             else:
                 self.logger.debug(f"Skipping '{filename}' (not a date)")
 
-        self.logger.info(f"Found {len(existing)} existing date(s) in '{directory}'")
+        self.logger.debug(f"Found {len(existing)} existing date(s) in '{directory}'")
 
         self.logger.debug(f"{existing}")
         return existing
@@ -150,7 +150,7 @@ class LocalDataStorage:
             with open(file_path, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=4, default=str)
 
-            self.logger.info(f"Saved record to {file_path}")
+            self.logger.debug(f"Saved record to {file_path}")
 
         except Exception as e:
             self.logger.error(f"Error saving JSON to {file_path}: {e!s}", exc_info=True)
@@ -162,7 +162,7 @@ class LocalDataStorage:
             with open(file_path, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=4, default=str)
 
-            self.logger.info(f"Saved {len(data)} record(s) to {file_path}")
+            self.logger.debug(f"Saved {len(data)} record(s) to {file_path}")
 
         except Exception as e:
             self.logger.error(f"Error saving JSON to {file_path}: {e!s}", exc_info=True)

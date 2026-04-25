@@ -4,23 +4,11 @@ from asyncpg import Connection
 
 from sofascraper.storage.pgsql.connection import Database
 from sofascraper.storage.pgsql.football import FootballRepository
+from sofascraper.utils.constants import SOFASCORE_BASE_URL
 from sofascraper.utils.dataclasses.football_data_classes import MatchData
 
 
 class PgsqlDataStorage:
-    """
-    Mirrors LocalDataStorage's public interface but persists data to PostgreSQL
-    via the repository module instead of writing JSON files to disk.
-
-    The Database pool must be initialised before any method is called:
-
-        await Database.connect()
-        storage = PgsqlDataStorage(sport_slug="football", scraper_version="1.0.0")
-        await storage.open_run()
-        ...
-        await storage.close_run(row_count=n)
-        await Database.disconnect()
-    """
 
     def __init__(
         self,
@@ -99,33 +87,111 @@ class PgsqlDataStorage:
         """
         async with Database.acquire() as conn:
             rows = await conn.fetch(
-                "SELECT item FROM core.scrapes WHERE sport_id = $1 and is_date IS false",
+                "SELECT item FROM core.scrapes WHERE sport_id = $1 AND collected = true",
                 self.sport_id,
             )
 
         existing: set[int] = {int(row["item"]) for row in rows}
-        self.logger.info(f"Found {len(existing)} existing match(es) in the database (sport_id={self.sport_id})")
+        self.logger.debug(f"Found {len(existing)} existing match(es) in the database (sport_id={self.sport_id})")
         return existing
 
     async def get_existing_dates(self, file_path: str | None = None) -> set[str]:
-        """
-        Return the set of ISO date strings (YYYY-MM-DD) which were already scraped in the core.scrapes.
-        """
-        async with Database.acquire() as conn:
-            rows = await conn.fetch(
+        return
+
+    async def save_link(
+        self,
+        match_slug,
+        match_id,
+        match_custom_id,
+        season_id,
+        collected
+    ) -> None:
+        async with Database.transaction() as conn:
+            await conn.fetchrow(
                 """
-                SELECT item::date::text AS match_date
-                FROM core.scrapes
-                WHERE sport_id = $1
-                  AND is_date IS true
+                INSERT INTO core.scrapes (
+                    sport_id,
+                    item,
+                    item_slug,
+                    item_custom_id,
+                    item_url,
+                    item_season_id,
+                    scrape_run_id,
+                    collected
+                )
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+                ON CONFLICT (sport_id, item) DO NOTHING
                 """,
-                self.sport_id,
+                1,
+                match_id,
+                match_slug,
+                match_custom_id,
+                f"{SOFASCORE_BASE_URL}/football/match/{match_slug}/{match_custom_id}#id:{match_id}",
+                season_id,
+                self.run_id,
+                collected
             )
 
-        existing: set[str] = {row["match_date"] for row in rows}
+        self.logger.debug(f"Inserted {SOFASCORE_BASE_URL}/football/match/{match_slug}/{match_custom_id}#id:{match_id} match to the database.")
 
-        self.logger.debug(f"Found {len(existing)} existing date(s) in the database (sport_id={self.sport_id})")
-        return existing
+    async def save_season(
+        self,
+        season_id,
+        all_rounds_collected,
+    ) -> None:
+        async with Database.transaction() as conn:
+            await conn.fetchrow(
+                """
+                INSERT INTO core.scrape_tournaments (
+                    sport_id,
+                    season_id,
+                    links_collected,
+                    scrape_run_id,
+                    last_checked_at
+                )
+                VALUES ($1, $2, $3, $4, NOW())
+                ON CONFLICT (sport_id, season_id) DO UPDATE
+                SET
+                    links_collected = EXCLUDED.links_collected,
+                    last_checked_at = NOW(),
+                    scrape_run_id = EXCLUDED.scrape_run_id
+                """,
+                1,
+                int(season_id),
+                all_rounds_collected,
+                self.run_id
+            )
+            
+            self.logger.debug(f"Saved {season_id}, with link collection status {all_rounds_collected}")
+
+    async def check_season(
+        self,
+        season_id
+    ):
+        async with Database.transaction() as conn:
+            row = await conn.fetchrow(
+                """
+                SELECT links_collected from core.scrape_tournaments WHERE season_id = $1
+                """,
+                int(season_id)
+            )
+            self.logger.debug(f"Links for {season_id} are {"collected" if row and row["links_collected"] else "not collected"}.")
+
+            return bool(row and row["links_collected"])
+        
+    async def get_collected_links(self, season_id):
+        async with Database.transaction() as conn:
+            rows = await conn.fetch(
+                """
+                SELECT item_url 
+                FROM core.scrapes 
+                WHERE item_season_id = $1 AND collected = FALSE
+                """,
+                int(season_id)
+            )
+
+        # Extract item_url values into a list
+        return [row["item_url"] for row in rows]
 
     async def save_data(
         self,
@@ -148,7 +214,6 @@ class PgsqlDataStorage:
                     await football.save_match(
                         conn,
                         match_data=match,
-                        match_id=self.sport_id,
                         run_id=self.run_id,
                     )
                     self.saved += 1
@@ -159,4 +224,4 @@ class PgsqlDataStorage:
                     )
                     raise
 
-        self.logger.info(f"Saved {self.saved} match(es) to the database.")
+        self.logger.debug(f"Saved {self.saved} match(es) to the database.")

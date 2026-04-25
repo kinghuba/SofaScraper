@@ -24,7 +24,7 @@ class ScraperApp:
         sport: str | None = None,
         dates: str | None = None,
         tournaments: list[str] | None = None,
-        seasons: str | None = None,
+        seasons: str | None = "current",
         storage_format: str | None = None,
         file_path: str | None = None,
         proxy_url: str | None = None,
@@ -75,11 +75,11 @@ class ScraperApp:
                 )
 
                 if storage_format == "database":
-                    storage = PgsqlDataStorage(sport_slug=sport, scraper_version="1.0.0")
+                    self.scraper.storage = PgsqlDataStorage(sport_slug=sport, scraper_version="1.0.0")
                     async with Database.transaction() as conn:
-                        await storage.open_scrape_run(conn)
+                        await self.scraper.storage.open_scrape_run(conn)
                 else:
-                    storage = LocalDataStorage(
+                    self.scraper.storage = LocalDataStorage(
                         default_file_path=f"{file_path}/{sport}",
                     )
 
@@ -87,7 +87,6 @@ class ScraperApp:
                     sport=sport,
                     tournaments=tournaments,
                     seasons=seasons,
-                    storage=storage,
                     concurrency=concurrency
                 )
 
@@ -98,15 +97,15 @@ class ScraperApp:
                 self.logger.info(f"\n Scraping details for matches={match_links} sport={sport}")
 
                 if storage_format == "database":
-                    storage = PgsqlDataStorage(sport_slug=sport, scraper_version="1.0.0")
+                    self.scraper.storage = PgsqlDataStorage(sport_slug=sport, scraper_version="1.0.0")
                     async with Database.transaction() as conn:
-                        await storage.open_scrape_run(conn)
+                        await self.scraper.storage.open_scrape_run(conn)
                 else:
-                    storage = LocalDataStorage(
+                    self.scraper.storage = LocalDataStorage(
                         default_file_path=f"{file_path}/{sport}/matches",
                     )
 
-                return await self.scraper.scrape_links(sport=sport, match_links=list(match_links), storage=storage, concurrency=concurrency)
+                return await self.scraper.scrape_links(sport=sport, match_links=list(match_links), concurrency=concurrency)
 
             if command == CommandEnum.DATES:
                 if not dates:
@@ -115,14 +114,14 @@ class ScraperApp:
                 self.logger.info(f"\n Scraping details for dates={dates}, sport={sport}\n")
 
                 if storage_format.strip().lower() == "database":
-                    storage = PgsqlDataStorage(sport_slug=sport, scraper_version="1.0.0")
+                    self.scraper.storage = PgsqlDataStorage(sport_slug=sport, scraper_version="1.0.0")
                     async with Database.transaction() as conn:
-                        await storage.open_scrape_run(conn)
+                        await self.scraper.storage.open_scrape_run(conn)
                 else:
-                    storage = LocalDataStorage(
+                    self.scraper.storage = LocalDataStorage(
                         default_file_path=f"{file_path}/{sport}/dates",
                     )
-                return await self.scraper.scrape_dates(sport=sport, dates=dates, storage=storage, concurrency=concurrency)
+                return await self.scraper.scrape_dates(sport=sport, dates=dates, concurrency=concurrency)
 
             else:
                 raise ValueError(f"Unknown command: {command}.")
@@ -135,7 +134,7 @@ class ScraperApp:
             # Close db connection
             if storage_format == "database":
                 async with Database.transaction() as conn:
-                    await storage.close_scrape_run(conn)
+                    await self.scraper.storage.close_scrape_run(conn)
                 await Database.disconnect()
             # end playwright
             await self.scraper.stop_playwright()

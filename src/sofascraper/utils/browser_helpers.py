@@ -52,7 +52,7 @@ class BrowserHelpers:
             btn = self.page.locator(CONSENT_SELECTOR).first
             await btn.wait_for(state="visible", timeout=POPUP_TIMEOUT_MS)
             await btn.click()
-            self.logger.info("Consent popup accepted.")
+            self.logger.debug("Consent popup accepted.")
             return True
 
         except TimeoutError:
@@ -80,11 +80,11 @@ class BrowserHelpers:
             btn = self.page.locator(LANGUAGE_SELECTOR, has_text="Confirm").first
             await btn.wait_for(state="visible", timeout=POPUP_TIMEOUT_MS)
             await btn.click()
-            self.logger.info("Language confirmation accepted.")
+            self.logger.debug("Language confirmation accepted.")
             return True
 
         except TimeoutError:
-            self.logger.debug("No language confirmation popup detected -- skipping.")
+            self.logger.warning("No language confirmation popup detected -- skipping.")
             return False
 
         except Exception as e:
@@ -125,7 +125,7 @@ class BrowserHelpers:
         Returns:
             bool: True if scrolling completed successfully, False otherwise.
         """
-        self.logger.info("Will scroll to the bottom of the page to load all content.")
+        self.logger.debug("Will scroll to the bottom of the page to load all content.")
         end_time = time.time() + timeout
         last_height = await self.page.evaluate("document.body.scrollHeight")
         last_element_count = 0
@@ -135,9 +135,9 @@ class BrowserHelpers:
         if content_check_selector:
             initial_elements = await self.page.query_selector_all(content_check_selector)
             last_element_count = len(initial_elements)
-            self.logger.info(f"Initial element count: {last_element_count}")
+            self.logger.debug(f"Initial element count: {last_element_count}")
 
-        self.logger.info(f"Initial page height: {last_height}")
+        self.logger.debug(f"Initial page height: {last_height}")
 
         scroll_step = 500
         current_scroll_pos = 0
@@ -160,7 +160,7 @@ class BrowserHelpers:
                 # Count elements if selector is provided
                 if content_check_selector:
                     new_element_count = await self.page.locator(content_check_selector).count()
-                    self.logger.info(f"Current element count: {new_element_count} (height: {new_height})")
+                    self.logger.debug(f"Current element count: {new_element_count} (height: {new_height})")
 
                     # Check if element count is stable
                     if new_element_count == last_element_count and new_height == last_height:
@@ -168,7 +168,7 @@ class BrowserHelpers:
                         self.logger.debug(f"Content stable. Attempt {stable_count_attempts}/{max_scroll_attempts}.")
 
                         if stable_count_attempts >= max_scroll_attempts:
-                            self.logger.info(f"Content stabilized at {new_element_count} elements. Scrolling complete.")
+                            self.logger.debug(f"Content stabilized at {new_element_count} elements. Scrolling complete.")
                             return True
                     else:
                         stable_count_attempts = 0  # Reset if content changed
@@ -180,7 +180,7 @@ class BrowserHelpers:
                         self.logger.debug(f"Height stable. Attempt {stable_count_attempts}/{max_scroll_attempts}.")
 
                         if stable_count_attempts >= max_scroll_attempts:
-                            self.logger.info("Page height stabilized. Scrolling complete.")
+                            self.logger.debug("Page height stabilized. Scrolling complete.")
                             return True
                     else:
                         stable_count_attempts = 0
@@ -193,7 +193,7 @@ class BrowserHelpers:
                     continue
                 raise
 
-        self.logger.info("Reached scrolling timeout. Stopping scroll.")
+        self.logger.warning("Reached scrolling timeout. Stopping scroll.")
         return False
 
     # TODO Implement utr closing for tennis
