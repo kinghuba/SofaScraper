@@ -273,13 +273,9 @@ sofascraper/
 
 │ ├── scraper_app.py # High-level orchestrator
 
-│ ├── url_builder.py # SofaScore URL construction
-
-│ └── football/
+│ └── parsers/
 
 │ └── football_parser.py # Football data parsing
-
-│ └── tennis/
 
 │ └── tennis_parser.py # Tennis data parsing
 

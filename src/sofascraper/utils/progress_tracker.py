@@ -63,6 +63,29 @@ class ProgressTracker:
         self._task_id: TaskID | None = None
         self._live: Live | None = None
 
+    def _build_collection_table(links: int, page: int, direction: str, elapsed: float) -> Table:
+        grid = Table.grid(padding=(0, 2))
+        
+        grid.add_row(
+            Text("Collecting match links", style="bold cyan"),
+        )
+        grid.add_row(Text("─" * 52, style="dim"))
+        grid.add_row(
+            Text("Links found", style="dim"), Text(str(links), style="bold green")
+        )
+        grid.add_row(
+            Text("Pages visited", style="dim"), Text(str(page), style="bold")
+        )
+        grid.add_row(
+            Text("Direction", style="dim"), Text(direction, style="cyan")
+        )
+        grid.add_row(
+            Text("Elapsed", style="dim"), Text(f"{elapsed:.1f}s", style="yellow")
+        )
+        grid.add_row(Text("─" * 52, style="dim"))
+        
+        return grid
+
     def advance(self, status: str = "", failed: bool = False) -> None:
         """
         Call once after each item finishes.
