@@ -144,7 +144,7 @@ class FootballRepository:
         if match_data.commentary:
             await self._insert_commentary(conn, event.id, match_data.commentary)
 
-        self.logger.info(f"Saved match id={event.id}")
+        self.logger.debug(f"Saved match id={event.id}")
 
     # Reference entities
 
@@ -237,7 +237,7 @@ class FootballRepository:
             team.is_national,
             team.country_id,
         )
-        self.logger.info("Upserted team: " + team.name + " " + str(team.id))
+        self.logger.debug("Upserted team: " + team.name + " " + str(team.id))
         return team.id
 
     async def _upsert_player(self, conn: asyncpg.Connection, player: Player) -> int:
@@ -356,8 +356,6 @@ class FootballRepository:
         agg_home = event.home_score.aggregated if event.home_score else None
         agg_away = event.away_score.aggregated if event.away_score else None
         round_num = event.round.round if event.round else None
-
-        self.logger.info(match_id)
 
         await conn.execute(
             """

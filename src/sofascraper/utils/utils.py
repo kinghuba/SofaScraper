@@ -89,6 +89,8 @@ def fractional_to_all_odds(fractional_input: str | list[str]) -> list[dict]:
 
         if frac >= 1:
             american_odds = int(frac * 100)
+        elif frac == 0:
+            american_odds = 0
         else:
             american_odds = int(-100 / frac)
 

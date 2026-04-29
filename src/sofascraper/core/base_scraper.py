@@ -62,6 +62,7 @@ class Scraper:
         self.logger = logging.getLogger(self.__class__.__name__)
         self.playwright_manager = playwright_manager
         self.storage = storage
+        self.whole_site_failures = 0
 
     def _get_parser(self, sport):
         parser = PARSERS.get(sport)
@@ -353,7 +354,7 @@ class Scraper:
         self.logger.debug(f"Success {len(all_events)} events captured for {target_date}")
         return all_events
     
-    whole_site_failures = 0
+    
 
     async def _scrape_event_on_page(
         self, page: Page, sport: str, match_id: int, match_link: str
@@ -489,9 +490,9 @@ class Scraper:
             self.logger.warning(f"{len(missing)} endpoint not found.")
 
             if len(missing) == len(WANTED_SUFFIXES.get(sport.lower())):
-                whole_site_failures+=1
+                self.whole_site_failures+=1
 
-            if whole_site_failures >= 2:
+            if self.whole_site_failures >= 2:
                 raise RuntimeError("Likely blocked by anti-bot protection")
         
 
