@@ -78,7 +78,6 @@ class FootballRepository:
         await self._upsert_tournament(conn=conn, run_id=run_id, tournament=event.tournament)
         await self._upsert_season(conn=conn, run_id=run_id, season=event.season)
 
-        # --- Lookup / reference entities ---------------------------------
         home_team_id = await self._upsert_team(conn, event.home_team)
         away_team_id = await self._upsert_team(conn, event.away_team)
 
@@ -96,7 +95,6 @@ class FootballRepository:
             home_manager_id = await self._upsert_manager(conn, match_data.managers.home_manager)
             away_manager_id = await self._upsert_manager(conn, match_data.managers.away_manager)
 
-        # --- Central match row -------------------------------------------
         await self._upsert_match(
             conn,
             event=event,
@@ -110,37 +108,29 @@ class FootballRepository:
             run_id=run_id,
         )
 
-        # --- Per-period score breakdown -----------------------------------
         if event.home_score and event.away_score:
             await self._upsert_match_scores(conn, event.id, event, run_id)
 
-        # --- Incidents (goals, cards, subs) ------------------------------
         if match_data.incidents:
             for incident in match_data.incidents:
                 await self._upsert_incident_players(conn, incident)
             await self._insert_incidents(conn, event.id, match_data.incidents)
 
-        # --- Lineups -----------------------------------------------------
         if match_data.lineups:
             await self._insert_lineups(conn, event.id, match_data.lineups)
 
-        # --- Shotmap -----------------------------------------------------
         if match_data.shotmap:
             await self._insert_shot_events(conn, event.id, match_data.shotmap)
 
-        # --- Statistics --------------------------------------------------
         if match_data.statistics:
             await self._insert_team_stats(conn, event.id, home_team_id, away_team_id, match_data.statistics)
 
-        # --- Odds --------------------------------------------------------
         if match_data.odds:
             await self._insert_odds(conn, event.id, match_data.odds)
 
-        # --- Momentum ----------------------------------------------------
         if match_data.momentum:
             await self._insert_momentum(conn, event.id, match_data.momentum)
 
-        # --- Commentary --------------------------------------------------
         if match_data.commentary:
             await self._insert_commentary(conn, event.id, match_data.commentary)
 
@@ -181,7 +171,7 @@ class FootballRepository:
             ON CONFLICT (id) DO NOTHING
             """,
             tournament.id,
-            tournament.country.id,  # assuming country_id is not in the dataclass
+            tournament.country.id,
             tournament.name,
             tournament.slug,
             tournament.priority,
@@ -481,8 +471,6 @@ class FootballRepository:
             await self._upsert_player(conn, player)
 
     async def _insert_incidents(self, conn: asyncpg.Connection, match_id: int, incidents: list[Incident]) -> None:
-        # Delete existing incidents for this match before re-inserting,
-        # since incidents have no natural unique key beyond (match_id, ordering).
         await conn.execute("DELETE FROM football.incidents WHERE match_id = $1", match_id)
 
         rows = []
@@ -500,11 +488,8 @@ class FootballRepository:
                     inc.is_home,
                     inc.time,
                     inc.added_time,
-                    None,  # period — not in dataclass
                     inc.goal_scorer.id if inc.goal_scorer else None,
                     inc.assist.id if inc.assist else None,
-                    None,  # home_score_after
-                    None,  # away_score_after
                     (inc.player.id if inc.player else None),  # carded_player_id
                     inc.rescinded,
                     inc.player_in.id if inc.player_in else None,
@@ -517,13 +502,12 @@ class FootballRepository:
             """
             INSERT INTO football.incidents
                 (match_id, incident_type, incident_class, is_home,
-                 minute, added_time, period,
+                 minute, added_time,
                  goal_scorer_id, assist_player_id,
-                 home_score_after, away_score_after,
                  carded_player_id, rescinded,
                  player_in_id, player_out_id, is_injury_sub,
                  created_at)
-            VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,now())
+            VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,now())
             """,
             rows,
         )
@@ -547,9 +531,6 @@ class FootballRepository:
                     int(entry.shirt_number) if entry.shirt_number and entry.shirt_number.isdigit() else None,
                     entry.position,
                     not entry.substitute,
-                    None,  # sub_in_minute — not in dataclass
-                    None,  # sub_out_minute — not in dataclass
-                    False,  # is_captain — not in dataclass
                     entry.statistics.get("rating") if entry.statistics else None,
                     entry.statistics.get("ratingVersions", {}).get("alternative") if entry.statistics else None,
                     json.dumps(entry.statistics) if entry.statistics else None,
@@ -560,16 +541,13 @@ class FootballRepository:
             """
             INSERT INTO football.lineups
                 (match_id, team_id, player_id, shirt_number, position,
-                 is_starter, sub_in_minute, sub_out_minute, is_captain,
+                 is_starter,
                  rating, rating_alt, statistics, created_at)
-            VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12::jsonb,now())
+            VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9::jsonb,now())
             ON CONFLICT (match_id, player_id) DO UPDATE SET
                 shirt_number   = EXCLUDED.shirt_number,
                 position       = EXCLUDED.position,
                 is_starter     = EXCLUDED.is_starter,
-                sub_in_minute  = EXCLUDED.sub_in_minute,
-                sub_out_minute = EXCLUDED.sub_out_minute,
-                is_captain     = EXCLUDED.is_captain,
                 rating         = EXCLUDED.rating,
                 rating_alt     = EXCLUDED.rating_alt,
                 statistics     = EXCLUDED.statistics
@@ -597,12 +575,10 @@ class FootballRepository:
             rows.append(
                 (
                     match_id,
-                    None,  # team_id — not in Shotmap
                     shot.player.id if shot.player else None,
                     shot.goalkeeper.id if shot.goalkeeper else None,
                     shot.time,
                     shot.added_time,
-                    None,  # period — not in Shotmap
                     shot.shot_type,
                     shot.situation,
                     shot.body_part,
@@ -624,14 +600,14 @@ class FootballRepository:
         await conn.executemany(
             """
             INSERT INTO football.shot_events
-                (match_id, team_id, player_id, goalkeeper_id,
-                 minute, added_time, period,
+                (match_id, player_id, goalkeeper_id,
+                 minute, added_time,
                  shot_type, situation, body_part,
                  player_x, player_y, player_z,
                  goal_mouth_location, goal_mouth_x, goal_mouth_y, goal_mouth_z,
                  block_x, block_y, block_z,
                  xg, xgot, created_at)
-            VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,now())
+            VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,now())
             """,
             rows,
         )
