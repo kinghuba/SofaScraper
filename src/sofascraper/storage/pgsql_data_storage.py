@@ -4,15 +4,20 @@ from asyncpg import Connection
 
 from sofascraper.storage.pgsql.connection import Database
 from sofascraper.storage.pgsql.football import FootballRepository
+from sofascraper.storage.pgsql.tennis import TennisRepository
 from sofascraper.utils.constants import SOFASCORE_BASE_URL
 from sofascraper.utils.dataclasses.football_data_classes import MatchData
 
+REPOSITORIES = {
+    "tennis": TennisRepository,
+    "football": FootballRepository,
+}
 
 class PgsqlDataStorage:
 
     def __init__(
         self,
-        sport_slug: str = "football",
+        sport_slug: str = None,
         scraper_version: str = "1.0.0",
     ):
         """
@@ -28,6 +33,12 @@ class PgsqlDataStorage:
         self.run_id: int | None = None
         self.sport_id: int | None = None
         self.saved: int | None = 0
+
+    def _get_repository(self, sport):
+        repository = REPOSITORIES.get(sport)
+        if not repository:
+            raise ValueError(f"Unsupported sport: {sport}")
+        return repository()
 
     async def open_scrape_run(
         self,
@@ -156,12 +167,12 @@ class PgsqlDataStorage:
                     last_checked_at = NOW(),
                     scrape_run_id = EXCLUDED.scrape_run_id
                 """,
-                1,
+                self.sport_id,
                 int(season_id),
                 all_rounds_collected,
                 self.run_id
             )
-            
+
             self.logger.debug(f"Saved {season_id}, with link collection status {all_rounds_collected}")
 
     async def check_season(
@@ -178,7 +189,7 @@ class PgsqlDataStorage:
             self.logger.debug(f"Links for {season_id} are {"collected" if row and row["links_collected"] else "not collected"}.")
 
             return bool(row and row["links_collected"])
-        
+
     async def get_collected_links(self, season_id):
         async with Database.transaction() as conn:
             rows = await conn.fetch(
@@ -206,12 +217,12 @@ class PgsqlDataStorage:
             if isinstance(data, MatchData):
                 data = [data]
 
-            football = FootballRepository()
+            repository = self._get_repository(self.sport_slug)
 
             self.saved = 0
             for match in data:
                 try:
-                    await football.save_match(
+                    await repository.save_match(
                         conn,
                         match_data=match,
                         run_id=self.run_id,

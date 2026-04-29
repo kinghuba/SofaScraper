@@ -136,6 +136,6 @@ class ScraperApp:
                 async with Database.transaction() as conn:
                     await self.scraper.storage.close_scrape_run(conn)
                 await Database.disconnect()
-            # end playwright
+            # End playwright
             await self.scraper.stop_playwright()
             self.logger.info("Process stopped successfully")

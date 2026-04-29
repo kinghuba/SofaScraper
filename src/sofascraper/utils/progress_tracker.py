@@ -65,7 +65,7 @@ class ProgressTracker:
 
     def _build_collection_table(links: int, page: int, direction: str, elapsed: float) -> Table:
         grid = Table.grid(padding=(0, 2))
-        
+
         grid.add_row(
             Text("Collecting match links", style="bold cyan"),
         )
@@ -83,7 +83,7 @@ class ProgressTracker:
             Text("Elapsed", style="dim"), Text(f"{elapsed:.1f}s", style="yellow")
         )
         grid.add_row(Text("─" * 52, style="dim"))
-        
+
         return grid
 
     def advance(self, status: str = "", failed: bool = False) -> None:

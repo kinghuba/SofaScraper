@@ -30,7 +30,6 @@ import logging
 
 import asyncpg
 
-from sofascraper.utils.constants import SOFASCORE_BASE_URL
 from sofascraper.utils.dataclasses.football_data_classes import (
     Commentary,
     Incident,

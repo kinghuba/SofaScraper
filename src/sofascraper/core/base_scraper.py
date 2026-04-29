@@ -19,7 +19,7 @@ from sofascraper.utils.constants import GOTO_TIMEOUT_MS, SOFASCORE_BASE_URL, WAN
 from sofascraper.utils.dataclasses.football_data_classes import MatchData
 from sofascraper.utils.progress_tracker import ProgressTracker
 from sofascraper.utils.sport_tournament_registry import SportTournamentRegistry
-from sofascraper.utils.utils import extract_year, get_tournament_information, wait_and_try_again, get_match_id
+from sofascraper.utils.utils import extract_year, get_match_id, get_tournament_information, wait_and_try_again
 
 PARSERS = {
     "tennis": TennisParser,
@@ -214,7 +214,7 @@ class Scraper:
 
                     if f"{SOFASCORE_BASE_URL}/{sport}/{slug}/{code}#id:{match_id}" in all_match_links:
                         continue
-                    else: 
+                    else:
                         all_match_links.add(f"{SOFASCORE_BASE_URL}/{sport}/{slug}/{code}#id:{match_id}")
 
                 self.logger.debug(f"Total collected so far: {len(all_match_links)}")
@@ -353,17 +353,17 @@ class Scraper:
 
         self.logger.debug(f"Success {len(all_events)} events captured for {target_date}")
         return all_events
-    
-    
+
+
 
     async def _scrape_event_on_page(
         self, page: Page, sport: str, match_id: int, match_link: str
     ) -> dict[str, dict]:
-        
+
         if not page:
             raise RuntimeError("Playwright is not initialised - call start_playwright() first.")
 
-        
+
         captured: dict[str, dict] = {}
         pending: dict[str, str] = {}
         lock = asyncio.Lock()
@@ -418,7 +418,6 @@ class Scraper:
         await cdp.send("Network.enable", {})
 
         try:
-            # statistics tab
             self.logger.debug(f"Match {match_id}: loading - {match_link}")
             await page.goto(match_link, wait_until="domcontentloaded", timeout=30_000)
             try:
@@ -427,30 +426,32 @@ class Scraper:
                 pass
             await page.wait_for_timeout(4_000)
 
-            # navigate tolineups tab via hash-change
-            if sport == "football":
-                statistics_hash = f"#id:{match_id},tab:statistics"
-                self.logger.debug(f"match {match_id}: switching to lineups tab")
-                await page.evaluate(f"window.location.hash = '{statistics_hash}'")
+            # navigate to statistics tab via hash-change
+            
+            statistics_hash = f"#id:{match_id},tab:statistics"
+            self.logger.debug(f"match {match_id}: switching to statistics tab")
+            await page.evaluate(f"window.location.hash = '{statistics_hash}'")
+            try:
+                await page.wait_for_load_state("networkidle", timeout=8_000)
+            except Exception:
+                pass
+            await page.wait_for_timeout(1_500)
+
+            if "statistics" not in captured:
+                self.logger.debug(f"match {match_id}: hash navigation didn't fire /statistics - trying click")
                 try:
-                    await page.wait_for_load_state("networkidle", timeout=8_000)
-                except Exception:
-                    pass
-                await page.wait_for_timeout(1_500)
-
-                if "statistics" not in captured:
-                    self.logger.debug(f"match {match_id}: hash navigation didn't fire /lineups - trying click")
+                    tab_link = page.locator("a[href*='tab:statistics']").first
+                    await tab_link.click(timeout=5_000)
                     try:
-                        tab_link = page.locator("a[href*='tab:statistics']").first
-                        await tab_link.click(timeout=5_000)
-                        try:
-                            await page.wait_for_load_state("networkidle", timeout=6_000)
-                        except Exception:
-                            pass
-                        await page.wait_for_timeout(1_500)
-                    except Exception as e:
-                        self.logger.debug(f"match {match_id}: statistics tab click failed - {e}")
+                        await page.wait_for_load_state("networkidle", timeout=6_000)
+                    except Exception:
+                        pass
+                    await page.wait_for_timeout(1_500)
+                except Exception as e:
+                    self.logger.debug(f"match {match_id}: statistics tab click failed - {e}")
 
+            # lineups are only relevant for football
+            if sport == "football":
                 lineups_hash = f"#id:{match_id},tab:lineups"
                 self.logger.debug(f"match {match_id}: switching to lineups tab")
                 await page.evaluate(f"window.location.hash = '{lineups_hash}'")
@@ -494,7 +495,7 @@ class Scraper:
 
             if self.whole_site_failures >= 2:
                 raise RuntimeError("Likely blocked by anti-bot protection")
-        
+
 
         return captured
 
@@ -617,12 +618,12 @@ class Scraper:
                     str(season["id"]) for season in SportTournamentRegistry.get_by_id(tournament).get("seasons", [])
                 ]
             elif len(seasons) == 1 and seasons[0] == "current":
-                season_ids = [ 
+                season_ids = [
                     str(sorted(SportTournamentRegistry.get_by_id(tournament).get("seasons", []), key=lambda x: extract_year(x["year"]), reverse=True)[0]["id"]) # Get the latest
                 ]
             else:
                 season_ids = seasons
-            
+
             tournament_slug = SportTournamentRegistry.get_by_id(tournament).get("slug", "")
             self.storage.default_file_path = self.storage.default_file_path + f"/{tournament_slug}-{tournament}"
 
@@ -697,7 +698,7 @@ class Scraper:
 
                 if rounds_data:
                     all_rounds_collected = len(rounds_data["rounds"]) == rounds
-                    
+
                     if isinstance(self.storage, PgsqlDataStorage):
                         await self.storage.save_season(season_id, all_rounds_collected)
                 else:
@@ -738,7 +739,7 @@ class Scraper:
         if not dates:
             self.logger.debug("All dates already scraped - nothing to do.")
             return result
-        
+
         page_pool = await self.playwright_manager.create_page_pool(size=concurrency)
         result_lock = asyncio.Lock()
         sem = asyncio.Semaphore(concurrency)
@@ -776,4 +777,4 @@ class Scraper:
             await asyncio.gather(*[scrape_one_date(d, pt) for d in dates])
 
         return result
-    
+

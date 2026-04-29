@@ -1,4 +1,3 @@
-import logging
 import re
 import time
 from functools import cache
@@ -7,6 +6,7 @@ from sofascraper.utils.constants import SOFASCORE_BASE_URL
 from sofascraper.utils.country_registry import CountryRegistry
 from sofascraper.utils.enums import Sport
 from sofascraper.utils.sport_tournament_registry import SportTournamentRegistry
+
 
 def get_supported_seasons(sport: Sport | str) -> list[str]:
     """
@@ -163,7 +163,7 @@ def get_tournament_information(sport: str, tournament: str, season: str | None =
         tournament_dict = SportTournamentRegistry.get_by_id(tournament)
         country_dict = CountryRegistry.get_by_id(tournament_dict.get("country_id"))
 
-        
+
 
         # Sorting by season value
         sorted_seasons = sorted(tournament_dict["seasons"], key=lambda x: extract_year(x["year"]), reverse=True)
@@ -176,7 +176,7 @@ def get_tournament_information(sport: str, tournament: str, season: str | None =
         # Treat missing season as current
         if season == "current":
             season_id = sorted_seasons[0]['id']
-            
+
         if re.match(r"^\d{5,}$", season):
             season_id = season
 
