@@ -353,7 +353,8 @@ class Scraper:
         self.logger.debug(f"Success {len(all_events)} events captured for {target_date}")
         return all_events
     
-    
+    whole_site_failures = 0
+
     async def _scrape_event_on_page(
         self, page: Page, sport: str, match_id: int, match_link: str
     ) -> dict[str, dict]:
@@ -361,6 +362,7 @@ class Scraper:
         if not page:
             raise RuntimeError("Playwright is not initialised - call start_playwright() first.")
 
+        
         captured: dict[str, dict] = {}
         pending: dict[str, str] = {}
         lock = asyncio.Lock()
@@ -485,6 +487,13 @@ class Scraper:
         if missing:
             self.logger.debug(f"match {match_id}: missing endpoints after fetch: {missing}")
             self.logger.warning(f"{len(missing)} endpoint not found.")
+
+            if len(missing) == len(WANTED_SUFFIXES.get(sport.lower())):
+                whole_site_failures+=1
+
+            if whole_site_failures >= 2:
+                raise RuntimeError("Likely blocked by anti-bot protection")
+        
 
         return captured
 
