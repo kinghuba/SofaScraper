@@ -3,6 +3,7 @@ import logging
 import random
 
 from playwright.async_api import async_playwright
+from playwright_stealth import Stealth
 
 from sofascraper.utils.constants import (
     PLAYWRIGHT_BROWSER_ARGS,
@@ -53,7 +54,7 @@ class PlaywrightManager:
         """
         try:
             self.logger.info("Starting Playwright...")
-            self.playwright = await async_playwright().start()
+            self.playwright = await Stealth().use_async(async_playwright()).start()
 
             browser_args = PLAYWRIGHT_BROWSER_ARGS
             self.browser = await self.playwright.chromium.launch(headless=headless, args=browser_args, proxy=proxy)
