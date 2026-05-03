@@ -63,6 +63,8 @@ class Scraper:
         self.playwright_manager = playwright_manager
         self.storage = storage
         self.whole_site_failures = 0
+        self.min_ms=800
+        self.max_ms=3000
 
     def _get_parser(self, sport):
         parser = PARSERS.get(sport)
@@ -342,7 +344,7 @@ class Scraper:
                 await page.wait_for_load_state("networkidle", timeout=12_000)
             except Exception:
                 pass
-            await page.wait_for_timeout(5_000)
+            await page.wait_for_timeout(random.randint(self.min_ms, self.max_ms))
         except Exception as e:
             self.logger.error(f"Failed fetching events - page load failed for {target_date}: {e}")
         finally:
@@ -368,54 +370,85 @@ class Scraper:
         pending: dict[str, str] = {}
         lock = asyncio.Lock()
 
-        cdp = await page.context.new_cdp_session(page)
+        async def handle_response(response) -> None:
+            url = response.url
 
-        async def on_request(params: dict) -> None:
-            url = params.get("request", {}).get("url", "")
-            rid = params.get("requestId", "")
-
-            # Get tennis rankings, different base
-            if sport == "tennis":
-                if url.endswith("/rankings"):
-                    self.logger.debug(f"/rankings -> {url} found.")
-
-                    # Extract team_id
-                    try:
-                        team_id = url.split("/team/")[1].split("/")[0]
-                    except (IndexError, AttributeError):
-                        team_id = None
-
+            # Tennis rankings
+            if sport == "tennis" and url.endswith("/rankings"):
+                try:
+                    team_id = url.split("/team/")[1].split("/")[0]
+                    key = f"rankings-{team_id}"
+                    body = await response.json()
                     async with lock:
-                        pending[rid] = f"rankings-{team_id}"
+                        captured[key] = body
+                    self.logger.debug(f"match {match_id}: captured rankings for team {team_id}")
+                except Exception as e:
+                    self.logger.debug(f"match {match_id}: failed to read rankings body: {e}")
+                return
 
-            for suffix in WANTED_SUFFIXES.get(sport.lower()):
+            # All other wanted suffixes
+            for suffix in WANTED_SUFFIXES.get(sport.lower(), []):
                 if url.endswith(f"/v1/event/{match_id}{suffix}"):
-                    self.logger.debug(f"/event/{match_id}{suffix} -> {url} found.")
-                    async with lock:
-                        # Store the suffix without the leading slash as dict key
-                        pending[rid] = suffix.lstrip("/")
+                    key = suffix.lstrip("/")
+                    try:
+                        body = await response.json()
+                        async with lock:
+                            captured[key] = body
+                        self.logger.debug(f"match {match_id}: captured /{key}")
+                    except Exception as e:
+                        self.logger.debug(f"match {match_id}: failed to read body for /{key}: {e}")
                     break
 
-        async def on_loading_finished(params: dict) -> None:
-            rid = params.get("requestId", "")
-            async with lock:
-                key = pending.pop(rid, None)
-            if key is None:
-                return
-            try:
-                resp = await cdp.send("Network.getResponseBody", {"requestId": rid})
-                raw = resp.get("body", "")
-                if resp.get("base64Encoded"):
-                    raw = base64.b64decode(raw).decode("utf-8", errors="replace")
-                async with lock:
-                    captured[key] = json.loads(raw)
-                self.logger.debug(f"match {match_id}: captured /{key or '(base)'}")
-            except Exception as e:
-                self.logger.debug(f"match {match_id}: could not read body for /{key}: {e}")
+        page.on("response", handle_response)
 
-        cdp.on("Network.requestWillBeSent", on_request)
-        cdp.on("Network.loadingFinished", on_loading_finished)
-        await cdp.send("Network.enable", {})
+        # cdp = await page.context.new_cdp_session(page)
+
+        # async def on_request(params: dict) -> None:
+        #     url = params.get("request", {}).get("url", "")
+        #     rid = params.get("requestId", "")
+
+        #     # Get tennis rankings, different base
+        #     if sport == "tennis":
+        #         if url.endswith("/rankings"):
+        #             self.logger.debug(f"/rankings -> {url} found.")
+
+        #             # Extract team_id
+        #             try:
+        #                 team_id = url.split("/team/")[1].split("/")[0]
+        #             except (IndexError, AttributeError):
+        #                 team_id = None
+
+        #             async with lock:
+        #                 pending[rid] = f"rankings-{team_id}"
+
+        #     for suffix in WANTED_SUFFIXES.get(sport.lower()):
+        #         if url.endswith(f"/v1/event/{match_id}{suffix}"):
+        #             self.logger.debug(f"/event/{match_id}{suffix} -> {url} found.")
+        #             async with lock:
+        #                 # Store the suffix without the leading slash as dict key
+        #                 pending[rid] = suffix.lstrip("/")
+        #             break
+
+        # async def on_loading_finished(params: dict) -> None:
+        #     rid = params.get("requestId", "")
+        #     async with lock:
+        #         key = pending.pop(rid, None)
+        #     if key is None:
+        #         return
+        #     try:
+        #         resp = await cdp.send("Network.getResponseBody", {"requestId": rid})
+        #         raw = resp.get("body", "")
+        #         if resp.get("base64Encoded"):
+        #             raw = base64.b64decode(raw).decode("utf-8", errors="replace")
+        #         async with lock:
+        #             captured[key] = json.loads(raw)
+        #         self.logger.debug(f"match {match_id}: captured /{key or '(base)'}")
+        #     except Exception as e:
+        #         self.logger.debug(f"match {match_id}: could not read body for /{key}: {e}")
+
+        # cdp.on("Network.requestWillBeSent", on_request)
+        # cdp.on("Network.loadingFinished", on_loading_finished)
+        # await cdp.send("Network.enable", {})
 
         try:
             self.logger.debug(f"Match {match_id}: loading - {match_link}")
@@ -424,7 +457,7 @@ class Scraper:
                 await page.wait_for_load_state("networkidle", timeout=8_000)
             except Exception:
                 pass
-            await page.wait_for_timeout(4_000)
+            await page.wait_for_timeout(random.randint(self.min_ms, self.max_ms))
 
             # navigate to statistics tab via hash-change
             
@@ -435,7 +468,7 @@ class Scraper:
                 await page.wait_for_load_state("networkidle", timeout=8_000)
             except Exception:
                 pass
-            await page.wait_for_timeout(1_500)
+            await page.wait_for_timeout(random.randint(self.min_ms, self.max_ms))
 
             if "statistics" not in captured:
                 self.logger.debug(f"match {match_id}: hash navigation didn't fire /statistics - trying click")
@@ -446,7 +479,7 @@ class Scraper:
                         await page.wait_for_load_state("networkidle", timeout=6_000)
                     except Exception:
                         pass
-                    await page.wait_for_timeout(1_500)
+                    await page.wait_for_timeout(random.randint(self.min_ms, self.max_ms))
                 except Exception as e:
                     self.logger.debug(f"match {match_id}: statistics tab click failed - {e}")
 
@@ -459,7 +492,7 @@ class Scraper:
                     await page.wait_for_load_state("networkidle", timeout=8_000)
                 except Exception:
                     pass
-                await page.wait_for_timeout(1_500)
+                await page.wait_for_timeout(random.randint(self.min_ms, self.max_ms))
 
                 # if not lineups captured, try pressing lineups button
                 if "lineups" not in captured:
@@ -471,7 +504,7 @@ class Scraper:
                             await page.wait_for_load_state("networkidle", timeout=6_000)
                         except Exception:
                             pass
-                        await page.wait_for_timeout(1_500)
+                        await page.wait_for_timeout(random.randint(self.min_ms, self.max_ms))
                     except Exception as e:
                         self.logger.debug(f"match {match_id}: lineups tab click failed - {e}")
 
@@ -569,6 +602,9 @@ class Scraper:
 
         async with ProgressTracker(total=len(match_links), label="Matches") as pt:
             await asyncio.gather(*[scrape_one(link, pt) for link in match_links])
+        for r in result:
+            if isinstance(r, RuntimeError) and "anti-bot" in str(r):
+                raise r  # abort
 
         return result
 
