@@ -55,7 +55,7 @@ class LocalDataStorage:
         self.logger.debug(f"Found {len(existing)} existing match(es) in '{directory}'")
         return existing
 
-    async def get_existing_dates(self, file_path: str | None = None) -> set[str]:
+    async def get_existing_dates(self) -> set[str]:
         """
         Scan a directory of per-date JSON files and return the set of date strings
         that have already been scraped.
@@ -73,7 +73,7 @@ class LocalDataStorage:
 
         DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
-        directory = file_path or os.path.join(self.default_file_path, "dates")
+        directory = os.path.join(self.default_file_path, "dates")
 
         if not os.path.isdir(directory):
             self.logger.debug(f"Directory '{directory}' does not exist treating as empty.")

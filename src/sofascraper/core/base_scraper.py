@@ -15,7 +15,7 @@ from sofascraper.core.parsers.tennis_parser import TennisParser
 from sofascraper.core.playwright_manager import PlaywrightManager
 from sofascraper.storage.pgsql_data_storage import PgsqlDataStorage
 from sofascraper.utils.browser_helpers import BrowserHelpers
-from sofascraper.utils.constants import GOTO_TIMEOUT_MS, SOFASCORE_BASE_URL, WANTED_SUFFIXES
+from sofascraper.utils.constants import GOTO_TIMEOUT_MS, MAX_TIMEOUT_MS, MIN_TIMEOUT_MS, SOFASCORE_BASE_URL, WANTED_SUFFIXES
 from sofascraper.utils.dataclasses.football_data_classes import MatchData
 from sofascraper.utils.progress_tracker import ProgressTracker
 from sofascraper.utils.sport_tournament_registry import SportTournamentRegistry
@@ -63,8 +63,8 @@ class Scraper:
         self.playwright_manager = playwright_manager
         self.storage = storage
         self.whole_site_failures = 0
-        self.min_ms=800
-        self.max_ms=3000
+        self.min_ms=MIN_TIMEOUT_MS
+        self.max_ms=MAX_TIMEOUT_MS
 
     def _get_parser(self, sport):
         parser = PARSERS.get(sport)
@@ -73,7 +73,6 @@ class Scraper:
         return parser()
 
     # ^ Playwright
-
     async def start_playwright(
         self,
         headless: bool = True,
@@ -96,20 +95,18 @@ class Scraper:
         await self.playwright_manager.cleanup()
 
     # ^ Deduplication
-
     async def _filter_existing_matches(
-        self, match_links: list[str], file_path: str | None = None, sport: str | None = None
+        self, match_links: list[str], file_path: str | None = None
     ) -> tuple[list[str], int]:
         """
         Remove links whose match IDs already exist in storage.
 
         Args:
             match_links: Full list of URLs to consider.
-            storage:     Storage instance
-            file_path:   Directory override
+            file_path:   Directory override.
 
         Returns:
-            (filtered_links, skipped_count)
+            filtered_links, skipped_count
         """
         existing_ids = await self.storage.get_existing_match_ids(file_path=file_path)
 
@@ -132,12 +129,21 @@ class Scraper:
         return filtered, skipped
 
     async def _filter_existing_dates(
-        self, date_list: Iterable[str], file_path: str | None = None, sport: str | None = None
+        self, date_list: Iterable[str]
     ) -> tuple[list[str], int]:
+        """
+        Remove links whose match IDs already exist in storage.
 
-        directory = file_path or None
+        Args:
+            date_list: Full list of dates to consider.
+            file_path:   Directory override.
+
+        Returns:
+            filtered_links, skipped_count
+        """
+
         # Only works for local files, not database
-        existing_dates = await self.storage.get_existing_dates(file_path=directory)
+        existing_dates = await self.storage.get_existing_dates()
 
         if not existing_dates:
             return list(date_list), 0
@@ -154,6 +160,18 @@ class Scraper:
     # ^ Match helpers
 
     def extract_match_info(self, url: str):
+        """
+        Retrieve match information from url.
+
+        Args:
+            url: URL of match.
+
+        Returns:
+            sport: str
+            slug: str
+            match_code: str
+            match_id: str
+        """
         parsed = urlparse(url)
 
         # Split path and remove empty parts
@@ -168,14 +186,25 @@ class Scraper:
         else:
             slug = code = sport = None
 
-        # id from fragment (#id:xxxxxx)
+        # id from fragment (#id:xx)
         match_id = None
         if parsed.fragment.startswith("id:"):
             match_id = parsed.fragment.split("id:")[1]
 
         return sport, slug, code, match_id
 
-    async def _extract_match_links(self, page: Page, season) -> list[str]:
+    async def _extract_match_links(self, page: Page, season: str) -> list[str]:
+        """
+        Retrieve all match links for a specific tournament. The method loops through all the pages of matches collecting links.
+        Using database all the links are stored and marked to avoid duplication.
+
+        Args:
+            page: Page instance.
+            season: Id of season.
+
+        Returns:
+            list[str]: List of extracted links.
+        """
         try:
             all_match_links = set()
             go_right = True
@@ -186,6 +215,7 @@ class Scraper:
                 html_content = await page.content()
                 self.soup = BeautifulSoup(html_content, "html.parser")
 
+                # Checking for tabpanel, that has the pagination arrows and the match links
                 def _fetch_rows():
                     container = self.soup.find("div", id="tabpanel-round")
                     if not container:
@@ -198,6 +228,7 @@ class Scraper:
 
                     return rows
 
+                # Retry three times, because loading times can vary
                 rows = wait_and_try_again(wait=3, func=_fetch_rows, retries=3)
 
                 if not rows:
@@ -208,12 +239,15 @@ class Scraper:
                 for link in rows:
                     sport, slug, code, match_id = self.extract_match_info(f"{SOFASCORE_BASE_URL}{link.get("href", "")}")
 
+                    # Remove links that does not follow the structure
                     if not sport or not slug or not code or not match_id:
                         continue
 
+                    # Save to database
                     if isinstance(self.storage, PgsqlDataStorage):
                         await self.storage.save_link(slug, int(match_id), code, int(season), False)
 
+                    # Skip existing ones
                     if f"{SOFASCORE_BASE_URL}/{sport}/{slug}/{code}#id:{match_id}" in all_match_links:
                         continue
                     else:
@@ -221,7 +255,7 @@ class Scraper:
 
                 self.logger.debug(f"Total collected so far: {len(all_match_links)}")
 
-                # handle pagination
+                # Handle pagination
                 try:
                     arrows = await page.query_selector_all("button.p_xs.bd_1\\.5px_solid_transparent")
 
@@ -235,7 +269,7 @@ class Scraper:
                     is_left_disabled = await left_arrow.get_attribute("disabled")
                     is_right_disabled = await right_arrow.get_attribute("disabled")
 
-                    # decide which direction to use
+                    # Decide which direction to use
                     if go_right is True:
                         if is_right_disabled is not None:
                             self.logger.debug("Right arrow exhausted. Switching to left.")
@@ -249,7 +283,7 @@ class Scraper:
                             break
                         arrow_to_click = left_arrow
 
-                    # confirm disabled state with delay
+                    # Confirm disabled state with delay
                     if (go_right and is_right_disabled is not None) or (not go_right and is_left_disabled is not None):
                         self.logger.debug("Arrow disabled, waiting 3 seconds to confirm...")
                         await asyncio.sleep(3)
@@ -299,42 +333,30 @@ class Scraper:
         Navigate to the Sofascore schedule page for one date and capture
         all scheduled-events API responses via CDP interception.
 
+        Args:
+            page: Page instance.
+            sport: Slug of sport.
+            target_date: Date in format (yyyy-mm-dd)
+
         Returns a flat list of raw event dicts.
         """
         all_events: list[dict] = []
-        pending: dict[str, str] = {}
         lock = asyncio.Lock()
 
-        cdp = await page.context.new_cdp_session(page)
+        async def handle_response(response) -> None:
+            url = response.url
 
-        async def on_request(params: dict) -> None:
-            url = params.get("request", {}).get("url", "")
-            rid = params.get("requestId", "")
+            # All other wanted suffixes
             if f"scheduled-events/{target_date}" in url:
-                async with lock:
-                    pending[rid] = url
+                try:
+                    body = await response.json()
+                    async with lock:
+                        all_events.extend(body['events'])
+                    self.logger.debug(f"Captured data for date: {target_date}")
+                except Exception as e:
+                    self.logger.debug(f"Failed to capture data for date: {target_date} -> {e}")
 
-        async def on_loading_finished(params: dict) -> None:
-            rid = params.get("requestId", "")
-            async with lock:
-                url = pending.pop(rid, None)
-            if url is None:
-                return
-            try:
-                resp = await cdp.send("Network.getResponseBody", {"requestId": rid})
-                raw = resp.get("body", "")
-                if resp.get("base64Encoded"):
-                    raw = base64.b64decode(raw).decode("utf-8", errors="replace")
-                events = json.loads(raw).get("events", [])
-                async with lock:
-                    all_events.extend(events)
-                self.logger.debug(f"{len(events)} events captured from {url}")
-            except Exception as e:
-                self.logger.debug(f"Failed fetching events - could not read body for {url}: {e}")
-
-        cdp.on("Network.requestWillBeSent", on_request)
-        cdp.on("Network.loadingFinished", on_loading_finished)
-        await cdp.send("Network.enable", {})
+        page.on("response", handle_response)
 
         try:
             schedule_url = f"https://www.sofascore.com/{sport}/{target_date}"
@@ -347,11 +369,6 @@ class Scraper:
             await page.wait_for_timeout(random.randint(self.min_ms, self.max_ms))
         except Exception as e:
             self.logger.error(f"Failed fetching events - page load failed for {target_date}: {e}")
-        finally:
-            try:
-                await cdp.detach()
-            except Exception:
-                pass
 
         self.logger.debug(f"Success {len(all_events)} events captured for {target_date}")
         return all_events
@@ -365,9 +382,7 @@ class Scraper:
         if not page:
             raise RuntimeError("Playwright is not initialised - call start_playwright() first.")
 
-
         captured: dict[str, dict] = {}
-        pending: dict[str, str] = {}
         lock = asyncio.Lock()
 
         async def handle_response(response) -> None:
@@ -401,55 +416,6 @@ class Scraper:
 
         page.on("response", handle_response)
 
-        # cdp = await page.context.new_cdp_session(page)
-
-        # async def on_request(params: dict) -> None:
-        #     url = params.get("request", {}).get("url", "")
-        #     rid = params.get("requestId", "")
-
-        #     # Get tennis rankings, different base
-        #     if sport == "tennis":
-        #         if url.endswith("/rankings"):
-        #             self.logger.debug(f"/rankings -> {url} found.")
-
-        #             # Extract team_id
-        #             try:
-        #                 team_id = url.split("/team/")[1].split("/")[0]
-        #             except (IndexError, AttributeError):
-        #                 team_id = None
-
-        #             async with lock:
-        #                 pending[rid] = f"rankings-{team_id}"
-
-        #     for suffix in WANTED_SUFFIXES.get(sport.lower()):
-        #         if url.endswith(f"/v1/event/{match_id}{suffix}"):
-        #             self.logger.debug(f"/event/{match_id}{suffix} -> {url} found.")
-        #             async with lock:
-        #                 # Store the suffix without the leading slash as dict key
-        #                 pending[rid] = suffix.lstrip("/")
-        #             break
-
-        # async def on_loading_finished(params: dict) -> None:
-        #     rid = params.get("requestId", "")
-        #     async with lock:
-        #         key = pending.pop(rid, None)
-        #     if key is None:
-        #         return
-        #     try:
-        #         resp = await cdp.send("Network.getResponseBody", {"requestId": rid})
-        #         raw = resp.get("body", "")
-        #         if resp.get("base64Encoded"):
-        #             raw = base64.b64decode(raw).decode("utf-8", errors="replace")
-        #         async with lock:
-        #             captured[key] = json.loads(raw)
-        #         self.logger.debug(f"match {match_id}: captured /{key or '(base)'}")
-        #     except Exception as e:
-        #         self.logger.debug(f"match {match_id}: could not read body for /{key}: {e}")
-
-        # cdp.on("Network.requestWillBeSent", on_request)
-        # cdp.on("Network.loadingFinished", on_loading_finished)
-        # await cdp.send("Network.enable", {})
-
         try:
             self.logger.debug(f"Match {match_id}: loading - {match_link}")
             await page.goto(match_link, wait_until="domcontentloaded", timeout=30_000)
@@ -460,7 +426,7 @@ class Scraper:
             await page.wait_for_timeout(random.randint(self.min_ms, self.max_ms))
 
             # navigate to statistics tab via hash-change
-            
+
             statistics_hash = f"#id:{match_id},tab:statistics"
             self.logger.debug(f"match {match_id}: switching to statistics tab")
             await page.evaluate(f"window.location.hash = '{statistics_hash}'")
@@ -510,11 +476,6 @@ class Scraper:
 
         except Exception as e:
             self.logger.warning(f"match {match_id}: page load error - {e}")
-        finally:
-            try:
-                await cdp.detach()
-            except Exception:
-                pass
 
         missing = [
             s.lstrip("/") or "(base)" for s in WANTED_SUFFIXES.get(sport.lower()) if s.lstrip("/") not in captured
@@ -562,7 +523,7 @@ class Scraper:
 
         page_pool = await self.playwright_manager.create_page_pool(size=concurrency)
         sem = asyncio.Semaphore(concurrency)
-        result_lock = asyncio.Lock()  # protect shared result object
+        result_lock = asyncio.Lock()
 
         async def scrape_one(match_link: str, pt: ProgressTracker):
             async with sem:
@@ -769,7 +730,7 @@ class Scraper:
         self.logger.info(f"Requested {len(dates)} date(s): {dates[0]} … {dates[-1]}")
 
         # Deduplicate dates before opening the browser loop
-        dates, skipped = await self._filter_existing_dates(date_list=dates, storage=self.storage, sport=sport)
+        dates, skipped = await self._filter_existing_dates(date_list=dates)
         result.skipped += skipped
 
         if not dates:
