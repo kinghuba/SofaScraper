@@ -514,7 +514,7 @@ class Scraper:
         if self.storage is not None:
             match_links, skipped = await self._filter_existing_matches(
                 match_links=match_links,
-                file_path=self.storage.default_file_path, sport=sport
+                file_path=self.storage.default_file_path
             )
             result.skipped += skipped
 
