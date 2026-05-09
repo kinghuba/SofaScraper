@@ -98,7 +98,7 @@ class PgsqlDataStorage:
         """
         async with Database.acquire() as conn:
             rows = await conn.fetch(
-                "SELECT item FROM core.scrapes WHERE sport_id = $1 AND collected = true",
+                f"SELECT cs.item FROM core.scrapes cs JOIN {self.sport_slug}.matches fm ON fm.id = cs.item WHERE cs.sport_id = $1 AND collected = true AND status_code IN (100, 60, 70, 110, 120) AND started_at + INTERVAL '4 hours' < NOW();",
                 self.sport_id,
             )
 
