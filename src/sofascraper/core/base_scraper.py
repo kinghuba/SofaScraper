@@ -62,7 +62,6 @@ class Scraper:
         self.logger = logging.getLogger(self.__class__.__name__)
         self.playwright_manager = playwright_manager
         self.storage = storage
-        self.whole_site_failures = 0
         self.min_ms=MIN_TIMEOUT_MS
         self.max_ms=MAX_TIMEOUT_MS
 
@@ -484,12 +483,6 @@ class Scraper:
             self.logger.debug(f"match {match_id}: missing endpoints after fetch: {missing}")
             self.logger.warning(f"{len(missing)} endpoint not found.")
 
-            if len(missing) == len(WANTED_SUFFIXES.get(sport.lower())):
-                self.whole_site_failures+=1
-
-            if self.whole_site_failures >= 2:
-                raise RuntimeError("Likely blocked by anti-bot protection")
-
 
         return captured
 
@@ -610,6 +603,7 @@ class Scraper:
         all_match_links: list[str] = []
 
         for tournament in tournaments:
+            self.logger.debug(tournament)
             if len(seasons) == 1 and seasons[0] == "all":
                 season_ids = [
                     str(season["id"]) for season in SportTournamentRegistry.get_by_id(tournament).get("seasons", [])
@@ -638,6 +632,8 @@ class Scraper:
                     if collected:
                         all_match_links.extend(await self.storage.get_collected_links(season_id)) # Add the links where it was not already scraped
                         continue
+
+                self.logger.debug("THis happened")
 
                 rounds_data: dict = {}
                 pending: dict[str, str] = {}

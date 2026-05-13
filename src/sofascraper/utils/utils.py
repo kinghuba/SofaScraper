@@ -132,12 +132,9 @@ def extract_year(year_str):
     if re.fullmatch(r"\d{2}/\d{2}", year_str):
         return max(int(f"20{y}") for y in year_str.split("/"))
 
-    # Case 2: format like "2024"
+    # Case 2: format like "2025"
     if re.fullmatch(r"\d{4}", year_str):
-        year = int(year_str)
-        short = year % 100
-        next_short = (short + 1) % 100
-        return f"{short:02d}/{next_short:02d}"
+        return int(year_str)
 
     raise ValueError(f"Invalid year format: {year_str}")
 
@@ -163,15 +160,12 @@ def get_tournament_information(sport: str, tournament: str, season: str | None =
         tournament_dict = SportTournamentRegistry.get_by_id(tournament)
         country_dict = CountryRegistry.get_by_id(tournament_dict.get("country_id"))
 
-
-
         # Sorting by season value
         sorted_seasons = sorted(tournament_dict["seasons"], key=lambda x: extract_year(x["year"]), reverse=True)
 
         if tournament_dict:
             base_url = f"{SOFASCORE_BASE_URL}/{sport}/tournament/{country_dict.get('flag').lower()}/{tournament_dict.get('slug').lower()}/{tournament_dict.get('id')}"
         season_id = None
-        # country_id = tournament_dict.get("country_id")
 
         # Treat missing season as current
         if season == "current":
