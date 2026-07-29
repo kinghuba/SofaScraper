@@ -3804,6 +3804,20 @@
         ]
     },
     {
+        "id": 98,
+        "name": "Trendyol 1.Lig",
+        "slug": "trendyol-1lig",
+        "priority": 0,
+        "country_id": 46,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 77977,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
         "id": 341,
         "name": "Super Cup",
         "slug": "super-cup",
@@ -5284,6 +5298,34 @@
         ]
     },
     {
+        "id": 229,
+        "name": "Betclic 1. Liga",
+        "slug": "i-liga",
+        "priority": 0,
+        "country_id": 47,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 77153,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "id": 515,
+        "name": "Betclic 2. Liga",
+        "slug": "ii-liga",
+        "priority": 0,
+        "country_id": 47,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 77311,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
         "id": 2065,
         "name": "Super League",
         "slug": "super-league",
@@ -5326,6 +5368,20 @@
         ]
     },
     {
+        "id": 1339,
+        "name": "NB II",
+        "slug": "nb-ii",
+        "priority": 0,
+        "country_id": 11,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 77728,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
         "id": 170,
         "name": "HNL",
         "slug": "hnl",
@@ -5363,6 +5419,20 @@
         "seasons": [
             {
                 "id": 77142,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "id": 204,
+        "name": "First League",
+        "slug": "1-liga",
+        "priority": 0,
+        "country_id": 21,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 77980,
                 "year": "25/26"
             }
         ]
@@ -5438,6 +5508,20 @@
         ]
     },
     {
+        "id": 691,
+        "name": "Persha Liha",
+        "slug": "persha-liha",
+        "priority": 0,
+        "country_id": 86,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 77971,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
         "id": 266,
         "name": "Premier League",
         "slug": "premier-league",
@@ -5503,6 +5587,20 @@
         "seasons": [
             {
                 "id": 78175,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
+        "id": 186,
+        "name": "Super League 2",
+        "slug": "super-league-2",
+        "priority": 0,
+        "country_id": 67,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 81972,
                 "year": "25/26"
             }
         ]
@@ -6488,6 +6586,20 @@
         ]
     },
     {
+        "id": 193,
+        "name": "First Division",
+        "slug": "first-division",
+        "priority": 0,
+        "country_id": 51,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 87698,
+                "year": "2026"
+            }
+        ]
+    },
+    {
         "id": 11619,
         "name": "Liga Guate Banrural, Apertura Playoffs",
         "slug": "liga-guate-banrural-apertura-playoffs",
@@ -6553,6 +6665,20 @@
         "seasons": [
             {
                 "id": 87925,
+                "year": "2026"
+            }
+        ]
+    },
+    {
+        "id": 46,
+        "name": "Superettan",
+        "slug": "superettan",
+        "priority": 0,
+        "country_id": 9,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 87924,
                 "year": "2026"
             }
         ]
@@ -7370,6 +7496,20 @@
         ]
     },
     {
+        "id": 47,
+        "name": "Betinia Liga",
+        "slug": "1st-division",
+        "priority": 0,
+        "country_id": 8,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 77031,
+                "year": "25/26"
+            }
+        ]
+    },
+    {
         "id": 39,
         "name": "Danish Superliga, Championship round",
         "slug": "superligaen-championship-round",
@@ -7407,6 +7547,20 @@
         "seasons": [
             {
                 "id": 77382,
+                "year": "25/26"
+            }
+        ]
+    },
+{
+        "id": 135,
+        "name": "2. Liga",
+        "slug": "2-liga",
+        "priority": 0,
+        "country_id": 17,
+        "sport": "football",
+        "seasons": [
+            {
+                "id": 77531,
                 "year": "25/26"
             }
         ]
