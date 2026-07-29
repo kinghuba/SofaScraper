@@ -34,6 +34,7 @@ from sofascraper.utils.dataclasses.football_data_classes import (
     Commentary,
     Incident,
     LineupPlayer,
+    Lineups,
     Manager,
     MatchData,
     MomentumElement,
@@ -513,22 +514,25 @@ class FootballRepository:
 
     # Lineups
 
-    async def _insert_lineups(self, conn: asyncpg.Connection, match_id: int, lineups) -> None:
-        all_entries: list[LineupPlayer] = lineups.home_players + lineups.away_players
+    async def _insert_lineups(self, conn: asyncpg.Connection, match_id: int, lineups: Lineups) -> None:
+        all_entries: list = lineups.home_players + lineups.away_players + lineups.missing_players
+        lineup_entries: list[LineupPlayer] = lineups.home_players + lineups.away_players
 
         # Upsert every player first
         for entry in all_entries:
             await self._upsert_player(conn, entry.player)
 
         rows = []
-        for entry in all_entries:
+        for entry in lineup_entries:
             rows.append(
                 (
                     match_id,
-                    entry.team_id,
+                    entry.team,
                     entry.player.id,
                     int(entry.shirt_number) if entry.shirt_number and entry.shirt_number.isdigit() else None,
                     entry.position,
+                    entry.position_title,
+                    entry.position_side,
                     not entry.substitute,
                     entry.statistics.get("rating") if entry.statistics else None,
                     entry.statistics.get("ratingVersions", {}).get("alternative") if entry.statistics else None,
@@ -539,19 +543,52 @@ class FootballRepository:
         await conn.executemany(
             """
             INSERT INTO football.lineups
-                (match_id, team_id, player_id, shirt_number, position,
+                (match_id, team, player_id, shirt_number, position, position_title, position_side,
                  is_starter,
                  rating, rating_alt, statistics, created_at)
-            VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9::jsonb,now())
+            VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11::jsonb,now())
             ON CONFLICT (match_id, player_id) DO UPDATE SET
+                team           = EXCLUDED.team,
                 shirt_number   = EXCLUDED.shirt_number,
                 position       = EXCLUDED.position,
+                position_title = EXCLUDED.position_title,
+                position_side  = EXCLUDED.position_side,
                 is_starter     = EXCLUDED.is_starter,
                 rating         = EXCLUDED.rating,
                 rating_alt     = EXCLUDED.rating_alt,
                 statistics     = EXCLUDED.statistics
             """,
             rows,
+        )
+
+        missingRows = []
+
+        for entry in lineups.missing_players:
+            missingRows.append((
+                match_id,
+                entry.team,
+                entry.player.id,
+                entry.type,
+                entry.reason,
+                entry.description,
+                entry.external_type,
+                entry.expected_end_date
+            ))
+
+        await conn.executemany(
+                    """
+                    INSERT INTO football.lineups_missing
+                        (match_id, team, player_id, type, reason, description, external_type, expected_end_date, created_at)
+                    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,now())
+                    ON CONFLICT (match_id, player_id) DO UPDATE SET
+                        team           = EXCLUDED.team,
+                        type       = EXCLUDED.type,
+                        reason = EXCLUDED.reason,
+                        description  = EXCLUDED.description,
+                        external_type     = EXCLUDED.external_type,
+                        expected_end_date         = EXCLUDED.expected_end_date
+                    """,
+                    missingRows,
         )
 
     # Shot events

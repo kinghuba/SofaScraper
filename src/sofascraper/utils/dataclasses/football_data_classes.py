@@ -214,9 +214,11 @@ class PlayerStatistics:
 @dataclass
 class LineupPlayer:
     player: Player
-    team_id: int
+    team: str | None
     shirt_number: str | None
     position: str | None
+    position_title: str | None
+    position_side: str | None
     substitute: bool
     statistics: dict[str, Any]
 
@@ -224,6 +226,7 @@ class LineupPlayer:
 @dataclass
 class MissingPlayer:
     player: Player
+    team: str | None
     type: str | None
     reason: str | None
     description: str | None

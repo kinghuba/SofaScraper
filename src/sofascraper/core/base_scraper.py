@@ -54,7 +54,7 @@ class Scraper:
         self,
         playwright_manager: PlaywrightManager,
         storage = None,
-        supabase = None
+        # supabase = None
     ):
         """
         Args:
@@ -62,7 +62,7 @@ class Scraper:
         """
         self.logger = logging.getLogger(self.__class__.__name__)
         self.playwright_manager = playwright_manager
-        self.supabase = supabase
+        # self.supabase = supabase
         self.storage = storage
         self.min_ms=MIN_TIMEOUT_MS
         self.max_ms=MAX_TIMEOUT_MS
@@ -546,7 +546,7 @@ class Scraper:
                         result.matches.append(data)
 
                     await self.storage.save_data(data=data, file_name_key="match_id")
-                    await self.supabase.save_match(data)
+                    # await self.supabase.save_match(data)
 
                 except Exception as e:
                     self.logger.error(f"Failed to scrape {match_link}: {e}", exc_info=True)

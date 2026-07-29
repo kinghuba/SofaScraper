@@ -2,6 +2,7 @@ import logging
 from datetime import UTC, datetime
 from typing import Any
 
+from sofascraper.utils.position_handler import get_player_position
 from sofascraper.utils.country_registry import CountryRegistry
 from sofascraper.utils.dataclasses.football_data_classes import (
     BaseEvent,
@@ -388,12 +389,17 @@ class FootballParser:
         missing_players = []
 
         for side in ["home", "away"]:
-            for player in data.get(side, {}).get("players", []):
+            for index, player in enumerate(data.get(side, {}).get("players", [])):
+                formation = home_formation if side == "home" else away_formation
+                position = get_player_position(formation, index)
+
                 parsed = LineupPlayer(
                     player=self._parse_player(player.get("player", {})),
-                    team_id=player.get("teamId"),
+                    team=side,
                     shirt_number=player.get("jerseyNumber"),
                     position=player.get("position"),
+                    position_title=position.get("position", ""),
+                    position_side=position.get("side", None),
                     substitute=player.get("substitute", False),
                     statistics={},
                 )
@@ -412,17 +418,18 @@ class FootballParser:
                     away_players.append(parsed)
 
         # Loop over missing players similarly
-        for player in data.get("missingPlayers", {}):
-            missing_players.append(
-                MissingPlayer(
-                    player=self._parse_player(player.get("player", {})),
-                    type=player.get("type"),
-                    reason=player.get("reason"),
-                    description=player.get("description"),
-                    external_type=player.get("externalType"),
-                    expected_end_date=player.get("expectedEndDate"),
+            for player in data.get("missingPlayers", {}):
+                missing_players.append(
+                    MissingPlayer(
+                        player=self._parse_player(player.get("player", {})),
+                        team=side,
+                        type=player.get("type"),
+                        reason=player.get("reason"),
+                        description=player.get("description"),
+                        external_type=player.get("externalType"),
+                        expected_end_date=player.get("expectedEndDate"),
+                    )
                 )
-            )
 
         self.logger.debug(f"Match {match_id}: lineups successfully parsed.")
 

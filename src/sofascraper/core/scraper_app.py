@@ -6,7 +6,7 @@ from sofascraper.core.base_scraper import Scraper
 from sofascraper.core.playwright_manager import PlaywrightManager
 from sofascraper.storage.local_data_storage import LocalDataStorage
 from sofascraper.storage.pgsql.connection import Database
-from sofascraper.storage.pgsql.supabase import Supabase
+# from sofascraper.storage.pgsql.supabase import Supabase
 from sofascraper.storage.pgsql_data_storage import PgsqlDataStorage
 from sofascraper.utils.enums import CommandEnum
 from sofascraper.utils.proxy_manager import ProxyManager
@@ -16,8 +16,8 @@ class ScraperApp:
     def __init__(self):
         self.logger = logging.getLogger(self.__class__.__name__)
         self.playwright_manager = PlaywrightManager()
-        self.supabase = Supabase()
-        self.scraper = Scraper(playwright_manager=self.playwright_manager, supabase=self.supabase)
+        # self.supabase = Supabase()
+        self.scraper = Scraper(playwright_manager=self.playwright_manager)
 
     async def run_scraper(
         self,
@@ -67,7 +67,7 @@ class ScraperApp:
             if storage_format == "database":
                 load_dotenv()
                 await Database.connect()
-                await self.supabase.connect()
+                # await self.supabase.connect()
 
             if command == CommandEnum.TOURNAMENTS:
                 if not sport or not tournaments:
@@ -140,7 +140,7 @@ class ScraperApp:
             if storage_format == "database":
                 async with Database.transaction() as conn:
                     await self.scraper.storage.close_scrape_run(conn)
-                    await self.supabase.close()
+                    # await self.supabase.close()
                 await Database.disconnect()
             # End playwright
             await self.scraper.stop_playwright()
