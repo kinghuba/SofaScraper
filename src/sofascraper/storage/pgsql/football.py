@@ -117,7 +117,7 @@ class FootballRepository:
             await self._insert_incidents(conn, event.id, match_data.incidents)
 
         if match_data.lineups:
-            await self._insert_lineups(conn, event.id, match_data.lineups)
+            await self._insert_lineups(conn, event.id, event.home_team.id, event.away_team.id, match_data.lineups)
 
         if match_data.shotmap:
             await self._insert_shot_events(conn, event.id, match_data.shotmap)
@@ -514,7 +514,7 @@ class FootballRepository:
 
     # Lineups
 
-    async def _insert_lineups(self, conn: asyncpg.Connection, match_id: int, lineups: Lineups) -> None:
+    async def _insert_lineups(self, conn: asyncpg.Connection, match_id: int, home_team_id: int, away_team_id: int, lineups: Lineups) -> None:
         all_entries: list = lineups.home_players + lineups.away_players + lineups.missing_players
         lineup_entries: list[LineupPlayer] = lineups.home_players + lineups.away_players
 
@@ -590,6 +590,22 @@ class FootballRepository:
                     """,
                     missingRows,
         )
+
+        await conn.executemany(
+                            """
+                            INSERT INTO football.lineups_data
+                                (match_id, home_team_id, away_team_id, home_team_formation, away_team_formation, confirmed, created_at)
+                            VALUES ($1,$2,$3,$4,$5,$6,now())
+                            ON CONFLICT (match_id) DO UPDATE SET
+                                home_team_id           = EXCLUDED.home_team_id,
+                                away_team_id       = EXCLUDED.away_team_id,
+                                home_team_formation = EXCLUDED.home_team_formation,
+                                away_team_formation  = EXCLUDED.away_team_formation,
+                                confirmed  = EXCLUDED.confirmed
+                            """,
+                            [(match_id, home_team_id, away_team_id, lineups.home_formation, lineups.away_formation, lineups.confirmed)],
+                )
+
 
     # Shot events
 
