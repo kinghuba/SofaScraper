@@ -39,6 +39,8 @@ WANTED_SUFFIXES = {
         "/shotmap",
         "/graph",
         "/odds/1/featured",
+        "/standings",
+        "/knockout"
     ],
     "tennis": ["", "/statistics", "/odds/1/featured", "/tennis-power", "/point-by-point"],
 }

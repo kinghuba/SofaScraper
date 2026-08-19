@@ -6,10 +6,13 @@ from sofascraper.utils.position_handler import get_player_position
 from sofascraper.utils.country_registry import CountryRegistry
 from sofascraper.utils.dataclasses.football_data_classes import (
     BaseEvent,
+    Block,
     Commentary,
     Coordinate,
     Coordinates,
     Country,
+    CupTree,
+    CupTreeRound,
     Event,
     Incident,
     LineupPlayer,
@@ -23,17 +26,22 @@ from sofascraper.utils.dataclasses.football_data_classes import (
     MomentumElement,
     Odds,
     OddsChoices,
+    Participant,
     Player,
+    Promotion,
     Referee,
     Round,
+    Row,
     Score,
     Season,
     Shotmap,
+    Standings,
     StatisticGroup,
     StatisticItem,
     StatisticsPeriod,
     Status,
     Team,
+    TieBreakingRule,
     TimeInfo,
     Tournament,
     Venue,
@@ -738,6 +746,233 @@ class FootballParser:
         self.logger.debug(f"Match {match_id} commentary successfully parsed.")
         return results
 
+    def _parse_participant(self, participant: dict) -> Participant | None:
+        """
+        Args:
+            participant: Dictionary of a single participant entry within a block.
+
+        Returns:
+            Participant: The parsed participant information.
+        """
+
+        if not participant:
+            self.logger.warning("No participant data found")
+            return
+
+        team = participant.get("team", {})
+
+        return Participant(
+            team_id=team.get("id", ""),
+            winner=participant.get("winner", ""),
+            order=participant.get("order", ""),
+            id=participant.get("id", ""),
+            source_block_id=participant.get("sourceBlockId", None)
+        )
+
+
+    def _parse_block(self, block: dict) -> Block | None:
+        """
+        Args:
+            block: Dictionary of a single block within a round.
+
+        Returns:
+            Block: The parsed block information.
+        """
+
+        if not block:
+            self.logger.warning("No block data found")
+            return
+
+        participants = [
+            self._parse_participant(participant)
+            for participant in block.get("participants", [])
+        ]
+
+        return Block(
+            event_in_progress=block.get("eventInProgress", False),
+            finished=block.get("finished", ""),
+            matches_in_round=block.get("matchesInRound", ""),
+            order=block.get("order", ""),
+            result=block.get("result", None),
+            home_team_score=block.get("homeTeamScore", None),
+            away_team_score=block.get("awayTeamScore", None),
+            participants=participants,
+            has_next_round_link=block.get("hasNextRoundLink", None),
+            id=block.get("id", ""),
+            events=block.get("events", []),
+            block_id=block.get("blockId", ""),
+            series_start_date_timestamp=block.get("seriesStartDateTimestamp", None),
+            automatic_progression=block.get("automaticProgression", None),
+        )
+
+
+    def _parse_round(self, round_: dict) -> CupTreeRound | None:
+        """
+        Args:
+            round_: Dictionary of a single round within a cup tree.
+
+        Returns:
+            Round: The parsed round information.
+        """
+
+        if not round_:
+            self.logger.warning("No round data found")
+            return
+
+        blocks = [self._parse_block(block) for block in round_.get("blocks", [])]
+
+        return CupTreeRound(
+            id=round_.get("id", ""),
+            order=round_.get("order", ""),
+            type=round_.get("type", ""),
+            description=round_.get("description", ""),
+            blocks=blocks,
+        )
+
+
+    def _parse_cup_tree(self, data: dict, season_id: int) -> list[CupTree] | None:
+        """
+        Args:
+            data: Dictionary of the cup tree section of the main event.
+            season_id: The id of the season this cup tree belongs to.
+
+        Returns:
+            list[CupTree]: The parsed cup tree information.
+        """
+
+        if not data:
+            return None
+
+        results: list[CupTree] = []
+        cupTrees = data.get("cupTrees")
+
+        if not cupTrees:
+            return None
+
+        for i in range(len(cupTrees)):
+            item = cupTrees[i]
+
+            tournament = item.get("tournament", {})
+            unique_tournament = tournament.get("uniqueTournament", {})
+
+            rounds = [self._parse_round(round_) for round_ in item.get("rounds", [])]
+            results.append(CupTree(
+                id=item.get("id", ""),
+                name=item.get("name", ""),
+                tournament_id=unique_tournament.get("id", ""),
+                season_id=season_id,
+                current_round=item.get("currentRound", ""),
+                rounds=rounds,
+                type=item.get("type", "")
+            ))
+
+        return results
+
+    def _parse_tie_breaking_rule(self, tie_breaking_rule: dict) -> TieBreakingRule | None:
+        """
+        Args:
+            tie_breaking_rule: Dictionary of the tie breaking rule section of a standings entry.
+    
+        Returns:
+            TieBreakingRule: The parsed tie breaking rule information.
+        """
+    
+        if not tie_breaking_rule:
+            return None
+    
+        return TieBreakingRule(
+            id=tie_breaking_rule.get("id", ""),
+            text=tie_breaking_rule.get("text", ""),
+        )
+    
+    
+    def _parse_promotion(self, promotion: dict) -> Promotion | None:
+        """
+        Args:
+            promotion: Dictionary of the promotion section of a standings row.
+    
+        Returns:
+            Promotion: The parsed promotion information.
+        """
+    
+        if not promotion:
+            return None
+    
+        return Promotion(
+            id=promotion.get("id", ""),
+            text=promotion.get("text", ""),
+        )
+    
+    
+    def _parse_row(self, row: dict) -> Row | None:
+        """
+        Args:
+            row: Dictionary of a single row within a standings entry.
+    
+        Returns:
+            Row: The parsed row information.
+        """
+    
+        if not row:
+            return None
+    
+        team = row.get("team", {})
+    
+        return Row(
+            id=row.get("id", ""),
+            team_id=team.get("id", ""),
+            descriptions=row.get("descriptions", []),
+            promotion=self._parse_promotion(row.get("promotion", {})),
+            position=row.get("position", ""),
+            matches=row.get("matches", ""),
+            wins=row.get("wins", ""),
+            losses=row.get("losses", ""),
+            draws=row.get("draws", ""),
+            scores_for=row.get("scoresFor", ""),
+            scores_against=row.get("scoresAgainst", ""),
+            points=row.get("points", ""),
+        )
+    
+    
+    def _parse_standings(self, data: dict, season_id: int) -> list[Standings] | None:
+        """
+        Args:
+            data: Dictionary of the main event containing the standings section.
+    
+        Returns:
+            list[Standings]: The parsed standings information.
+        """
+    
+        if not data:
+            return None
+    
+        results: list[Standings] = []
+        standings = data.get("standings")
+    
+        if not standings:
+            return None
+    
+        for i in range(len(standings)):
+            item = standings[i]
+    
+            tournament = item.get("tournament", {})
+            unique_tournament = tournament.get("uniqueTournament", {})
+    
+            rows = [self._parse_row(row) for row in item.get("rows", [])]
+    
+            results.append(Standings(
+                id=item.get("id", ""),
+                type=item.get("type", ""),
+                tournament_id=unique_tournament.get("id", ""),
+                season_id=season_id,
+                name=item.get("name", ""),
+                descriptions=item.get("descriptions", []),
+                tie_breaking_rule=self._parse_tie_breaking_rule(item.get("tieBreakingRule", {})),
+                rows=rows,
+            ))
+    
+        return results
+
     def parse_match(self, match_id: str, match_url: str, raw: dict) -> MatchData:
 
         base = self._parse_detailed_event_information(match_id, raw.get("", {}))
@@ -758,9 +993,14 @@ class FootballParser:
             odds = self._parse_odds(match_id, raw.get("odds/1/featured", {}))
             managers = self._parse_managers(match_id, raw.get("managers", {}))
             commentary = self._parse_comments(match_id, raw.get("comments", {}))
+            cup_trees = self._parse_cup_tree(raw.get("knockout", {}), base.season.id)
+            standings_total = self._parse_standings(raw.get("standings/total", {}), base.season.id)
+            standings_home = self._parse_standings(raw.get("standings/home", {}), base.season.id)
+            standings_away = self._parse_standings(raw.get("standings/away", {}), base.season.id)
         else:
             self.logger.debug(f"Match {match_id} not finished yet, only base information available.")
-            incidents = statistics = lineups = shotmap = momentum = odds = managers = commentary = None
+            incidents = statistics = lineups = shotmap = momentum = odds = managers = commentary = cupTree = None
+
 
         self.logger.debug(f"Match {match_id} successfully parsed.")
 
@@ -776,4 +1016,8 @@ class FootballParser:
             momentum=momentum,
             managers=managers,
             commentary=commentary,
+            cup_trees=cup_trees,
+            standings_total=standings_total,
+            standings_home=standings_home,
+            standings_away=standings_away
         )

@@ -1,9 +1,97 @@
 from dataclasses import dataclass
 from datetime import date, datetime
-from typing import Any
+from typing import Any, Optional
 
 # Core shared models
 
+from dataclasses import dataclass
+from typing import List
+
+
+@dataclass
+class Participant:
+    team_id: int
+    winner: bool
+    order: int
+    id: int
+    source_block_id: int | None
+
+
+@dataclass
+class Block:
+    finished: str
+    event_in_progress: bool
+    matches_in_round: int
+    order: int
+    result: str | None
+    home_team_score: str | None
+    away_team_score: str | None
+    participants: List[Participant | None]
+    has_next_round_link: bool | None
+    id: int
+    events: List[int]
+    block_id: int
+    series_start_date_timestamp: int | None
+    automatic_progression: bool | None
+
+
+@dataclass
+class CupTreeRound:
+    id: int
+    order: int
+    type: int
+    description: str
+    blocks: List[Block]
+
+
+@dataclass
+class CupTree:
+    id: int
+    name: str
+    tournament_id: int
+    season_id: int
+    current_round: int
+    rounds: List[CupTreeRound]
+    type: int
+
+@dataclass
+class TieBreakingRule:
+    id: int
+    text: str
+ 
+ 
+@dataclass
+class Promotion:
+    id: int
+    text: str
+ 
+ 
+@dataclass
+class Row:
+    id: int
+    team_id: int
+    descriptions: List[str]
+    promotion: Promotion
+    position: int
+    matches: int
+    wins: int
+    losses: int
+    draws: int
+    scores_for: int
+    scores_against: int
+    points: int
+ 
+ 
+@dataclass
+class Standings:
+    id: int
+    type: str
+    tournament_id: int
+    season_id: int
+    name: str
+    descriptions: List[str]
+    tie_breaking_rule: TieBreakingRule
+    rows: List[Row]
 
 @dataclass
 class Country:
@@ -354,6 +442,10 @@ class MatchData:
     momentum: Momentum | None
     managers: Managers | None
     commentary: list[Commentary] | None
+    cup_trees: list[CupTree] | None
+    standings_total: list[Standings] | None
+    standings_home: list[Standings] | None
+    standings_away: list[Standings] | None
 
     @property
     def fully_captured(self) -> bool:

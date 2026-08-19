@@ -20,12 +20,17 @@ from sofascraper.utils.dataclasses.football_data_classes import MatchData
 from sofascraper.utils.progress_tracker import ProgressTracker
 from sofascraper.utils.sport_tournament_registry import SportTournamentRegistry
 from sofascraper.utils.utils import extract_year, get_match_id, get_tournament_information, wait_and_try_again
+from sofascraper.core.scrapers.football_scraper import FootballScraper
+
 
 PARSERS = {
     "tennis": TennisParser,
     "football": FootballParser,
 }
 
+SCRAPERS = {
+    "football": FootballScraper,
+}
 
 @dataclass
 class ScrapeResult:
@@ -72,6 +77,12 @@ class Scraper:
         if not parser:
             raise ValueError(f"Unsupported sport: {sport}")
         return parser()
+
+    def _get_scraper(self, sport):
+        scraper = SCRAPERS.get(sport)
+        if not scraper:
+            raise ValueError(f"Unsupported sport: {sport}")
+        return scraper()
 
     # ^ Playwright
     async def start_playwright(
@@ -374,120 +385,6 @@ class Scraper:
         self.logger.debug(f"Success {len(all_events)} events captured for {target_date}")
         return all_events
 
-
-
-    async def _scrape_event_on_page(
-        self, page: Page, sport: str, match_id: int, match_link: str
-    ) -> dict[str, dict]:
-
-        if not page:
-            raise RuntimeError("Playwright is not initialised - call start_playwright() first.")
-
-        captured: dict[str, dict] = {}
-        lock = asyncio.Lock()
-
-        async def handle_response(response) -> None:
-            url = response.url
-
-            # Tennis rankings
-            if sport == "tennis" and url.endswith("/rankings"):
-                try:
-                    team_id = url.split("/team/")[1].split("/")[0]
-                    key = f"rankings-{team_id}"
-                    body = await response.json()
-                    async with lock:
-                        captured[key] = body
-                    self.logger.debug(f"match {match_id}: captured rankings for team {team_id}")
-                except Exception as e:
-                    self.logger.debug(f"match {match_id}: failed to read rankings body: {e}")
-                return
-
-            # All other wanted suffixes
-            for suffix in WANTED_SUFFIXES.get(sport.lower(), []):
-                if url.endswith(f"/v1/event/{match_id}{suffix}"):
-                    key = suffix.lstrip("/")
-                    try:
-                        body = await response.json()
-                        async with lock:
-                            captured[key] = body
-                        self.logger.debug(f"match {match_id}: captured /{key}")
-                    except Exception as e:
-                        self.logger.debug(f"match {match_id}: failed to read body for /{key}: {e}")
-                    break
-
-        page.on("response", handle_response)
-
-        try:
-            self.logger.debug(f"Match {match_id}: loading - {match_link}")
-            await page.goto(match_link, wait_until="domcontentloaded", timeout=30_000)
-            try:
-                await page.wait_for_load_state("networkidle", timeout=8_000)
-            except Exception:
-                pass
-            await page.wait_for_timeout(random.randint(self.min_ms, self.max_ms))
-
-            # navigate to statistics tab via hash-change
-
-            statistics_hash = f"#id:{match_id},tab:statistics"
-            self.logger.debug(f"match {match_id}: switching to statistics tab")
-            await page.evaluate(f"window.location.hash = '{statistics_hash}'")
-            try:
-                await page.wait_for_load_state("networkidle", timeout=8_000)
-            except Exception:
-                pass
-            await page.wait_for_timeout(random.randint(self.min_ms, self.max_ms))
-
-            if "statistics" not in captured:
-                self.logger.debug(f"match {match_id}: hash navigation didn't fire /statistics - trying click")
-                try:
-                    tab_link = page.locator("a[href*='tab:statistics']").first
-                    await tab_link.click(timeout=5_000)
-                    try:
-                        await page.wait_for_load_state("networkidle", timeout=6_000)
-                    except Exception:
-                        pass
-                    await page.wait_for_timeout(random.randint(self.min_ms, self.max_ms))
-                except Exception as e:
-                    self.logger.debug(f"match {match_id}: statistics tab click failed - {e}")
-
-            # lineups are only relevant for football
-            if sport == "football":
-                lineups_hash = f"#id:{match_id},tab:lineups"
-                self.logger.debug(f"match {match_id}: switching to lineups tab")
-                await page.evaluate(f"window.location.hash = '{lineups_hash}'")
-                try:
-                    await page.wait_for_load_state("networkidle", timeout=8_000)
-                except Exception:
-                    pass
-                await page.wait_for_timeout(random.randint(self.min_ms, self.max_ms))
-
-                # if not lineups captured, try pressing lineups button
-                if "lineups" not in captured:
-                    self.logger.debug(f"match {match_id}: hash navigation didn't fire /lineups - trying click")
-                    try:
-                        tab_link = page.locator("a[href*='tab:lineups']").first
-                        await tab_link.click(timeout=5_000)
-                        try:
-                            await page.wait_for_load_state("networkidle", timeout=6_000)
-                        except Exception:
-                            pass
-                        await page.wait_for_timeout(random.randint(self.min_ms, self.max_ms))
-                    except Exception as e:
-                        self.logger.debug(f"match {match_id}: lineups tab click failed - {e}")
-
-        except Exception as e:
-            self.logger.warning(f"match {match_id}: page load error - {e}")
-
-        missing = [
-            s.lstrip("/") or "(base)" for s in WANTED_SUFFIXES.get(sport.lower()) if s.lstrip("/") not in captured
-        ]
-        if missing:
-            self.logger.debug(f"match {match_id}: missing endpoints after fetch: {missing}")
-            self.logger.warning(f"{len(missing)} endpoint not found.")
-
-
-        return captured
-
     async def _scrape_matches(
         self,
         sport: str,
@@ -528,8 +425,8 @@ class Scraper:
                     match_id = get_match_id(match_link)
                     if match_id is None:
                         raise ValueError(f"Invalid match URL: {match_link}")
-
-                    raw = await self._scrape_event_on_page(page, sport, match_id, match_link)
+                    scraper = self._get_scraper(sport)
+                    raw = await scraper.scrape_event(page, match_id, match_link)
 
                     data = None
                     if raw:
