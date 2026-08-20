@@ -1,6 +1,7 @@
 import logging
 
 from dotenv import load_dotenv
+from playwright.async_api import ProxySettings
 
 from sofascraper.core.base_scraper import Scraper
 from sofascraper.core.playwright_manager import PlaywrightManager
@@ -54,13 +55,21 @@ class ScraperApp:
         
 
         try:
-            proxy_config = self.proxy_manager.get_current_proxy()
+            proxy_config = self.proxy_manager.get_proxy()
+            proxy = None
+            if proxy_config is not None:
+                proxy = ProxySettings(
+                    server=proxy_config["proxy_url"],
+                    username=proxy_config["proxy_user"],
+                    password=proxy_config["proxy_pass"],
+                )
+
             await self.scraper.start_playwright(
                 headless=headless,
                 browser_user_agent=browser_user_agent,
                 browser_locale_timezone=browser_locale_timezone,
                 browser_timezone_id=browser_timezone_id,
-                proxy=proxy_config,
+                proxy=proxy,
             )
 
             if storage_format == "database":

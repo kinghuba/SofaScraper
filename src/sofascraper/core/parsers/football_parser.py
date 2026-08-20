@@ -193,7 +193,7 @@ class FootballParser:
             int: The id of the country from the countries ALPHA2 attribute.
         """
         result = CountryRegistry.get_by_alpha2(alpha2)
-        return result.get("id") if result else None
+        return result.id if result else None
 
     def _parse_tournament(self, tournament: dict[str, Any], unique_tournament: dict[str, Any]) -> Tournament | None:
         """

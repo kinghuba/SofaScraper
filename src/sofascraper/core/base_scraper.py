@@ -7,8 +7,8 @@ from collections.abc import Iterable
 from dataclasses import dataclass, field
 from urllib.parse import urlparse
 
-from bs4 import BeautifulSoup
-from playwright.async_api import Page
+from bs4 import BeautifulSoup, Tag
+from playwright.async_api import Page, ProxySettings
 
 from sofascraper.core.parsers.football_parser import FootballParser
 from sofascraper.core.parsers.tennis_parser import TennisParser
@@ -90,7 +90,7 @@ class Scraper:
         browser_user_agent: str | None = None,
         browser_locale_timezone: str | None = None,
         browser_timezone_id: str | None = None,
-        proxy: dict[str, str] | None = None,
+        proxy: ProxySettings | None = None,
     ):
         """Initialises Playwright via PlaywrightManager."""
         await self.playwright_manager.initialize(
@@ -204,7 +204,7 @@ class Scraper:
 
         return sport, slug, code, match_id
 
-    async def _extract_match_links(self, page: Page, season: str) -> list[str]:
+    async def _extract_match_links(self, page: Page, season: str) -> tuple[list[str], int] | None:
         """
         Retrieve all match links for a specific tournament. The method loops through all the pages of matches collecting links.
         Using database all the links are stored and marked to avoid duplication.
@@ -227,23 +227,24 @@ class Scraper:
                 self.soup = BeautifulSoup(html_content, "html.parser")
 
                 # Checking for tabpanel, that has the pagination arrows and the match links
-                def _fetch_rows():
+                def _fetch_rows() -> list[Tag]:
                     container = self.soup.find("div", id="tabpanel-round")
+
                     if not container:
-                        self.logger.warning("tabpanel-round not found")
-                        return None
+                        self.logger.debug("tabpanel-round not found this try")
+                        return []
 
-                    matches_container = container.find("div", attrs={"class": lambda c: c and "pb_sm" in c})
+                    matches_container = container.select_one("div.pb_sm")
 
-                    rows = matches_container.find_all("a", href=True) if matches_container else []
-
-                    return rows
+                    return matches_container.find_all("a", href=True) if matches_container else []
 
                 # Retry three times, because loading times can vary
                 rows = wait_and_try_again(wait=3, func=_fetch_rows, retries=3)
 
+                # If no tabpanel was found, the links are not extractable.
                 if not rows:
                     self.logger.warning("No tabpanel found")
+                    return None
 
                 self.logger.debug(f"Found {len(rows)} links on current page.")
 
@@ -332,7 +333,7 @@ class Scraper:
 
         except Exception as e:
             self.logger.error(f"Error extracting match links: {e}", exc_info=True)
-            return []
+            return None
 
     async def _scrape_date_events(
         self,
@@ -455,9 +456,6 @@ class Scraper:
 
         async with ProgressTracker(total=len(match_links), label="Matches") as pt:
             await asyncio.gather(*[scrape_one(link, pt) for link in match_links])
-        for r in result:
-            if isinstance(r, RuntimeError) and "anti-bot" in str(r):
-                raise r  # abort
 
         return result
 
@@ -502,23 +500,34 @@ class Scraper:
         all_match_links: list[str] = []
 
         for tournament in tournaments:
-            self.logger.debug(tournament)
+            t = SportTournamentRegistry.get_by_id(tournament)
+            if not t:
+                return None
             if len(seasons) == 1 and seasons[0] == "all":
                 season_ids = [
-                    str(season["id"]) for season in SportTournamentRegistry.get_by_id(tournament).get("seasons", [])
+                    str(season.id) for season in t.seasons
                 ]
             elif len(seasons) == 1 and seasons[0] == "current":
                 season_ids = [
-                    str(sorted(SportTournamentRegistry.get_by_id(tournament).get("seasons", []), key=lambda x: extract_year(x["year"]), reverse=True)[0]["id"]) # Get the latest
+                    str(sorted(t.seasons, key=lambda x: extract_year(x.year), reverse=True)[0].id) # Get the latest
                 ]
             else:
                 season_ids = seasons
 
-            tournament_slug = SportTournamentRegistry.get_by_id(tournament).get("slug", "")
-            self.storage.default_file_path = self.storage.default_file_path + f"/{tournament_slug}-{tournament}"
+            self.storage.default_file_path = self.storage.default_file_path + f"/{t.slug}-{tournament}"
 
             for season in season_ids:
-                url, season_id = get_tournament_information(sport=sport, tournament=tournament, season=season)
+                r = get_tournament_information(
+                    sport=sport,
+                    tournament=tournament,
+                    season=season,
+                )
+
+                if r is None:
+                    # Handle lookup failure
+                    return
+
+                url, season_id = r
                 self.logger.debug(f"Loading league page: {url}")
 
                 if not season_id:
@@ -580,9 +589,15 @@ class Scraper:
                     except Exception:
                         pass
 
-                match_links, rounds = await self._extract_match_links(
+                r = await self._extract_match_links(
                     page=current_page, season=season_id
                 )
+
+                if not r:
+                    # Link extraction failure
+                    return
+                
+                match_links, rounds = r
 
                 if not match_links:
                     self.logger.warning(f"No match links found for {tournament} - skipping.")
