@@ -455,7 +455,10 @@ class Scraper:
                     pt.advance(status=match_link, failed=failed)
 
         async with ProgressTracker(total=len(match_links), label="Matches") as pt:
-            await asyncio.gather(*[scrape_one(link, pt) for link in match_links])
+            if not pt:
+                pass
+            else:
+                await asyncio.gather(*[scrape_one(link, pt) for link in match_links])
 
         return result
 
@@ -681,7 +684,10 @@ class Scraper:
                     pt.advance(status=target_date, failed=failed)
 
         async with ProgressTracker(total=len(dates), label="Dates") as pt:
-            await asyncio.gather(*[scrape_one_date(d, pt) for d in dates])
+            if not pt:
+                pass
+            else:
+                await asyncio.gather(*[scrape_one_date(d, pt) for d in dates])
 
         return result
 

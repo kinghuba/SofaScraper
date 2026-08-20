@@ -7,6 +7,7 @@ import click
 from sofascraper.cli.options import global_options, sport_filter
 from sofascraper.cli.validators import validate_season, validate_tournament
 from sofascraper.core.scraper_app import ScraperApp
+from sofascraper.utils.enums import CommandEnum
 
 
 @click.command("tournaments")
@@ -21,13 +22,13 @@ from sofascraper.core.scraper_app import ScraperApp
     help="Tournament name, slug or id.",
 )
 @click.option("--seasons", required=False, multiple=True, callback=validate_season, help="Season years.")
-def tournaments(tournaments, sport, seasons=None, **kwargs):
+def tournaments(tournaments, sport, seasons: list[str], **kwargs):
     """Scrape matches for specific tournaments."""
     sport_value = sport.value if hasattr(sport, "value") else sport
     app = ScraperApp()
     asyncio.run(
         app.run_scraper(
-            command="tournaments",
+            command=CommandEnum.TOURNAMENTS,
             sport=sport_value,
             tournaments=tournaments,
             seasons=seasons,

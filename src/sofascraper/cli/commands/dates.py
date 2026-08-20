@@ -7,6 +7,7 @@ import click
 from sofascraper.cli.options import global_options, sport_filter
 from sofascraper.cli.validators import validate_date
 from sofascraper.core.scraper_app import ScraperApp
+from sofascraper.utils.enums import CommandEnum
 
 
 @click.command("dates")
@@ -24,4 +25,4 @@ def dates(dates, sport, **kwargs):
     sport_value = sport.value if hasattr(sport, "value") else sport
     app = ScraperApp()
 
-    asyncio.run(app.run_scraper(command="dates", sport=sport_value, dates=dates, **kwargs))
+    asyncio.run(app.run_scraper(command=CommandEnum.DATES, sport=sport_value, dates=dates, **kwargs))

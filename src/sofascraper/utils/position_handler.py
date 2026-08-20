@@ -81,7 +81,7 @@ class PositionResult(TypedDict):
 # --------------------------------------------------------------------------
 # Side distribution helper
 # --------------------------------------------------------------------------
-def _distribute_sides(n: int) -> List[Optional[str]]:
+def _distribute_sides(n: int) -> list[str | None] | list[str]:
     """
     Return `n` side labels, ordered right -> left, symmetric about the
     center. Used whenever a *generic* position code is shared by several
@@ -110,10 +110,7 @@ def _distribute_sides(n: int) -> List[Optional[str]]:
     return right_side + left_side
 
 
-# --------------------------------------------------------------------------
-# Per-line builders (each returns [(code, side), ...] ordered right -> left)
-# --------------------------------------------------------------------------
-def _defense_line(n: int) -> List[Tuple[str, Optional[str]]]:
+def _defense_line(n: int) -> list[tuple[str, str | None]]:
     if n <= 0:
         return []
     if n <= 3:
@@ -125,7 +122,7 @@ def _defense_line(n: int) -> List[Tuple[str, Optional[str]]]:
     return [(right_code, None)] + inner + [(left_code, None)]
 
 
-def _forward_line(n: int) -> List[Tuple[str, Optional[str]]]:
+def _forward_line(n: int) -> list[tuple[str, str | None]]:
     if n <= 0:
         return []
     if n <= 2:
@@ -136,7 +133,7 @@ def _forward_line(n: int) -> List[Tuple[str, Optional[str]]]:
     return [('RW', None)] + inner + [('LW', None)]
 
 
-def _midfield_line(n: int, base: str = '') -> List[Tuple[str, Optional[str]]]:
+def _midfield_line(n: int, base: str = '') -> list[tuple[str, str | None]]:
     if n <= 0:
         return []
     if n <= 3:
@@ -149,9 +146,6 @@ def _midfield_line(n: int, base: str = '') -> List[Tuple[str, Optional[str]]]:
     return [(outer_right, None)] + inner + [(outer_left, None)]
 
 
-# --------------------------------------------------------------------------
-# Midfield-row role labelling for formations with multiple midfield rows
-# --------------------------------------------------------------------------
 def _middle_row_roles(k: int) -> List[str]:
     """
     Label each midfield row (from the one closest to defense, to the one
@@ -244,31 +238,3 @@ def get_player_position(formation: str, player_number: int) -> PositionResult:
 
     code, side = lineup[idx]
     return {'position': code, 'side': side}
-
-
-# if __name__ == '__main__':
-#     # Sanity checks against the examples this logic was derived from.
-#     checks = [
-#         (('4-3-3', 0), {'position': 'GK', 'side': None}),
-#         (('4-3-3', 5), {'position': 'CM', 'side': 'right'}),
-#         (('4-3-3', 6), {'position': 'CM', 'side': 'center'}),
-#         (('3-5-2', 4), {'position': 'RM', 'side': None}),
-#         (('3-5-2', 1), {'position': 'CB', 'side': 'right'}),
-#         (('3-4-2-1', 10), {'position': 'ST', 'side': None}),
-#         (('3-5-2', 10), {'position': 'ST', 'side': 'left'}),
-#         (('3-5-2', 8), {'position': 'LM', 'side': None}),
-#         (('4-3-3', 2), {'position': 'CB', 'side': 'right'}),
-#         (('4-4-2', 6), {'position': 'CM', 'side': 'right'}),
-#     ]
-#     for (formation, number), expected in checks:
-#         result = get_player_position(formation, number)
-#         status = 'OK' if result == expected else 'FAIL'
-#         print(f"[{status}] {formation} #{number} -> {result} (expected {expected})")
-
-#     print()
-#     for formation in ['4-3-3', '3-5-2', '4-4-2', '4-1-2-3', '4-2-3-1', '3-4-3']:
-#         print(formation)
-#         lineup = build_lineup(formation)
-#         for i, (code, side) in enumerate(lineup, start=1):
-#             print(f"  #{i}: {code}" + (f" ({side})" if side else ""))
-#         print()

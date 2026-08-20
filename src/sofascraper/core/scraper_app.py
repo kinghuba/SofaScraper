@@ -52,8 +52,6 @@ class ScraperApp:
 
         self.proxy_manager = ProxyManager(proxy_url=proxy_url, proxy_user=proxy_user, proxy_pass=proxy_pass)
 
-        
-
         try:
             proxy_config = self.proxy_manager.get_proxy()
             proxy = None

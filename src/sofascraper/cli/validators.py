@@ -6,6 +6,7 @@ from pathlib import Path
 
 import click
 
+from sofascraper.utils.dataclasses.registry_data_classes import RegistryTournament
 from sofascraper.utils.sport_tournament_registry import SportTournamentRegistry
 
 
@@ -90,7 +91,7 @@ def validate_season(ctx, param, value):
             season = SportTournamentRegistry.get_by_season_id(int(season))
 
             if season:
-                season_id = season["id"]
+                season_id = season.id
 
             if not season_id:
                 raise click.BadParameter(
@@ -187,11 +188,11 @@ def validate_tournament(ctx, param, value):
     # Handle it as list of items
     for tournament in value:
         if bool(re.fullmatch(r"\d+", tournament)):
-            results.append(_validate_tournament_data(tournament_id=int(tournament)).get("id"))
+            results.append(_validate_tournament_data(tournament_id=int(tournament)).id)
         elif bool(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", tournament)):
-            results.append(_validate_tournament_data(slug=tournament).get("id"))
+            results.append(_validate_tournament_data(slug=tournament).id)
         else:
-            results.append(_validate_tournament_data(name=tournament).get("id"))
+            results.append(_validate_tournament_data(name=tournament).id)
 
     return results
 
@@ -200,7 +201,7 @@ def _validate_tournament_data(
     tournament_id: int | None = None,
     slug: str | None = None,
     name: str | None = None,
-) -> dict:
+) -> RegistryTournament:
 
     result = None
     tournament = SportTournamentRegistry()
