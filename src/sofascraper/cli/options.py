@@ -25,8 +25,8 @@ def global_options(func):
         help="Number of concurrent pages to open.",
     )
     @click.option(
-        "--format",
-        "-f",
+        "--storage",
+        "-st",
         "storage_format",
         type=STORAGE_FORMAT,
         default="json",
@@ -55,8 +55,16 @@ def global_options(func):
         envvar="SS_PROXY_URL",
         help="Proxy URL.",
     )
-    @click.option("--proxy-user", envvar="SS_PROXY_USER", help="Proxy username.")
-    @click.option("--proxy-pass", envvar="SS_PROXY_PASS", help="Proxy password.")
+    @click.option(
+        "--proxy-user", 
+        envvar="SS_PROXY_USER", 
+        help="Proxy username."
+    )
+    @click.option(
+        "--proxy-pass",
+        envvar="SS_PROXY_PASS", 
+        help="Proxy password."
+    )
     @click.option(
         "--user-agent",
         "browser_user_agent",
@@ -89,7 +97,8 @@ def sport_filter(func):
         "--sport",
         "-s",
         type=click.Choice([s.value for s in Sport], case_sensitive=False),
-        required=True,
+        required=False,
+        default="football",
         envvar="SS_SPORT",
         help="Sport to scrape.",
     )

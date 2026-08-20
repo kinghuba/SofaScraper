@@ -21,7 +21,15 @@ from sofascraper.utils.enums import CommandEnum
     callback=validate_tournament,
     help="Tournament name, slug or id.",
 )
-@click.option("--seasons", required=False, multiple=True, callback=validate_season, help="Season years.")
+@click.option(
+    "--seasons", 
+    "-se",
+    required=False, 
+    multiple=True, 
+    callback=validate_season, 
+    help="Season years."
+)
+
 def tournaments(tournaments, sport, seasons: list[str], **kwargs):
     """Scrape matches for specific tournaments."""
     sport_value = sport.value if hasattr(sport, "value") else sport
