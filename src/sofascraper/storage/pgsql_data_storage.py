@@ -17,7 +17,7 @@ class PgsqlDataStorage:
 
     def __init__(
         self,
-        sport_slug: str = None,
+        sport_slug: str | None = None,
         scraper_version: str = "1.0.0",
     ):
         """

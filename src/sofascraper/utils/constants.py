@@ -1,3 +1,4 @@
+VERSION = "0.2.1"
 SOFASCORE_BASE_URL = "https://www.sofascore.com"
 
 PLAYWRIGHT_BROWSER_ARGS = [

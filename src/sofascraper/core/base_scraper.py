@@ -13,6 +13,7 @@ from playwright.async_api import Page
 from sofascraper.core.parsers.football_parser import FootballParser
 from sofascraper.core.parsers.tennis_parser import TennisParser
 from sofascraper.core.playwright_manager import PlaywrightManager
+from sofascraper.storage.local_data_storage import LocalDataStorage
 from sofascraper.storage.pgsql_data_storage import PgsqlDataStorage
 from sofascraper.utils.browser_helpers import BrowserHelpers
 from sofascraper.utils.constants import GOTO_TIMEOUT_MS, MAX_TIMEOUT_MS, MIN_TIMEOUT_MS, SOFASCORE_BASE_URL, WANTED_SUFFIXES
@@ -58,8 +59,7 @@ class Scraper:
     def __init__(
         self,
         playwright_manager: PlaywrightManager,
-        storage = None,
-        # supabase = None
+        storage: PgsqlDataStorage | LocalDataStorage = LocalDataStorage(),
     ):
         """
         Args:
@@ -67,7 +67,6 @@ class Scraper:
         """
         self.logger = logging.getLogger(self.__class__.__name__)
         self.playwright_manager = playwright_manager
-        # self.supabase = supabase
         self.storage = storage
         self.min_ms=MIN_TIMEOUT_MS
         self.max_ms=MAX_TIMEOUT_MS
