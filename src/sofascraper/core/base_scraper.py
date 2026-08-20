@@ -19,7 +19,7 @@ from sofascraper.utils.browser_helpers import BrowserHelpers
 from sofascraper.utils.constants import GOTO_TIMEOUT_MS, MAX_TIMEOUT_MS, MIN_TIMEOUT_MS, SOFASCORE_BASE_URL, WANTED_SUFFIXES
 from sofascraper.utils.dataclasses.football_data_classes import MatchData
 from sofascraper.utils.progress_tracker import ProgressTracker
-from sofascraper.utils.sport_tournament_registry import SportTournamentRegistry
+from sofascraper.utils.tournament_registry import SportTournamentRegistry
 from sofascraper.utils.utils import extract_year, get_match_id, get_tournament_information, wait_and_try_again
 from sofascraper.core.scrapers.football_scraper import FootballScraper
 

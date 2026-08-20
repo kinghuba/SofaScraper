@@ -7,7 +7,7 @@ from sofascraper.utils.constants import SOFASCORE_BASE_URL
 from sofascraper.utils.country_registry import CountryRegistry
 from sofascraper.utils.dataclasses.registry_data_classes import RegistryTournament
 from sofascraper.utils.enums import Sport
-from sofascraper.utils.sport_tournament_registry import SportTournamentRegistry
+from sofascraper.utils.tournament_registry import SportTournamentRegistry
 
 
 def get_supported_seasons(sport: Sport | str) -> list[str]:

@@ -7,7 +7,7 @@ from pathlib import Path
 import click
 
 from sofascraper.utils.dataclasses.registry_data_classes import RegistryTournament
-from sofascraper.utils.sport_tournament_registry import SportTournamentRegistry
+from sofascraper.utils.tournament_registry import SportTournamentRegistry
 
 
 def validate_date(ctx, param, value):
