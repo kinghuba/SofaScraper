@@ -1,3 +1,4 @@
+VERSION = "0.2.1"
 SOFASCORE_BASE_URL = "https://www.sofascore.com"
 
 PLAYWRIGHT_BROWSER_ARGS = [
@@ -39,6 +40,8 @@ WANTED_SUFFIXES = {
         "/shotmap",
         "/graph",
         "/odds/1/featured",
+        "/standings",
+        "/knockout"
     ],
     "tennis": ["", "/statistics", "/odds/1/featured", "/tennis-power", "/point-by-point"],
 }

@@ -63,7 +63,7 @@ class ProgressTracker:
         self._task_id: TaskID | None = None
         self._live: Live | None = None
 
-    def _build_collection_table(links: int, page: int, direction: str, elapsed: float) -> Table:
+    def _build_collection_table(self, links: int, page: int, direction: str, elapsed: float) -> Table:
         grid = Table.grid(padding=(0, 2))
 
         grid.add_row(
@@ -106,7 +106,7 @@ class ProgressTracker:
                 description=self._bar_description(),
             )
 
-    async def __aenter__(self) -> ProgressTracker:
+    async def __aenter__(self) -> ProgressTracker | None:
         self._start_time = time.monotonic()
         self._task_id = self._progress.add_task(
             description=self._bar_description(),
@@ -117,6 +117,8 @@ class ProgressTracker:
             console=_console,
             refresh_per_second=4,
         )
+        if not self._live:
+            return
         self._live.start()
         return self
 

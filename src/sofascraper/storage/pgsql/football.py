@@ -32,8 +32,10 @@ import asyncpg
 
 from sofascraper.utils.dataclasses.football_data_classes import (
     Commentary,
+    CupTree,
     Incident,
     LineupPlayer,
+    Lineups,
     Manager,
     MatchData,
     MomentumElement,
@@ -42,6 +44,7 @@ from sofascraper.utils.dataclasses.football_data_classes import (
     Referee,
     Season,
     Shotmap,
+    Standings,
     StatisticsPeriod,
     Team,
     TimeInfo,
@@ -116,7 +119,7 @@ class FootballRepository:
             await self._insert_incidents(conn, event.id, match_data.incidents)
 
         if match_data.lineups:
-            await self._insert_lineups(conn, event.id, match_data.lineups)
+            await self._insert_lineups(conn, event.id, event.home_team.id, event.away_team.id, match_data.lineups)
 
         if match_data.shotmap:
             await self._insert_shot_events(conn, event.id, match_data.shotmap)
@@ -132,6 +135,18 @@ class FootballRepository:
 
         if match_data.commentary:
             await self._insert_commentary(conn, event.id, match_data.commentary)
+
+        if match_data.standings_total:
+            await self._upsert_standings(conn, match_data.standings_total)
+        
+        if match_data.standings_home:
+            await self._upsert_standings(conn, match_data.standings_home)
+        
+        if match_data.standings_away:
+            await self._upsert_standings(conn, match_data.standings_away)
+
+        if match_data.cup_trees:
+            await self._upsert_cups(conn, match_data.cup_trees)
 
         self.logger.debug(f"Saved match id={event.id}")
 
@@ -154,7 +169,7 @@ class FootballRepository:
         )
 
     async def _upsert_tournament(self, conn: asyncpg.Connection, run_id: int, tournament: Tournament) -> int:
-        row = await conn.fetchrow(
+        await conn.fetchrow(
             """
             INSERT INTO football.tournaments (
                 id,
@@ -203,7 +218,7 @@ class FootballRepository:
 
     async def _upsert_team(self, conn: asyncpg.Connection, team: Team) -> int:
         """Upsert a team and return its PK (= sofascore id)."""
-        row = await conn.fetchrow(
+        await conn.fetchrow(
             """
             INSERT INTO football.teams
                 (id, name, short_name, name_code, slug, is_national_team, country_id,
@@ -267,7 +282,7 @@ class FootballRepository:
         return player.id
 
     async def _upsert_referee(self, conn: asyncpg.Connection, referee: Referee) -> int:
-        row = await conn.fetchrow(
+        await conn.fetchrow(
             """
             INSERT INTO football.referees (id, name, slug, country_id, created_at)
             VALUES ($1, $2, $3, $4, now())
@@ -308,7 +323,7 @@ class FootballRepository:
         return venue.id
 
     async def _upsert_manager(self, conn: asyncpg.Connection, manager: Manager) -> int:
-        row = await conn.fetchrow(
+        await conn.fetchrow(
             """
             INSERT INTO football.managers (id, name, slug, short_name, created_at)
             VALUES ($1, $2, $3, $4, now())
@@ -323,6 +338,143 @@ class FootballRepository:
             manager.short_name,
         )
         return manager.id
+
+    async def _upsert_standings(self, conn: asyncpg.Connection, standings: list[Standings]) -> int:
+
+            for standing in standings:
+                await conn.fetchrow(
+                    """
+                    INSERT INTO football.standings (id, name, type, season_id, tie_breaking_rule)
+                    VALUES ($1, $2, $3, $4, $5)
+                    """,
+                    standing.id,
+                    standing.name,
+                    standing.type,
+                    standing.season_id,
+                    standing.tie_breaking_rule.text
+                )
+                for row in standing.rows:
+                    promotion_text = ""
+                    if row.promotion:
+                        promotion_text = row.promotion.text
+                    await conn.fetchrow(
+                        """
+                        INSERT INTO football.team_standings (id, season_id, standings_id, team_id, promotion, position, played, wins, draws, losses, goals_for, goals_against, points)
+                        VALUES ($1, $2, $3, $4,$5,$6,$7,$8,$9,$10,$11,$12, $13)
+                        ON CONFLICT (id) DO UPDATE SET
+                            promotion       = EXCLUDED.promotion,
+                            position       = EXCLUDED.position,
+                            played = EXCLUDED.played,
+                            wins = EXCLUDED.wins,
+                            draws = EXCLUDED.draws,
+                            losses = EXCLUDED.losses,
+                            goals_for = EXCLUDED.goals_for,
+                            goals_against = EXCLUDED.goals_against,
+                            points = EXCLUDED.points
+                        """,
+                        row.id,
+                        standing.season_id,
+                        standing.id,
+                        row.team_id,
+                        promotion_text,
+                        row.position,
+                        row.matches,
+                        row.wins,
+                        row.draws,
+                        row.losses,
+                        row.scores_for,
+                        row.scores_against,
+                        row.points
+                    )
+
+            return 1
+
+    async def _upsert_cups(self, conn: asyncpg.Connection, cups: list[CupTree]) -> int:
+    
+                for cup in cups:
+                    await conn.fetchrow(
+                        """
+                        INSERT INTO football.cups (id, name, season_id, current_round, type)
+                        VALUES ($1, $2, $3, $4, $5)
+                        ON CONFLICT (id) DO UPDATE SET
+                            current_round = EXCLUDED.current_round
+                        """,
+                        cup.id,
+                        cup.name,
+                        cup.season_id,
+                        cup.current_round,
+                        cup.type
+                    )
+                    for round_ in cup.rounds:
+                        await conn.fetchrow(
+                            """
+                            INSERT INTO football.cup_rounds (id, cup_id, "order", type, description)
+                            VALUES ($1, $2, $3, $4, $5)
+                            ON CONFLICT (id) DO UPDATE SET
+                                "order" = EXCLUDED."order",
+                                description = EXCLUDED.description
+                            """,
+                            round_.id,
+                            cup.id,
+                            round_.order,
+                            round_.type,
+                            round_.description
+                        )
+
+                        for block in round_.blocks:
+
+                            home_team = block.participants[0]
+                            winner = 1 if block.participants[0].winner else 2
+                            away_team = None
+                            if len(block.participants) == 2:
+                                away_team = block.participants[1]                    
+
+                            self.logger.info(block.finished)
+                            await conn.fetchrow(
+                                """
+                                INSERT INTO football.blocks (id, round_id, block_id, finished, event_in_progress, matches_in_round, "order", result, home_team_score, home_team_id, home_team_source_block, away_team_score, away_team_id, away_team_source_block, winner, has_next_round_link, series_start_date_timestamp, automatic_progression)
+                                VALUES ($1, $2, $3, $4, $5,$6,$7,$8,$9,$10,$11,$12, $13,$14,$15,$16,$17,$18)
+                                ON CONFLICT (id) DO UPDATE SET
+                                    finished       = EXCLUDED.finished,
+                                    event_in_progress       = EXCLUDED.event_in_progress,
+                                    "order" = EXCLUDED."order",
+                                    home_team_score = EXCLUDED.home_team_score,
+                                    away_team_score = EXCLUDED.away_team_score,
+                                    winner = EXCLUDED.winner,
+                                    has_next_round_link = EXCLUDED.has_next_round_link
+                                """,
+                                block.id,
+                                round_.id,
+                                block.block_id,
+                                str(block.finished),
+                                block.event_in_progress,
+                                block.matches_in_round,
+                                block.order,
+                                block.result,
+                                block.home_team_score,
+                                home_team.team_id,
+                                home_team.source_block_id,
+                                block.away_team_score,
+                                away_team.team_id if away_team else None,
+                                away_team.source_block_id if away_team else None,
+                                winner,
+                                block.has_next_round_link,
+                                block.series_start_date_timestamp,
+                                block.automatic_progression
+                            )
+
+                        for event in block.events:
+                            await conn.fetchrow(
+                                """
+                                INSERT INTO football.block_events (block_id, event_id)
+                                VALUES ($1, $2)
+                                """,
+                                block.id,
+                                event,
+                            )
+                            
+    
+                return 1
 
     # Match
 
@@ -513,22 +665,25 @@ class FootballRepository:
 
     # Lineups
 
-    async def _insert_lineups(self, conn: asyncpg.Connection, match_id: int, lineups) -> None:
-        all_entries: list[LineupPlayer] = lineups.home_players + lineups.away_players
+    async def _insert_lineups(self, conn: asyncpg.Connection, match_id: int, home_team_id: int, away_team_id: int, lineups: Lineups) -> None:
+        all_entries: list = lineups.home_players + lineups.away_players + lineups.missing_players
+        lineup_entries: list[LineupPlayer] = lineups.home_players + lineups.away_players
 
         # Upsert every player first
         for entry in all_entries:
             await self._upsert_player(conn, entry.player)
 
         rows = []
-        for entry in all_entries:
+        for entry in lineup_entries:
             rows.append(
                 (
                     match_id,
-                    entry.team_id,
+                    entry.team,
                     entry.player.id,
                     int(entry.shirt_number) if entry.shirt_number and entry.shirt_number.isdigit() else None,
                     entry.position,
+                    entry.position_title,
+                    entry.position_side,
                     not entry.substitute,
                     entry.statistics.get("rating") if entry.statistics else None,
                     entry.statistics.get("ratingVersions", {}).get("alternative") if entry.statistics else None,
@@ -539,13 +694,16 @@ class FootballRepository:
         await conn.executemany(
             """
             INSERT INTO football.lineups
-                (match_id, team_id, player_id, shirt_number, position,
+                (match_id, team, player_id, shirt_number, position, position_title, position_side,
                  is_starter,
                  rating, rating_alt, statistics, created_at)
-            VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9::jsonb,now())
+            VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11::jsonb,now())
             ON CONFLICT (match_id, player_id) DO UPDATE SET
+                team           = EXCLUDED.team,
                 shirt_number   = EXCLUDED.shirt_number,
                 position       = EXCLUDED.position,
+                position_title = EXCLUDED.position_title,
+                position_side  = EXCLUDED.position_side,
                 is_starter     = EXCLUDED.is_starter,
                 rating         = EXCLUDED.rating,
                 rating_alt     = EXCLUDED.rating_alt,
@@ -553,6 +711,52 @@ class FootballRepository:
             """,
             rows,
         )
+
+        missingRows = []
+
+        for entry in lineups.missing_players:
+            missingRows.append((
+                match_id,
+                entry.team,
+                entry.player.id,
+                entry.type,
+                entry.reason,
+                entry.description,
+                entry.external_type,
+                entry.expected_end_date
+            ))
+
+        await conn.executemany(
+                    """
+                    INSERT INTO football.lineups_missing
+                        (match_id, team, player_id, type, reason, description, external_type, expected_end_date, created_at)
+                    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,now())
+                    ON CONFLICT (match_id, player_id) DO UPDATE SET
+                        team           = EXCLUDED.team,
+                        type       = EXCLUDED.type,
+                        reason = EXCLUDED.reason,
+                        description  = EXCLUDED.description,
+                        external_type     = EXCLUDED.external_type,
+                        expected_end_date         = EXCLUDED.expected_end_date
+                    """,
+                    missingRows,
+        )
+
+        await conn.executemany(
+                            """
+                            INSERT INTO football.lineups_data
+                                (match_id, home_team_id, away_team_id, home_team_formation, away_team_formation, confirmed, created_at)
+                            VALUES ($1,$2,$3,$4,$5,$6,now())
+                            ON CONFLICT (match_id) DO UPDATE SET
+                                home_team_id           = EXCLUDED.home_team_id,
+                                away_team_id       = EXCLUDED.away_team_id,
+                                home_team_formation = EXCLUDED.home_team_formation,
+                                away_team_formation  = EXCLUDED.away_team_formation,
+                                confirmed  = EXCLUDED.confirmed
+                            """,
+                            [(match_id, home_team_id, away_team_id, lineups.home_formation, lineups.away_formation, lineups.confirmed)],
+                )
+
 
     # Shot events
 

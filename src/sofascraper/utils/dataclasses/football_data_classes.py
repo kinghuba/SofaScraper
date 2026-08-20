@@ -1,9 +1,97 @@
 from dataclasses import dataclass
 from datetime import date, datetime
-from typing import Any
+from typing import Any, Optional
 
 # Core shared models
 
+from dataclasses import dataclass
+from typing import List
+
+
+@dataclass
+class Participant:
+    team_id: int
+    winner: bool
+    order: int
+    id: int
+    source_block_id: int | None
+
+
+@dataclass
+class Block:
+    finished: str
+    event_in_progress: bool
+    matches_in_round: int
+    order: int
+    result: str | None
+    home_team_score: str | None
+    away_team_score: str | None
+    participants: List[Participant | None]
+    has_next_round_link: bool | None
+    id: int
+    events: List[int]
+    block_id: int
+    series_start_date_timestamp: int | None
+    automatic_progression: bool | None
+
+
+@dataclass
+class CupTreeRound:
+    id: int
+    order: int
+    type: int
+    description: str
+    blocks: List[Block | None] | None
+
+
+@dataclass
+class CupTree:
+    id: int
+    name: str
+    tournament_id: int
+    season_id: int
+    current_round: int
+    rounds: List[CupTreeRound | None]
+    type: int
+
+@dataclass
+class TieBreakingRule:
+    id: int
+    text: str
+ 
+ 
+@dataclass
+class Promotion:
+    id: int
+    text: str
+ 
+ 
+@dataclass
+class Row:
+    id: int
+    team_id: int
+    descriptions: List[str]
+    promotion: Promotion | None
+    position: int
+    matches: int
+    wins: int
+    losses: int
+    draws: int
+    scores_for: int
+    scores_against: int
+    points: int
+ 
+ 
+@dataclass
+class Standings:
+    id: int
+    type: str
+    tournament_id: int
+    season_id: int
+    name: str
+    descriptions: List[str]
+    tie_breaking_rule: TieBreakingRule | None
+    rows: List[Row | None]
 
 @dataclass
 class Country:
@@ -36,7 +124,7 @@ class Tournament:
     name: str
     slug: str
     priority: int
-    country: Country
+    country: Country | None
 
 
 @dataclass
@@ -117,14 +205,14 @@ class BaseEvent:
     custom_id: str | None
     status: Status
     winner_code: int | None
-    date: datetime
-    season: Season
+    date: datetime | None
+    season: Season | None
     tournament: Tournament
     aggregated_winner_code: int | None
     previous_leg_event: int | None
     round: Round
-    home_team: Team
-    away_team: Team
+    home_team: Team | None
+    away_team: Team | None
     home_score: Score | None
     away_score: Score | None
     time: TimeInfo | None
@@ -214,9 +302,11 @@ class PlayerStatistics:
 @dataclass
 class LineupPlayer:
     player: Player
-    team_id: int
+    team: str | None
     shirt_number: str | None
     position: str | None
+    position_title: str | None
+    position_side: str | None
     substitute: bool
     statistics: dict[str, Any]
 
@@ -224,6 +314,7 @@ class LineupPlayer:
 @dataclass
 class MissingPlayer:
     player: Player
+    team: str | None
     type: str | None
     reason: str | None
     description: str | None
@@ -343,14 +434,18 @@ class MatchData:
     match_id: int | None
     match_url: str | None
     base: Event
-    statistics: list[StatisticsPeriod]
-    incidents: list[Incident]
-    lineups: Lineups
+    statistics: list[StatisticsPeriod] | None
+    incidents: list[Incident] | None
+    lineups: Lineups | None
     shotmap: list[Shotmap] | None
     odds: list[Odds] | None
     momentum: Momentum | None
     managers: Managers | None
     commentary: list[Commentary] | None
+    cup_trees: list[CupTree] | None
+    standings_total: list[Standings] | None
+    standings_home: list[Standings] | None
+    standings_away: list[Standings] | None
 
     @property
     def fully_captured(self) -> bool:

@@ -2,7 +2,7 @@ import asyncio
 import logging
 import random
 
-from playwright.async_api import async_playwright
+from playwright.async_api import ProxySettings, async_playwright
 from playwright_stealth import Stealth
 
 from sofascraper.utils.constants import (
@@ -43,7 +43,7 @@ class PlaywrightManager:
         user_agent: str | None = None,
         locale: str | None = None,
         timezone_id: str | None = None,
-        proxy: dict[str, str] | None = None,
+        proxy: ProxySettings | None = None,
     ):
         """
         Initialize and start Playwright with a browser and page.
@@ -86,7 +86,8 @@ class PlaywrightManager:
         """Create a pool of independent pages for concurrent scraping."""
         pool = asyncio.Queue()
         for _ in range(size):
-            page = await self.browser.new_page()
+            if self.browser:
+                page = await self.browser.new_page()
             await pool.put(page)
         return pool
 

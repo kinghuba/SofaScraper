@@ -1,11 +1,13 @@
 import re
 import time
 from functools import cache
+from typing import Callable, TypeVar
 
 from sofascraper.utils.constants import SOFASCORE_BASE_URL
 from sofascraper.utils.country_registry import CountryRegistry
+from sofascraper.utils.dataclasses.registry_data_classes import RegistryTournament
 from sofascraper.utils.enums import Sport
-from sofascraper.utils.sport_tournament_registry import SportTournamentRegistry
+from sofascraper.utils.tournament_registry import SportTournamentRegistry
 
 
 def get_supported_seasons(sport: Sport | str) -> list[str]:
@@ -21,12 +23,12 @@ def get_supported_seasons(sport: Sport | str) -> list[str]:
 
     tournaments = SportTournamentRegistry.get_by_sport(sport=sport.value)
 
-    seasons = {season["year"] for t in tournaments for season in t.get("seasons", [])}
+    seasons = {season.year for t in tournaments for season in t.seasons}
 
     return sorted(seasons)
 
 
-def get_supported_tournaments(sport: Sport | str) -> list[dict]:
+def get_supported_tournaments(sport: Sport | str) -> list[RegistryTournament]:
     """
     Return all tournaments for a given sport.
     """
@@ -138,7 +140,7 @@ def extract_year(year_str):
 
     raise ValueError(f"Invalid year format: {year_str}")
 
-def get_tournament_information(sport: str, tournament: str, season: str | None = None):
+def get_tournament_information(sport: str, tournament: str, season: str) ->  tuple[str, str] | None:
         """
         Constructs the tournament URL for specific sport and season.
 
@@ -158,18 +160,22 @@ def get_tournament_information(sport: str, tournament: str, season: str | None =
 
         # Resolve league alias for this season
         tournament_dict = SportTournamentRegistry.get_by_id(tournament)
-        country_dict = CountryRegistry.get_by_id(tournament_dict.get("country_id"))
+        if not tournament_dict or not tournament_dict.country_id:
+            return None
+        country_dict = CountryRegistry.get_by_id(tournament_dict.country_id)
+        if not country_dict:
+            return None
 
         # Sorting by season value
-        sorted_seasons = sorted(tournament_dict["seasons"], key=lambda x: extract_year(x["year"]), reverse=True)
+        sorted_seasons = sorted(tournament_dict.seasons, key=lambda x: extract_year(x.year), reverse=True)
 
         if tournament_dict:
-            base_url = f"{SOFASCORE_BASE_URL}/{sport}/tournament/{country_dict.get('flag').lower()}/{tournament_dict.get('slug').lower()}/{tournament_dict.get('id')}"
+            base_url = f"{SOFASCORE_BASE_URL}/{sport}/tournament/{country_dict.flag.lower()}/{tournament_dict.slug.lower()}/{tournament_dict.id}"
         season_id = None
 
         # Treat missing season as current
         if season == "current":
-            season_id = sorted_seasons[0]['id']
+            season_id = sorted_seasons[0].id
 
         if re.match(r"^\d{5,}$", season):
             season_id = season
@@ -177,13 +183,13 @@ def get_tournament_information(sport: str, tournament: str, season: str | None =
         if re.match(r"^\d{4}$", season) or re.match(r"^\d{2}/\d{2}$", season):
             season_id = next(
                 # Check against both
-                (s["id"] for s in sorted_seasons if s["year"] == season or s["year"] == extract_year(season)),
+                (s.id for s in sorted_seasons if s.year == season or s.year == extract_year(season)),
                 None,
             )
 
         url = f"{base_url}#id:{season_id}"
 
-        return url, season_id
+        return url, str(season_id)
 
 def get_match_id(url: str) -> int | None:
     """
@@ -195,7 +201,8 @@ def get_match_id(url: str) -> int | None:
         return int(m.group(1))
     return None
 
-def wait_and_try_again(wait, func, retries=3):
+T = TypeVar("T")
+def wait_and_try_again(wait: int, func: Callable[[], T], retries:int = 3) -> T | None:
     for attempt in range(retries):
         try:
             return func()
