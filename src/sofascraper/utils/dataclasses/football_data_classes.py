@@ -41,7 +41,7 @@ class CupTreeRound:
     order: int
     type: int
     description: str
-    blocks: List[Block]
+    blocks: List[Block | None] | None
 
 
 @dataclass
@@ -51,7 +51,7 @@ class CupTree:
     tournament_id: int
     season_id: int
     current_round: int
-    rounds: List[CupTreeRound]
+    rounds: List[CupTreeRound | None]
     type: int
 
 @dataclass
@@ -71,7 +71,7 @@ class Row:
     id: int
     team_id: int
     descriptions: List[str]
-    promotion: Promotion
+    promotion: Promotion | None
     position: int
     matches: int
     wins: int
@@ -90,8 +90,8 @@ class Standings:
     season_id: int
     name: str
     descriptions: List[str]
-    tie_breaking_rule: TieBreakingRule
-    rows: List[Row]
+    tie_breaking_rule: TieBreakingRule | None
+    rows: List[Row | None]
 
 @dataclass
 class Country:
@@ -124,7 +124,7 @@ class Tournament:
     name: str
     slug: str
     priority: int
-    country: Country
+    country: Country | None
 
 
 @dataclass
@@ -205,14 +205,14 @@ class BaseEvent:
     custom_id: str | None
     status: Status
     winner_code: int | None
-    date: datetime
-    season: Season
+    date: datetime | None
+    season: Season | None
     tournament: Tournament
     aggregated_winner_code: int | None
     previous_leg_event: int | None
     round: Round
-    home_team: Team
-    away_team: Team
+    home_team: Team | None
+    away_team: Team | None
     home_score: Score | None
     away_score: Score | None
     time: TimeInfo | None
@@ -434,9 +434,9 @@ class MatchData:
     match_id: int | None
     match_url: str | None
     base: Event
-    statistics: list[StatisticsPeriod]
-    incidents: list[Incident]
-    lineups: Lineups
+    statistics: list[StatisticsPeriod] | None
+    incidents: list[Incident] | None
+    lineups: Lineups | None
     shotmap: list[Shotmap] | None
     odds: list[Odds] | None
     momentum: Momentum | None
