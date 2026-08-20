@@ -30,7 +30,7 @@ def global_options(func):
         "storage_format",
         type=STORAGE_FORMAT,
         default="json",
-        envvar="SS_FORMAT",
+        envvar="SS_STORAGE",
         help="Output format. Either 'json' or 'database'",
     )
     @click.option(
