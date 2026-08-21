@@ -253,7 +253,7 @@ class FootballParser:
 
         return teams
 
-    def _parse_player(self, player: dict[str, Any]) -> Player:
+    def _parse_player(self, player: dict[str, Any]) -> Player | None:
         """
         Args:
             player: Dictinary of player.
@@ -262,6 +262,8 @@ class FootballParser:
             Player | None: The parsed player information.
         """
 
+        if not player:
+            return None
         country = player.get("country", {})
         country_id = self._getCountry(country.get("alpha2", "")) if country else None
 
@@ -279,13 +281,13 @@ class FootballParser:
             name=player.get("name", ""),
             short_name=player.get("shortName") or player.get("name", ""),
             country_id=country_id,
-            position=player.get("position", None),
-            height=player.get("height", None),
+            position=player.get("position"),
+            height=player.get("height"),
             date_of_birth=date_of_birth,
-            shirt_number=player.get("jerseyNumber", None),
+            shirt_number=player.get("jerseyNumber"),
             proposed_market_value=MarketValue(
-                value=player.get("proposedMarketValueRaw", {}).get("value", None),
-                currency=player.get("proposedMarketValueRaw", {}).get("currency", None),
+                value=player.get("proposedMarketValueRaw", {}).get("value"),
+                currency=player.get("proposedMarketValueRaw", {}).get("currency"),
             ),
         )
 
@@ -302,7 +304,7 @@ class FootballParser:
         parsed = Incident(
             id=incident.get("id", ""),
             time=incident.get("time"),
-            added_time=incident.get("addedTime", None),
+            added_time=incident.get("addedTime"),
             injury=incident.get("injury"),
             is_home=incident.get("isHome"),
             incident_class=incident.get("incidentClass"),
@@ -362,7 +364,7 @@ class FootballParser:
                     player=self._parse_player(incident.get("player", {})),
                     id=incident.get("id"),
                     time=incident.get("time"),
-                    added_time=incident.get("addedTime", None),
+                    added_time=incident.get("addedTime"),
                     rescinded=incident.get("rescinded", False),
                     is_home=incident.get("isHome"),
                     incident_class=incident.get("incidentClass"),
@@ -400,6 +402,7 @@ class FootballParser:
 
         for side in ["home", "away"]:
             for index, player in enumerate(data.get(side, {}).get("players", [])):
+                
                 formation = home_formation if side == "home" else away_formation
                 position = get_player_position(formation, index)
                 player_info = self._parse_player(player.get("player", {}))
@@ -412,7 +415,7 @@ class FootballParser:
                     shirt_number=player.get("jerseyNumber"),
                     position=player.get("position"),
                     position_title=position.get("position", ""),
-                    position_side=position.get("side", None),
+                    position_side=position.get("side"),
                     substitute=player.get("substitute", False),
                     statistics={},
                 )
@@ -432,9 +435,12 @@ class FootballParser:
 
             # Loop over missing players similarly
             for player in data.get("missingPlayers", {}):
+                p = self._parse_player(player.get("player", {}))
+                if not p:
+                    continue
                 missing_players.append(
                     MissingPlayer(
-                        player=self._parse_player(player.get("player", {})),
+                        player=p,
                         team=side,
                         type=player.get("type"),
                         reason=player.get("reason"),
@@ -535,13 +541,15 @@ class FootballParser:
             return None
 
         referee = event.get("referee", {}) or {}
-        if not referee:
+        referee_id = referee.get("id")
+        if not referee or not referee_id:
             self.logger.warning(f"Referee data is missing for match_id: {match_id}")
         else:
             referee_country_id = self._getCountry(referee.get("country", {}).get("alpha2", ""))
 
         venue = event.get("venue", {}) or {}
-        if not venue:
+        venue_id = venue.get("id")
+        if not venue or not venue_id:
             self.logger.warning(f"Venue data is missing for match_id: {match_id}")
         else:
             venue_country_id = self._getCountry(venue.get("country", {}).get("alpha2", ""))
@@ -550,25 +558,27 @@ class FootballParser:
 
         self.logger.debug(f"Match {match_id} detailed information successfully parsed.")
 
+        # self.logger.info(f"{venue_country_id}\n\n {venue_id}\n\n {bool(not bool(venue) or not bool(venue_id))}")
+
         return Event(
             **base_event.__dict__,
             referee=Referee(
-                id=referee.get("id"),
+                id=referee_id,
                 slug=referee.get("slug"),
                 name=referee.get("name"),
                 country_id=referee_country_id,
             )
-            if referee
+            if referee and referee_id
             else None,
             venue=Venue(
-                id=venue.get("id"),
+                id=venue_id,
                 slug=venue.get("slug"),
                 name=venue.get("name"),
                 country_id=venue_country_id,
                 capacity=venue.get("capacity"),
                 coordinates=Coordinates(lat=coords.get("latitude"), long=coords.get("longitude")),
             )
-            if venue
+            if venue and venue_id
             else None,
         )
 
@@ -591,11 +601,11 @@ class FootballParser:
             period1=score.get("period1", ""),
             period2=score.get("period2", ""),
             normaltime=score.get("normaltime", ""),
-            extra1=score.get("extra1", None),
-            extra2=score.get("extra2", None),
-            overtime=score.get("overtime", None),
-            penalties=score.get("penalties", None),
-            aggregated=score.get("aggregated", None),
+            extra1=score.get("extra1"),
+            extra2=score.get("extra2"),
+            overtime=score.get("overtime"),
+            penalties=score.get("penalties"),
+            aggregated=score.get("aggregated"),
         )
 
     def _parse_odds(self, odds: dict[str, Any]) -> list[Odds] | None:
@@ -692,7 +702,7 @@ class FootballParser:
         points = momentum.get("graphPoints", {})
 
         for element in points:
-            results.append(MomentumElement(element.get("minute", None), element.get("value", None)))
+            results.append(MomentumElement(element.get("minute"), element.get("value")))
 
         return Momentum(
             momentum=results
@@ -705,18 +715,20 @@ class FootballParser:
         Returns:
             Country | None: Parsed country data.
         """
-        if not category or not category.get("id"):
+        category_id = category.get("id")
+        category_flag = category.get("flag")
+        if not category or not category_flag or not category_id:
             return None
 
         country = category.get("country", {})
 
         return Country(
-            id=category.get("id", ""),
-            alpha2=country.get("alpha2", None),
-            alpha3=country.get("alpha3", None),
-            flag=category.get("flag", ""),
-            name=country.get("name", None),
-            slug=country.get("slug", None),
+            id=category_id,
+            alpha2=country.get("alpha2"),
+            alpha3=country.get("alpha3"),
+            flag=category_flag,
+            name=country.get("name"),
+            slug=country.get("slug"),
         )
 
     def _parse_shotmap(self, match_id: int, data: dict[str, Any]) -> list[Shotmap] | None:
@@ -729,26 +741,26 @@ class FootballParser:
         for incident in incidents:
             player = self._parse_player(incident.get("player", {}))
             goalkeeper = self._parse_player(incident.get("goalkeeper", {}))
-            goal_mouth_coordinates = self._parse_coordinate(incident.get("goalMouthCoordinates", None))
-            block_coordinates = self._parse_coordinate(incident.get("blockCoordinates", None))
-            player_coordinates = self._parse_coordinate(incident.get("playerCoordinates", None))
+            goal_mouth_coordinates = self._parse_coordinate(incident.get("goalMouthCoordinates"))
+            block_coordinates = self._parse_coordinate(incident.get("blockCoordinates"))
+            player_coordinates = self._parse_coordinate(incident.get("playerCoordinates"))
 
             results.append(
                 Shotmap(
                     player=player,
-                    is_home=incident.get("isHome", None),
-                    shot_type=incident.get("shotType", None),
-                    situation=incident.get("situation", None),
+                    is_home=incident.get("isHome"),
+                    shot_type=incident.get("shotType"),
+                    situation=incident.get("situation"),
                     player_coordinates=player_coordinates,
-                    body_part=incident.get("bodyPart", None),
-                    goal_mouth_location=incident.get("goalMouthLocation", None),
+                    body_part=incident.get("bodyPart"),
+                    goal_mouth_location=incident.get("goalMouthLocation"),
                     goal_mouth_coordinates=goal_mouth_coordinates,
                     block_coordinates=block_coordinates,
-                    xg=incident.get("xg", None),
-                    xgot=incident.get("xgot", None),
+                    xg=incident.get("xg"),
+                    xgot=incident.get("xgot"),
                     goalkeeper=goalkeeper,
-                    time=incident.get("time", None),
-                    added_time=incident.get("addedTime", None),
+                    time=incident.get("time"),
+                    added_time=incident.get("addedTime"),
                 )
             )
 
@@ -776,8 +788,8 @@ class FootballParser:
                     id=commentary.get("id"),
                     type=commentary.get("type"),
                     text=commentary.get("text"),
-                    period_name=commentary.get("periodName", None),
-                    time=commentary.get("time", None),
+                    period_name=commentary.get("periodName"),
+                    time=commentary.get("time"),
                 )
             )
         self.logger.debug(f"Match {match_id} commentary successfully parsed.")
@@ -798,12 +810,18 @@ class FootballParser:
 
         team = participant.get("team", {})
 
+        participant_id = participant.get("id")
+        winner = participant.get("winner")
+        order = participant.get("order")
+        if not participant_id or not order:
+            return
+
         return Participant(
-            team_id=team.get("id", ""),
-            winner=participant.get("winner", ""),
-            order=participant.get("order", ""),
-            id=participant.get("id", ""),
-            source_block_id=participant.get("sourceBlockId", None)
+            team_id=team.get("id"),
+            winner=winner,
+            order=order,
+            id=participant_id,
+            source_block_id=participant.get("sourceBlockId")
         )
 
 
@@ -827,19 +845,19 @@ class FootballParser:
 
         return Block(
             event_in_progress=block.get("eventInProgress", False),
-            finished=block.get("finished", ""),
-            matches_in_round=block.get("matchesInRound", ""),
-            order=block.get("order", ""),
-            result=block.get("result", None),
-            home_team_score=block.get("homeTeamScore", None),
-            away_team_score=block.get("awayTeamScore", None),
+            finished=block.get("finished"),
+            matches_in_round=block.get("matchesInRound"),
+            order=block.get("order"),
+            result=block.get("result"),
+            home_team_score=block.get("homeTeamScore"),
+            away_team_score=block.get("awayTeamScore"),
             participants=participants,
-            has_next_round_link=block.get("hasNextRoundLink", None),
-            id=block.get("id", ""),
+            has_next_round_link=block.get("hasNextRoundLink"),
+            id=block.get("id"),
             events=block.get("events", []),
-            block_id=block.get("blockId", ""),
-            series_start_date_timestamp=block.get("seriesStartDateTimestamp", None),
-            automatic_progression=block.get("automaticProgression", None),
+            block_id=block.get("blockId"),
+            series_start_date_timestamp=block.get("seriesStartDateTimestamp"),
+            automatic_progression=block.get("automaticProgression"),
         )
 
 
@@ -859,10 +877,10 @@ class FootballParser:
         blocks = [self._parse_block(block) for block in round_.get("blocks", [])]
 
         return CupTreeRound(
-            id=round_.get("id", ""),
-            order=round_.get("order", ""),
-            type=round_.get("type", ""),
-            description=round_.get("description", ""),
+            id=round_.get("id"),
+            order=round_.get("order"),
+            type=round_.get("type"),
+            description=round_.get("description"),
             blocks=blocks,
         )
 
@@ -894,13 +912,12 @@ class FootballParser:
 
             rounds = [self._parse_round(round_) for round_ in item.get("rounds", [])]
             results.append(CupTree(
-                id=item.get("id", ""),
-                name=item.get("name", ""),
-                tournament_id=unique_tournament.get("id", ""),
+                id=item.get("id"),
+                name=item.get("name"),
                 season_id=season_id,
-                current_round=item.get("currentRound", ""),
+                current_round=item.get("currentRound"),
                 rounds=rounds,
-                type=item.get("type", "")
+                type=item.get("type")
             ))
 
         return results
@@ -918,8 +935,8 @@ class FootballParser:
             return None
     
         return TieBreakingRule(
-            id=tie_breaking_rule.get("id", ""),
-            text=tie_breaking_rule.get("text", ""),
+            id=tie_breaking_rule.get("id"),
+            text=tie_breaking_rule.get("text"),
         )
     
     
@@ -936,8 +953,8 @@ class FootballParser:
             return None
     
         return Promotion(
-            id=promotion.get("id", ""),
-            text=promotion.get("text", ""),
+            id=promotion.get("id"),
+            text=promotion.get("text"),
         )
     
     
@@ -956,18 +973,18 @@ class FootballParser:
         team = row.get("team", {})
     
         return Row(
-            id=row.get("id", ""),
-            team_id=team.get("id", ""),
+            id=row.get("id"),
+            team_id=team.get("id"),
             descriptions=row.get("descriptions", []),
             promotion=self._parse_promotion(row.get("promotion", {})),
-            position=row.get("position", ""),
-            matches=row.get("matches", ""),
-            wins=row.get("wins", ""),
-            losses=row.get("losses", ""),
-            draws=row.get("draws", ""),
-            scores_for=row.get("scoresFor", ""),
-            scores_against=row.get("scoresAgainst", ""),
-            points=row.get("points", ""),
+            position=row.get("position"),
+            matches=row.get("matches"),
+            wins=row.get("wins"),
+            losses=row.get("losses"),
+            draws=row.get("draws"),
+            scores_for=row.get("scoresFor"),
+            scores_against=row.get("scoresAgainst"),
+            points=row.get("points"),
         )
     
     
@@ -998,11 +1015,11 @@ class FootballParser:
             rows = [self._parse_row(row) for row in item.get("rows", [])]
     
             results.append(Standings(
-                id=item.get("id", ""),
-                type=item.get("type", ""),
-                tournament_id=unique_tournament.get("id", ""),
+                id=item.get("id"),
+                type=item.get("type"),
+                tournament_id=unique_tournament.get("id"),
                 season_id=season_id,
-                name=item.get("name", ""),
+                name=item.get("name"),
                 descriptions=item.get("descriptions", []),
                 tie_breaking_rule=self._parse_tie_breaking_rule(item.get("tieBreakingRule", {})),
                 rows=rows,

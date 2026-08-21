@@ -19,58 +19,58 @@ class Participant:
 
 @dataclass
 class Block:
-    finished: str
-    event_in_progress: bool
-    matches_in_round: int
-    order: int
+    id: int
+    block_id: int
+    finished: str 
+    event_in_progress: bool 
+    matches_in_round: int 
+    order: int 
     result: str | None
     home_team_score: str | None
     away_team_score: str | None
     participants: List[Participant | None]
-    has_next_round_link: bool | None
-    id: int
-    events: List[int]
-    block_id: int
-    series_start_date_timestamp: int | None
+    has_next_round_link: bool
+    events: List[int] | None
+    series_start_date_timestamp: int
     automatic_progression: bool | None
 
 
 @dataclass
 class CupTreeRound:
-    id: int
-    order: int
-    type: int
-    description: str
-    blocks: List[Block | None] | None
+    id: int 
+    order: int 
+    type: int 
+    description: str 
+    blocks: List[Block | None] 
 
 
 @dataclass
 class CupTree:
-    id: int
-    name: str
-    tournament_id: int
-    season_id: int
-    current_round: int
+    id: int 
+    name: str 
+    # tournament_id: int 
+    season_id: int 
+    current_round: int 
     rounds: List[CupTreeRound | None]
     type: int
 
 @dataclass
 class TieBreakingRule:
-    id: int
-    text: str
+    id: int 
+    text: str 
  
  
 @dataclass
-class Promotion:
-    id: int
-    text: str
+class Promotion:  
+    id: int 
+    text: str 
  
  
 @dataclass
 class Row:
-    id: int
+    id: int 
     team_id: int
-    descriptions: List[str]
+    descriptions: List[str] | None
     promotion: Promotion | None
     position: int
     matches: int
@@ -89,13 +89,13 @@ class Standings:
     tournament_id: int
     season_id: int
     name: str
-    descriptions: List[str]
+    descriptions: List[str] | None
     tie_breaking_rule: TieBreakingRule | None
     rows: List[Row | None]
 
 @dataclass
 class Country:
-    id: int
+    id: int 
     alpha2: str | None
     alpha3: str | None
     flag: str
@@ -173,7 +173,7 @@ class TimeInfo:
 
 @dataclass
 class Referee:
-    id: int | None
+    id: int
     slug: str | None
     name: str | None
     country_id: int | None
@@ -187,7 +187,7 @@ class Coordinates:
 
 @dataclass
 class Venue:
-    id: int | None
+    id: int
     slug: str | None
     name: str | None
     country_id: int | None
@@ -313,7 +313,7 @@ class LineupPlayer:
 
 @dataclass
 class MissingPlayer:
-    player: Player
+    player: Player | None
     team: str | None
     type: str | None
     reason: str | None

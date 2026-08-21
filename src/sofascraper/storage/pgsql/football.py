@@ -425,8 +425,10 @@ class FootballRepository:
                         for block in round_.blocks:
 
                             home_team = block.participants[0]
-                            winner = 1 if block.participants[0].winner else 2
                             away_team = None
+                            if home_team:
+                                winner = 1 if block.participants[0].winner else 2
+                            
                             if len(block.participants) == 2:
                                 away_team = block.participants[1]                    
 
@@ -452,8 +454,8 @@ class FootballRepository:
                                 int(block.order),
                                 block.result,
                                 block.home_team_score,
-                                home_team.team_id,
-                                home_team.source_block_id,
+                                home_team.team_id if home_team else None,
+                                home_team.source_block_id if home_team else None,
                                 block.away_team_score,
                                 away_team.team_id if away_team else None,
                                 away_team.source_block_id if away_team else None,
