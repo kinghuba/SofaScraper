@@ -38,6 +38,7 @@ from sofascraper.utils.dataclasses.football_data_classes import (
     Lineups,
     Manager,
     MatchData,
+    Momentum,
     MomentumElement,
     Odds,
     Player,
@@ -429,7 +430,6 @@ class FootballRepository:
                             if len(block.participants) == 2:
                                 away_team = block.participants[1]                    
 
-                            self.logger.info(block.finished)
                             await conn.fetchrow(
                                 """
                                 INSERT INTO football.blocks (id, round_id, block_id, finished, event_in_progress, matches_in_round, "order", result, home_team_score, home_team_id, home_team_source_block, away_team_score, away_team_id, away_team_source_block, winner, has_next_round_link, series_start_date_timestamp, automatic_progression)
@@ -449,7 +449,7 @@ class FootballRepository:
                                 str(block.finished),
                                 block.event_in_progress,
                                 block.matches_in_round,
-                                block.order,
+                                int(block.order),
                                 block.result,
                                 block.home_team_score,
                                 home_team.team_id,
@@ -463,15 +463,16 @@ class FootballRepository:
                                 block.automatic_progression
                             )
 
-                        for event in block.events:
-                            await conn.fetchrow(
-                                """
-                                INSERT INTO football.block_events (block_id, event_id)
-                                VALUES ($1, $2)
-                                """,
-                                block.id,
-                                event,
-                            )
+                            for event in block.events:
+                                await conn.fetchrow(
+                                    """
+                                    INSERT INTO football.block_events (block_id, event_id)
+                                    VALUES ($1, $2)
+                                    ON CONFLICT DO NOTHING
+                                    """,
+                                    block.id,
+                                    event,
+                                )
                             
     
                 return 1
@@ -911,10 +912,10 @@ class FootballRepository:
 
     # Momentum
 
-    async def _insert_momentum(self, conn: asyncpg.Connection, match_id: int, momentum: list[MomentumElement]) -> None:
+    async def _insert_momentum(self, conn: asyncpg.Connection, match_id: int, momentum: Momentum) -> None:
         await conn.execute("DELETE FROM football.match_momentum WHERE match_id = $1", match_id)
 
-        rows = [(match_id, elem.minute, elem.value) for elem in momentum]
+        rows = [(match_id, elem.minute, elem.value) for elem in momentum.momentum]
 
         await conn.executemany(
             """

@@ -279,13 +279,13 @@ class FootballParser:
             name=player.get("name", ""),
             short_name=player.get("shortName") or player.get("name", ""),
             country_id=country_id,
-            position=player.get("position", ""),
-            height=player.get("height", ""),
+            position=player.get("position", None),
+            height=player.get("height", None),
             date_of_birth=date_of_birth,
-            shirt_number=player.get("jerseyNumber", ""),
+            shirt_number=player.get("jerseyNumber", None),
             proposed_market_value=MarketValue(
-                value=player.get("proposedMarketValueRaw", {}).get("value", ""),
-                currency=player.get("proposedMarketValueRaw", {}).get("currency", ""),
+                value=player.get("proposedMarketValueRaw", {}).get("value", None),
+                currency=player.get("proposedMarketValueRaw", {}).get("currency", None),
             ),
         )
 
